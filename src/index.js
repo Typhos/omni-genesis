@@ -1,17 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import Header from "components/header";
+import Navigation from "components/navigation";
+import ScrollToTop from 'components/scrollToTop';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import App from './pages/app';
+import ItemGenerator from './pages/items/index';
+import People from './pages/people/index';
+import Shops from './pages/shops/index';
+import Settlements from './pages/settlements/index';
+import States from './pages/states/index';
+import {Error404} from './pages/404/index';
+
+const routing = (
+  <Router>
+    <ScrollToTop>
+      <Header/>
+      <Navigation/>
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route path="/items/" component={ItemGenerator} />
+        <Route path="/people/" component={People} />
+        <Route path="/shops/" component={Shops} />
+        <Route path="/settlements/" component={Settlements} />
+        <Route path="/states/" component={States} />
+
+        <Route component={Error404} />
+      </Switch>
+    </ScrollToTop>
+  </Router>
+)
+
+ReactDOM.render(routing, document.getElementById('root'));

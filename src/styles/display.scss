@@ -1,0 +1,35 @@
+@import './mixins';
+
+article.displayOutput {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 1em 2em;
+  font-family: $fira;
+
+  h2.name {
+    text-transform: uppercase;
+    letter-spacing: 0.1667em;
+  }
+
+  p.description {
+    line-height: 1.8em;
+    padding: 0.1rem 0.5rem;
+  }
+
+  .statBlock {
+    background-color: $lightText;
+    padding: 0.1rem 0.5rem;
+
+    p {
+      margin: 0.66em 0;
+      font-variant: small-caps;
+
+      span.classification {
+        font-variant: normal;
+        margin-right: 0.5em;
+        font-size: 0.9em;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import 'mixins';
+
+aside.leftAside {
+  position: relative;
+  margin: 2em 0 0;
+  padding: 0.25rem 1rem;
+  max-width: 20%;
+  min-width: 15%;
+  // background-color: $lightText;
+}
+
+select {
+  padding: 0.25em 0.5em;
+  border-color: $midTone;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  font-size: 1.2em;
+  font-family: $fira;
+  background-color: transparent;
+  display: block;
+  margin: 1em 0;
+  width: 95%;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+}
+
+button#generateItem {
+  display: block;
+  width: 95%;
+  margin: 2.5em 0 1em;
+  padding: 0.66em 1em;
+  background-color: $charcoal;
+  color: $moodGreen;
+  font-size: 1.2em;
+  font-family: $fira;
+  font-variant: small-caps;
+  border: 0;
+  cursor: pointer;
+}

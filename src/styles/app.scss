@@ -1,0 +1,46 @@
+@import './mixins';
+
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: $sansText;
+  font-size: 15px;
+  background-color: $offWhite;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: $lightText;
+
+  &:hover {
+    color: $moodGreen;
+  }
+}
+
+main.content {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+h1 {
+  font-size: 2em;
+  font-family: $styleText;
+  padding: 0;
+  margin: 0;
+}
+
+h2,
+h3 {
+  margin: 1em 0;
+  font-family: $headingText;
+}
+
+main.content {
+  display: flex;
+  justify-content: flex-start;
+}

@@ -100,7 +100,7 @@ export default class ItemGenerator extends Component {
               </select>
             }
 
-            <button id="generateItem" onClick={this.initItemGen}>
+            <button id="generateItem" className="buildButton" onClick={this.initItemGen}>
               { this.state.category === "all" &&
                 <span>build</span>
               }

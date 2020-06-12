@@ -15,7 +15,9 @@ const itemsData = {...Weapons, ...Armor, ...Jewelry, ...Items};
 export default class Item {
   
   constructor (category, type, subtype, name, magical, artifact, engraved, carved, crafter) {
-    Utils.setNewSeed();
+    if ( Math.seed === undefined ) { 
+      Utils.setNewSeed();
+    }
 
     this.category = category;
     this.type = type;

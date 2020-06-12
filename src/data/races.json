@@ -2,6 +2,7 @@
   "human":{
     "plural":"humans",
     "noFacialHair":false,
+    "rarity": 600,
     "hairColor":[
       "black",
       "black",
@@ -983,6 +984,7 @@
   "half-elf":{
     "plural":"half-elves",
     "noFacialHair":false,
+    "rarity": 60,
     "hairColor":[
       "black",
       "red",
@@ -2094,6 +2096,7 @@
   "elf":{
     "plural":"elves",
     "noFacialHair":true,
+    "rarity": 30,
     "eyeColor":[
       "brown",
       "blue",
@@ -3351,6 +3354,7 @@
   "drow":{
     "plural":"drow",
     "noFacialHair":true,
+    "rarity": 1,
     "eyeColor":[
       "silver"
     ],
@@ -3396,6 +3400,7 @@
   "dwarf":{
     "plural":"dwarves",
     "noFacialHair":false,
+    "rarity": 50,
     "hairColor":[
       "black",
       "red",
@@ -3920,6 +3925,7 @@
   "gnome":{
     "plural":"gnomes",
     "noFacialHair":false,
+    "rarity": 40,
     "hairColor":[
       "black",
       "red",
@@ -4069,6 +4075,7 @@
   "halfling":{
     "plural":"halflings",
     "noFacialHair":false,
+    "rarity": 50,
     "hairColor":[
       "black",
       "red",
@@ -4190,6 +4197,7 @@
   "half-orc":{
     "plural":"half-orcs",
     "noFacialHair":false,
+    "rarity": 60,
     "hairColor":[
       "black",
       "red",
@@ -4331,6 +4339,7 @@
   "orc":{
     "plural":"orcs",
     "noFacialHair":false,
+    "rarity": 3,
     "hairColor":[
       "black",
       "red-brown",
@@ -4379,6 +4388,7 @@
   "goblin":{
     "plural":"goblins",
     "noFacialHair":false,
+    "rarity": 5,
     "hairColor":[
       "black",
       "red",
@@ -4487,6 +4497,7 @@
   "dragonborn":{
     "plural":"dragonborn",
     "noFacialHair":true,
+    "rarity": 10,
     "noHair":true,
     "eyeColor":[
       "green",
@@ -4574,6 +4585,7 @@
   "tiefling":{
     "plural":"tieflings",
     "noFacialHair":false,
+    "rarity": 10,
     "eyeColor":[
       "black",
       "red",
@@ -4713,6 +4725,7 @@
   "bugbear":{
     "plural":"bugbears",
     "noFacialHair":true,
+    "rarity": 3,
     "hairColor":[
       "black",
       "red",
@@ -4834,6 +4847,7 @@
   "kenku":{
     "plural":"kenkus",
     "noFacialHair":true,
+    "rarity": 10,
     "noHair":true,
     "noChin":true,
     "eyeColor":[
@@ -4948,6 +4962,7 @@
   "hobgoblin":{
     "plural":"hobgoblins",
     "noFacialHair":false,
+    "rarity": 3,
     "hairColor":[
       "black",
       "red",
@@ -5061,6 +5076,7 @@
   "kobold":{
     "plural":"kobolds",
     "noFacialHair":true,
+    "rarity": 30,
     "noHair":true,
     "eyeColor":[
       "green",
@@ -5180,6 +5196,7 @@
   },
   "lizardfolk":{
     "plural":"lizardfolk",
+    "rarity": 2,
     "noHair":true,
     "noFacialHair":true,
     "scales":true,
@@ -5306,7 +5323,8 @@
   },
   "goliath":{
     "plural":"goliaths",
-    "noFacialHair":false,
+    "rarity": 10,
+    "noFacialHair": true,
     "hairColor":[
       "black",
       "brown"
@@ -5442,6 +5460,7 @@
   },
   "aasimar":{
     "plural":"aasimar",
+    "rarity": 10,
     "noFacialHair":false,
     "eyeColor":[
       "pupil-less pale white",
@@ -5571,6 +5590,7 @@
   },
   "firbolg":{
     "plural":"firbolgs",
+    "rarity": 10,
     "noFacialHair":false,
     "hairColor":[
       "red",

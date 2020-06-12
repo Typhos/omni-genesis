@@ -247,7 +247,6 @@
         "fisher",
         "gravedigger",
         "sheppard",
-        "trapper",
         "page",
         "miller",
         "miner",
@@ -256,7 +255,7 @@
         "falconer",
         "forester",
         "trapper",
-        "huntsman",
+        "hunts*",
         "stablemaster"
       ]
     },

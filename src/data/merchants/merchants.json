@@ -1,0 +1,1083 @@
+{
+  "armorsmith":{
+    "SV": 2000,
+    "owner":"armorsmith",
+    "plural":"armorsmiths",
+    "itemList":[
+       {
+          "type":"armor"
+       }
+    ],
+    "material_restrictions":[
+       "mithral",
+       "diamond",
+       "star ruby",
+       "topaz",
+       "emerald",
+       "sapphire",
+       "fire opal"
+    ],
+    "material_requirements":"undefined",
+    "default_inventory_value":3000,
+    "title":[
+       "Armors",
+       "Armor & Shields",
+       "Armor Shop",
+       "Wards",
+       "Smithy",
+       "Anvil"
+    ],
+    "noun":[
+       "Forge",
+       "Smithy",
+       "Anvil",
+       "Furnace",
+       "Bellows",
+       "Hammer",
+       "Shield",
+       "Protector",
+       "Defender",
+       "Bulwark",
+       "Buckler",
+       "Guardian",
+       "Ward"
+    ],
+    "adjective":[
+       "Sturdy",
+       "Enduring",
+       "Lonely",
+       "Brilliant",
+       "Honorable",
+       "Regal",
+       "Hallow",
+       "Venerable",
+       "Steadfast",
+       "Ancient",
+       "Loyal",
+       "Elder",
+       "Exalted",
+       "Famous",
+       "Shining",
+       "Splendid",
+       "Imposing",
+       "Wonderous",
+       "Green",
+       "Red",
+       "Black",
+       "Blue",
+       "Purple",
+       "White",
+       "Golden",
+       "Silver",
+       "Bronze"
+    ],
+    "staff":[
+       "armorsmith\\'s apprentice"
+    ]
+  },
+  "blacksmith":{
+    "SV": 1500,
+    "owner":"blacksmith",
+    "plural":"blacksmiths",
+    "itemList":[
+       {
+          "type":"good",
+          "subtype":"tool"
+       },
+       {
+          "type":"good",
+          "subtype":"light source"
+       },
+       {
+          "type":"good",
+          "subtype":"vessel"
+       },
+       {
+          "type":"good",
+          "subtype":"cookware"
+       }
+    ],
+    "material_restrictions":[
+       "gold",
+       "silver",
+       "platinum",
+       "mithral",
+       "diamond",
+       "star ruby",
+       "topaz",
+       "emerald",
+       "sapphire",
+       "fire opal",
+       "bone"
+    ],
+    "material_requirements":[
+       "iron",
+       "steel",
+       "bronze",
+       "copper",
+       "lead"
+    ],
+    "item_value_min":"undefined",
+    "item_value_max":50,
+    "default_inventory_value":200,
+    "title":[
+       "Metal Goods",
+       "Tools & Trades",
+       "Forge",
+       "Smithy",
+       "Anvil"
+    ],
+    "noun":[
+       "Forge",
+       "Smithy",
+       "Anvil",
+       "Furnace",
+       "Bellows",
+       "Hammer",
+       "Chalice",
+       "Goblet",
+       "Lantern",
+       "Tradesman"
+    ],
+    "adjective":[
+       "Sturdy",
+       "Enduring",
+       "Lonely",
+       "Brilliant",
+       "Smokey",
+       "Hallow",
+       "Steadfast",
+       "Ancient",
+       "Loyal",
+       "Elder",
+       "Exalted",
+       "Famous",
+       "Wonderous",
+       "Splendid",
+       "Imposing",
+       "Green",
+       "Red",
+       "Black",
+       "Blue",
+       "Purple",
+       "White",
+       "Golden",
+       "Silver",
+       "Bronze"
+    ],
+    "staff":[
+       "blacksmith\\'s apprentice"
+    ]
+  },
+  "weaponsmith":{
+    "SV": 2000,
+    "owner":"weaponsmith",
+    "plural":"weaponsmiths",
+    "itemList":[
+       {
+          "type":"weapon",
+          "subtype":"axe"
+       },
+       {
+          "type":"weapon",
+          "subtype":"sword"
+       },
+       {
+          "type":"weapon",
+          "subtype":"mace"
+       },
+       {
+          "type":"weapon",
+          "subtype":"spear"
+       },
+       {
+          "type":"weapon",
+          "subtype":"polearm"
+       },
+       {
+          "type":"weapon",
+          "subtype":"dagger"
+       },
+       {
+          "type":"weapon",
+          "subtype":"fist-weapon"
+       }
+    ],
+    "material_restrictions":[
+       "gold",
+       "silver",
+       "platinum",
+       "mithral",
+       "diamond",
+       "star ruby",
+       "topaz",
+       "emerald",
+       "sapphire",
+       "fire opal"
+    ],
+    "material_requirements":"undefined",
+    "default_inventory_value":600,
+    "title":[
+       "Armory",
+       "Arms",
+       "Forge",
+       "Smithy",
+       "Anvil",
+       "Armaments",
+       "Arsenal"
+    ],
+    "noun":[
+       "Forge",
+       "Smithy",
+       "Anvil",
+       "Furnace",
+       "Bellows",
+       "Hammer",
+       "Blade",
+       "Weapon",
+       "Armory",
+       "Arsenal",
+       "Knight",
+       "Axe",
+       "Dagger"
+    ],
+    "adjective":[
+       "Deadly",
+       "Famous",
+       "Sturdy",
+       "Enduring",
+       "Lonely",
+       "Brilliant",
+       "Honorable",
+       "Regal",
+       "Hallow",
+       "Venerable",
+       "Steadfast",
+       "Ancient",
+       "Loyal",
+       "Elder",
+       "Exalted",
+       "Famous",
+       "Shining",
+       "Splendid",
+       "Imposing",
+       "Wonderous",
+       "Silver"
+    ],
+    "staff":[
+       "weaponsmith\\'s apprentice"
+    ]
+  },
+  "bowyer":{
+    "SV": 850,
+    "owner":"bowyer",
+    "plural":"bowyers",
+    "itemList":[
+       {
+          "type":"weapon",
+          "subtype":"bow"
+       },
+       {
+          "type":"weapon",
+          "subtype":"crossbow"
+       }
+    ],
+    "material_restrictions":[
+       "gold",
+       "silver",
+       "platinum",
+       "mithral",
+       "diamond",
+       "star ruby",
+       "topaz",
+       "emerald",
+       "sapphire",
+       "fire opal"
+    ],
+    "material_requirements":"undefined",
+    "default_inventory_value":500,
+    "title":[
+       "Bows",
+       "Fletchery",
+       "Hunting Supplies",
+       "Fine Bows",
+       "Bow Bazaar"
+    ],
+    "noun":[
+       "Ranger",
+       "Hunter",
+       "Huntsman",
+       "Archer",
+       "Marksman",
+       "Outlander",
+       "Woodsman",
+       "Wanderer",
+       "Arrow",
+       "Bolt",
+       "Huntress",
+       "Hound",
+       "Fox",
+       "Deer"
+    ],
+    "adjective":[
+       "Lonely",
+       "Traveling",
+       "Blind",
+       "Enduring",
+       "Loyal",
+       "Royal",
+       "Exalted",
+       "Famous",
+       "Deadly",
+       "Distant",
+       "Dancing",
+       "Green",
+       "Red",
+       "Black",
+       "Blue",
+       "Wary",
+       "Vigilant",
+       "Shady",
+       "Hidden",
+       "Reckless",
+       "Careless",
+       "Sly",
+       "Clever"
+    ],
+    "staff":[
+       "bowyer\\'s apprentice"
+    ]
+  },
+  "jeweler":{
+    "SV": 400,
+    "owner":"jeweler",
+    "plural":"jewelers",
+    "itemList":[
+       {
+          "type":"jewelry"
+       }
+    ],
+    "material_restrictions":[
+       "mithral"
+    ],
+    "material_requirements":"undefined",
+    "default_inventory_value": 3000,
+    "title":[
+       "Jewelry",
+       "Exotic Jewelry",
+       "Rings & Things",
+       "Gemstones",
+       "Accents"
+    ],
+    "noun":[
+       "Jewels",
+       "Gems",
+       "Jewel",
+       "Emporium",
+       "Gallery",
+       "Market",
+       "Bazaar",
+       "Boutique",
+       "Crown",
+       "Gemstone",
+       "Ring",
+       "Scepter",
+       "Necklace",
+       "Pendant",
+       "Diamond",
+       "Ruby",
+       "Emerald",
+       "Sapphire",
+       "Opal",
+       "Earring",
+       "Braclet",
+       "Tiara"
+    ],
+    "adjective":[
+       "King's",
+       "Queen's",
+       "Duke's",
+       "Duchess'",
+       "Count's",
+       "Countess'",
+       "Glittering",
+       "Gleaming",
+       "Shining",
+       "Brilliant",
+       "Exalted",
+       "Noble",
+       "Royal"
+    ],
+    "staff":[
+      {
+        "title": "jeweler's apprentice",
+        "count": [0,2]
+      },
+      {
+        "title": "clerk",
+        "count": [1,1]
+      }
+    ]
+  },
+  "clothier":{
+    "SV": 250,
+    "image":"needle",
+    "owner":"tailor",
+    "plural":"tailors",
+    "itemList":[
+       {
+          "type":"good",
+          "subtype":"clothing"
+       }
+    ],
+    "material_restrictions":"undefined",
+    "material_requirements":"undefined",
+    "item_value_min":"undefined",
+    "item_value_max":20,
+    "default_inventory_value":250,
+    "title":[
+       "Wardrobe",
+       "Clothing",
+       "Clothing Bazaar",
+       "Threads",
+       "Tailoring"
+    ],
+    "noun":[
+       "Thimble",
+       "Bazaar",
+       "Emporium",
+       "Market",
+       "Tailor",
+       "Wardrobe",
+       "Garb",
+       "Thread",
+       "Vestments",
+       "Needle",
+       "Loom",
+       "Cloth",
+       "Spool"
+    ],
+    "adjective":[
+       "Fancy",
+       "Finest",
+       "Lovely",
+       "Gallant",
+       "Blessed",
+       "Green",
+       "Red",
+       "Black",
+       "Blue",
+       "Purple",
+       "White",
+       "Golden",
+       "Silver",
+       "Enduring",
+       "Royal",
+       "Famous"
+    ],
+    "staff":[
+      {
+        "title": "tailor's apprentice",
+        "count": [0,1]
+      }
+    ]
+  },
+  "furrier":{
+    "SV": 250,
+    "image":"needle",
+    "owner":"furrier",
+    "plural":"furriers",
+    "itemList":[
+       {
+          "type":"good",
+          "subtype":"clothing"
+       }
+    ],
+    "material_restrictions":"undefined",
+    "material_requirements": {
+      "group": "fur"
+    },
+    "item_value_min":"undefined",
+    "item_value_max":20,
+    "default_inventory_value":250,
+    "title":[
+       "Wardrobe",
+       "Clothing",
+       "Exotic Wears",
+       "Pelts",
+       "Furs"
+    ],
+    "noun":[
+       "Furs",
+       "Pelts",
+       "Rugs",
+       "Bazaar",
+       "Emporium",
+       "Market",
+       "Wardrobe",
+       "Garb",
+       "Thread",
+       "Vestments",
+       "Needle"
+    ],
+    "adjective":[
+       "Fancy",
+       "Finest",
+       "Lovely",
+       "Gallant",
+       "Blessed",
+       "Green",
+       "Red",
+       "Black",
+       "Blue",
+       "Purple",
+       "White",
+       "Golden",
+       "Silver",
+       "Enduring",
+       "Royal",
+       "Famous"
+    ],
+    "staff":[
+      {
+        "title": "furrier's apprentice",
+        "count": [0,1]
+      }
+    ]
+  },
+  "cobbler":{
+    "SV": 150,
+    "owner":"cobbler",
+    "plural":"cobbler",
+    "itemList":[
+       {
+          "type":"good",
+          "subtype":"footwear"
+       }
+    ],
+    "material_restrictions":[
+       "gold",
+       "platinum",
+       "mithral"
+    ],
+    "material_requirements":"undefined",
+    "item_value_min":"undefined",
+    "item_value_max":"undefined",
+    "default_inventory_value":300,
+    "title":[
+       "Shoe Shop",
+       "Footwear",
+       "Fine Shoes",
+       "Boots"
+    ],
+    "noun":[
+       "Sole",
+       "Shears",
+       "Bazaar",
+       "Emporium",
+       "Market",
+       "Cobbler",
+       "Buckle",
+       "Garb",
+       "Needle",
+       "Spool",
+       "Heel",
+       "Shoe",
+       "Boot"
+    ],
+    "adjective":[
+       "Fancy",
+       "Finest",
+       "Lovely",
+       "Gallant",
+       "Blessed",
+       "Moonlit",
+       "Scarlet",
+       "Shady",
+       "Hidden",
+       "Purple",
+       "Emerald",
+       "Golden",
+       "Silver",
+       "Enduring",
+       "Royal",
+       "Famous"
+    ],
+    "staff":[
+      {
+        "title": "cobbler's apprentice",
+        "count": [0,1]
+      }  
+    ]
+  },
+  "hatter":{
+    "SV": 950,
+    "owner":"hatter",
+    "plural":"hatters",
+    "itemList":[
+       {
+          "type":"good",
+          "subtype":"headgear"
+       }
+    ],
+    "material_restrictions":"undefined",
+    "material_requirements":"undefined",
+    "item_value_min":"undefined",
+    "item_value_max":30,
+    "default_inventory_value":150,
+    "title":[
+       "Hats",
+       "Hattery",
+       "Headwear",
+       "Turbans & Bonnets",
+       "Fine Headwears"
+    ],
+    "noun":[
+       "Turban",
+       "Hat",
+       "Chapeau",
+       "Bonnet",
+       "Cap",
+       "Hatter",
+       "Market",
+       "Boutique",
+       "Apparel",
+       "Chaplet",
+       "Wreath"
+    ],
+    "adjective":[
+       "Finest",
+       "Lovely",
+       "Dancing",
+       "Gallant",
+       "Blessed",
+       "Green",
+       "Red",
+       "Black",
+       "Blue",
+       "Purple",
+       "White",
+       "Golden",
+       "Silver",
+       "Brown",
+       "Grey"
+    ],
+    "staff":[
+       "hatter's apprentice"
+    ]
+  },
+  "mercer":{
+    "SV": 700,
+    "image":"clothing",
+    "owner":"mercer",
+    "plural":"mercers",
+    "itemList":[
+       {
+          "type":"good",
+          "subtype":"clothing"
+       }
+    ],
+    "material_restrictions":"undefined",
+    "material_requirements":"undefined",
+    "item_value_min":30,
+    "item_value_max":500,
+    "default_inventory_value":4000,
+    "title":[
+       "Finery",
+       "Boutique",
+       "Emporium",
+       "Garments",
+       "Fine Market",
+       "Lords & Ladies"
+    ],
+    "noun":[
+       "Closet",
+       "Market",
+       "Emporium",
+       "Boutique",
+       "Armoire",
+       "Tailor",
+       "Wardrobe",
+       "Garments",
+       "Apparel",
+       "Garb",
+       "Thread",
+       "Vestments"
+    ],
+    "adjective":[
+       "Elegant",
+       "Fancy",
+       "Fine",
+       "Lavish",
+       "Gaudy",
+       "King's",
+       "Queen's",
+       "Duke's",
+       "Duchess'",
+       "Count's",
+       "Countess'",
+       "Royal",
+       "Noble's",
+       "Knight's",
+       "Blessed",
+       "Brilliant",
+       "Shining",
+       "Glimmering",
+       "Hallow",
+       "Loyal",
+       "Exalted"
+    ],
+    "staff":[
+       "mercery store clerk"
+    ]
+  },
+  "apothecary":{
+    "SV": 2000,
+    "owner":"apothecary",
+    "plural":"apothecaries",
+    "itemList":[
+       {
+          "type":"good",
+          "subtype":"potion"
+       }
+    ],
+    "material_restrictions":"undefined",
+    "material_requirements":"undefined",
+    "item_value_min":"undefined",
+    "item_value_max":500,
+    "default_inventory_value":3500,
+    "title":[
+       "Potion Shop",
+       "Potions",
+       "Cauldron",
+       "Vials and Elixirs",
+       "Remedies"
+    ],
+    "noun":[
+       "Cauldron",
+       "Vial",
+       "Flask",
+       "Elixir",
+       "Concoction",
+       "Brew",
+       "Wizard",
+       "Warlock",
+       "Witch",
+       "Enchanter",
+       "Alchemist",
+       "Hermit",
+       "Herbalist"
+    ],
+    "adjective":[
+       "Blessed",
+       "Cursed",
+       "Trusty",
+       "Bubbley",
+       "Grumpy",
+       "Lazy",
+       "Sleepy",
+       "Frothing",
+       "Lonely",
+       "Blind",
+       "Dancing",
+       "Shady",
+       "Shifty",
+       "Ugly",
+       "Wandering"
+    ],
+    "staff":[
+      {
+        "title": "potion maker's apprentice",
+        "count": [0,2]
+      }       
+    ]
+  },
+  "barber": {
+    "SV": 350,
+    "owner":"barber",
+    "plural":"barbers",
+    "material_restrictions":"undefined",
+    "material_requirements":"undefined",
+    "item_value_min":"undefined",
+    "item_value_max": 50,
+    "default_inventory_value": 250,
+    "title":[
+       "Barber Shop",
+       "Barber's Office",
+       "Dentistry",
+       "Surgeries",
+       "Ointments"
+    ],
+    "noun":[
+       "Razor",
+       "Shears",
+       "Scalpel"
+    ],
+    "adjective":[
+       "Blessed",
+       "Trusty",
+       "Delicate",
+       "Lonely",
+       "Dancing",
+       "Wandering"
+    ],
+    "staff":[
+      {
+        "title": "barber's apprentice",
+        "count": [0,1]
+      }
+    ]
+  },
+  "pastry": {
+    "SV": 500,
+    "owner": "pastry chef",
+    "plural":"pastry chefs",
+    "item_value_min":"undefined",
+    "item_value_max": 2,
+    "title": [
+      "Pastries",
+      "Cakes",
+      "Pies",
+      "Deserts",
+      "Patisserie Shop",
+      "Oven"
+    ],
+    "noun":[
+       "Oven",
+       "Bun",
+       "Pie",
+       "Cake",
+       "Trifle"
+    ],
+    "adjective":[
+       "Sweet",
+       "Lofty",
+       "Heavenly",
+       "Wonderous",
+       "Lovely",
+       "Alluring",
+       "Enchanting",
+       "Enchanted",
+       "Delightful",
+       "Handsome",
+       "Splendid",
+       "Delicate",
+       "Seductive",
+       "Tempting"
+    ],
+    "staff":[
+      {
+        "title": "apprentice baker",
+        "count": [0,2]
+      }
+    ]
+  },
+  "mason":{
+    "SV": 500,
+    "owner":"mason",
+    "plural":"masons",
+    "title":[
+       "Construction",
+       "Masonry"
+    ],
+    "noun":[
+       "Trowel",
+       "Stone",
+       "Brick",
+       "Construction",
+       "Lantern",
+       "Tradesman"
+    ],
+    "adjective":[
+       "Sturdy",
+       "Enduring",
+       "Loyal",
+       "Elder",
+       "Exalted",
+       "Famous",
+       "Wondrous",
+       "Splendid",
+       "Imposing",
+       "Green",
+       "Red",
+       "Black",
+       "Blue",
+       "Purple",
+       "White"
+    ],
+    "staff": [
+      {
+        "title": "apprentice mason",
+        "count": [2,6]
+      }      
+    ]
+  },
+  "carpenter":{
+    "SV": 550,
+    "owner":"carpenter",
+    "plural":"carpenters"
+  },
+  "weaver":{
+    "SV": 600,
+    "owner":"weaver",
+    "plural":"weavers"
+  },
+  "chandler":{
+    "SV": 700,
+    "owner":"chandler",
+    "plural":"chandlers"
+  },
+  "cooper":{
+    "SV": 700,
+    "owner":"cooper",
+    "plural":"coopers"
+  },
+  "baker":{
+    "SV": 800,
+    "owner":"baker",
+    "plural":"bakers",
+    "shopName": "bakery",
+    "shopNamePlural": "bakeries"
+  },
+  "waterCarrier":{
+    "SV": 850,
+    "owner":"water carrier",
+    "plural": "water carriers"
+  },
+  "scabardMaker":{
+    "SV": 850,
+    "owner":"scabbard maker",
+    "plural":"scabbard makers"
+  },
+  "wineSellers":{
+    "SV": 900,
+    "owner":"wine seller",
+    "plural":"wine sellers"
+  },
+  "saddler":{
+    "SV": 1000,
+    "owner":"saddler",
+    "plural":"saddlers"
+  },
+  "bookBinder":{
+    "SV": 3000,
+    "owner":"bookbinder",
+    "plural":"bookbinders"
+  },
+  "purseMaker":{
+    "SV": 1100,
+    "owner":"purse maker",
+    "plural":"purse makers"
+  },
+  "reagentSeller":{
+    "SV": 2800,
+    "owner":"reagent seller",
+    "plural":"reagent sellers",
+    "establishments": "magic shops"
+  },
+  "butcher":{
+    "SV": 1200,
+    "owner":"butcher",
+    "plural":"butchers"
+  },
+  "fishmonger":{
+    "SV": 1200,
+    "owner":"fishmonger",
+    "plural":"fishmongers"
+  },
+  "brewer":{
+    "SV": 1400,
+    "owner":"brewer",
+    "plural":"brewers"
+  },
+  "spiceMerchant":{
+    "SV": 1400,
+    "owner":"spice merchant",
+    "plural":"spice merchants"
+  },
+  "healer":{
+    "SV": 350,
+    "owner": "healer",
+    "plural": "healers"
+  },
+  "doctor":{
+    "SV": 1700,
+    "owner": "doctor",
+    "plural": "doctors"
+  },
+  "locksmith":{
+    "SV": 1900,
+    "owner":"locksmith",
+    "plural":"locksmiths"
+  },
+  "ropemaker":{
+    "SV": 1900,
+    "owner":"ropemaker",
+    "plural":"ropemakers"
+  },
+  "tanner":{
+    "SV": 2000,
+    "owner":"tanner",
+    "plural":"tanners"
+  },
+  "sculptor":{
+    "SV": 2000,
+    "owner":"sculptor",
+    "plural":"sculptors"
+  },
+  "rugmaker":{
+    "SV": 2000,
+    "owner":"rugmaker",
+    "plural":"rugmakers"
+  },
+  "cutler":{
+    "SV": 2300,
+    "owner":"cutler",
+    "plural":"culters"
+  },
+  "woodcarver":{
+    "SV": 2400,
+    "owner":"woodcarver",
+    "plural":"woodcarvers"
+  },
+  "bookseller":{
+    "SV": 6300,
+    "owner":"bookseller",
+    "plural":"booksellers"
+  },
+  "gloveMaker":{
+    "SV": 2400,
+    "owner":"glove maker",
+    "plural":"glove makers"
+  },
+  "roofer":{
+    "SV": 1800,
+    "owner":"roofer",
+    "plural":"roofers"
+  },
+  "copyist":{
+    "SV": 2000,
+    "owner":"copyist",
+    "plural":"copyists"
+  },
+  "painter":{
+    "SV": 1500,
+    "owner":"painter",
+    "plural":"painters"
+  },
+  "legalAdvocate":{
+    "SV": 650,
+    "owner":"lawyer",
+    "plural":"lawyers"
+  },
+  "clergy":{
+    "SV": 40,
+    "owner":"cleric",
+    "plural":"clerics"
+  },
+  "priest":{
+    "SV": 800,
+    "owner":"priest",
+    "plural":"priests"
+  }
+}

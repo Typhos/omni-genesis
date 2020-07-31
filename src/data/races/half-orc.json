@@ -1,0 +1,23 @@
+{
+   "half-orc":{
+    "plural":"half-orcs",
+    "noFacialHair":false,
+    "rarity": 60,
+    "hairColor":[
+      "black",
+      "red",
+      "brown",
+      "blonde",
+      "ocher"
+    ],
+    "skintone":[
+      "grey",
+      "dark brown",
+      "ebon",
+      "amber"
+    ],
+    "lifespan":80,
+    "alignmentTendancies": ["chaotic","neutral"],
+    "earType":"pointed"
+  }
+}

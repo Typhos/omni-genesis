@@ -1,0 +1,49 @@
+@import "mixins";
+
+.merchant {
+  font-size: 13px;
+  line-height: 1.2em;
+  padding: 0.2em 0.4em;
+  border-bottom: 1px dotted rgba($charcoal, 0.3);
+  break-inside: avoid;
+
+  &:hover {
+    background-color: $midTone;
+    cursor: help;
+  }
+
+  &.zero {
+    color: $midTone;
+
+    &:hover {
+      color: $charcoal;
+    }
+  }
+}
+
+.column {
+  break-inside: avoid;
+}
+
+
+.settlementLayout {
+  column-count: 2;
+  font-size: 14px;
+  font-family: $sansText;
+  line-height: 1.66em;
+
+  p {
+    margin: 0;
+    position: relative;
+
+    span {
+      text-transform: capitalize;
+    }
+  }
+}
+
+.nobleNames {
+  span {
+    font-size: 0.85em;
+  }
+}

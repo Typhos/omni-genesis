@@ -1,4 +1,4 @@
-@import './mixins';
+@import './mixins', './balloon';
 
 html {
   padding: 0;
@@ -22,8 +22,12 @@ a {
 }
 
 main.content {
-  max-width: 100rem;
-  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+
+  max-width: 980px;
+
+  margin: 0;
   padding: 0 1em;
 }
 
@@ -40,7 +44,42 @@ h3 {
   font-family: $headingText;
 }
 
-main.content {
-  display: flex;
-  justify-content: flex-start;
+h4 {
+  font-size: 16px;
+  font-family: $headingText;
+  letter-spacing: 0.075em;
+  margin: 1em 0 0;
+  padding: 0;
+  border-bottom: 1px solid $charcoal;
+}
+
+ul.standardUl {
+  list-style: none;
+  
+  padding: 0 0;
+
+  line-height: 1.8em;
+
+  font-size: 14px;
+  font-family: $sansText;
+
+  .merchant {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.twoColumn {
+  column-count: 2;
+  column-gap: 4em;
+}
+
+.threeColumn {
+  column-count: 3;
+  column-gap: 3em;
+}
+
+.fourColumn {
+  column-count: 4;
+  column-gap: 3em;
 }

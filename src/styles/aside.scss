@@ -1,40 +1,80 @@
 @import 'mixins';
 
+$button-color: $charcoal;
+
 aside.leftAside {
   position: relative;
+  
+  min-width: 220px;
+
   margin: 2em 0 0;
   padding: 0.25rem 1rem;
-  max-width: 20%;
-  min-width: 15%;
-  // background-color: $lightText;
-}
 
-select {
-  padding: 0.25em 0.5em;
-  border-color: $midTone;
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-  font-size: 1.2em;
-  font-family: $fira;
-  background-color: transparent;
-  display: block;
-  margin: 1em 0;
-  width: 95%;
-  font-variant: small-caps;
-  letter-spacing: 0.1em;
+  select {
+    display: block;
+    width: 215px;
+
+    border: 0;
+    border-bottom: 1px solid $midTone;
+    
+    font-size: 1.2em;
+    font-family: $fira;
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    
+    background-color: transparent;
+    
+    margin: 1rem 0;
+    padding: 0.25rem 0.5rem;
+  }
+
+  input[type="number"] {
+    display: block;
+    width: 200px;
+
+    font-size: 1em;
+    font-family: $fira;
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    
+    background-color: transparent;
+    margin: 0.5rem 0 1rem;
+    padding: 0.25rem 0.5rem;
+    
+    border: 0;
+    border-bottom: 1px solid $midTone;
+  }
 }
 
 button.buildButton {
   display: block;
-  width: 95%;
-  margin: 2.5em 0 1em;
-  padding: 0.66em 1em;
-  background-color: $charcoal;
+  width: 90%;
+
+  margin: 2.5em auto 1em;
+  padding: 1em 1em;
+
   color: $moodGreen;
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-family: $fira;
   font-variant: small-caps;
+  letter-spacing: 0.066em;
+  
   border: 0;
+  border-radius: 3px;
+
+  background-color: rgba($button-color, 0.9);
+
   cursor: pointer;
+
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+    
+    background-color: $button-color;
+  }
+
+  &:active {
+    transform: scale(0.8);
+  }
 }

@@ -1,34 +1,81 @@
 @import './mixins';
 
 article.displayOutput {
-  display: block;
   position: relative;
+  display: block;
   width: 100%;
-  padding: 1em 2em;
+
+  padding: 0 2em 1em;
+  margin: 2em 0 0;
+
+  border-radius: 0.5em 0.5em 0 0;
+
+  background-color: $lightText;
+  
   font-family: $fira;
+  font-size: 16px;
 
   h2.name {
     text-transform: uppercase;
     letter-spacing: 0.1667em;
+    margin-bottom: 0.3em;
+    font-family: $styleText;
+    position: relative;
   }
 
-  p.description {
+  h3.subHead {
+    margin-top: 0;
+    font-variant: small-caps;
+    font-size: 1.5em;
+    letter-spacing: 0.05em;
+  }
+
+  .description {
     line-height: 1.8em;
     padding: 0.1rem 0.5rem;
+    font-size: 0.9em;
+
+    .capitalize {
+      text-transform: capitalize;
+    }
   }
 
-  .statBlock {
-    background-color: $lightText;
-    padding: 0.1rem 0.5rem;
+  .emjoiIcon {
+    top: -0.25em;
+    margin-left: 0.25em;
+    position: absolute;
+    font-size: 12px;
+    cursor: pointer;
 
-    p {
-      margin: 0.66em 0;
-      font-variant: small-caps;
+    &::after {
+      letter-spacing: 0.075em;
+      font-size: 0.75rem;
+      font-family: $fira, $monoSpace;
+    }
+  }
 
-      span.classification {
-        font-variant: normal;
-        margin-right: 0.5em;
-        font-size: 0.9em;
+
+  ul.information {
+    max-width: 45em;
+    list-style-type: none;
+    padding-left: 0;
+    column-count: 3;
+    margin: 0;
+    padding-left: 0.5em;
+
+    li {
+      display: inline-block;
+      line-height: 2em;
+      font-size: 0.9em;
+
+      strong {
+        display: inline-block;
+        // margin-right: 0.3em;
+        width: 7.5em;
+      }
+
+      span.result {
+        text-transform: capitalize;
       }
     }
   }

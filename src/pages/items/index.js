@@ -55,10 +55,11 @@ export default class ItemGenerator extends Component {
     const state = this.state;
     const generatedItem = new Item(state.category, state.type, state.subtype);
 
+    console.time('items');
     // MAKE 10,000 items to just test for errors =======================
-    // let x = new Array(10000).fill(undefined);
-    // x = x.map( x => new Item());
-    // console.log(x)
+    let x = new Array(10000).fill(undefined).map( x =>  new Item() );
+    console.log(x)
+    console.timeEnd('items');
 
     this.setState({newItem: generatedItem});
   }
@@ -124,22 +125,26 @@ export default class ItemGenerator extends Component {
               <h2 className="name">{item.primaryMaterial} {item.subtype}</h2>
               <p className="description">{item.description}</p>
               { item.fiveEStats && 
-                <div className="statBlock">
-                  <p><span className="classification">Type:</span> {item.fiveEStats.type}</p>
-                  <p><span className="classification">Value:</span> {item.fiveEStats.value} gp</p>
-                  { item.fiveEStats.damage && 
-                    <p><span className="classification">Damage:</span> 
-                      {item.fiveEStats.damage} {item.fiveEStats.damage_type.join(" / ")}
-                    </p>
-                  }
-                  { item.type.includes("armor") && item.fiveEStats.armor_class &&
-                    <p><span className="classification">AC:</span> {item.fiveEStats.armor_class}</p>
-                  }
-                  { item.fiveEStats.properties && item.fiveEStats.properties.length > 0 &&
-                    <p><span className="classification">Properties:</span> {item.fiveEStats.properties.join(", ")}</p>
-                  }
-                  <p><span className="classification">Weight:</span> {item.fiveEStats.weight} lbs</p>
-                </div>
+                <section className="statsShell">
+                  <div className="statBlock">
+                    <div className="grouping">
+                      <p><span className="classification">Type: </span> {item.fiveEStats.type}</p>
+                      <p><span className="classification">Value: </span> {item.fiveEStats.value} gp</p>
+                      { item.fiveEStats.damage && 
+                        <p><span className="classification">Damage: </span> 
+                          {item.fiveEStats.damage} {item.fiveEStats.damage_type.join(" / ")}
+                        </p>
+                      }
+                      { item.type.includes("armor") && item.fiveEStats.armor_class &&
+                        <p><span className="classification">AC: </span> {item.fiveEStats.armor_class}</p>
+                      }
+                      { item.fiveEStats.properties && item.fiveEStats.properties.length > 0 &&
+                        <p><span className="classification">Properties: </span> {item.fiveEStats.properties.join(", ")}</p>
+                      }
+                      <p><span className="classification">Weight: </span> {item.fiveEStats.weight} lbs</p>
+                    </div>
+                  </div>
+                </section>
               }
             </Display>
           }

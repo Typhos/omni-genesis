@@ -1,11 +1,11 @@
-const Utils = {
+export default class Utils {
 
-  setNewSeed: function (num) {
+  static setNewSeed (num) {
     if (!num) num = Math.abs ( Math.floor ( (Math.sin(Math.random() * 9301) * 1000) * ( Math.sin(Math.random() * 49297) * 10001) ) );
     Math.seed = num;
-  },
+  };
   
-  randomInt: function (min, max) {
+  static randomInt (min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
 
@@ -13,10 +13,10 @@ const Utils = {
     const rnd = Math.seed / 233280;
 
     return Math.floor( Math.abs(min + Math.floor(rnd * (max - min + 1 ))));
-  },
+  };
   
-  randomArrayIndex: function (min, max) {
-      min = Math.ceil(min);
+  static randomArrayIndex (max) {
+      const min = 0;
       max = Math.floor(max);
 
       Math.seed = (Math.seed * 9301 + 49297) % 233280;
@@ -25,6 +25,23 @@ const Utils = {
       return Math.floor( Math.abs( min + rnd * (max - min)));
   }
 
-}
+  static shuffleArray (array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
-export default Utils;
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+
+}

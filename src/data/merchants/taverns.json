@@ -1,12 +1,15 @@
 {
    "tavern":{
+      "SV": 400,
       "image":"beer",
-      "owner":"tavernkeeper",
+      "owner":"tavern keeper",
+      "plural": "tavern keepers",
+      "establishments": "taverns",
       "staff":[
          "tavern server",
          "chef"
       ],
-      "item_list":[
+      "itemList":[
          {
             "type":"good",
             "subtype":"drink",
@@ -739,13 +742,16 @@
       ]
    },
    "inn":{
+      "SV": 2000,
       "image":"bed",
       "owner":"innkeeper",
+      "plural": "innkeepers",
+      "establishments": "inns",
       "staff":[
          "tavern server",
          "chef"
       ],
-      "item_list":[
+      "itemList":[
          {
             "type":"good",
             "subtype":"drink",

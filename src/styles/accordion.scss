@@ -1,0 +1,57 @@
+@import 'mixins';
+
+$heading-text-color: $moodGreen;
+
+.accordion {
+  margin-top: 2em;
+  width: 100%;
+
+  .accordionHeader{
+    display: flex;
+    margin: 0;
+    padding: 10px 20px;
+    background-color: $charcoal;
+    color: $heading-text-color;
+    border: 0;
+    border-bottom: 1px solid $lightText;
+    justify-content: space-between;
+    cursor: pointer;    
+
+    h4.header {
+      font-family: $monoSpace;
+      letter-spacing: 0.2em;
+      margin: 0;
+    }
+
+    button.toggle{
+      padding: 0;
+      line-height: 0;
+      margin: 0;
+      border: 0;
+      background-color: transparent;
+      color: $heading-text-color;
+    }
+  }
+
+  .content {
+    display: flex;
+    // border: 1px solid $charcoal;
+    background-color: rgba($charcoal, 0.3);
+    transition: 300ms linear;
+    height: 100%;
+    align-content: center;
+  }
+
+  &.closed {
+
+    button.toggle{
+      transform: rotate(180deg);
+    }
+
+    .content {
+      height: 0;
+      overflow: hidden;
+      border: 0;
+    }
+  }
+}

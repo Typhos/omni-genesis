@@ -1,0 +1,66 @@
+{
+  "sizes": {
+    "hamlet": [20,150],
+    "village": [151,999],
+    "castle-town": [350,1200],
+    "town": [1000,4000],
+    "city": [4001,25000],
+    "metropolis": [25001, 60000]
+  },
+  "economy": {
+    "hamlet": {
+      "main": [
+        "farming",
+        "fishing",
+        "mining",
+        "ranching",
+        "logging"
+      ]
+    },
+    "village": {
+      "main": [
+        "farming",
+        "fishing",
+        "mining",
+        "ranching",
+        "logging"
+      ]
+    },
+    "castle-town": {
+      "main": [
+        "town market",
+        "mercenaries"
+      ],
+      "svDiff": {
+        "blacksmith": 750,
+        "armorsmith": 1000,
+        "weaponsmith": 1000,
+        "scabardMaker": 425,
+        "saddler": 500,
+        "inn": 1200,
+        "apothecary": 1000,
+        "bowyer": 425
+      }
+    },
+    "town": {
+      "main": [
+        "town market",
+        "crafting"        
+      ]
+    },
+    "city": {
+      "main": [
+        "trade",
+        "workshops",
+        "guilds"
+      ]
+    },
+    "metropolis": {
+      "main": [
+        "trade",
+        "workshops",
+        "guilds"
+      ]
+    }
+  }
+}

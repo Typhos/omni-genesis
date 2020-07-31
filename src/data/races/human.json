@@ -1,0 +1,39 @@
+{
+  "human":{
+    "plural":"humans",
+    "noFacialHair":false,
+    "rarity": 400,
+    "hairColor":[
+      "black",
+      "black",
+      "black",
+      "brown",
+      "brown",
+      "brown",
+      "blonde",
+      "blonde",
+      "red"
+    ],
+    "skintone":[
+      "pale",
+      "amber",
+      "copper",
+      "bronze",
+      "beige",
+      "ivory",
+      "chestnut",
+      "dark brown",
+      "ebon"
+    ],
+    "height":[
+      58,
+      76
+    ],
+    "weight":[
+      114,
+      270
+    ],
+    "lifespan":80,
+    "earType":"round"
+  }
+}

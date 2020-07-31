@@ -1,0 +1,34 @@
+{
+  "dragonborn":{
+    "plural":"dragonborn",
+    "noFacialHair":true,
+    "rarity": 10,
+    "noHair":true,
+    "eyeColor":[
+      "green",
+      "blue",
+      "red",
+      "silver",
+      "gold"
+    ],
+    "scales":true,
+    "multicolor":false,
+    "scaleColor":[
+      "black",
+      "blue",
+      "white",
+      "green",
+      "red",
+      "brass",
+      "gold",
+      "silver",
+      "bronze",
+      "copper"
+    ],
+    "noseReplacement":"snout",
+    "lifespan":80,
+    "alignmentTendancies": ["lawful","good"],
+    "earType":false,
+    "hasHorns":true
+  }
+}

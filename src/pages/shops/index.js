@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import Aside from "components/aside";
 import Display from "components/display";
+import StatBlock from "components/display/statBlock";
+import Accordion from "components/display/accordion";
 
-import Race from "data/races";
-import ShopData from "data/shops";
-import TavernData from "data/taverns";
+import Race from "data/races/allRaces";
+import merchantsObj from "data/merchants/merchants";
+import tavernsObj from "data/merchants/taverns";
 
-import ShopGen from "components/generators/shop";
+import MerchantGenerator from "components/generators/merchants/merchantGenerator";
 
-const allShops = {...ShopData, ...TavernData};
+const allShops = {...merchantsObj, ...tavernsObj};
 
 export default class Shops extends Component {
 
@@ -33,7 +35,10 @@ export default class Shops extends Component {
   }
 
   getOptions(obj) {
-    let keys = Object.keys(obj);
+    let keys = [];
+    for ( let [key, info] of Object.entries(obj) ){
+      if ( info.itemList !== undefined ) keys.push(key); 
+    } 
 
     keys = keys.sort();
 
@@ -51,18 +56,23 @@ export default class Shops extends Component {
       }
     }
 
-    const generatedShop = new ShopGen({
+    const generatedShop = new MerchantGenerator({
       type: state.type,
       owner: state.owner
     });
 
     console.log(generatedShop)
-
-    // MAKE 10,000 items to just test for errors =======================
-    // let x = new Array(10000).fill(undefined).map( x => new Person());
-    // console.log(x)
+    // this.runTest(500);
 
     this.setState({newShop: generatedShop});
+  }
+
+
+  runTest(num) {
+    console.log(`Making ${num} shops`);
+    console.time('shops');
+    let x = new Array(num).fill(undefined).map( x => new MerchantGenerator());
+    console.timeEnd('shops');
   }
 
   render() {
@@ -116,12 +126,18 @@ export default class Shops extends Component {
               <h3 className="shopType">{shop.shopType}</h3>
               <div className="shopInfo">
                 <p className="shopDetails">{shop.name} is a {shop.size}, {shop.atmosphere} {shop.shopType}.</p>
-                <p className="ownerInfo">This {shop.shopType} is owned by {shop.owner.name}, the {shop.owner.age} year old {shop.owner.race} {shop.owner.occupation}.</p>
+                <p className="ownerInfo">This {shop.shopType} is owned by {shop.owner.name.displayName}, the {shop.owner.age} year old {shop.owner.race} {shop.owner.occupation}.</p>
               </div>
               { this.state.newShop.inventory && 
                 <div className="inventory">
                   inventory
                 </div>
+              }
+
+              { this.state.newShop && shop.owner.stats && 
+                <Accordion title={"Owner Stats"}>
+                  <StatBlock person={shop.owner} />
+                </Accordion>
               }
             </Display>
           }

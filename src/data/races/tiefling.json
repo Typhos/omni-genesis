@@ -1,0 +1,43 @@
+{
+  "tiefling":{
+    "plural":"tieflings",
+    "noFacialHair":false,
+    "rarity": 10,
+    "eyeColor":[
+      "black",
+      "red",
+      "white",
+      "silver",
+      "gold"
+    ],
+    "skintone":[
+      "pale",
+      "amber",
+      "red",
+      "mauve",
+      "beige",
+      "burgundy",
+      "maroon",
+      "dark brown",
+      "ebon"
+    ],
+    "height":[
+      59,
+      73
+    ],
+    "weight":[
+      114,
+      238
+    ],
+    "hairColor":[
+      "black",
+      "red",
+      "brown",
+      "blonde"
+    ],
+    "lifespan":140,
+    "alignmentTendancies": ["lawful","neutral"],
+    "earType":"pointed",
+    "hasHorns":true
+  }
+}

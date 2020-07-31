@@ -7,7 +7,7 @@ import Items from "data/items";
 
 import MaterialData from "data/materials";
 
-import PersonGenerator from "components/generators/person";
+import PersonGenerator from "components/generators/person/person";
 
 const itemsData = {...Weapons, ...Armor, ...Jewelry, ...Items};
 
@@ -30,8 +30,6 @@ export default class Item {
     this.crafter = crafter;
 
     this.initializeItem();
-
-    console.log(this)
   }
 
   initializeItem() {
@@ -55,7 +53,7 @@ export default class Item {
 
   getRandomGroup(obj) {
     const categories = Object.keys(obj);
-    return categories[ Utils.randomArrayIndex(0, categories.length) ];
+    return categories[ Utils.randomArrayIndex( categories.length) ];
   }
 
   itemConstruction() {
@@ -96,7 +94,7 @@ export default class Item {
 
     // randomize the various pieces of an object.
     Object.keys(required).forEach( req => {
-      groupsArr.push(required[req][ Utils.randomArrayIndex(0, required[req].length) ]);
+      groupsArr.push(required[req][ Utils.randomArrayIndex( required[req].length) ]);
     });
 
     //remove duplicate values with a Set
@@ -137,7 +135,7 @@ export default class Item {
       group = group.filter( g => !restricted[matGroup].includes(g)) 
     }
     
-    return group[ Utils.randomArrayIndex(0, group.length) ];
+    return group[ Utils.randomArrayIndex( group.length) ];
   }
 
   writeDescription() {
@@ -205,7 +203,7 @@ export default class Item {
       }
     });
 
-    descrip += `\n ${itTheyCaps} was made by the ${this.crafter.race} ${this.crafter.occupation}, ${this.crafter.name}.`
+    descrip += `\n ${itTheyCaps} was made by the ${this.crafter.race} ${this.crafter.occupation}, ${this.crafter.name.displayName}.`
 
     return descrip;
   }

@@ -1,0 +1,80 @@
+{
+  "str": {
+    "-5": "{subjectCaps} {linking} morbidly weak. {subjectCaps} {hasHave} significant trouble even lifting own limbs.",
+    "-4": "{subjectCaps} needs help to stand. {subjectCaps} is so weak, {subjectCaps} can be knocked over by strong breezes.",
+    "-3": "{subjectCaps} {hasHave} trouble moving objects other would expect. Others occasionally make jokes about how weak {subject} is.",
+    "-2": "{subjectCaps} {hasHave} trouble living heavy objects or carrying much for long periods of time.",
+    "-1": "{subjectCaps} regularly complains of aches and pains after physical labor.",
+    "+0": "{subjectCaps} {isAre} able to lift about as much as the average {noun}, but little more.",
+    "+1": "{subjectCaps} occasionally finds time for physical fitness or practicing swordplay.",
+    "+2": "{subjectCaps} {isAre} visibly muscular and toned. {subjectCaps} values {posAdj} physical fitness and exercises regularly. ",
+    "+3": "{subjectCaps} {hasHave} a powerful, muscular build. {subjectCaps} values {posAdj} physical fitness and exercises regularly.",
+    "+4": "{subjectCaps} {hasHave} an incredible physique. Tales of {posAdj} feats of strength are legendary.",
+    "+5": "{noun} is renowned far and wide for {posAdj} incredibly strength. Rumors have spread that {subject} might be a demi-god."
+  },
+  "dex": {
+    "-5": "{subjectCaps} {isAre} barely mobile, having been significantly injured to the point of near paralysis.",
+    "-4": "{subjectCaps} {isAre} incapable of moving without noticeable effort or pain.",
+    "-3": "{subjectCaps} {hasHave} a noticeable limp, possibly from a past injury.",
+    "-2": "{subjectCaps} {isAre} has terrible handwriting.",
+    "-1": "{subjectCaps} {isAre} somewhat slow. {subjectCaps} {isAre} considered rather klutzy, and occasionally trips over {posAdj} own feet.",
+    "+0": "{subjectCaps} regularly breaks things by accident.",
+    "+1": "{subjectCaps} {isAre} a capable dancer and knows a number of local dances.",
+    "+2": "{subjectCaps} {isAre} regarded as a capable archer, having practiced in {posAdj} youth.",
+    "+3": "{subjectCaps} {isAre} has quick fingers and knows several cards tricks.",
+    "+4": "{subjectCaps} {isAre} is extremely light on {posAdj} feet. Quick and quiet, {subject} is almost never caught when sneaking around.",
+    "+5": "{subjectCaps} {hasHave} lightning quick reflexes and {posAdj} movements are like water."
+  },
+  "con": {
+    "-5": "{subjectCaps} {isAre} extremely sickly, appearing to be on death's door.",
+    "-4": "{subjectCaps} {isAre} extremely frail. {subjectCaps} gets badly hurt on the regular.",
+    "-3": "{subjectCaps} {isAre} has been hampered by numerous lifeline health issues.",
+    "-2": "{subjectCaps} {isAre} often sick and has a lingering cough.",
+    "-1": "{subjectCaps} {isAre} a lightweight and {isAre} unable to hold {posAdj} alcohol.",
+    "+0": "{subjectCaps} regularly puts in 12 hour days when required.",
+    "+1": "{subjectCaps} {isAre} of sound body. {subjectCaps} rarely falls ill.",
+    "+2": "{subjectCaps} {isAre} well known for {posAdj} ability to drink others under the table.",
+    "+3": "{subjectCaps} {isAre} sometimes chooses to go without sleep several days, seemingly without ill effects.",
+    "+4": "{subjectCaps} regularly goes running for long distances and enjoys testing {posAdj} limits.",
+    "+5": "{subjectCaps} {isAre} a paragon of physical health. Some claim {subject} has never been sick in {posAdj} life."
+  },
+  "int": {
+    "-5": "{subjectCaps} {isAre} nearly comatose, only reacting to basic stimuli.",
+    "-4": "{subjectCaps} {isAre} animistic and wild. {subjectCaps} does not seem to understand basic language.",
+    "-3": "{subjectCaps} finds difficulty with even basic words. {subjectCaps} often resorts to charades to express thoughts.",
+    "-2": "{subjectCaps} often misuses or mispronounces words.",
+    "-1": "{subjectCaps} {hasHave} trouble following trains of thought, and struggles with basic math.",
+    "+0": "{subjectCaps} {hasHave} had little to no formal schooling.",
+    "+1": "{subjectCaps} has read a few books, but has more important things to do than read all day.",
+    "+2": "{subjectCaps} {isAre} a quick study, always looking for new things to learn.",
+    "+3": "{subjectCaps} {hasHave} written several books which have gone on to widespread publication.",
+    "+4": "{subjectCaps} {isAre} well read on many subjects and regularly engages in philosophical debates.",
+    "+5": "{subjectCaps} {isAre} widely regarded as one of the smartest people in the realm."
+  },
+  "wis": {
+    "-5": "{subjectCaps} {isAre} seemingly incapable of thought and {isAre} barely aware of {posAdj} surroundings.",
+    "-4": "{subjectCaps} {isAre} often oblivious to things going on around them.",
+    "-3": "{subjectCaps} almost never thinks before acting.",
+    "-2": "{subjectCaps} {isAre} considered a bit of a buffoon.",
+    "-1": "{subjectCaps} {isAre} is bad with money. {subjectCaps} {hasHave} made numerous bad investments.",
+    "+0": "{subjectCaps} {isAre} equally comfortable around people as {subject} {isAre} in solitude.",
+    "+1": "{subjectCaps} follows {posAdj} intuition, usually to good effect.",
+    "+2": "{subjectCaps} {isAre} an excellent judge of character.",
+    "+3": "{subjectCaps} {isAre} impeccable at reading people and situations.",
+    "+4": "{subjectCaps} {isAre} often sought out for {posAdj} wise council.",
+    "+5": "{subjectCaps} {isAre} regarded as an enlightened sage."
+  },
+  "cha": {
+    "-5": "{subjectCaps} {isAre} regularly throws wild fits and tantrums.",
+    "-4": "{subjectCaps} never speaks out on {posAdj} own, preferring others to take the lead.",
+    "-3": "{subjectCaps} {hasHave} almost no emotional empathy and {hasHave} trouble thinking of others as people.",
+    "-2": "{subjectCaps} {isAre} terribly uninteresting. {subjectCaps} regularly drones on without realizing people have stopped listening.",
+    "-1": "{subjectCaps} tends to make people mildly uncomfortable when {subject} talks at length.",
+    "+0": "{subjectCaps} tends to tell the same few anecdotes and stories, having little new to add to conversations.",
+    "+1": "Bright and friendly, {subject} regularly has time to stop and chat.",
+    "+2": "{subjectCaps} {isAre} quite popular. {subjectCaps} receives greetings and conversations on the street.",
+    "+3": "{subjectCaps} {isAre} well liked. People regularly compliment {object} on {posAdj} wardrobe.",
+    "+4": "{subjectCaps} {isAre} often the life of the party. {subjectCaps} {isAre} able to keep people entertained for hours.",
+    "+5": "{subjectCaps} {isAre} renowned for {posAdj} wit, charm and impeccable taste."
+  }
+}

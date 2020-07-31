@@ -1,0 +1,37 @@
+{
+"elf":{
+    "plural":"elves",
+    "noFacialHair":true,
+    "rarity": 30,
+    "eyeColor":[
+      "brown",
+      "blue",
+      "green",
+      "grey",
+      "hazel",
+      "silver",
+      "gold"
+    ],
+    "hairColor":[
+      "black",
+      "red",
+      "brown",
+      "blonde",
+      "olive",
+      "azure"
+    ],
+    "skintone":[
+      "pale",
+      "amber",
+      "copper",
+      "bronze",
+      "beige",
+      "ivory",
+      "chestnut",
+      "dark brown"
+    ],
+    "lifespan":700,
+    "alignmentTendancies": ["chaotic","good"],
+    "earType":"pointed"
+  }
+}

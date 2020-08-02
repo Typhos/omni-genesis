@@ -9,7 +9,7 @@ import Languages from "data/languages/all";
 
 import StatGenerator from "components/generators/dndStatBlock/statGenerator";
 
-export default class statBlockGenerator {
+export default class StatBlock {
 
   constructor (race, subRace, cr) {
     this.raceDataObj = openSourceRaceData.race.filter( tR => tR.name.toLowerCase() === race && tR.source === "PHB" )[0];

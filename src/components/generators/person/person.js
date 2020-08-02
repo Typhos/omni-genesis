@@ -1,6 +1,6 @@
 import Utils from "components/utils";
-import NameBuilder from "components/generators/person/nameBuilder";
-import dndStatBlock from "components/generators/dndStatBlock/";
+import Name from "components/generators/person/nameBuilder";
+import StatBlock from "components/generators/dndStatBlock/";
 
 // == Data Imports
 import openSourceRaceData from "data/races/5eToolsRaces";
@@ -18,23 +18,25 @@ export default class Person {
 
     this.race = options.race || this.getRace(options);
     this.raceObj = openSourceRaceData.race.filter( r => r.name.toLowerCase() === this.race && r.source === "PHB")[0];
-    this.subRaceObj = this.getSubRace();
-    this.subrace = this.displaySubrace();
     this.sex = options.sex || this.getSex();
-    this.pronouns = this.getPronouns();
     this.age = options.age || this.getAge(options);
-    this.ageGroup = this.getAgeGroup(this.age);
-    this.alignment = this.getAlignment(options);
-
-    this.jobGroup = options.jobGroup || this.getJobGroup(options);
-    this.occupation = options.occupation || this.getOccupation(options);
-    this.checkJobVerbage();
 
     this.name = options.name || this.getName(options);
 
     // extra stuff that only gets generated if it's not a batch build of people
     if (!options.batch) {
-      this.stats = new dndStatBlock(this.race, this.subRaceObj, options.cr);
+      this.subRaceObj = this.getSubRace();
+      this.subrace = this.displaySubrace();
+      this.alignment = this.getAlignment(options);
+
+      this.pronouns = this.getPronouns();
+      this.ageGroup = this.getAgeGroup(this.age);
+
+      this.jobGroup = options.jobGroup || this.getJobGroup(options);
+      this.occupation = options.occupation || this.getOccupation(options);
+      this.checkJobVerbage();
+
+      this.stats = new StatBlock(this.race, this.subRaceObj, options.cr);
       this.description = this.writeDescription();
       this.physical = this.getPhysicalInfo();
 
@@ -48,9 +50,10 @@ export default class Person {
   getRace() {
     const racesArray = Object.keys(Races);
     const weightedArray = [];
+    const percentageModifier =  1 + ( Utils.randomInt(-8,15) / 10 )
 
     racesArray.forEach( race => {
-      const weight = Races[race].rarity;
+      const weight = Races[race].rarity * percentageModifier;
       for ( let i = 1; i <= weight; i++ ) {
         weightedArray.push(race);
       }
@@ -141,7 +144,7 @@ export default class Person {
   }
 
   getName() {
-    return new NameBuilder({
+    return new Name({
       race: this.race,
       sex: this.sex,
       jobGroup: this.jobGroup,

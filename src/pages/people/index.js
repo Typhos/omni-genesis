@@ -4,6 +4,7 @@ import Display from "components/display";
 import StatBlock from "components/display/statBlock";
 import Accordion from "components/display/accordion";
 import Person from "components/generators/person/person";
+import Noble from "components/generators/person/noble";
 
 import Race from "data/races/allRaces";
 import Professions from "data/professions";
@@ -57,15 +58,20 @@ export default class People extends Component {
   }
 
   initPerosonGen() {
+    // array of job groups that automatically confer noble status.
+    const nobleJobGroups = [
+      "Greater Nobility",
+      "Lesser Nobility",
+      "Magic",
+      "Educated"
+    ];
     let state = this.state;
 
     for ( let key in state ) {
-      if ( state[key] === "all" ) {
-        state[key] = undefined;
-      }
+      if ( state[key] === "all" ) state[key] = undefined;
     }
 
-    const generatedPerson = new Person({
+    const options = {
       race: state.race,
       sex: state.sex,
       alignment: state.alignment,
@@ -76,12 +82,15 @@ export default class People extends Component {
       // batch property used to skip generating fluff and speed up builds
       // regular builds are 40x slower due to stat block generation
       batch: false
-    });
+    };
+
+    if ( nobleJobGroups.includes( e => e.toLowerCase() === options.jobGroup ) ) {
+      this.setState({newPerson: new Noble(options)});
+    } else {
+      this.setState({newPerson: new Person(options)});
+    }
 
     // this.runTest(50000);
-
-    console.log(generatedPerson)
-    this.setState({newPerson: generatedPerson});
   }
 
   runTest(num) {

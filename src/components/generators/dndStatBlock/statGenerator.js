@@ -5,7 +5,7 @@ import Utils from "components/utils";
 import openSourceRaceData from "data/races/5eToolsRaces";
 
 
-export default class StatGenerator {
+export default class Stats {
 
   constructor(raceStr, subRaceObj) {
 

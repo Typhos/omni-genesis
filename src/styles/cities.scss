@@ -1,22 +1,71 @@
 @import "mixins";
 
-.merchant {
-  font-size: 13px;
-  line-height: 1.2em;
+.infoTable {
+  font-size: 0.9em;
+  line-height: 1.3em;
   padding: 0.2em 0.4em;
   border-bottom: 1px dotted rgba($charcoal, 0.3);
   break-inside: avoid;
+  font-family: $monoSpace;
 
   &:hover {
-    background-color: $midTone;
-    cursor: help;
+    background-color: rgba($white, 0.66);
+    cursor: default;
   }
 
   &.zero {
     color: $midTone;
 
     &:hover {
-      color: $charcoal;
+      // color: $charcoal;
+      border-bottom-color: $moodGreen;
+    }
+  }
+
+  &.numeric {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &.names {
+    // font-style: italic;
+  }
+
+}
+
+h3.shopGroupHeading {
+  margin-bottom: 0.25em;
+  text-transform: capitalize;
+  border-bottom: 1px solid $charcoal;
+}
+
+.shops {
+  margin: 0 0 0.33em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  li {
+    margin: 0.25em 0 0.5em;
+    border: 0;
+    padding: 0.5em 1em;
+    width: 25%;
+  }
+
+  p {
+    margin: 0;
+
+    &.heading{
+      font-size: 1.45em;
+      padding-bottom: 0.2em;
+      margin-bottom: 0.2em;
+      font-variant: small-caps;
+      font-weight: 700;
+      border-bottom: 1px solid $midTone;
+    }
+
+    .subInfo {
+      font-size: 0.8em;
     }
   }
 }

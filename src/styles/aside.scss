@@ -76,5 +76,6 @@ button.buildButton {
 
   &:active {
     transform: scale(0.8);
+    cursor: wait;
   }
 }

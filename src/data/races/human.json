@@ -2,7 +2,7 @@
   "human":{
     "plural":"humans",
     "noFacialHair":false,
-    "rarity": 400,
+    "rarity": 300,
     "hairColor":[
       "black",
       "black",

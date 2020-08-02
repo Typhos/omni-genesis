@@ -62,24 +62,25 @@ ul.standardUl {
 
   font-size: 14px;
   font-family: $sansText;
-
-  .merchant {
-    display: flex;
-    justify-content: space-between;
-  }
 }
 
 .twoColumn {
+  margin-top: 1em;
   column-count: 2;
   column-gap: 4em;
+  break-inside: avoid;
 }
 
 .threeColumn {
+  margin-top: 1em;
   column-count: 3;
   column-gap: 3em;
+  break-inside: avoid;
 }
 
 .fourColumn {
+  margin-top: 1em;
   column-count: 4;
   column-gap: 3em;
+  break-inside: avoid;
 }

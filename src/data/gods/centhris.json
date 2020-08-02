@@ -1,0 +1,71 @@
+{
+  "centhris": {
+    "major": {
+      "list": [
+        "Arbiter",
+        "Champion",
+        "Conqueror",
+        "Dragon Below",
+        "Eternal",
+        "Fiend",
+        "Guardian",
+        "Harlequin",
+        "Leviathan",
+        "Maiden",
+        "Maker",
+        "Master",
+        "Philosopher",
+        "Sage",
+        "Shadow",
+        "Stygian",
+        "Tempest",
+        "Wanderer"
+      ]
+    },
+    "minor": {
+      "list": [
+        "Dark Queen",
+        "Ember Soul",
+        "Frayed",
+        "Gold Prince",
+        "Gravekeeper",
+        "Hidden Blade",
+        "Masked Lady",
+        "Reveler",
+        "Smiling Lady",
+        "Soul Thief",
+        "Temptress"
+      ]
+    },
+    "racial": {
+      "dwarven": {
+        "list": [
+          "Banner Lord",
+          "Brewmaster",
+          "Forge Lord",
+          "Stonemother"
+        ]
+      },
+      "elven": {
+        "list": [
+          "Emerald Mist",
+          "Grove Keeper",
+          "Shimmering Sky",
+          "Silver Blade",
+          "Wild Hart",
+          "Stellar Wolf"
+        ]
+      },
+      "goblin": {
+        "list": [
+          "Unending Hunger"
+        ]
+      },
+      "giant": {
+        "list": [
+          "Biting Frost"
+        ]
+      }
+    }
+  }
+}

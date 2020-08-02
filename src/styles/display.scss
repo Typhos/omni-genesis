@@ -13,7 +13,7 @@ article.displayOutput {
   background-color: $lightText;
   
   font-family: $fira;
-  font-size: 16px;
+  font-size: 14px;
 
   h2.name {
     text-transform: uppercase;
@@ -41,16 +41,40 @@ article.displayOutput {
   }
 
   .emjoiIcon {
-    top: -0.25em;
-    margin-left: 0.25em;
-    position: absolute;
-    font-size: 12px;
+    // top: -0.25em;
+    top: 0em;
+    margin-left: 0.33em;
+    position: relative;
+    font-size: 14px;
     cursor: pointer;
+    line-height: 1rem;
+    
+    &.save {
+      position: absolute;
+      right: 1.5em;
+      top: 1.5em;
+    }
 
+    &.text {
+      text-transform: none;
+    }
+        
     &::after {
       letter-spacing: 0.075em;
       font-size: 0.75rem;
       font-family: $fira, $monoSpace;
+    }
+  }
+
+  .explanation {
+    display: block;
+    margin-top: 3em;
+    opacity: 0.8;
+    font-family: $fira;
+    font-size: 0.7em;
+
+    .icon {
+      font-size: 11px;
     }
   }
 

@@ -1,23 +1,38 @@
 import Names from "data/names/allNames";
 import Utils from "components/utils";
 
+import Races from "data/races/allRaces";
 import xge from "data/names/xgeNames";
 
-export default class NameBuilder {
+export default class Name {
   
-  constructor (options) {
-    this.race = options.race;
-    this.sex = options.sex;
+  constructor (options = {}) {
+    this.race = options.race || this.randomRace();
+    this.sex = options.sex || this.randomSex();
     this.age = options.age;
     this.jobGroup = options.jobGroup;
     this.xgeFilteredObj = this.xgeObjFilter();
     
     this.name = this.getNameByRace();
+  }
 
-    this.buildDwarfName = this.buildDwarfName.bind(this);
-    this.buildHalfElfName = this.buildHalfElfName.bind(this);
-    this.buildElfName = this.buildElfName.bind(this);
-    this.buildHumanName = this.buildHumanName.bind(this);
+  randomSex() {
+    const sex = ["male","female"];
+    return sex[Utils.randomArrayIndex( sex.length)];
+  }
+
+  randomRace() {
+    const racesArray = Object.keys(Races);
+    const weightedArray = [];
+
+    racesArray.forEach( race => {
+      const weight = Races[race].rarity;
+      for ( let i = 1; i <= weight; i++ ) {
+        weightedArray.push(race);
+      }
+    });
+
+    return weightedArray[ Utils.randomArrayIndex( weightedArray.length) ];
   }
 
   getNameByRace() {
@@ -268,7 +283,7 @@ export default class NameBuilder {
 
   buildGnomeName() {
     const method = ["random","xge"][ Utils.randomInt(0,1) ];
-    const nameLenArr = new Array(Utils.randomInt(1,3)).fill(undefined);
+    const nameLenArr = new Array(Utils.randomInt(1,2)).fill(undefined);
 
 
     if (method==="xge") {

@@ -10,14 +10,13 @@ const allShops = {...merchantsObj, ...tavernsObj};
 export default class MerchantGenerator {
 
   constructor ( options = {} ) {
-    if ( Math.seed === undefined ) { 
+    if (options.seed) {
+      Math.seed = options.seed;
+    } else if ( Math.seed === undefined ) { 
       Utils.setNewSeed();
     }
 
-    if (options.seed) {
-      Math.seed = options.seed;
-    }
-
+    this.seed = Math.seed;
     this.shopType = options.type || this.getShopType();
     this.owner = this.getOwner(options);
     this.name = this.getName();
@@ -45,7 +44,7 @@ export default class MerchantGenerator {
   }
 
   getName () {
-    let nameStyle = ["ownerNamed"][ Utils.randomInt(0,1) ];
+    let nameStyle = ["ownerNamed"][ Utils.randomInt(0,2) ];
 
     if (nameStyle === "ownerNamed") {
       let name = (this.owner.name.surname) ? this.owner.name.surname : this.owner.name.name;

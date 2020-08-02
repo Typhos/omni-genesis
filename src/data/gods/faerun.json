@@ -1,0 +1,59 @@
+{
+  "faerun": {
+    "major": {
+      "list": [
+        "Auril",
+        "Azuth",
+        "Bane",
+        "Beshaba",
+        "Bhaal",
+        "Chauntea",
+        "Cyric",
+        "Deneir",
+        "Eldath",
+        "Gond",
+        "Helm",
+        "Ilmater",
+        "Kelemvor",
+        "Lathander",
+        "Leira",
+        "Lliira",
+        "Loviatar",
+        "Malar",
+        "Mask",
+        "Mask",
+        "Mielikki",
+        "Milil",
+        "Myrkul",
+        "Mystra",
+        "Oghma",
+        "Savras",
+        "Selûne",
+        "Shar",
+        "Silvanus",
+        "Sune",
+        "Talona",
+        "Talos",
+        "Tempus",
+        "Torm",
+        "Tymora",
+        "Tyr",
+        "Umberlee",
+        "Waukeen"
+      ]
+    },
+    "minor": {
+      "list": [
+        "Bahamut",
+        "Corellon Larethian",
+        "Deep Sashelas",
+        "Garl Glittergold",
+        "Moradin",
+        "Rillifane Rallathil",
+        "Sehanine Moonbow",
+        "Tiamat",
+        "Yondalla"
+      ]
+    }
+  }
+}

@@ -41,6 +41,18 @@ article.displayOutput {
     }
   }
 
+  .displayLayout {
+    column-count: 2;
+    font-size: 14px;
+    font-family: $sansText;
+    line-height: 1.66em;
+  
+    p {
+      margin: 0;
+      position: relative;
+    }
+  }
+
   .emjoiIcon {
     // top: -0.25em;
     top: 0em;

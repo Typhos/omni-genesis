@@ -32,6 +32,7 @@ export default class City {
       this.population = this.getPopulation(params);  
     }
 
+    this.inputSize = params.type;
     this.name = params.name || this.getCityName();
     this.economy = this.getEconomy();
     this.guards = this.getGuards();

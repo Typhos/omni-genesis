@@ -5,6 +5,7 @@ import Display from "components/display";
 
 import stateSizes from "data/kingdoms/sizes";
 import Kingdom from 'components/generators/kingdom';
+import KingdomDisplay from "components/display/kingdom";
 
 export default class Kingdoms extends Component {
   
@@ -40,7 +41,7 @@ export default class Kingdoms extends Component {
       area: this.state.area,
       density: this.state.density,
       population: this.state.population,
-      size: this.state.type,
+      size: this.state.size,
       seed: this.state.seed 
     };
 
@@ -72,6 +73,8 @@ export default class Kingdoms extends Component {
   }
 
   render() {
+    const kingdom = this.state.kingdom;
+
     return (
       <div className="App">
         <main className="content">
@@ -89,6 +92,10 @@ export default class Kingdoms extends Component {
 
             <button id="generateState" className="buildButton" onClick={this.buildState}>build kingdom</button>
           </Aside>
+
+          { kingdom && 
+            <KingdomDisplay kingdom={kingdom} state={this.state} stateHandler={this.stateHandler}/>
+          }
 
         </main>
       </div>

@@ -74,23 +74,6 @@ h3.shopGroupHeading {
   break-inside: avoid;
 }
 
-
-.settlementLayout {
-  column-count: 2;
-  font-size: 14px;
-  font-family: $sansText;
-  line-height: 1.66em;
-
-  p {
-    margin: 0;
-    position: relative;
-
-    span {
-      text-transform: capitalize;
-    }
-  }
-}
-
 .nobleNames {
   span {
     font-size: 0.85em;

@@ -14,13 +14,13 @@ export default class Kingdom {
       Utils.setNewSeed();
     }
 
-    console.log(params)
+    this.inputs = {...params};
 
     this.seed = params.seed || Math.seed;
-    this.area = this.getRandomArea(params.size);
+    this.density = this.getRandomDensity(params.density);
+    this.area = this.getRandomArea(params.size, this.density);
+    this.population = this.getRandomPopulation(this.area, this.density.int);
     this.age = params.age || this.getRandomAge();
-    this.density = params.density || this.getRandomDensity();
-    this.population = this.getRandomPopulation(this.area, this.density);
 
     this.cities = this.buildCities(this.population);
   }
@@ -31,19 +31,47 @@ export default class Kingdom {
     return Utils.randomInt(50, 1000);
   }
 
-  getRandomArea(size) {
+  getRandomArea(sizeParam, densityObj) {
     // Get a random area for the state. 
-    // Small states might be the size of Luxembourg @ 1k sq miles
+    // Small states might be as small as Luxembourg @ 1k sq miles
     // Mid-sized state could be Belgium, Switzerland or the Netherlands @ 16k sq miles
     // Large state could be like France or Italy @ 110k-250k miles
 
     const stateSizesKeys = Object.keys(stateSizes);
-    const sizeGroup = stateSizesKeys[size] || stateSizesKeys[ Utils.randomArrayIndex(stateSizesKeys.length) ];
-    const sqMiles = Utils.randomInt(stateSizes[sizeGroup][0],  stateSizes[sizeGroup][1]);
+    
+    if (!sizeParam) sizeParam = stateSizesKeys[ Utils.randomArrayIndex(stateSizesKeys.length) ];
+
+    const sqMiles = Utils.randomInt(stateSizes[sizeParam][0],  stateSizes[sizeParam][1]);
+    const land = landUse(sqMiles);
 
     return {
-      "relative": sizeGroup,
-      "sqMiles": sqMiles
+      "relative": sizeParam,
+      "sqMiles": sqMiles,
+      "arable": land.arable,
+      "wilderness": land.wilderness
+    }
+
+    function landUse(totalArea) {
+      const densityStr = densityObj.string;
+      const landUsageObj = {
+        "sparse": [11,22],
+        "low": [23,34],
+        "average": [35,46],
+        "high": [47,58],
+        "crowded": [59,70]
+      }
+
+      const min = landUsageObj[densityStr][0];
+      const max = landUsageObj[densityStr][1];
+
+      const result = Utils.randomInt( min, max );
+
+      return {
+        arable: sqMiles - result,
+        arablePercent: 100 - result,
+        wilderness: sqMiles - (sqMiles - result),
+        wildernessPercent: 100 - (100 - result)
+      }      
     }
   }
 
@@ -53,20 +81,52 @@ export default class Kingdom {
 
   getRandomDensity(densityGroup) {
     // Math for random density is 6d4x5 or a random number from 30 to 110 people per sq mile
+    let densityString = "";
+    let densityNum = 0;
+
+    const densityObj = {
+      "sparse": [15,35],
+      "low": [36,50],
+      "average": [51,65],
+      "high": [66,80],
+      "crowded": [81,99]
+    }
 
     switch(densityGroup) {
-      case "Spare":
-        return Utils.randomInt(30,45);
+      case "Sparse":
+        densityString = "sparse";
+        densityNum = Utils.randomInt( densityObj[densityString][0], densityObj[densityString][1] );
+        break;
       case "Low":
-        return Utils.randomInt(46,60);
+        densityString = "low";
+        densityNum =  Utils.randomInt( densityObj[densityString][0], densityObj[densityString][1] );
+        break;
       case "Average":
-        return Utils.randomInt(61,75);
+        densityString = "average";
+        densityNum =  Utils.randomInt( densityObj[densityString][0], densityObj[densityString][1] );
+        break;
       case "High":
-        return Utils.randomInt(76,100);
-      case "Magical":
-        return Utils.randomInt(100,115);
+        densityString = "high";
+        densityNum =  Utils.randomInt( densityObj[densityString][0], densityObj[densityString][1] );
+        break;
+      case "Crowded":
+        densityString = "crowded";
+        densityNum =  Utils.randomInt( densityObj[densityString][0], densityObj[densityString][1] );
+        break;
       default:
-        return Utils.randomInt(30, 110);
+        densityNum =  Utils.randomInt( densityObj["sparse"][0], densityObj["crowded"][1] );
+        densityString = Object.keys(densityObj).find( key => {
+          const arr = densityObj[key];
+          if ( densityNum >= arr[0] && densityNum <= arr[1] ) {
+            return key;
+          }
+        });
+        break;
+    }
+
+    return {
+      "string": densityString,
+      "int": densityNum
     }
   }
 

@@ -44,4 +44,8 @@ export default class Utils {
     return array;
   }
 
+  static numberWithCommas(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
 }

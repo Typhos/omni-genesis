@@ -3,9 +3,10 @@ import Utils from "components/utils";
 import Aside from "components/aside";
 import Display from "components/display";
 
-import stateSizes from "data/states/kingdoms";
+import stateSizes from "data/kingdoms/sizes";
+import Kingdom from 'components/generators/kingdom';
 
-export default class States extends Component {
+export default class Kingdoms extends Component {
   
   constructor(props) {
     super(props);
@@ -16,7 +17,7 @@ export default class States extends Component {
       "area": undefined,
       "density": undefined,
       "population": undefined,
-      "type": undefined,
+      "size": undefined,
       "seed": Math.seed
     };
 
@@ -34,7 +35,24 @@ export default class States extends Component {
   }
 
   buildState() {
+    const params = {
+      age: this.state.age,
+      area: this.state.area,
+      density: this.state.density,
+      population: this.state.population,
+      size: this.state.type,
+      seed: this.state.seed 
+    };
 
+    const kingdom = new Kingdom(params);
+    Utils.setNewSeed();
+
+    this.setState({
+      "kingdom": kingdom,
+      "seed": Math.seed
+    });
+
+    console.log(kingdom)
   }
 
   getOptions(obj, sort, filterKey) {
@@ -59,9 +77,9 @@ export default class States extends Component {
         <main className="content">
         <Aside>
             <label>State Size
-              <select name="type" onChange={this.change} value={this.state.type}>
+              <select name="size" onChange={this.change} value={this.state.size}>
                 <option value="all">random size</option>
-                {this.getOptions(stateSizes.sizes, false)}
+                {this.getOptions(stateSizes, false)}
               </select>
             </label>
 

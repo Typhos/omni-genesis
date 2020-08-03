@@ -23,9 +23,16 @@ export default class City {
 
     this.seed = params.seed || Math.seed;
     this.pantheon = pantheons[params.pantheon] || pantheons["centhris"];
-    this.type = params.type || this.randomCityType();
+    
+    if ( params.population ) {
+      this.population = this.getPopulation(params);
+      this.type = this.setCitySize(params.population);
+    } else {
+      this.type = params.type || this.randomCityType();
+      this.population = this.getPopulation(params);  
+    }
+
     this.name = params.name || this.getCityName();
-    this.population = this.getPopulation(params);
     this.economy = this.getEconomy();
     this.guards = this.getGuards();
     this.government = this.formGovernment(params);
@@ -37,6 +44,20 @@ export default class City {
     const sizes = Object.keys(cityObj.sizes);
 
     return sizes[Utils.randomArrayIndex( sizes.length)];
+  }
+
+  setCitySize (population) {
+    for (let [key,value] of Object.entries(cityObj.sizes) ) {
+      const catMin = value[0];
+      const catMax = value[1];
+
+      if ( population >= catMin && population <= catMax ) {
+        return key;
+      } 
+    }
+
+    // if nothing is sent back, it's because the city was too large, so return largest category.
+    return "metropolis";
   }
 
   // +++ START OF NAME FUNCTIONS
@@ -129,7 +150,7 @@ export default class City {
 
   getPopulation(params) {
     const size = cityObj.sizes[this.type];
-    const totalPop = params.populatoin || Utils.randomInt( size[0], size[1] );
+    const totalPop = params.population || Utils.randomInt( size[0], size[1] );
 
     return {
       "total": totalPop,

@@ -11,7 +11,7 @@ import ItemGenerator from './pages/items/index';
 import People from './pages/people/index';
 import Shops from './pages/shops/index';
 import Settlements from './pages/settlements/index';
-import States from './pages/states/index';
+import Kingdoms from './pages/kingdoms/index';
 import {Error404} from './pages/404/index';
 
 const routing = (
@@ -25,7 +25,7 @@ const routing = (
         <Route path="/people/" component={People} />
         <Route path="/shops/" component={Shops} />
         <Route path="/settlements/" component={Settlements} />
-        <Route path="/states/" component={States} />
+        <Route path="/kingdoms/" component={Kingdoms} />
 
         <Route component={Error404} />
       </Switch>

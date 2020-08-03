@@ -14,7 +14,7 @@ export default class Navigation extends Component {
           <Link to="/people">People</Link>
           <Link to="/shops">Shops</Link>
           <Link to="/settlements">Settlements</Link>
-          <Link to="/states">States</Link>
+          <Link to="/kingdoms">Kingdoms</Link>
         </div>
       </nav>
     )

@@ -33,7 +33,7 @@ export default class Person {
       this.ageGroup = this.getAgeGroup(this.age);
 
       this.jobGroup = options.jobGroup || this.getJobGroup(options);
-      this.occupation = options.occupation || this.getOccupation(options);
+      this.occupation = this.getOccupation(options);
       this.checkJobVerbage();
 
       this.stats = new StatBlock(this.race, this.subRaceObj, options.cr);
@@ -202,26 +202,38 @@ export default class Person {
 
   getOccupation(options){
     // What? You can just "get a job?". This really is a fantasy world.
-    const jobGroup = this.jobGroup;
-    let job;
 
-    if ( jobGroup === "adventurer") {
-
-      const classes = Object.keys(Professions.jobs[jobGroup]);
-      job = classes[ Utils.randomArrayIndex( classes.length) ];
-
-    } else if ( Array.isArray(Professions.jobs[jobGroup].list) ) {
-
-      job = Professions.jobs[jobGroup].list;
-      job = job[ Utils.randomArrayIndex( job.length) ];
-
+    if ( options.occupation ) {
+      let job = options.occupation;
+      // if a job is provided which has a / to split title based on sex, it is always Male/Female.
+      // split the string and then return the appropriate one.
+      if ( job.indexOf("/") >= 0 ) {
+        let index = this.sex === "male" ? 0 : 1;
+        job = job.split("/")[index];
+      }
+      return job;
     } else {
+      const jobGroup = this.jobGroup;
+      let job;
 
-      job = Professions.jobs[jobGroup].list[this.sex];
-      job = job[ Utils.randomArrayIndex( job.length) ];
+      if ( jobGroup === "adventurer") {
+
+        const classes = Object.keys(Professions.jobs[jobGroup]);
+        job = classes[ Utils.randomArrayIndex( classes.length) ];
+
+      } else if ( Array.isArray(Professions.jobs[jobGroup].list) ) {
+
+        job = Professions.jobs[jobGroup].list;
+        job = job[ Utils.randomArrayIndex( job.length) ];
+
+      } else {
+
+        job = Professions.jobs[jobGroup].list[this.sex];
+        job = job[ Utils.randomArrayIndex( job.length) ];
+      }
+
+      return job;
     }
-
-    return job;
   }
 
   checkJobVerbage() {

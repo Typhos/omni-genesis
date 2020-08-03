@@ -38,6 +38,7 @@ export default class MerchantGenerator {
   getOwner (options) {
     return new Person({
       "race": options.owner,
+      "jobGroup": "merchant",
       "occupation": allShops[this.shopType].owner
     });
 

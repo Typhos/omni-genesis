@@ -5,11 +5,7 @@ import nobleHouses from "data/names/nobleHouses";
 export default class Noble extends Person {
 
   constructor(options = {}){
-    super({
-      "race": options.race, 
-      "sex": options.sex, 
-      "alignment": options.alignment
-    });
+    super({...options});
 
     if ( !this.name.surname && !this.name.clanName ) {
       const nobleHouse = this.getNobleHouse(this.race);

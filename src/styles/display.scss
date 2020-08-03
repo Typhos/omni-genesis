@@ -21,6 +21,7 @@ article.displayOutput {
     margin-bottom: 0.3em;
     font-family: $styleText;
     position: relative;
+    display: inline-block;
   }
 
   h3.subHead {
@@ -49,10 +50,22 @@ article.displayOutput {
     cursor: pointer;
     line-height: 1rem;
     
+    &.seed {
+      position: absolute;
+      right: 6.25em;
+      top: 1.5em;
+    }
+    
     &.save {
       position: absolute;
       right: 1.5em;
       top: 1.5em;
+    }
+
+    &.copyData {
+      position: absolute;
+      top: 1.5em;
+      right: 4em;
     }
 
     &.text {

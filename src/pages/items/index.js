@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Utils from "components/utils";
 import Aside from "components/aside";
 import Display from "components/display";
 import Item from "components/generators/items/item";
@@ -55,13 +56,18 @@ export default class ItemGenerator extends Component {
     const state = this.state;
     const generatedItem = new Item(state.category, state.type, state.subtype);
 
-    console.time('items');
-    // MAKE 10,000 items to just test for errors =======================
-    let x = new Array(10000).fill(undefined).map( x =>  new Item() );
-    console.log(x)
-    console.timeEnd('items');
-
+    // this.runTest(500);
     this.setState({newItem: generatedItem});
+  }  
+  
+  runTest(num) {
+    console.log(`Making ${num} items`);
+    console.time('items');
+    new Array(num).fill(undefined).map( x => {
+      Utils.setNewSeed();
+      new Item();
+    });
+    console.timeEnd('items');
   }
 
   getOptions(obj) {

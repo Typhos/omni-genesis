@@ -3,11 +3,8 @@ import Utils from "components/utils";
 
 import Aside from "components/aside";
 import Display from "components/display";
-import StatBlock from "components/display/statBlock";
-import Accordion from "components/display/accordion";
 import CityGenerator from "components/generators/cities";
 
-import raceObj from "data/races/allRaces";
 import cityObj from "data/cities/cities";
 import pantheonsObj from "data/gods/pantheons";
 
@@ -34,6 +31,12 @@ export default class Settlements extends Component {
     this.change = this.change.bind(this);
     this.getOptions = this.getOptions.bind(this);
     this.initCityBuild = this.initCityBuild.bind(this);
+    this.urlBuild = this.urlBuild.bind(this);
+
+    if ( window.location.search.length > 0 && window.location.search.includes('run=build') ) {
+      // automatically start a city build based on url provided params
+      this.urlBuild( window.location.search );
+    }
   }
 
   change (e) {
@@ -95,8 +98,29 @@ export default class Settlements extends Component {
   runTest(num) {
     console.log(`Making ${num} cities`);
     console.time('cities');
-    let x = new Array(num).fill(undefined).map( x => new CityGenerator());
+    new Array(num).fill(undefined).map( x => {
+      Utils.setNewSeed();
+      new CityGenerator({
+        seed: Math.seed,
+        type: undefined
+      })
+    });
     console.timeEnd('cities');
+  }
+
+  urlBuild(params) {
+    const buildObj = {};
+    const paramsArray = params.substring(1).split("&").forEach(p => {
+      let arr = p.split("=");
+      buildObj[arr[0]] = arr[1];
+    });
+    
+    this.state = {
+      city: new CityGenerator(buildObj),
+      display: null,
+      seed: Math.seed
+    };
+    
   }
 
   updateDisplay(display) {
@@ -107,6 +131,72 @@ export default class Settlements extends Component {
     }
   }
 
+  buildCopyURL() {
+    const city = this.state.city;
+    const origin = window.location.origin;
+    const path = window.location.pathname;
+    const search = "?";
+
+    let searchArray = [
+      `run=build`,
+      `type=${city.type}`,
+      `pantheon=${city.religion.pantheon}`,
+      `seed=${city.seed}`
+    ];
+
+    return origin+path+search+searchArray.join("&");
+  }
+
+  numicalObjectDisplay(obj) {
+    const names = [];
+
+    // if we want sorted names, we need an array.
+    for ( let [key, val] of Object.entries(obj) ) {
+      names.push(key);
+    }
+
+    return names.sort().map( name => {
+      const val = obj[name];
+      return <li name={name} key={name} className={`infoTable numeric ${ val === 0 ? "zero" : "" }`}><strong>{name}:</strong> <span>{this.numberWithCommas(val)}</span></li>;
+    });
+  }
+
+  nobleArrayDisplay(arr) {   
+    return arr.sort().map( (obj,i) => {
+      return <li name={obj.name.displayName} key={obj.name.displayName+i} className={`infoTable names`}>
+        <span className="capitalize">{obj.occupation} </span>
+        <strong>{obj.name.displayName}</strong>
+      </li>;
+    });
+  }
+
+  getShopsDisplay(obj) {
+    let resp = [];
+    let ind = 0;
+
+    for ( let [key, val] of Object.entries(obj) ) {
+      ind++;
+
+      resp.push(
+        <React.Fragment key={key+ind}>
+          <h3 className="shopGroupHeading" key={key}>{key}</h3>
+          <ul className="standardUl shops threeColumn" key={key+"ul"}>
+            {
+              val.map( (e,i) => {
+                return <li key={e.name+i} className="infoTable names" seed={e.seed}>
+                  <p className="heading">{e.name.toLowerCase()}</p>
+                  <p className="subInfo">Owner: {e.owner.name.displayName}</p>
+                </li>
+              })
+            }
+          </ul>
+        </React.Fragment>
+      );
+    }
+
+    return resp;
+  }
+  
   render() {
     const city = this.state.city;
 
@@ -153,20 +243,30 @@ export default class Settlements extends Component {
 
           { city && 
             <Display>
-              <h2 className="name cityName">
+
+              <h2 contentEditable className="name cityName">
                 {city.name}
-                <span 
-                  role="img" 
-                  className="emjoiIcon" 
-                  data-balloon-pos="up" 
-                  aria-label={`seed: ${city.seed}`} 
-                  onClick={() => {navigator.clipboard.writeText(city.seed)}}>🌱</span>
+                
               </h2>
-              <span role="img" 
+              <span 
+                role="img" 
+                className="emjoiIcon seed" 
+                data-balloon-pos="up" 
+                aria-label={`seed: ${city.seed}`} 
+                onClick={() => {navigator.clipboard.writeText(city.seed)}}>🌱</span>
+
+              <span
+                role="img" 
                 className="emjoiIcon save"
                 aria-label={`Copy URL to ${city.name}`} 
                 data-balloon-pos="left"
-                onClick={() => {this.updateDisplay("population")}}>📋</span>
+                onClick={() => {navigator.clipboard.writeText(this.buildCopyURL())}}>🔗</span>
+              
+              <span
+                role="img" 
+                className="emjoiIcon copyData"
+                aria-label={`Copy JSON for ${city.name}`} 
+                data-balloon-pos="left">📋</span>
 
               <div className="settlementLayout">
                 <div className="column">
@@ -217,13 +317,13 @@ export default class Settlements extends Component {
                   </p>
                   <p className="cityType">
                     <strong>Leader: </strong>
-                    <span>{city.government.details.leader} </span>
+                    <span>{city.government.leader.occupation} </span>
                     <span>{city.government.leader.name.displayName}</span>
                   </p>
                   <p className="cityType">
-                    <strong>Noble Houses: </strong>
-                    <span>{city.population.nobleHouses.number}</span>
-                      { city.population.nobleHouses.names.length > 0 &&
+                    <strong>Important People: </strong>
+                    <span>{city.population.importantPeople.number}</span>
+                      { city.population.importantPeople.noblePeopleArray.length > 0 &&
                         <React.Fragment>
                           { this.state.display !== "nobles" &&
                             <span 
@@ -356,7 +456,7 @@ export default class Settlements extends Component {
                 </div>
               </div>
               { this.state.display === null &&
-                <p className="explanation">Click an icon (<span className="icon" role="image">⚒️</span>) to show relevant information.</p>
+                <p className="explanation">Click an icon (<span className="icon" role="img" aria-label="tradesfolk icon">⚒️</span>) to show relevant information.</p>
               }
 
               { this.state.display === "population" &&
@@ -412,18 +512,18 @@ export default class Settlements extends Component {
                 </React.Fragment>
               }
 
-              { city.population.nobleHouses.names.length > 0 && this.state.display === "nobles" &&
+              { city.population.importantPeople.noblePeopleArray.length > 0 && this.state.display === "nobles" &&
                 <React.Fragment>
-                  { !city.population.nobleHouses.limited &&
-                    <h4>Noble Houses</h4>
+                  { !city.population.importantPeople.limited &&
+                    <h4>Important People in {city.name}</h4>
                   }
-                  { city.population.nobleHouses.limited &&
-                    <h4>Most Important Noble Houses</h4>
+                  { city.population.importantPeople.limited &&
+                    <h4>Most Influential People in {city.name}</h4>
                   }
-                  <ul className="standardUl threeColumn">
-                  {
-                    this.stringArrayDisplay(city.population.nobleHouses.names)
-                  }
+                  <ul className="standardUl twoColumn">
+                    {
+                      this.nobleArrayDisplay(city.population.importantPeople.noblePeopleArray)
+                    }
                   </ul>
                 </React.Fragment>
               }
@@ -432,52 +532,5 @@ export default class Settlements extends Component {
         </main>
       </div>
     );
-  }
-
-  numicalObjectDisplay(obj) {
-    const names = [];
-
-    // if we want sorted names, we need an array.
-    for ( let [key, val] of Object.entries(obj) ) {
-      names.push(key);
-    }
-
-    return names.sort().map( name => {
-      const val = obj[name];
-      return <li name={name} key={name} className={`infoTable numeric ${ val === 0 ? "zero" : "" }`}><strong>{name}:</strong> <span>{this.numberWithCommas(val)}</span></li>;
-    });
-  }
-
-  stringArrayDisplay(arr, limit) {
-    return arr.sort().map( (name,i) => {
-      return <li name={name} key={name+i} className={`infoTable names`}>House <strong>{name}</strong></li>;
-    });
-  }
-
-  getShopsDisplay(obj) {
-    let resp = [];
-    let ind = 0;
-
-    for ( let [key, val] of Object.entries(obj) ) {
-      ind++;
-
-      resp.push(
-        <React.Fragment key={key+ind}>
-          <h3 className="shopGroupHeading" key={key}>{key}</h3>
-          <ul className="standardUl shops threeColumn" key={key+"ul"}>
-            {
-              val.map( (e,i) => {
-                return <li key={e.name+i} className="infoTable names" seed={e.seed}>
-                  <p className="heading">{e.name.toLowerCase()}</p>
-                  <p className="subInfo">Owner: {e.owner.name.displayName}</p>
-                </li>
-              })
-            }
-          </ul>
-        </React.Fragment>
-      );
-    }
-
-    return resp;
   }
 }

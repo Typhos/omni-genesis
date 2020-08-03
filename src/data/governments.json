@@ -2,295 +2,361 @@
   "communalParity":{
     "name":"Communal Parity",
     "authority":"Democracy",
-    "leader":"Chairman",
+    "leader":"General Secretary",
     "description":"This government promotes total equality for all its citizens, regardless of their jobs or assigned tasks. One life is worth the same as any other.",
-    "availableTo": ["city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["comrade","minister","council member"]
   },
   "communalParitySmall":{
     "name":"Communal Parity",
     "authority":"Democracy",
     "leader":"Speaker",
     "description":"This government promotes total equality for all its citizens, regardless of their jobs or assigned tasks. One life is worth the same as any other.",
-    "availableTo": ["hamlet","village","castle-town","town"]
-  },
-  "electiveMonarchSmall":{
-    "name":"Elective Monarchy",
-    "authority":"Democracy",
-    "leader":"Elector",
-    "description":"This government is a form of monarchy where a strong emphasis is put on the knowledge and qualifications of the elected monarch as voted on by noble electors.",
-    "availableTo": ["hamlet","village","castle-town","town"]
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["comrade","secretary","councilor","lieutenant","cleric","mage"]
   },
   "theocraticRepublic":{
     "name":"Theocratic Republic",
     "authority":"Democracy",
     "leader":"Revered Elder",
     "description":"This government is a spiritualistic form of democracy, where a religious council supervises the democratic process and serves in an advisory role.",
-    "availableTo": ["town","city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["lord/lady","archmage","high priest","bishop","cleric","general","marshal"]
   },
   "theocraticRepublicSmall":{
     "name":"Theocratic Republic",
     "authority":"Democracy",
     "leader":"Elder",
     "description":"This government is a spiritualistic form of democracy, where a religious council supervises the democratic process and serves in an advisory role.",
-    "availableTo": ["hamlet","village","castle-town"]
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["cleric","priest","vicar","revend","lord/lady"]
   },
   "militaryCommissariat":{
     "name":"Military Commissariat",
     "authority":"Democracy",
     "leader": "Lord-Marshal",
     "description": "This government is nominally democratic, with the dividing line between the civil administration and the military having blurred to the point where they have largely become one and the same. Military officers vote for a new leader after a set term of office.",
-    "availableTo": ["town","city","metropolis","country"]
+    "availableTo": ["town","city","metropolis","country"],
+    "roles": ["commander","major","general","lord/lady","marshal","cleric","count/countess"]
   },
   "militaryCommissariatSmall":{
     "name":"Military Commissariat",
     "authority":"Democracy",
     "leader": "Captain",
     "description": "This government is nominally democratic, with the dividing line between the civil administration and the military having blurred to the point where they have largely become one and the same. Military officers vote for a new leader after a set term of office.",
-    "availableTo": ["hamlet","village","castle-town"]
+    "availableTo": ["hamlet","village","castle-town"],
+    "roles": ["commander","captain","lord/lady","lieutenant","acolyte","mage"]
   },
   "moralRepublic":{
     "name":"Moral Republic",
     "authority":"Democracy",
     "leader":"Prime Minister",
     "description":"This government is a pacifistic form of democracy, firmly guided by moralist principles and non-violence.",
-    "availableTo": ["hamlet","village","castle-town","town"]
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["minister","representative","acolyte","cleric","commander"]
   },
-  "Magical":{
+  "arcaneRepublic":{
     "name":"Arcane Republic",
     "authority":"Democracy",
     "leader":"Chancellor",
     "description":"This government is a magical form of democracy, where citizens with magical capabilities vote for others of the arcane class to form a representative body.",
-    "availableTo": ["town","city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["lord/lady","archmage","sorcerer","bishop","commander","count/countess","duke/duchess"]
+  },
+  "arcaneRepublicSmall":{
+    "name":"Arcane Republic",
+    "authority":"Democracy",
+    "leader":"Chancellor",
+    "description":"This government is a magical form of democracy, where citizens with magical capabilities vote for others of the arcane class to form a representative body.",
+    "availableTo": ["village","castle-town","town"],
+    "roles": ["arcanist","lord/lady","baron/baroness","acolyte","cleric","minister"]
   },
   "assemblyOfClans":{
     "name":"Assembly of Clans",
     "authority":"Democracy",
     "leader":"Clan Speaker",
     "description":"This government is a militaristic form of democracy, where all free clan warriors can make their voices heard.",
-    "availableTo": ["hamlet","village","castle-town","town","city","metropolis","country"]
+    "availableTo": ["hamlet","village","castle-town","town","city","metropolis","country"],
+    "roles": ["chief","chieftain","cleric","seer"]
   },
   "banditCommune": {
     "name":"Bandit Commune",
     "authority":"Oligarchy",
     "leader": "Bandit Captain",
     "description":"This government is organized like a massive crime syndicate, where the strong prey on the weak and any neighboring towns are seen as little more than raiding targets.",
-    "availableTo": ["hamlet","village","castle-town","town"]
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["lieutenant","lord/lady","brother/sister"]
   },
   "tradeLeague":{
     "name":"Trade League",
     "authority":"Oligarchy",
     "leader":"Trade Prince",
     "description":"This government is a form of plutocratic oligarchy, where the state is made up of a myriad of free merchants, houses and guilds that have banded together in common commercial interests.",
-    "availableTo": ["town","city","metropolis","country"]
+    "availableTo": ["town","city","metropolis","country"],
+    "roles": ["trade prince","bishop","captain","lord/lady","merchant-lord"]
   },
   "plutocraticOligarchy": {
     "name":"Plutocratic Oligarchy",
     "authority":"Oligarchy",
     "leader":"Archon",
     "description":"This government is a plutocratic form of oligarchy, ruled by a wealthy and influential elite.",
-    "availableTo": ["hamlet","village","castle-town","town","city","metropolis","country"]
+    "availableTo": ["hamlet","village","castle-town","town","city","metropolis","country"],
+    "roles": ["lord/lady","brother/sister"]
   },
   "theocraticOligarchy": {
     "name":"Theocratic Oligarchy",
     "authority":"Oligarchy",
     "leader":"Pontifex",
     "description":"This government is a spiritualistic form of oligarchy, where the political leadership lies in the hands of the leaders of the nation's most powerful religious factions.",
-    "availableTo": ["city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["lord/lady","brother/sister","cleric","vicar","commander"]
   },
   "theocraticOligarchySmall": {
     "name":"Theocratic Oligarchy",
     "authority":"Oligarchy",
     "leader":"Bishop",
     "description":"This government is a spiritualistic form of oligarchy, where the political leadership lies in the hands of the leaders of the community's most powerful religious factions.",
-    "availableTo": ["hamlet","village","castle-town","town"]
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["lord/lady","brother/sister"]
   },
   "holyTribunal": {
     "name":"Holy Tribunal",
     "authority":"Oligarchy",
     "leader":"High Inquisitor",
     "description":"This government is a spiritualistic form of oligarchy, where a divinely guided council made up of clergy controls the state. No division exists between the state and the dominant organized religion.",
-    "availableTo": ["city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["lord/lady","brother/sister","cleric","vicar","inquisitor"]
   },
   "holyTribunalSmall": {
     "name":"Holy Tribunal",
     "authority":"Oligarchy",
     "leader":"Inquisitor",
     "description":"This government is a spiritualistic form of oligarchy, where a divinely guided council made up of clergy controls the state. No division exists between the state and the dominant organized religion.",
-    "availableTo": ["hamlet","village","castle-town","town"]
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["lord/lady","inquistor","cleric","sir/lady","acolyte"]
   },
   "militaryJunta": {
     "name":"Military Junta",
     "authority":"Oligarchy",
     "leader":"Generalissimo",
     "description":"This government is a militaristic form of oligarchy, where power rests with a council of high-ranking military officers who oversee all matters of state.",
-    "availableTo": ["city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["lord/lady","marshal","general","major","lieutenant","sir/lady","bishop","wizard","sorcerer"]
   },
   "militaryJuntaSmall": {
     "name":"Military Junta",
     "authority":"Oligarchy",
-    "leader":"Commander",
+    "leader":"Lord-Commander",
     "description":"This government is a militaristic form of oligarchy, where power rests with a council of high-ranking military officers who oversee all matters of state.",
-    "availableTo": ["hamlet","village","castle-town","town"]
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["lord/lady","captain","lieutenant","priest"]
   },
   "warCouncil": {
     "name":"War Council",
     "authority":"Oligarchy",
     "leader":"Warlord",
     "description":"This government is a militaristic form of oligarchy, where all decisions concerning the state are taken by a council of the nation's strongest warlords.",
-    "availableTo": ["country"]
+    "availableTo": ["country"],
+    "roles": ["marshal","commander","general","bishop","lord/lady"]
   },
   "warCouncilSmall": {
     "name":"War Council",
     "authority":"Oligarchy",
     "leader":"Warlord",
     "description":"This government is a militaristic form of oligarchy, where all decisions concerning the community are taken by a council of the community's strongest warriors.",
-    "availableTo": ["hamlet","village","castle-town"]
+    "availableTo": ["hamlet","village","castle-town"],
+    "roles": ["lord/lady","captain","lieutenant"]
+  },
+  "holyOrder": {
+    "name":"Holy Order",
+    "authority":"Oligarchy",
+    "leader":"Lord Templar",
+    "description":"This government is a religiously militaristic form of oligarchy where power rests with an order of warriors dedicated to a god or pantheon of gods.",
+    "availableTo": ["hamlet","village","castle-town","town","city"],
+    "roles": ["lord/lady","templar captain","brother/sister"]
   },
   "arcaneCouncil": {
     "name":"Arcane Council",
     "authority":"Oligarchy",
     "leader":"Grand Magus",
     "description":"This government is a magical form of oligarchy, where a council of mages for the governing body based on magical and political ability.",
-    "availableTo": ["city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["lord/lady","archmage","magus","arcanist","bishop","count/countess","baron/baroness"]
   },
   "arcaneCouncilSmall": {
     "name":"Arcane Council",
     "authority":"Oligarchy",
-    "leader":"Custodian",
+    "leader":"Archmage",
     "description":"This government is a magical form of oligarchy, where a council of mages for the governing body based on magical and political ability.",
-    "availableTo": ["hamlet","village","castle-town","town"]
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["lord/lady","magus","arcanist","baron/baroness"]
   },
   "banditKingdom": {
     "name":"Bandit Kingdom",
     "authority":"Despotic",
     "leader": "Warlord",
     "description":"This government is organized like a massive crime syndicate, where the strong prey on the weak and any neighboring states are seen as little more than raiding targets.",
-    "availableTo": ["country"]
+    "availableTo": ["country"],
+    "roles": ["lord/lady","count/countess","baron/baroness","duke/duchess","commander","general","major","archmage"]
   },
   "constitutionalDictatorship": {
     "name":"Constitutional Dictatorship",
     "authority":"Despotic",
     "leader": "Executor",
     "description":"This government is a dictatorship where a single individual has been granted perpetual emergency powers to preserve the state from any threats, real or imagined.",
-    "availableTo": ["country"]
+    "availableTo": ["country"],
+    "roles": ["lord/lady","count/countess","baron/baroness","duke/duchess","marshal","general","major","bishop","archmage"]
   },
   "theocraticDictatorship": {
     "name":"Theocratic Dictatorship",
     "authority":"Despotic",
     "leader":"Patriarch",
     "description":"This government is a spiritualistic dictatorship, ruled by a single individual in a hierarchical power structure supported by the official state religion.",
-    "availableTo": ["city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["lord/lady","count/countess","baron/baroness","duke/duchess","marshal","general","major","bishop","pontif","priest","templar"]
   },
   "theocraticDictatorshipSmall": {
     "name":"Theocratic Dictatorship",
     "authority":"Despotic",
     "leader":"High Priest",
     "description":"This government is a spiritualistic dictatorship, ruled by a single individual in a hierarchical power structure supported by the official state religion.",
-    "availableTo": ["hamlet","village","castle-town","town"]
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["lord/lady","count/countess","baron/baroness","commander","bishop","acolyte","templar"]
   },
   "electiveMonarch":{
     "name":"Elective Monarchy",
     "authority":"Despotic",
     "leader":"High King",
     "description":"This government is a form of monarchy where a strong emphasis is put on the knowledge and qualifications of the elected monarch as voted on by noble electors.",
-    "availableTo": ["city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["elector count/elector countess","elector baron/elector baroness","elector duke/elector duchess","marshal","general","major","bishop","archmage"]
+  },
+  "electiveMonarchSmall":{
+    "name":"Elective Monarchy",
+    "authority":"Despotic",
+    "leader": "Count/Countess",
+    "description":"This government is a form of monarchy where a strong emphasis is put on the knowledge and qualifications of the elected monarch as voted on by noble electors.",
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["minister","captain","lord/lady","lieutenant","cleric","mage"]
   },
   "militaryDictatorship": {
     "name":"Military Dictatorship",
     "authority":"Despotic",
     "leader":"Grand Marshal",
     "description":"This government is a militaristic form of autocracy, with the ruler serving as the undisputed head of the military which is firmly in control of the state apparatus.",
-    "availableTo": ["city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["lord/lady","field-marshal","lord-marshal","general","major","bishop","archmage"]
   },
   "militaryDictatorshipSmall": {
     "name":"Military Dictatorship",
     "authority":"Despotic",
-    "leader":"Commander",
+    "leader":"Marshal",
     "description":"This government is a militaristic form of autocracy, with the ruler serving as the undisputed head of the military which is firmly in control of the local government.",
-    "availableTo": ["city","metropolis","country"]
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["lord/lady","commander","lieutenant","major","bishop","count/countess","baron/baroness"]
   },
   "martialDictatorship": {
     "name":"Martial Dictatorship",
     "authority":"Despotic",
     "leader":"Warlord",
     "description":"This government is a militaristic form of autocracy, where the warrior who is considered the strongest leader rules with absolute power.",
-    "availableTo": ["hamlet","village","castle-town","town","city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["lord/lady","commander","marshal","duke/duchess","count/countess","baron/baroness","archmage","bishop"]
+  },
+  "martialDictatorshipSmall": {
+    "name":"Martial Dictatorship",
+    "authority":"Despotic",
+    "leader":"Chief",
+    "description":"This government is a militaristic form of autocracy, where the warrior who is considered the strongest leader rules the community with absolute power.",
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["lord/lady","commander","lieutenant","count/countess","baron/baroness","acolyte","arcanist"]
   },
   "arcaneDictatorship": {
     "name":"Arcane Dictatorship",
     "authority":"Despotic",
-    "leader":"Primus",
+    "leader":"High Mage",
     "description": "This government is an arcane form of autocracy, where the magical elite have assumed control over the state in the name of efficiency and magical progress.",
-    "availableTo": ["city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["lord/lady","archmage","sorcerer","bishop","commander","count/countess"]
   },
-  "arcaneDictatorship": {
+  "arcaneDictatorshipSmall": {
     "name":"Arcane Dictatorship",
     "authority":"Despotic",
     "leader":"Magister",
     "description": "This government is an arcane form of autocracy, where the magical elite have assumed control over the state in the name of efficiency and magical progress.",
-    "availableTo": ["hamlet","village","castle-town","town"]
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["lord/lady","wizard","sorcerer","acolyte","commander","baron/baroness","cleric"]
   },
   "despoticEmpire": {
     "name":"Despotic Empire",
     "authority":"Imperial",
     "leader":"Emperor",
     "description":"This government is a relatively pure form of autocracy, with an absolute ruler that governs the state with an iron gripping appendage.",
-    "availableTo": ["country"]
+    "availableTo": ["country"],
+    "roles": ["lord/lady","archmage","bishop","general","duke/duchess","count/countess","marshal","commander"]
   },
   "enlightenedMonarchy": {
     "name":"Enlightened Monarchy",
     "authority":"Imperial",
     "leader":"Philosopher King",
     "description":"This government is a hereditary form of enlightened autocracy, where a strong emphasis is put on the knowledge and qualifications of the ruling monarch.",
-    "availableTo": ["country"]
+    "availableTo": ["country"],
+    "roles": ["lord/lady","archmage","bishop","general","duke/duchess","count/countess","marshal","commander"]
   },
   "feudalEmpire": {
     "name":"Feudal Empire",
     "authority":"Imperial",
     "leader":"Emperor",
     "description":"This government is a feudal autocracy where the monarch rules indirectly, granting offices and territories to vassals in exchange for obligations in the form of taxes and military service.",
-    "availableTo": ["country"]
+    "availableTo": ["country"],
+    "roles": ["lord/lady","archmage","bishop","general","duke/duchess","count/countess","marshal","commander"]
   },
   "theocraticMonarchy": {
     "name":"Theocratic Monarchy",
     "authority":"Imperial",
     "leader":"High Priest",
     "description":"This government is a spiritualistic form of autocracy, where the ruler is treated as a divine symbol. Organized religion is widely employed in support of the state apparatus.",
-    "availableTo": ["country"]
+    "availableTo": ["country"],
+    "roles": ["lord/lady","archmage","high priest","bishop","cleric","general","duke/duchess","count/countess","marshal"]
   },
   "divineEmpire": {
     "name":"Divine Empire",
     "authority":"Imperial",
     "leader":"God-Emperor",
     "description":"This government is a form of spiritualistic autocracy. Everything is shaped by the official state religion, and the ruler is worshiped as an infallible living god.",
-    "availableTo": ["country"]
+    "availableTo": ["country"],
+    "roles": ["lord/lady","archmage","high priest","bishop","cleric","general","duke/duchess","count/countess","marshal"]
   },
   "martialEmpire": {
     "name":"Martial Empire",
     "authority":"Imperial",
     "leader":"Imperator",
     "description":" This government is a militaristic form of hereditary autocracy, where the state exists largely to support the military. Martial ability is highly valued, and all citizens are regularly drilled in matters of war.",
-    "availableTo": ["country"]
+    "availableTo": ["country"],
+    "roles": ["lord/lady","archmage","bishop","general","duke/duchess","count/countess","marshal","major","commander"]
   },
   "arcaneHegemony": {
     "name":"Arcane Hegemony",
     "authority":"Imperial",
     "leader":"Overlord",
     "description":"This government is an arcane form of hereditary autocracy, where citizens are viewed as little more than tools for powerful magic users. Efficiency and magical knowledge are valued above all things.",
-    "availableTo": ["town","city","metropolis","country"]
+    "availableTo": ["city","metropolis","country"],
+    "roles": ["lord/lady","archmage","enchanter","illusionist","conjurer","sorcerer","bishop","commander","count/countess","duke/duchess"]
   },
   "arcaneHegemonySmall": {
     "name":"Arcane Hegemony",
     "authority":"Imperial",
-    "leader":"Overlord",
+    "leader":"Arcane Overlord",
     "description":"This government is an arcane form of autocracy, where citizens are viewed as little more than tools for a powerful magic user. Undermining this powerful magic user can be extremely dangerous.",
-    "availableTo": ["hamlet","village","castle-town"]
+    "availableTo": ["hamlet","village","castle-town","town"],
+    "roles": ["lord/lady","wizard","enchanter","illusionist","conjurer","sorcerer","acolyte","commander","baron/baroness","cleric"]
   },
   "illuminatedAutocracy": {
     "name":"Illuminated Autocracy",
     "authority":"Imperial",
     "leader":"Primus",
     "description":"This government is an arcane form of hereditary autocracy, based on magical principles that the sovereign is sworn to uphold. Nothing is valued more highly than magical knowledge and the advancement of arcane theory.",
-    "availableTo": ["hamlet","village","castle-town","town","city","metropolis","country"]
+    "availableTo": ["hamlet","village","castle-town","town","city","metropolis","country"],
+    "roles": ["lord/lady","archmage","enchanter","illusionist","conjurer","sorcerer","bishop","commander","count/countess","duke/duchess"]
   }
 }

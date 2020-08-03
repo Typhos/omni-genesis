@@ -12,26 +12,24 @@ import governments from "data/governments";
 
 const allShops = {...merchantsObj, ...tavernsObj};
 
-export default class CityGenerator {
+export default class City {
 
-  constructor (options) {
-    if (options.seed) {
-      Math.seed = options.seed;
+  constructor (params) {
+    if (params.seed) {
+      Math.seed = params.seed;
     } else if ( Math.seed === undefined ) { 
       Utils.setNewSeed();
     }
 
-    console.log(options.seed);
-
-    this.seed = options.seed || Math.seed;
-    this.pantheon = pantheons[options.pantheon];
-    this.type = options.type || this.randomCityType();
-    this.name = options.name || this.getCityName();
-    this.population = this.getPopulation(options);
+    this.seed = params.seed || Math.seed;
+    this.pantheon = pantheons[params.pantheon] || pantheons["centhris"];
+    this.type = params.type || this.randomCityType();
+    this.name = params.name || this.getCityName();
+    this.population = this.getPopulation(params);
     this.economy = this.getEconomy();
     this.guards = this.getGuards();
-    this.government = this.formGovernment(options);
-    this.religion = this.getReligionInfo();
+    this.government = this.formGovernment(params);
+    this.religion = this.getReligionInfo(params.pantheon);
     this.houses = this.getHouseArchitecture();
   }
 
@@ -44,7 +42,7 @@ export default class CityGenerator {
   // +++ START OF NAME FUNCTIONS
 
   getCityName() {
-    const buildOptions = {
+    const buildparams = {
       "person": 1,
       "founded": 1,
       // "word": 3,
@@ -55,7 +53,7 @@ export default class CityGenerator {
 
     let arr = [];
 
-    for (let [key, value] of Object.entries(buildOptions) ) {
+    for (let [key, value] of Object.entries(buildparams) ) {
       for( let i = 1; i <= value; i++ ) {
         arr.push(key);
       }
@@ -66,22 +64,16 @@ export default class CityGenerator {
     switch (namingChoice) {
       case ("person"):
         return this.getPersonBasedName(false);
-        break;
       case ("founded"):
         return this.getPersonBasedName(true);
-        break;
       case ("word"):
         return "w";
-        break;
       case ("noName"):
         return "n";
-        break;
       case ("suffix"):
         return this.getSuffixName();
-        break;
       default:
         return this.getRandomizedName();
-        break;
     }
   }
 
@@ -135,13 +127,12 @@ export default class CityGenerator {
 
   // +++ END OF NAME FUNCTIONS
 
-  getPopulation() {
+  getPopulation(params) {
     const size = cityObj.sizes[this.type];
-    const totalPop = Utils.randomInt( size[0], size[1] );
+    const totalPop = params.populatoin || Utils.randomInt( size[0], size[1] );
 
     return {
       "total": totalPop,
-      "nobleHouses": this.getNobleHouses(totalPop),
       "races": this.getRacialBreakdown(totalPop)
     }
   }
@@ -159,6 +150,39 @@ export default class CityGenerator {
     });
 
     return racialObj;
+  }
+
+  importantPeople(totalPop, rolesArray) {
+    // it requires about 200 people to support a noble house. This is modified by the standard 4d4-6 roll.
+    const percentageModifier =  1 + ( Utils.randomInt(-2,14) / 10 )
+    const SV = 200 * percentageModifier;
+
+    // number of guaranteed people is equal to the population divided by the Support Value
+    let baselineImportantPeople = Math.floor(totalPop/SV);
+
+    // the remainder from the guaranteed person becomes a % chance to have another.
+    const percentageChance = parseInt( ( totalPop/SV - baselineImportantPeople ) * 100 );
+    const bonusHouse = Utils.randomInt(1,100) < percentageChance ? 1 : 0;
+
+    const totalPeople = baselineImportantPeople + bonusHouse;
+
+    function getPeople() {
+      const limit = totalPeople > 12 ? 12 : totalPeople;
+
+      return new Array(limit).fill(undefined).map(x => {
+        return new Noble({
+            jobGroup: "noble",
+            occupation: rolesArray[ Utils.randomArrayIndex(rolesArray.length) ]
+        });
+      });
+
+    }
+
+    return {
+      number: totalPeople,
+      limited: totalPeople > 12 ? true : false,
+      noblePeopleArray: getPeople()
+    }
   }
 
   getEconomy () {
@@ -308,16 +332,16 @@ export default class CityGenerator {
     };
   }
 
-  formGovernment(options) {
+  formGovernment(params) {
     // If there is a national government system (feudal, magocracy, etc) that needs to play out locally as well. This doesn't mean every place has that same type of rule, but it's more common.
-    // if ( options.nationalGov ) 
+    // if ( params.nationalGov ) 
 
     // First we have to look at the size of the city. If the population is 30 people, it's probably not run by a council of mages (probably).
     // Next, we take into consideration if there is a national governing system. If there is one, it has an out-sized influence on the local systems.
     // If there is no national system provided (or a one-off city) we pick at random. A government is determined a combination of ethnics and authority.
 
-    // Either an authority is chosen from the 4 options (Democracy, Oligarchy, Despotic or Imperial) or chosen at random.
-    const authority = options.authority;
+    // Either an authority is chosen from the 4 params (Democracy, Oligarchy, Despotic or Imperial) or chosen at random.
+    const authority = params.authority;
 
     const availableGovernments = Object.keys(governments).map( gov => {
       if ( governments[gov].availableTo.includes( this.type ) ) {
@@ -329,50 +353,26 @@ export default class CityGenerator {
     }).filter( e => e !== undefined );
 
     const selected = availableGovernments[ Utils.randomArrayIndex(availableGovernments.length) ];
+       
+    const leader = new Noble({
+      jobGroup: "ruler",
+      occupation: governments[selected].leader
+    });
+    
+    // Now that we have a government formed, we know what kind of people are important to run that institution. We can call for important people and give the array of possible titles.
+    this.population.importantPeople = this.importantPeople(this.population.total, governments[selected].roles);
+
+    this.population.importantPeople.noblePeopleArray.unshift(leader);
+    this.population.importantPeople.number += 1;
 
     return {
       details: governments[selected],
-      leader: new Noble(),
+      leader: leader,
       corruption: this.getCrimerate()
     }
   }
 
-  getNobleHouses(totalPop) {
-    // it requires about 200 people to support a noble house. This is modified by the standard 4d4-6 roll.
-    const percentageModifier =  1 + ( Utils.randomInt(-2,14) / 10 )
-    const SV = 200 * percentageModifier;
-
-    // number of guaranteed shops is equal to the population divided by the Support Value
-    let baselineNobleHouses = Math.floor(totalPop/SV);
-
-    // the remainder from the guaranteed shops becomes a % chance to have another.
-    const percentageChance = parseInt( ( totalPop/SV - baselineNobleHouses ) * 100 );
-    const bonusHouse = Utils.randomInt(1,100) < percentageChance ? 1 : 0;
-
-    const totalHouses = baselineNobleHouses + bonusHouse;
-
-    // TODO - Make this generate people instead of simple names.
-    // Titles for newgen people can be based on city size. enforced nobility w/ X title to ensure house names.
-
-    function houseNames() {
-      // const houses = [...nobleHouses.nobleHouses];
-      const limit = totalHouses > 12 ? 12 : totalHouses;
-
-      return new Array(limit).fill(undefined).map(x => {
-        let noble = new Noble();
-        return noble.name.house || noble.name.clan || noble.name.surname;
-      });
-
-    }
-
-    return {
-      number: totalHouses,
-      limited: totalHouses > 12 ? true : false,
-      names: houseNames()
-    }
-  }
-
-  getReligionInfo() {
+  getReligionInfo(pantheonName) {
     // Places of worship are tricky. The more faiths, the more temples. First we need to determine how many different faiths / gods a town has. Next, determine how much of the population is associated with each religion / cult.
     // In a polytheistic society, most people worship multiple gods for different purposes or at different times of the year. As such 
 
@@ -449,6 +449,7 @@ export default class CityGenerator {
     }
 
     return {
+      pantheon: pantheonName,
       temples: {
         count: templeCount,
         breakdown: templesOfWhichGods()

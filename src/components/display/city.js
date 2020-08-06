@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Display from "components/display";
-import CityGenerator from "components/generators/cities";
 import Utils from "components/utils";
+import Noble from "components/generators/person/noble";
 
 export default class CityDisplay extends Component {
 
@@ -9,6 +9,8 @@ export default class CityDisplay extends Component {
     super(props);
 
     this.updateDisplay = this.updateDisplay.bind(this);
+    this.backOneEntry = this.backOneEntry.bind(this);
+    this.updateName = this.updateName.bind(this);
   }
 
   updateDisplay(display) {
@@ -19,43 +21,73 @@ export default class CityDisplay extends Component {
     }
   }
 
-  buildCopyURL() {
-    const city = this.props.state.city;
-    const origin = window.location.origin;
-    const path = window.location.pathname;
-    const search = "?";
-
-    let searchArray = [
-      `run=build`,
-      `seed=${city.seed}`
-    ];
-
-    if (city.inputSize) searchArray.push(`type=${city.inputSize}`);
-    if (city.pantheon) searchArray.push(`pantheon=${city.religion.pantheon}`);
-    
-    return origin+path+search+searchArray.join("&");
-  }
-
-  numicalObjectDisplay(obj) {
-    const names = [];
-
-    // if we want sorted names, we need an array.
-    for ( let [key, val] of Object.entries(obj) ) {
-      names.push(key);
-    }
-
-    return names.sort().map( name => {
-      const val = obj[name];
-      return <li name={name} key={name} className={`infoTable numeric ${ val === 0 ? "zero" : "" }`}><strong>{name}:</strong> <span>{Utils.numberWithCommas(val)}</span></li>;
+  updateName (e) {
+    let city = this.props.city;
+    city.name = e.target.value;
+    this.props.stateHandler({
+      "city": city,
+      "name": e.target.value,
     });
   }
 
+  backOneEntry () {
+    const priorEntry = this.props.state.previousEntries[ this.props.state.previousEntries.length - 1 ];
+    this.props.state.previousEntries.pop();
+
+    this.props.stateHandler({
+      [priorEntry.type]: priorEntry,
+      "city": null
+    });
+  }
+
+  sendToPersonEntry (city, displayName, path) {
+    let targetPerson = path.find( s => s.name.displayName === displayName );
+
+    const newNoble = new Noble({
+      ...targetPerson.inputParams,
+      "seed": targetPerson.seed,
+    });
+
+    let previousEntries = this.props.state.previousEntries || [];
+    previousEntries.push(city);
+
+    let newState = { ...this.props.state };
+    newState.display = null;
+    newState.kingdom = null;
+    newState.city = null;
+    newState.person = newNoble;
+    newState.previousEntries = previousEntries;
+
+    this.props.stateHandler(newState);
+  }
+
+  numericalObjectDisplay(obj) {
+    const list = [];
+
+    for ( let [name, val] of Object.entries(obj) ) {
+      list.push(
+        <li name={name} key={name} className={`infoTableRow numeric ${ val === 0 ? "zero" : "" }`}><strong>{name}:</strong> <span>{Utils.numberWithCommas(val)}</span></li>
+      );
+    }
+
+    return list;
+  }
+
   nobleArrayDisplay(arr) {   
+    const city = this.props.city;
     return arr.sort().map( (obj,i) => {
-      return <li name={obj.name.displayName} key={obj.name.displayName+i} className={`infoTable names`}>
-        <span className="capitalize">{obj.occupation} </span>
-        <strong>{obj.name.displayName}</strong>
-      </li>;
+      return (
+        <li 
+          name={obj.name.displayName} 
+          key={obj.name.displayName+i} 
+          className={`infoTableRow names pointer`}
+          onClick={ () => {this.sendToPersonEntry(city, obj.name.displayName, city.population.importantPeople.noblePeopleArray)} } >
+
+          <span className="capitalize">{obj.occupation} </span>
+          <strong>{obj.name.displayName}</strong>
+
+        </li>
+      )
     });
   }
 
@@ -72,7 +104,7 @@ export default class CityDisplay extends Component {
           <ul className="standardUl shops threeColumn" key={key+"ul"}>
             {
               val.map( (e,i) => {
-                return <li key={e.name+i} className="infoTable names" seed={e.seed}>
+                return <li key={e.name+i} className="infoTableRow names" seed={e.seed}>
                   <p className="heading">{e.name.toLowerCase()}</p>
                   <p className="subInfo">Owner: {e.owner.name.displayName}</p>
                 </li>
@@ -91,9 +123,20 @@ export default class CityDisplay extends Component {
 
     return (
       <Display>
-        <h2 className="name cityName">
-          {city.name}
-        </h2>
+        { this.props.state && this.props.state.previousEntries && this.props.state.previousEntries.length > 0 &&
+          <React.Fragment>
+            <a
+              className="backButton"
+              onClick={ () => { this.backOneEntry() } }
+              >&laquo; Back to { this.props.state.previousEntries[ this.props.state.previousEntries.length - 1 ].name }</a>
+              <br/>
+          </React.Fragment>
+        }
+        <input type="text" 
+          className="name heading"
+          size={city.name.length + city.name.length / 3}
+          onChange={this.updateName}
+          value={city.name} />
         <span 
           role="img" 
           className="emjoiIcon seed" 
@@ -106,7 +149,7 @@ export default class CityDisplay extends Component {
           className="emjoiIcon save"
           aria-label={`Copy URL to ${city.name}`} 
           data-balloon-pos="left"
-          onClick={() => {navigator.clipboard.writeText(this.buildCopyURL())}}>🔗</span>
+          onClick={() => {navigator.clipboard.writeText( Utils.buildShareURL(city) )}}>🔗</span>
         
         <span
           role="img" 
@@ -118,7 +161,7 @@ export default class CityDisplay extends Component {
           <div className="column">
             <p className="cityType">
               <strong>Size: </strong> 
-              <span className="capitalize">{city.type}</span>
+              <span className="capitalize">{city.citySize}</span>
             </p>
             <p className="cityType">
               <strong>Pop: </strong> 
@@ -313,7 +356,7 @@ export default class CityDisplay extends Component {
             <h4>Population by Race</h4>
             <ul className="standardUl threeColumn">
               {
-                this.numicalObjectDisplay(city.population.races)
+                this.numericalObjectDisplay(city.population.races)
               }
             </ul>
           </React.Fragment>
@@ -333,7 +376,7 @@ export default class CityDisplay extends Component {
             <h4>Trades</h4>
             <ul className="standardUl threeColumn">
               {
-                this.numicalObjectDisplay(city.economy.merchants.tradesArray)
+                this.numericalObjectDisplay(city.economy.merchants.tradesArray)
               }
             </ul>
           </React.Fragment>
@@ -344,7 +387,7 @@ export default class CityDisplay extends Component {
             <h4>Temples</h4>
             <ul className="standardUl threeColumn">
               {
-                this.numicalObjectDisplay(city.religion.temples.breakdown)
+                this.numericalObjectDisplay(city.religion.temples.breakdown)
               }
             </ul>
           </React.Fragment>
@@ -355,7 +398,7 @@ export default class CityDisplay extends Component {
             <h4>Shrines</h4>
             <ul className="standardUl threeColumn">
               {
-                this.numicalObjectDisplay(city.religion.shrines.breakdown)
+                this.numericalObjectDisplay(city.religion.shrines.breakdown)
               }
             </ul>
           </React.Fragment>
@@ -374,6 +417,7 @@ export default class CityDisplay extends Component {
                 this.nobleArrayDisplay(city.population.importantPeople.noblePeopleArray)
               }
             </ul>
+            <small><span role="img" aria-label="information">⚠️</span> Clicking an person will take you to the full information of that person.</small>
           </React.Fragment>
         }
       </Display>

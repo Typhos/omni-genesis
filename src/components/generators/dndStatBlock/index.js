@@ -3,7 +3,6 @@ import Utils from "components/utils";
 
 //data
 import crData from "data/mechanics/monsterCR";
-import Races from "data/races/allRaces";
 import openSourceRaceData from "data/races/5eToolsRaces";
 import Languages from "data/languages/all";
 
@@ -66,18 +65,9 @@ export default class StatBlock {
   getCrIndexArray (cr) {
     let arr = [];
 
-    // console.group("getCrIndexArray");
-    // console.log(`creature CR is ${cr}`);
-    // console.log(`cr index = ${crData.cr.findIndex( e => e._cr === cr )}`);
-
-    for ( let [key, val] of Object.entries( this.splitCr(cr) ) ) {
-      // for ( let [k, v] of Object.entries( this.splitCr(crData.cr[val]._cr) ) ) {
-        arr.push(val);
-      // }
+    for ( let val of Object.values( this.splitCr(cr) ) ) {
+      arr.push(val);
     }
-
-    // console.log("index breakdown after split", arr);
-    // console.groupEnd();
 
     return arr;
   } 

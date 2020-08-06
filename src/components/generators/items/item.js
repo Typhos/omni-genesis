@@ -87,7 +87,7 @@ export default class Item {
   getParts(materials) {
     let parts = [];
     let required = materials.required;
-    let optional = materials.optional || null;
+    // let optional = materials.optional || null;
     let groupsArr = [];
     let tempMaterialsArray = [];
     let specificsArray = [];
@@ -131,7 +131,7 @@ export default class Item {
     let group = Object.keys(MaterialData[matGroup]);
 
     if (restricted && Object.keys(restricted).includes(matGroup) ) {
-      const restrictedGroup = restricted[matGroup];
+      // const restrictedGroup = restricted[matGroup];
       group = group.filter( g => !restricted[matGroup].includes(g)) 
     }
     
@@ -143,7 +143,6 @@ export default class Item {
 
     const plural = (this.count > 1) ? true : false;
     const isAre = (plural) ? "are": "is";
-    const itThey = (plural) ? "they": "it";
     const itTheyCaps = (plural) ? "They": "It";
 
     // opening sentence.

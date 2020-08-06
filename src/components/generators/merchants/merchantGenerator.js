@@ -3,11 +3,10 @@ import Person from "components/generators/person/person";
 
 import merchantsObj from "data/merchants/merchants";
 import tavernsObj from "data/merchants/taverns";
-import RaceData from "data/races";
 
 const allShops = {...merchantsObj, ...tavernsObj};
 
-export default class MerchantGenerator {
+export default class Merchant {
 
   constructor ( options = {} ) {
     if (options.seed) {
@@ -62,9 +61,6 @@ export default class MerchantGenerator {
 
       let noun = allShops[this.shopType].noun;
       noun = noun[ Utils.randomArrayIndex( noun.length )];
-
-      let title = allShops[this.shopType].title;
-      title = title[ Utils.randomArrayIndex( title.length)];
 
       return `the ${adjective} ${noun}`;
     }

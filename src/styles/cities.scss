@@ -1,38 +1,5 @@
 @import "mixins";
 
-.infoTable {
-  font-size: 0.9em;
-  line-height: 1.3em;
-  padding: 0.2em 0.4em;
-  border-bottom: 1px dotted rgba($charcoal, 0.3);
-  break-inside: avoid;
-  font-family: $monoSpace;
-
-  &:hover {
-    background-color: rgba($white, 0.66);
-    cursor: default;
-  }
-
-  &.zero {
-    color: $midTone;
-
-    &:hover {
-      // color: $charcoal;
-      border-bottom-color: $moodGreen;
-    }
-  }
-
-  &.numeric {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &.names {
-    // font-style: italic;
-  }
-
-}
-
 h3.shopGroupHeading {
   margin-bottom: 0.25em;
   text-transform: capitalize;

@@ -1,13 +1,19 @@
+//components
 import React, { Component } from 'react';
 import Utils from "components/utils";
-
 import Aside from "components/aside";
-import City from "components/display/city";
+import CityDisplay from "components/display/city";
+import PersonDisplay from 'components/display/person';
+
+//generators
 import CityGenerator from "components/generators/cities";
 
+//data
 import cityObj from "data/cities/cities";
 import pantheonsObj from "data/gods/pantheons";
+import placeNames from "data/names/randomPlaceNames";
 
+//styles
 import "styles/cities.scss";
 
 export default class Settlements extends Component {
@@ -19,13 +25,10 @@ export default class Settlements extends Component {
     const seed = Math.seed;
 
     this.state = {
-      type: "all",
-      size: "all",
-      pantheon: "centhris",
       display: null,
-      primaryRace: undefined,
-      secondaryRace: undefined,
-      seed: seed
+      pantheon: "centhris",
+      seed: seed,
+      city: null
     };
 
     this.change = this.change.bind(this);
@@ -33,6 +36,9 @@ export default class Settlements extends Component {
     this.initCityBuild = this.initCityBuild.bind(this);
     this.stateHandler = this.stateHandler.bind(this);
     this.urlBuild = this.urlBuild.bind(this);
+  }
+  
+  componentDidMount (){
 
     if ( window.location.search.length > 0 && window.location.search.includes('run=build') ) {
       // automatically start a city build based on url provided params
@@ -46,15 +52,13 @@ export default class Settlements extends Component {
       let arr = p.split("=");
       buildObj[arr[0]] = arr[1];
     });
-
-    console.log(buildObj)
     
-    this.state = {
+    this.setState({
       city: new CityGenerator(buildObj),
       display: null,
       seed: Math.seed,
       pantheon: buildObj.pantheon || "centhris"
-    };
+    });
     
   }
 
@@ -87,15 +91,7 @@ export default class Settlements extends Component {
       if ( state[key] === "all" ) state[key] = undefined;
     }
 
-    console.log(state);
-
-    const city = new CityGenerator({
-      type: state.type,
-      primaryRace: state.primaryRace,
-      secondaryRace: state.secondaryRace,
-      pantheon: state.pantheon,
-      seed: state.seed
-    });
+    const city = new CityGenerator({...this.state});
 
     console.log(city)
     // this.runTest(500);
@@ -111,13 +107,13 @@ export default class Settlements extends Component {
   runTest(num) {
     console.log(`Making ${num} cities`);
     console.time('cities');
-    new Array(num).fill(undefined).map( x => {
+    for ( let i = 1; i <= num; i++ ) {
       Utils.setNewSeed();
       new CityGenerator({
         seed: Math.seed,
         type: undefined
       })
-    });
+    };
     console.timeEnd('cities');
   }
 
@@ -126,7 +122,6 @@ export default class Settlements extends Component {
   }
   
   render() {
-    const city = this.state.city;
 
     return (
       <div className="App">
@@ -137,6 +132,12 @@ export default class Settlements extends Component {
               <select name="type" onChange={this.change} value={this.state.type}>
                 <option value="all">random size</option>
                 {this.getOptions(cityObj.sizes, false)}
+              </select>
+            </label>
+            <label>Culture
+              <select name="culture" onChange={this.change} value={this.state.culture}>
+                <option value="all">random culture</option>
+                {this.getOptions( placeNames, true)}
               </select>
             </label>
             <label>Pantheon
@@ -152,8 +153,12 @@ export default class Settlements extends Component {
             <button id="generateCity" className="buildButton" onClick={this.initCityBuild}>build settlement</button>
           </Aside>
 
-          { city && 
-            <City city={city} state={this.state} stateHandler={this.stateHandler}/>
+          { this.state.city && 
+            <CityDisplay city={this.state.city} state={this.state} stateHandler={this.stateHandler}/>
+          }
+
+          { this.state.person &&
+            <PersonDisplay person={this.state.person} state={this.state} stateHandler={this.stateHandler}/>
           }
         </main>
       </div>

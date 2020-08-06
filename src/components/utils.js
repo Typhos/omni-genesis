@@ -48,4 +48,22 @@ export default class Utils {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
+  static buildShareURL(dataObj) {
+    const origin = window.location.origin;
+    const path = window.location.pathname;
+    const search = "?";
+
+    const searchArray = [
+      "run=build"
+    ];
+
+    for ( let [key, value] of Object.entries(dataObj.inputParams) ) {
+      if ( typeof value === "string" || typeof value === "number" ) {
+        searchArray.push(`${key}=${value}`);
+      }
+    }
+        
+    return origin+path+search+searchArray.join("&");
+  }
+
 }

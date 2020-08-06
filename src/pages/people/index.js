@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import Aside from "components/aside";
-import Display from "components/display";
-import StatBlock from "components/display/statBlock";
-import Accordion from "components/display/accordion";
+import PersonDisplay from 'components/display/person';
 import Person from "components/generators/person/person";
 import Noble from "components/generators/person/noble";
 
-import Race from "data/races/allRaces";
 import Professions from "data/professions";
+import Race from "data/races/allRaces";
 import crData from "data/mechanics/monsterCR";
 
 const allAlignments = ["lawful good","neutral good","chaotic good","lawful neutral","true neutral","chaotic neutral","lawful evil","neutral evil","chaotic evil"];
@@ -37,6 +35,7 @@ export default class People extends Component {
     this.change = this.change.bind(this);
     this.getOptions = this.getOptions.bind(this);
     this.initPerosonGen = this.initPerosonGen.bind(this);
+    this.getOccupationBlock = this.getOccupationBlock.bind(this);
   }
 
   change (e) {
@@ -85,9 +84,9 @@ export default class People extends Component {
     };
 
     if ( nobleJobGroups.includes( e => e.toLowerCase() === options.jobGroup ) ) {
-      this.setState({newPerson: new Noble(options)});
+      this.setState({person: new Noble(options)});
     } else {
-      this.setState({newPerson: new Person(options)});
+      this.setState({person: new Person(options)});
     }
 
     // this.runTest(50000);
@@ -98,18 +97,6 @@ export default class People extends Component {
     console.time('people');
     new Array(num).fill(undefined).map( x => new Person({batch: true}));
     console.timeEnd('people');
-  }
-
-  raceString (person) {
-    if ( person.subRace && person.subRace.name && person.subRace.name !== "Variant" ) {
-      if ( person.subRace.alias ) {
-        return `${person.subRace.alias[0].toLowerCase()} ${person.race}`;
-      }
-
-      return `${person.subRace.name.toLowerCase()} ${person.race}`;
-    }
-     
-    return person.race;
   }
 
   getOccupationBlock(){
@@ -189,7 +176,7 @@ export default class People extends Component {
   }
 
   render() {
-    const person = this.state.newPerson;
+    const person = this.state.person;
 
     return (
       <div className="App">
@@ -242,47 +229,7 @@ export default class People extends Component {
           </Aside>
 
           { person && 
-            <Display>
-            
-              <h2 className="headline name">{person.name.name} {person.name.surname}</h2>
-              <h3 className="subHead">{this.raceString(person)} {person.occupation}</h3>
-              <ul className="information">
-                <li><strong>Sex:</strong><span className="result">{person.sex}</span></li>
-                <li><strong>Alignment:</strong> <span className="result">{person.alignment}</span></li>
-                <li><strong>Age:</strong><span className="result">{person.age} ({person.ageGroup})</span></li>                
-              </ul>
-
-              { person.physical && 
-                <ul className="information">
-                  { this.state.imperial &&
-                    <React.Fragment>
-                      <li><strong>Height:</strong><span className="result">{Math.floor(person.physical.imperial.height / 12)} ft { person.physical.imperial.height % 12 } in</span></li>
-                      <li><strong>Weight:</strong><span className="result">{person.physical.imperial.weight} lbs.</span></li>
-                    </React.Fragment>
-                  }
-                  { !this.state.imperial &&
-                    <React.Fragment>
-                      <li><strong>Height:</strong><span className="result">{person.physical.metric.height} cm</span></li>
-                      <li><strong>Weight:</strong><span className="result">{person.physical.metric.weight} kg</span></li>
-                    </React.Fragment>
-                  }
-                </ul>
-              }
-
-              { person.description &&
-                <div className="description">
-                  <p><strong>Likes: </strong><span className="capitalize">{person.description.likes}</span></p>
-                  <p><strong>Dislikes: </strong><span className="capitalize">{person.description.dislikes}</span></p>
-                  <p><strong>Random Fact: </strong><span >{person.description.statsDescription[0]}</span></p>
-                  <p><strong>Personality Quirk: </strong><span >{person.description.quirk}</span></p>
-                </div>
-              }
-              { person.stats && 
-                <React.Fragment>
-                  <StatBlock person={person} />
-                </React.Fragment>
-              }
-            </Display>
+            <PersonDisplay person={this.state.person} state={this.state} stateHandler={this.stateHandler}/>
           }
         </main>
       </div>

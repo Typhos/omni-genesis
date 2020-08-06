@@ -21,30 +21,40 @@ export default class City {
       Utils.setNewSeed();
     }
 
+    
     this.seed = params.seed || Math.seed;
-    this.pantheon = pantheons[params.pantheon] || pantheons["centhris"];
+    this.type = "city";
+    this.inputParams = {...params};
     
     if ( params.population ) {
       this.population = this.getPopulation(params);
-      this.type = this.setCitySize(params.population);
+      this.citySize = this.setCitySize(params.population);
     } else {
-      this.type = params.type || this.randomCityType();
+      this.citySize = params.type || this.randomCityType();
       this.population = this.getPopulation(params);  
     }
 
     this.inputSize = params.type;
-    this.name = params.name || this.getCityName();
-    this.economy = this.getEconomy();
-    this.guards = this.getGuards();
-    this.government = this.formGovernment(params);
-    this.religion = this.getReligionInfo(params.pantheon);
-    this.houses = this.getHouseArchitecture();
+    this.culture = params.culture || this.randomCulture();
+    this.name = params.name || this.getCityName(this.culture);
+        
+    if (!params.lightWeight) {
+      this.economy = this.getEconomy();
+      this.guards = this.getGuards();
+      this.government = this.formGovernment(params);
+      this.religion = this.getReligionInfo(params.pantheon);
+      this.houses = this.getHouseArchitecture();
+    }
   }
 
   randomCityType() {
     const sizes = Object.keys(cityObj.sizes);
 
     return sizes[Utils.randomArrayIndex( sizes.length)];
+  }
+
+  randomCulture() {
+    return Object.keys(placeNames)[Utils.randomArrayIndex( Object.keys(placeNames).length )];
   }
 
   setCitySize (population) {
@@ -61,96 +71,28 @@ export default class City {
     return "metropolis";
   }
 
-  // +++ START OF NAME FUNCTIONS
+  getCityName(culture) {
+    // group parameter determines which region of the world the name comes from. English, French, German, Norse, Spanish/Italian, Greek, Slavik, etc.
+    // a group may have multiple sets of options, such as the Norse group having multiple types from different Nordic countries.
+    let wordSet =  placeNames[culture].nameSet[ Utils.randomArrayIndex(placeNames[culture].nameSet.length) ];
 
-  getCityName() {
-    const buildparams = {
-      "person": 1,
-      "founded": 1,
-      // "word": 3,
-      // "noName": 1,
-      "suffix": 3,
-      "random": 3
-    };
+    let partsArray = wordSet.map( set => {
+      return set[Utils.randomArrayIndex(set.length)]
+    });
 
-    let arr = [];
-
-    for (let [key, value] of Object.entries(buildparams) ) {
-      for( let i = 1; i <= value; i++ ) {
-        arr.push(key);
+    if ( placeNames[culture].prefix) {
+      // chance to add a prefix name like North, Old, Port, Al, As, Khor, etc.
+      if ( Utils.randomInt(1, placeNames[culture].prefixChance) === 1 ) {
+        const prePrefix = placeNames[culture].prefix[ Utils.randomArrayIndex(placeNames[culture].prefix.length) ];
+        partsArray.unshift(prePrefix);
       }
-    }
-
-    const namingChoice = arr[Utils.randomArrayIndex(arr.length)];
-
-    switch (namingChoice) {
-      case ("person"):
-        return this.getPersonBasedName(false);
-      case ("founded"):
-        return this.getPersonBasedName(true);
-      case ("word"):
-        return "w";
-      case ("noName"):
-        return "n";
-      case ("suffix"):
-        return this.getSuffixName();
-      default:
-        return this.getRandomizedName();
-    }
-  }
-
-  getRandomizedName() {
-    let name =  placeNames.s1[ Utils.randomArrayIndex(placeNames.s1.length) ];
-
-    if ( Utils.randomInt(1, 2) === 1 ) name += placeNames.vowel[Utils.randomArrayIndex(placeNames.vowel.length)];
-
-    // if name ends in a vowel, use the consonant endings
-    if ( (/[aeiouy]$/).test(name) ) {
-      name = name.concat( placeNames.ec[ Utils.randomArrayIndex(placeNames.ec.length) ]);
-    } else {
-      for( let i = Utils.randomInt(0, 1); i > 0; i-- ) {
-        name = name.concat( placeNames.s2[ Utils.randomArrayIndex(placeNames.s2.length) ]);
-      }
-
-      name = name.concat( placeNames.ev[ Utils.randomArrayIndex(placeNames.ev.length) ]);
     }
     
-    return name;
+    return partsArray.join("");
   }
-
-  getSuffixName() {
-    const name = this.getRandomizedName();
-    const ending = placeNames.suffix[ Utils.randomArrayIndex( placeNames.suffix.length ) ];
-    return name.concat(ending);
-  }
-
-  getPersonBasedName(possessive) {
-    const locArray = Object.keys(placeNames.locations)
-    const locations = locArray[ Utils.randomArrayIndex(locArray.length) ];
-    const ending = placeNames.locations[locations][ Utils.randomArrayIndex(placeNames.locations[locations].length) ];
-
-    let name = (Utils.randomInt(1,2)) ? new Noble({race: "human", batch: true}).name.name : new Noble({race: "human", batch: true}).name.house;
-
-    function owned(name) {
-      if ( /s$/gi.test(name) ) {
-        return "'";
-      } else {
-        return "'s";
-      }
-    }
-
-    if (possessive) {
-      return `${name}${owned(name)} ${ending}`;  
-    } else {
-      return name;
-    }
-    
-  }
-
-  // +++ END OF NAME FUNCTIONS
 
   getPopulation(params) {
-    const size = cityObj.sizes[this.type];
+    const size = cityObj.sizes[this.citySize];
     const totalPop = params.population || Utils.randomInt( size[0], size[1] );
 
     return {
@@ -161,7 +103,7 @@ export default class City {
 
   getRacialBreakdown(totalPop) {
     const racialObj = {};
-    let arr = new Array(totalPop).fill(undefined).map( x => {
+    new Array(totalPop).fill(undefined).map( () => {
       return new Person({batch: true}).race;
     }).forEach( p => {
       if ( !racialObj[p] ) {
@@ -193,8 +135,8 @@ export default class City {
 
       return new Array(limit).fill(undefined).map(x => {
         return new Noble({
-            jobGroup: "noble",
-            occupation: rolesArray[ Utils.randomArrayIndex(rolesArray.length) ]
+            "jobGroup": "noble",
+            "occupation": rolesArray[ Utils.randomArrayIndex(rolesArray.length) ]
         });
       });
 
@@ -208,7 +150,7 @@ export default class City {
   }
 
   getEconomy () {
-    const cityType = this.type;
+    const cityType = this.citySize;
 
     function economyWording () {
       const bDesr = [
@@ -264,25 +206,25 @@ export default class City {
       description: economyWording(),
       primary: getPrimaryEconomy(),
       merchants: this.getMerchants(),
-      crime: this.getCrimerate()
+      crime: this.getCrimeRate()
     }
   }
 
-  getCrimerate() {
-    const crimerateDescription = [
+  getCrimeRate() {
+    const crimeRateDescription = [
       "nonexistent",
       "low",
       "average",
       "high",
       "pervasive"
     ];
-    const index = Utils.randomArrayIndex( crimerateDescription.length);
+    const index = Utils.randomArrayIndex( crimeRateDescription.length);
 
-    return crimerateDescription[index];
+    return crimeRateDescription[index];
   }
 
   getMerchants() {
-    const economyObj = cityObj.economy[this.type];
+    const economyObj = cityObj.economy[this.citySize];
     const svDifferences = economyObj.svDiff || {};
     const merchants = {
       tradesTotal: 0,
@@ -315,19 +257,17 @@ export default class City {
       merchants.tradesTotal += totalShops;
 
       if ( totalShops > 0 ) {
-        merchants.shops[shopTitle] = new Array(totalShops).fill(undefined).map( x => {
-
+        const shopArray = [];
+        if ( allShops[key].buildShop ) {
           // Only build shops with the option turned on.
           // A mason isn't going to have a storefront.
-          if ( allShops[key].buildShop ) {
+          for ( let i = totalShops; i > 0; i-- ) {
+            shopArray.push( new MerchantGenerator({"type": key}) );
             merchants.shopsTotal += 1;
-            return new MerchantGenerator({
-              type: key
-            });
           }
-        }).filter( e => e !== undefined );
 
-        if ( merchants.shops[shopTitle].length <= 0 ) delete merchants.shops[shopTitle];
+          merchants.shops[shopTitle] = shopArray;
+        }
       }
     }
 
@@ -366,7 +306,7 @@ export default class City {
     const authority = params.authority;
 
     const availableGovernments = Object.keys(governments).map( gov => {
-      if ( governments[gov].availableTo.includes( this.type ) ) {
+      if ( governments[gov].availableTo.includes( this.citySize ) ) {
         if ( !authority || governments[gov].authority === authority ) {
           return gov;
         }
@@ -377,8 +317,8 @@ export default class City {
     const selected = availableGovernments[ Utils.randomArrayIndex(availableGovernments.length) ];
        
     const leader = new Noble({
-      jobGroup: "ruler",
-      occupation: governments[selected].leader
+      "jobGroup": "ruler",
+      "occupation": governments[selected].leader
     });
     
     // Now that we have a government formed, we know what kind of people are important to run that institution. We can call for important people and give the array of possible titles.
@@ -390,7 +330,7 @@ export default class City {
     return {
       details: governments[selected],
       leader: leader,
-      corruption: this.getCrimerate()
+      corruption: this.getCrimeRate()
     }
   }
 
@@ -403,7 +343,7 @@ export default class City {
     
     // Generally it takes 400 people to warrant a temple to a deity (irl churches). It takes ~150 to warrant a shrine.
     // If we assume the average person might worship 4 deities from the pantheon for various reasons, that's 4*population for shrine count. However, the temple count doesn't change, since you can't attend more than 1 temple service at a time.
-    const pantheon = this.pantheon;
+    const pantheon = pantheons[pantheonName] || pantheons["centhris"];
     const pop = this.population.total;
     const shrineSV = 100;
     const templeSV = 400;

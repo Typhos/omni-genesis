@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Utils from "components/utils";
 import Aside from "components/aside";
-import Display from "components/display";
-
-import stateSizes from "data/kingdoms/sizes";
 import Kingdom from 'components/generators/kingdom';
 import KingdomDisplay from "components/display/kingdom";
+import CityDisplay from 'components/display/city';
+import PersonDisplay from 'components/display/person';
+
+import stateSizes from "data/kingdoms/sizes";
+import placeNames from "data/names/randomPlaceNames";
+
 
 export default class Kingdoms extends Component {
   
@@ -14,16 +17,12 @@ export default class Kingdoms extends Component {
     Utils.setNewSeed();
 
     this.state = {
-      "age": undefined,
-      "area": undefined,
-      "density": undefined,
-      "population": undefined,
-      "size": undefined,
       "seed": Math.seed
     };
 
     this.change = this.change.bind(this);
-    this.buildState = this.buildState.bind(this);
+    this.buildKingdom = this.buildKingdom.bind(this);
+    this.stateHandler = this.stateHandler.bind(this);
   }
 
   change (e) {
@@ -35,22 +34,22 @@ export default class Kingdoms extends Component {
     });
   }
 
-  buildState() {
-    const params = {
-      age: this.state.age,
-      area: this.state.area,
-      density: this.state.density,
-      population: this.state.population,
-      size: this.state.size,
-      seed: this.state.seed 
-    };
+  buildKingdom() {
+    const params = {...this.state};
 
+    console.time('kingdom build');
     const kingdom = new Kingdom(params);
+    console.timeEnd('kingdom build');
+
     Utils.setNewSeed();
 
     this.setState({
       "kingdom": kingdom,
-      "seed": Math.seed
+      "display": null,
+      "fullDisplay": null,
+      "seed": Math.seed,
+      "city": null,
+      "previousEntries": []
     });
 
     console.log(kingdom)
@@ -72,8 +71,11 @@ export default class Kingdoms extends Component {
     });
   }
 
+  stateHandler(obj){
+    this.setState(obj);
+  }
+
   render() {
-    const kingdom = this.state.kingdom;
 
     return (
       <div className="App">
@@ -82,7 +84,14 @@ export default class Kingdoms extends Component {
             <label>State Size
               <select name="size" onChange={this.change} value={this.state.size}>
                 <option value="all">random size</option>
-                {this.getOptions(stateSizes, false)}
+                {this.getOptions(stateSizes.sizes, false)}
+              </select>
+            </label>
+
+            <label>Culture
+              <select name="culture" onChange={this.change} value={this.state.culture}>
+                <option value="all">random culture</option>
+                {this.getOptions( placeNames, true)}
               </select>
             </label>
 
@@ -90,11 +99,19 @@ export default class Kingdoms extends Component {
               <input type="number" name="seed" onChange={this.change} value={this.state.seed}/>
             </label>
 
-            <button id="generateState" className="buildButton" onClick={this.buildState}>build kingdom</button>
+            <button id="generateState" className="buildButton" onClick={this.buildKingdom}>build kingdom</button>
           </Aside>
 
-          { kingdom && 
-            <KingdomDisplay kingdom={kingdom} state={this.state} stateHandler={this.stateHandler}/>
+          { this.state.kingdom && 
+            <KingdomDisplay kingdom={this.state.kingdom} state={this.state} stateHandler={this.stateHandler}/>
+          }
+
+          { this.state.city &&
+            <CityDisplay city={this.state.city} state={this.state} stateHandler={this.stateHandler}/>
+          }
+
+          { this.state.person &&
+            <PersonDisplay person={this.state.person} state={this.state} stateHandler={this.stateHandler}/>
           }
 
         </main>

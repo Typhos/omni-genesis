@@ -11,32 +11,36 @@ import traits from "data/people/allTraits";
 
 export default class Person {
 
-  constructor ( options = {} ) {
-    if ( Math.seed === undefined ) { 
+  constructor ( params = {} ) {
+    if (params.seed) {
+      Math.seed = params.seed;
+    } else if ( Math.seed === undefined ) { 
       Utils.setNewSeed();
     }
 
-    this.race = options.race || this.getRace(options);
+    this.seed = params.seed || Math.seed;
+    this.inputParams = {...params};
+    this.race = params.race || this.getRace(params);
     this.raceObj = openSourceRaceData.race.filter( r => r.name.toLowerCase() === this.race && r.source === "PHB")[0];
-    this.sex = options.sex || this.getSex();
-    this.age = options.age || this.getAge(options);
+    this.sex = params.sex || this.getSex();
+    this.age = params.age || this.getAge(params);
 
-    this.name = options.name || this.getName(options);
+    this.name = params.name || this.getName(params);
 
     // extra stuff that only gets generated if it's not a batch build of people
-    if (!options.batch) {
+    if (!params.batch) {
       this.subRaceObj = this.getSubRace();
       this.subrace = this.displaySubrace();
-      this.alignment = this.getAlignment(options);
+      this.alignment = this.getAlignment(params);
 
       this.pronouns = this.getPronouns();
       this.ageGroup = this.getAgeGroup(this.age);
 
-      this.jobGroup = options.jobGroup || this.getJobGroup(options);
-      this.occupation = this.getOccupation(options);
+      this.jobGroup = params.jobGroup || this.getJobGroup(params);
+      this.occupation = this.getOccupation(params);
       this.checkJobVerbage();
 
-      this.stats = new StatBlock(this.race, this.subRaceObj, options.cr);
+      this.stats = new StatBlock(this.race, this.subRaceObj, params.cr);
       this.description = this.writeDescription();
       this.physical = this.getPhysicalInfo();
 
@@ -152,18 +156,18 @@ export default class Person {
     }).name;
   }
 
-  getAge(options) {
+  getAge(params) {
     let age;
     const lifespan = Races[this.race].lifespan;
     const childNum = lifespan / 6 - 1;
     const youthNum = lifespan / 4;
 
-    if ( options.child ) {
+    if ( params.child ) {
       age = Utils.randomInt(0, childNum);
 
       if ( age === 0 ) age = "newborn";
 
-    } else if ( options.elderly ) {
+    } else if ( params.elderly ) {
       const old = lifespan - lifespan/4;
       const max = lifespan + lifespan/6;
 
@@ -195,16 +199,16 @@ export default class Person {
     }
   }
 
-  getJobGroup(options) {
+  getJobGroup(params) {
     const allJobs = Object.keys(Professions.jobs);
     return allJobs[ Utils.randomArrayIndex( allJobs.length) ];
   }
 
-  getOccupation(options){
+  getOccupation(params){
     // What? You can just "get a job?". This really is a fantasy world.
 
-    if ( options.occupation ) {
-      let job = options.occupation;
+    if ( params.occupation ) {
+      let job = params.occupation;
       // if a job is provided which has a / to split title based on sex, it is always Male/Female.
       // split the string and then return the appropriate one.
       if ( job.indexOf("/") >= 0 ) {
@@ -244,7 +248,7 @@ export default class Person {
     }
   }
 
-  getAlignment(options){
+  getAlignment(params){
     const tendancy = Races[this.race].alignmentTendancies;
     const alignmentWeight = 2;
     const alignments = {
@@ -258,10 +262,10 @@ export default class Person {
     let authority = ["lawful","neutral","chaotic"];
     let morality = ["good","neutral","evil"];
     
-    if ( options.alignment && options.alignment.includes("any") ) {
-      return alignments[options.alignment][ Utils.randomArrayIndex( alignments[options.alignment].length) ];
-    } else if ( options.alignment !== undefined ) {
-      return options.alignment;
+    if ( params.alignment && params.alignment.includes("any") ) {
+      return alignments[params.alignment][ Utils.randomArrayIndex( alignments[params.alignment].length) ];
+    } else if ( params.alignment !== undefined ) {
+      return params.alignment;
     } else {
       if (tendancy) {
         let a = new Array(alignmentWeight).fill(tendancy[0]);
@@ -364,7 +368,6 @@ export default class Person {
     sortableStats = Utils.shuffleArray(sortableStats);
 
     let first = sortableStats[0];
-    let second = sortableStats[ sortableStats.length - 1 ];
     let description = [];
 
     for ( let [key, value] of Object.entries(statDescriptionData[first[0]]) ) {

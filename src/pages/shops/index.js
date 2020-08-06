@@ -71,7 +71,7 @@ export default class Shops extends Component {
   runTest(num) {
     console.log(`Making ${num} shops`);
     console.time('shops');
-    let x = new Array(num).fill(undefined).map( x => new MerchantGenerator());
+    new Array(num).fill(undefined).map( () => new MerchantGenerator());
     console.timeEnd('shops');
   }
 

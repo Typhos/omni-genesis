@@ -61,12 +61,12 @@ export default class ItemGenerator extends Component {
   }  
   
   runTest(num) {
-    console.log(`Making ${num} items`);
+    console.log(`Test by making ${num} items`);
     console.time('items');
-    new Array(num).fill(undefined).map( x => {
+    for ( let i = num; i > 0; i-- ) {
       Utils.setNewSeed();
       new Item();
-    });
+    };
     console.timeEnd('items');
   }
 

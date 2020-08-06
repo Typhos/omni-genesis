@@ -16,12 +16,26 @@ article.displayOutput {
   font-size: 14px;
 
   h2.name {
-    text-transform: uppercase;
     letter-spacing: 0.1667em;
     margin-bottom: 0.3em;
     font-family: $styleText;
     position: relative;
+    display: block;
+  }
+
+  input[type=text].name {
     display: inline-block;
+    padding: 0.1em 0;
+    margin: 0.5em 0 1em;
+
+    font-size: 30px;
+    letter-spacing: 0.1667em;
+    font-family: $styleText;
+
+    background-color: transparent;
+
+    border: 0;
+    border-bottom: 1px dashed $charcoal;
   }
 
   h3.subHead {
@@ -39,6 +53,23 @@ article.displayOutput {
     .capitalize {
       text-transform: capitalize;
     }
+  }
+
+  a.backButton {
+    display: inline-block;
+    margin: 1em 0 0;
+    padding: 0 0.33em;
+    line-height: 1.4em;
+    border-bottom: 1px solid $dndRed;
+    
+    background: transparent;
+    
+    color: $charcoal;
+    font-size: 14px;
+    font-family: $fira;
+    letter-spacing: 0.085em;
+    
+    cursor: pointer;
   }
 
   .displayLayout {
@@ -127,5 +158,38 @@ article.displayOutput {
         text-transform: capitalize;
       }
     }
+  }
+
+  li.infoTableRow {
+    font-size: 0.9em;
+    line-height: 1.1em;
+    margin: 5px 0;
+    padding: 0.2em 0.4em;
+    border-bottom: 1px dotted rgba($charcoal, 0.3);
+    break-inside: avoid;
+    font-family: $monoSpace;
+
+    &:hover {
+      background-color: rgba($white, 0.66);
+    }
+
+    &.zero {
+      color: $midTone;
+
+      &:hover {
+        // color: $charcoal;
+        border-bottom-color: $moodGreen;
+      }
+    }
+
+    &.numeric {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &.names {
+      // font-style: italic;
+    }
+
   }
 }

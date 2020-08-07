@@ -28,7 +28,7 @@ export default class People extends Component {
       "sex": "all",
       "alignment": "all",
       "cr": "all",
-      "occupationGroup": "all",
+      "jobGroup": "all",
       "imperial": true
     };
 
@@ -64,26 +64,32 @@ export default class People extends Component {
       "Magic",
       "Educated"
     ];
+    
     let state = this.state;
 
     for ( let key in state ) {
       if ( state[key] === "all" ) state[key] = undefined;
     }
 
+    // const options = {
+    //   race: state.race,
+    //   sex: state.sex,
+    //   alignment: state.alignment,
+    //   cr: state.cr,
+    //   occupation: state.job,
+    //   jobGroup: state.jobGroup,
+
+    //   // batch property used to skip generating fluff and speed up builds
+    //   // regular builds are 40x slower due to stat block generation
+    //   batch: false
+    // };
+
     const options = {
-      race: state.race,
-      sex: state.sex,
-      alignment: state.alignment,
-      cr: state.cr,
-      occupation: state.job,
-      jobGroup: state.occupationGroup,
+      ...this.state,
+      "batch": false
+    }
 
-      // batch property used to skip generating fluff and speed up builds
-      // regular builds are 40x slower due to stat block generation
-      batch: false
-    };
-
-    if ( nobleJobGroups.includes( e => e.toLowerCase() === options.jobGroup ) ) {
+    if ( nobleJobGroups.some( e => e.toLowerCase() === options.jobGroup.toLowerCase() ) ) {
       this.setState({person: new Noble(options)});
     } else {
       this.setState({person: new Person(options)});
@@ -100,77 +106,77 @@ export default class People extends Component {
   }
 
   getOccupationBlock(){
-    const { occupationGroup, job, sex } = this.state;
+    const { jobGroup, job, sex } = this.state;
 
     return (
       <React.Fragment>
         <label>
           <span>Occupation</span>
-          <select className="occupationGroup" onChange={this.change} value={occupationGroup}>
+          <select className="jobGroup" onChange={this.change} value={jobGroup}>
             <option value="all">random occupation</option>
             {this.getOptions(Professions.jobs)}
           </select>
         </label>
 
-        { occupationGroup !== undefined && 
-          occupationGroup !== "all" && 
-          Array.isArray(Professions.jobs[occupationGroup].list) &&
+        { jobGroup !== undefined && 
+          jobGroup !== "all" && 
+          Array.isArray(Professions.jobs[jobGroup].list) &&
           <label>
             <span>Job</span>
             <select className="job" onChange={this.change} value={job}>
               <option value="all">random job</option>
               {
-                Professions.jobs[occupationGroup].list.map( job => <option key={job} value={job}>{job.replace("*","person")}</option>)
+                Professions.jobs[jobGroup].list.map( job => <option key={job} value={job}>{job.replace("*","person")}</option>)
               }
             </select>
           </label>
         }
 
-        { occupationGroup !== undefined && 
-          occupationGroup !== "all" && 
-          occupationGroup !== "adventurer" &&
-          !Array.isArray(Professions.jobs[occupationGroup].list) &&
+        { jobGroup !== undefined && 
+          jobGroup !== "all" && 
+          jobGroup !== "adventurer" &&
+          !Array.isArray(Professions.jobs[jobGroup].list) &&
           sex === "all" &&
-          <p>please select a sex to choose a specific {occupationGroup} job.</p>
+          <p>please select a sex to choose a specific {jobGroup} job.</p>
         }
 
-        { occupationGroup !== undefined && 
-          occupationGroup !== "all" && 
-          occupationGroup !== "adventurer" &&
-          !Array.isArray(Professions.jobs[occupationGroup].list) &&
+        { jobGroup !== undefined && 
+          jobGroup !== "all" && 
+          jobGroup !== "adventurer" &&
+          !Array.isArray(Professions.jobs[jobGroup].list) &&
           sex === "male" &&
           <label>Job
             <select className="job" onChange={this.change} value={job}>
               <option value="all">random job</option>
               {
-                Professions.jobs[occupationGroup].list.male.map( job => <option key={job} value={job}>{job.replace("*","person")}</option>)
+                Professions.jobs[jobGroup].list.male.map( job => <option key={job} value={job}>{job.replace("*","person")}</option>)
               }
             </select>
           </label>
         }
 
-        {occupationGroup !== undefined && 
-          occupationGroup !== "all" && 
-          occupationGroup !== "adventurer" &&
-          !Array.isArray(Professions.jobs[occupationGroup].list) &&
+        {jobGroup !== undefined && 
+          jobGroup !== "all" && 
+          jobGroup !== "adventurer" &&
+          !Array.isArray(Professions.jobs[jobGroup].list) &&
           sex === "female" &&
           <label>Job
             <select className="job" onChange={this.change} value={job}>
               <option value="all">random job</option>
               {
-                Professions.jobs[occupationGroup].list.female.map( job => <option key={job} value={job}>{job.replace("*","person")}</option>)
+                Professions.jobs[jobGroup].list.female.map( job => <option key={job} value={job}>{job.replace("*","person")}</option>)
               }
             </select>
           </label>
         }
 
-        { occupationGroup !== undefined && 
-          occupationGroup === "adventurer" &&
+        { jobGroup !== undefined && 
+          jobGroup === "adventurer" &&
           <label>Class
             <select className="job" onChange={this.change} value={job}>
               <option value="all">random class</option>
               {
-                Object.keys(Professions.jobs[occupationGroup]).map( job => <option key={job} value={job}>{job}</option>)
+                Object.keys(Professions.jobs[jobGroup]).map( job => <option key={job} value={job}>{job}</option>)
               }
             </select>
           </label>

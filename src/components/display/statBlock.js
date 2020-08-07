@@ -24,7 +24,7 @@ export default class dndStatBlock extends Component {
       <section className="statsShell">
         <div className="statBlock">
           <div className="grouping">
-            <h3 className="name">{person.name.name} {person.name.surname}</h3>
+            <h3 className="name">{person.name.displayName}</h3>
             <button 
               className="copy" 
               data-balloon-pos="left" 

@@ -88,26 +88,29 @@ export default class KingdomDisplay extends Component {
             size={kingdom.name.length + kingdom.name.length / 3}
             onChange={this.updateName}
             value={kingdom.name} />
-
-          <span 
-            role="img" 
-            className="emjoiIcon seed" 
-            data-balloon-pos="up" 
-            aria-label={`seed: ${kingdom.seed}`} 
-            onClick={() => {navigator.clipboard.writeText(kingdom.seed)}}>🌱</span>
-
-          <span
-            role="img" 
-            className="emjoiIcon save"
-            aria-label={`Copy URL to ${kingdom.name}`} 
-            data-balloon-pos="left"
-            onClick={() => {navigator.clipboard.writeText( Utils.buildShareURL(kingdom) )}}>🔗</span>
           
-          <span
-            role="img" 
-            className="emjoiIcon copyData"
-            aria-label={`Copy JSON for ${kingdom.name}`} 
-            data-balloon-pos="left">📋</span>
+        
+          <div className="iconContainer">
+            <span 
+              role="img" 
+              className="emjoiIcon seed" 
+              data-balloon-pos="up" 
+              aria-label={`seed: ${kingdom.seed}`} 
+              onClick={() => {navigator.clipboard.writeText(kingdom.seed)}}>🌱</span>
+
+            <span
+              role="img" 
+              className="emjoiIcon save"
+              aria-label={`Copy URL to ${kingdom.name}`} 
+              data-balloon-pos="left"
+              onClick={() => {navigator.clipboard.writeText( Utils.buildShareURL(kingdom) )}}>🔗</span>
+            
+            <span
+              role="img" 
+              className="emjoiIcon copyData"
+              aria-label={`Copy JSON for ${kingdom.name}`} 
+              data-balloon-pos="left">📋</span>
+          </div>
 
           <div className="displayLayout">
             <div className="column">

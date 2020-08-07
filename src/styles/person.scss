@@ -1,0 +1,36 @@
+@import 'mixins';
+
+ul.information {
+  max-width: 45em;
+  list-style-type: none;
+  padding-left: 0;
+  column-count: 3;
+  margin: 0;
+  padding-left: 0.5em;
+
+  li {
+    display: inline-block;
+    line-height: 2em;
+    font-size: 0.9em;
+
+    strong {
+      display: inline-block;
+      // margin-right: 0.3em;
+      width: 7.5em;
+    }
+
+    span.result {
+      text-transform: capitalize;
+    }
+  }
+}
+
+@media screen and (max-width:$breakpoint-mobile) {
+  ul.information {
+    column-count: 1;
+
+    li {
+      width: 90vw;
+    }
+  }
+}

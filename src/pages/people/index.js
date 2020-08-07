@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Aside from "components/aside";
-import PersonDisplay from 'components/display/person';
-import Person from "components/generators/person/person";
-import Noble from "components/generators/person/noble";
+import Aside from "../../components/aside";
+import PersonDisplay from '../../components/display/person';
+import Person from "../../components/generators/person/person";
+import Noble from "../../components/generators/person/noble";
 
-import Professions from "data/professions";
-import Race from "data/races/allRaces";
-import crData from "data/mechanics/monsterCR";
+import Professions from "../../data/professions";
+import Race from "../../data/races/allRaces";
+import crData from "../../data/mechanics/monsterCR";
 
 const allAlignments = ["lawful good","neutral good","chaotic good","lawful neutral","true neutral","chaotic neutral","lawful evil","neutral evil","chaotic evil"];
 
@@ -100,73 +100,77 @@ export default class People extends Component {
   }
 
   getOccupationBlock(){
+    const { occupationGroup, job, sex } = this.state;
+
     return (
       <React.Fragment>
-        <label>Occupation Type
-          <select className="occupationGroup" onChange={this.change} value={this.state.occupationGroup}>
+        <label>
+          <span>Occupation</span>
+          <select className="occupationGroup" onChange={this.change} value={occupationGroup}>
             <option value="all">random occupation</option>
             {this.getOptions(Professions.jobs)}
           </select>
         </label>
 
-        { this.state.occupationGroup !== undefined && 
-          this.state.occupationGroup !== "all" && 
-          Array.isArray(Professions.jobs[this.state.occupationGroup].list) &&
-          <label>Job
-            <select className="job" onChange={this.change} value={this.state.job}>
+        { occupationGroup !== undefined && 
+          occupationGroup !== "all" && 
+          Array.isArray(Professions.jobs[occupationGroup].list) &&
+          <label>
+            <span>Job</span>
+            <select className="job" onChange={this.change} value={job}>
               <option value="all">random job</option>
               {
-                Professions.jobs[this.state.occupationGroup].list.map( job => <option key={job} value={job}>{job.replace("*","person")}</option>)
+                Professions.jobs[occupationGroup].list.map( job => <option key={job} value={job}>{job.replace("*","person")}</option>)
               }
             </select>
           </label>
         }
 
-        { this.state.occupationGroup !== undefined && 
-          this.state.occupationGroup !== "all" && 
-          this.state.occupationGroup !== "adventurer" &&
-          !Array.isArray(Professions.jobs[this.state.occupationGroup].list) &&
-          this.state.sex === "all" &&
-          <p>please select a sex to choose a specific {this.state.occupationGroup} job.</p>
+        { occupationGroup !== undefined && 
+          occupationGroup !== "all" && 
+          occupationGroup !== "adventurer" &&
+          !Array.isArray(Professions.jobs[occupationGroup].list) &&
+          sex === "all" &&
+          <p>please select a sex to choose a specific {occupationGroup} job.</p>
         }
 
-        { this.state.occupationGroup !== undefined && 
-          this.state.occupationGroup !== "all" && 
-          this.state.occupationGroup !== "adventurer" &&
-          !Array.isArray(Professions.jobs[this.state.occupationGroup].list) &&
-          this.state.sex === "male" &&
+        { occupationGroup !== undefined && 
+          occupationGroup !== "all" && 
+          occupationGroup !== "adventurer" &&
+          !Array.isArray(Professions.jobs[occupationGroup].list) &&
+          sex === "male" &&
           <label>Job
-            <select className="job" onChange={this.change} value={this.state.job}>
+            <select className="job" onChange={this.change} value={job}>
               <option value="all">random job</option>
               {
-                Professions.jobs[this.state.occupationGroup].list.male.map( job => <option key={job} value={job}>{job.replace("*","person")}</option>)
+                Professions.jobs[occupationGroup].list.male.map( job => <option key={job} value={job}>{job.replace("*","person")}</option>)
               }
             </select>
           </label>
         }
 
-        { this.state.occupationGroup !== undefined && 
-          this.state.occupationGroup !== "all" && 
-          this.state.occupationGroup !== "adventurer" &&
-          !Array.isArray(Professions.jobs[this.state.occupationGroup].list) &&
-          this.state.sex === "female" &&
+        {occupationGroup !== undefined && 
+          occupationGroup !== "all" && 
+          occupationGroup !== "adventurer" &&
+          !Array.isArray(Professions.jobs[occupationGroup].list) &&
+          sex === "female" &&
           <label>Job
-            <select className="job" onChange={this.change} value={this.state.job}>
+            <select className="job" onChange={this.change} value={job}>
               <option value="all">random job</option>
               {
-                Professions.jobs[this.state.occupationGroup].list.female.map( job => <option key={job} value={job}>{job.replace("*","person")}</option>)
+                Professions.jobs[occupationGroup].list.female.map( job => <option key={job} value={job}>{job.replace("*","person")}</option>)
               }
             </select>
           </label>
         }
 
-        { this.state.occupationGroup !== undefined && 
-          this.state.occupationGroup === "adventurer" &&
+        { occupationGroup !== undefined && 
+          occupationGroup === "adventurer" &&
           <label>Class
-            <select className="job" onChange={this.change} value={this.state.job}>
+            <select className="job" onChange={this.change} value={job}>
               <option value="all">random class</option>
               {
-                Object.keys(Professions.jobs[this.state.occupationGroup]).map( job => <option key={job} value={job}>{job}</option>)
+                Object.keys(Professions.jobs[occupationGroup]).map( job => <option key={job} value={job}>{job}</option>)
               }
             </select>
           </label>
@@ -176,29 +180,32 @@ export default class People extends Component {
   }
 
   render() {
-    const person = this.state.person;
+    const { person, race, sex, alignment, cr } = this.state;
 
     return (
       <div className="App">
         <main className="content">
           <Aside>
-            <label>Race
-              <select className="race" onChange={this.change} value={this.state.race}>
+            <label>
+              <span>Race</span>
+              <select className="race" onChange={this.change} value={race}>
                 <option value="all">random race</option>
                 {this.getOptions(Race)}
               </select>
             </label>
 
-            <label>Sex
-              <select className="sex" onChange={this.change} value={this.state.sex}>
+            <label>
+              <span>Sex</span>
+              <select className="sex" onChange={this.change} value={sex}>
                 <option value="all">random sex</option>
                 <option value="male">male</option>
                 <option value="female">female</option>
               </select>
             </label>
 
-            <label>Alignment
-              <select className="alignment" onChange={this.change} value={this.state.alignment}>
+            <label>
+              <span>Alignment</span>
+              <select className="alignment" onChange={this.change} value={alignment}>
                 <option value="all">random alignment</option>
                 <option disabled>-------</option>
                 {this.getOptions(alignments)}
@@ -213,8 +220,9 @@ export default class People extends Component {
               this.getOccupationBlock()
             }
 
-            <label>Challenge
-              <select className="cr" onChange={this.change} value={this.state.cr}>
+            <label>
+              <span>Challenge</span>
+              <select className="cr" onChange={this.change} value={cr}>
                 <option value="all">random cr</option>
                 {
                   crData.cr.map( cr => <option key={cr._cr} value={cr._cr}>{cr._cr}</option>)
@@ -229,7 +237,7 @@ export default class People extends Component {
           </Aside>
 
           { person && 
-            <PersonDisplay person={this.state.person} state={this.state} stateHandler={this.stateHandler}/>
+            <PersonDisplay person={person} state={this.state} stateHandler={this.stateHandler}/>
           }
         </main>
       </div>

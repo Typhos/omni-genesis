@@ -10,8 +10,7 @@ nav.navigation {
   align-items: center;
 
   .navBox {
-    width: 100rem;
-    margin: 0 auto;
+    width: auto;
     display: flex;
     justify-content: flex-start;
 
@@ -26,8 +25,30 @@ nav.navigation {
         color: rgba($lightText, 0.25);
       }
 
-      &:hover:after{
-        color: rgba($moodGreen, 0.25);
+      &:hover:after,
+      &.active {
+        color: $moodGreen;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:$breakpoint-mobile) {
+  nav.navigation {
+    padding: 0.25em $mobileSidePadding;
+    width: 94vw;
+
+    .navBox {
+      justify-content: space-evenly;
+      width: 100vw;
+
+      a {
+        margin: 0;
+
+        &:after {
+          content: "";
+          margin: 0;
+        }
       }
     }
   }

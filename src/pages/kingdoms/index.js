@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import Utils from "components/utils";
-import Aside from "components/aside";
-import Kingdom from 'components/generators/kingdom';
-import KingdomDisplay from "components/display/kingdom";
-import CityDisplay from 'components/display/city';
-import PersonDisplay from 'components/display/person';
+import Utils from "../../components/utils";
+import Aside from "../../components/aside";
+import Kingdom from '../../components/generators/kingdom';
+import KingdomDisplay from "../../components/display/kingdom";
+import CityDisplay from '../../components/display/city';
+import PersonDisplay from '../../components/display/person';
+import LoadingSpinner from '../../components/display/loadingSpinner';
 
-import stateSizes from "data/kingdoms/sizes";
-import placeNames from "data/names/randomPlaceNames";
-
+import stateSizes from "../../data/kingdoms/sizes";
+import placeNames from "../../data/names/randomPlaceNames";
 
 export default class Kingdoms extends Component {
   
@@ -17,7 +17,8 @@ export default class Kingdoms extends Component {
     Utils.setNewSeed();
 
     this.state = {
-      "seed": Math.seed
+      "seed": Math.seed,
+      "loading": false
     };
 
     this.change = this.change.bind(this);
@@ -36,23 +37,18 @@ export default class Kingdoms extends Component {
 
   buildKingdom() {
     const params = {...this.state};
-
-    console.time('kingdom build');
     const kingdom = new Kingdom(params);
-    console.timeEnd('kingdom build');
-
     Utils.setNewSeed();
 
     this.setState({
       "kingdom": kingdom,
+      "loading": false,
+      "seed": Math.seed,
       "display": null,
       "fullDisplay": null,
-      "seed": Math.seed,
       "city": null,
-      "previousEntries": []
+      "previousEntries": [],
     });
-
-    console.log(kingdom)
   }
 
   getOptions(obj, sort, filterKey) {
@@ -76,42 +72,50 @@ export default class Kingdoms extends Component {
   }
 
   render() {
+    const {size, culture, seed, kingdom, city, person, loading} = this.state;
 
     return (
       <div className="App">
         <main className="content">
         <Aside>
-            <label>State Size
-              <select name="size" onChange={this.change} value={this.state.size}>
+            <label>
+              <span>State Size</span>
+              <select name="size" onChange={this.change} value={size}>
                 <option value="all">random size</option>
                 {this.getOptions(stateSizes.sizes, false)}
               </select>
             </label>
 
-            <label>Culture
-              <select name="culture" onChange={this.change} value={this.state.culture}>
+            <label>
+              <span>Culture</span>
+              <select name="culture" onChange={this.change} value={culture}>
                 <option value="all">random culture</option>
                 {this.getOptions( placeNames, true)}
               </select>
             </label>
 
-            <label>Seed
-              <input type="number" name="seed" onChange={this.change} value={this.state.seed}/>
+            <label>
+              <span>Seed</span>
+              <input type="number" name="seed" onChange={this.change} value={seed}/>
             </label>
 
             <button id="generateState" className="buildButton" onClick={this.buildKingdom}>build kingdom</button>
           </Aside>
+            
+          <LoadingSpinner name="kingdomLoading" show={loading}>
+            <span>Loading...</span>
+          </LoadingSpinner>
 
-          { this.state.kingdom && 
-            <KingdomDisplay kingdom={this.state.kingdom} state={this.state} stateHandler={this.stateHandler}/>
+          { kingdom && 
+            <KingdomDisplay kingdom={kingdom} state={this.state} stateHandler={this.stateHandler}/>
           }
 
-          { this.state.city &&
-            <CityDisplay city={this.state.city} state={this.state} stateHandler={this.stateHandler}/>
+          { city &&
+            <CityDisplay city={city} state={this.state} stateHandler={this.stateHandler}/>
           }
 
-          { this.state.person &&
-            <PersonDisplay person={this.state.person} state={this.state} stateHandler={this.stateHandler}/>
+          { person &&
+            <PersonDisplay person={person} state={this.state} stateHandler={this.stateHandler}/>
           }
 
         </main>

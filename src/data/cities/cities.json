@@ -13,7 +13,7 @@
         "farming",
         "fishing",
         "mining",
-        "ranching",
+        "herding",
         "logging"
       ]
     },
@@ -22,14 +22,16 @@
         "farming",
         "fishing",
         "mining",
-        "ranching",
+        "herding",
         "logging"
       ]
     },
     "castle-town": {
       "main": [
         "town market",
-        "mercenaries"
+        "mercenaries",
+        "mining",
+        "logging"
       ],
       "svDiff": {
         "blacksmith": 750,
@@ -45,7 +47,10 @@
     "town": {
       "main": [
         "town market",
-        "crafting"        
+        "crafting",
+        "mercenaries",
+        "farming",
+        "fishing"
       ]
     },
     "city": {

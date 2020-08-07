@@ -23,7 +23,13 @@ $dndRed: #7A200D;
 $dndGreen: #0d7756;
 $dndGold: #E59A28;
 
+
+
 $breakpoint-mobile: 768px;
+$mobileSidePadding: 3vw;
+$mobileWidth: calc(100vw - #{$mobileSidePadding * 2});
+
+
 
 $monoSpace: "Ubuntu Mono", monospace !important;
 $styleText: "Cinzel", serif;

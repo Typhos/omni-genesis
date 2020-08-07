@@ -1,10 +1,15 @@
 import Utils from "components/utils";
+import City from "components/generators/cities";
 
 import placeNames from "data/names/randomPlaceNames";
-import governments from "data/governments";
 import stateSizes from "data/kingdoms/sizes";
-import City from "components/generators/cities";
 import cityDataObj from "data/cities/cities";
+
+// const kingdomWorker: Worker = new Worker("./workers/kingdomWorker.js");
+
+// kingdomWorker.onmessage = (resp) => {
+//   console.log(resp);
+// }
 
 export default class Kingdom {
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Display from "components/display";
+import Display from "components/display/";
 import Utils from "components/utils";
 import Noble from "components/generators/person/noble";
 
@@ -125,10 +125,10 @@ export default class CityDisplay extends Component {
       <Display>
         { this.props.state && this.props.state.previousEntries && this.props.state.previousEntries.length > 0 &&
           <React.Fragment>
-            <a
+            <button
               className="backButton"
               onClick={ () => { this.backOneEntry() } }
-              >&laquo; Back to { this.props.state.previousEntries[ this.props.state.previousEntries.length - 1 ].name }</a>
+              >&laquo; Back to { this.props.state.previousEntries[ this.props.state.previousEntries.length - 1 ].name }</button>
               <br/>
           </React.Fragment>
         }
@@ -137,25 +137,28 @@ export default class CityDisplay extends Component {
           size={city.name.length + city.name.length / 3}
           onChange={this.updateName}
           value={city.name} />
-        <span 
-          role="img" 
-          className="emjoiIcon seed" 
-          data-balloon-pos="up" 
-          aria-label={`seed: ${city.seed}`} 
-          onClick={() => {navigator.clipboard.writeText(city.seed)}}>🌱</span>
-
-        <span
-          role="img" 
-          className="emjoiIcon save"
-          aria-label={`Copy URL to ${city.name}`} 
-          data-balloon-pos="left"
-          onClick={() => {navigator.clipboard.writeText( Utils.buildShareURL(city) )}}>🔗</span>
         
-        <span
-          role="img" 
-          className="emjoiIcon copyData"
-          aria-label={`Copy JSON for ${city.name}`} 
-          data-balloon-pos="left">📋</span>
+        <div className="iconContainer">
+          <span 
+            role="img" 
+            className="emjoiIcon seed" 
+            data-balloon-pos="up" 
+            aria-label={`seed: ${city.seed}`} 
+            onClick={() => {navigator.clipboard.writeText(city.seed)}}>🌱</span>
+
+          <span
+            role="img" 
+            className="emjoiIcon save"
+            aria-label={`Copy URL to ${city.name}`} 
+            data-balloon-pos="left"
+            onClick={() => {navigator.clipboard.writeText( Utils.buildShareURL(city) )}}>🔗</span>
+          
+          <span
+            role="img" 
+            className="emjoiIcon copyData"
+            aria-label={`Copy JSON for ${city.name}`} 
+            data-balloon-pos="left">📋</span>
+        </div>
 
         <div className="displayLayout">
           <div className="column">
@@ -183,6 +186,9 @@ export default class CityDisplay extends Component {
                   onClick={() => {this.updateDisplay(null)}} >❌</span>                      
               }
             </p>
+
+            <br/>
+
             <p className="cityType">
               <strong>Prof. Guards: </strong>
               <span>{city.guards.count}</span>

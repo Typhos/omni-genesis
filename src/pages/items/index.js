@@ -17,7 +17,7 @@ export default class ItemGenerator extends Component {
     super (props);
 
     this.state = {
-      newItem: {},
+      item: undefined,
       category: "all",
       type: undefined,
       subtype: undefined
@@ -57,7 +57,7 @@ export default class ItemGenerator extends Component {
     const generatedItem = new Item(state.category, state.type, state.subtype);
 
     // this.runTest(500);
-    this.setState({newItem: generatedItem});
+    this.setState({item: generatedItem});
   }  
   
   runTest(num) {
@@ -80,7 +80,7 @@ export default class ItemGenerator extends Component {
   }
 
   render() {
-    const item = this.state.newItem;
+    const item = this.state.item;
     const typeGroup = (this.state.category !== "all") ? itemsData[this.state.category] : undefined;
     const subGroups = (this.state.type !== undefined && this.state.type !== "all") ? itemsData[this.state.category][this.state.type].subtype : undefined;
 
@@ -109,10 +109,10 @@ export default class ItemGenerator extends Component {
 
             <button id="generateItem" className="buildButton" onClick={this.initItemGen}>
               { this.state.category === "all" &&
-                <span>build</span>
+                <span>build item</span>
               }
               {
-                this.state.type === "all" &&
+                this.state.type === "all" && this.state.category !== "all" &&
                 <span>build {this.state.category}</span>
               }
               {

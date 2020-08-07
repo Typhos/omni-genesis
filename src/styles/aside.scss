@@ -79,3 +79,40 @@ button.buildButton {
     cursor: wait;
   }
 }
+
+
+@media screen and (max-width:$breakpoint-mobile) {
+  aside.leftAside {
+    width: $mobileWidth;
+    padding: 0 $mobileSidePadding;
+    justify-content: center;
+
+    label {
+      display: block;
+
+      span {
+        display: inline-block;
+        min-width: 20vw;
+      }
+    }
+
+    select,
+    input[type=number] {
+      display: inline-block;
+      width: auto;
+      min-width: 12em;
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+      margin-left: 1em;
+      margin-right: 0;
+    }
+
+    input[type=number] {
+      padding-left: 1em;
+    }
+
+    .buildButton {
+      margin-top: 2em;
+    }
+  }
+}

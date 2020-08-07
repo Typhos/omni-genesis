@@ -1,17 +1,17 @@
 //components
 import React, { Component } from 'react';
-import Utils from "components/utils";
-import Aside from "components/aside";
-import CityDisplay from "components/display/city";
-import PersonDisplay from 'components/display/person';
+import Utils from "../../components/utils";
+import Aside from "../../components/aside";
+import CityDisplay from "../../components/display/city";
+import PersonDisplay from '../../components/display/person';
 
 //generators
-import CityGenerator from "components/generators/cities";
+import CityGenerator from "../../components/generators/cities";
 
 //data
-import cityObj from "data/cities/cities";
-import pantheonsObj from "data/gods/pantheons";
-import placeNames from "data/names/randomPlaceNames";
+import cityObj from "../../data/cities/cities";
+import pantheonsObj from "../../data/gods/pantheons";
+import placeNames from "../../data/names/randomPlaceNames";
 
 //styles
 import "styles/cities.scss";
@@ -128,29 +128,29 @@ export default class Settlements extends Component {
         <main className="content">
 
            <Aside>
-            <label>City Size
+            <label><span>City Size</span>
               <select name="type" onChange={this.change} value={this.state.type}>
                 <option value="all">random size</option>
                 {this.getOptions(cityObj.sizes, false)}
               </select>
             </label>
-            <label>Culture
+            <label><span>Culture</span>
               <select name="culture" onChange={this.change} value={this.state.culture}>
                 <option value="all">random culture</option>
                 {this.getOptions( placeNames, true)}
               </select>
             </label>
-            <label>Pantheon
+            <label><span>Pantheon</span>
               <select name="pantheon" onChange={this.change} value={this.state.pantheon}>
                 {this.getOptions(pantheonsObj, true)}
               </select>
             </label>
 
-            <label>Seed
+            <label><span>Seed</span>
               <input type="number" name="seed" onChange={this.change} value={this.state.seed}/>
             </label>
 
-            <button id="generateCity" className="buildButton" onClick={this.initCityBuild}>build settlement</button>
+            <button id="generateCity" className="buildButton" onClick={this.initCityBuild}>build city</button>
           </Aside>
 
           { this.state.city && 

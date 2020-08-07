@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Display from "components/display";
-import Utils from "components/utils";
 import StatBlock from "components/display/statBlock";
+import Utils from "components/utils";
 
-// import Person from "components/generators/person";
+import "styles/person.scss";
 
 export default class PersonDisplay extends Component {
 
@@ -82,10 +82,10 @@ export default class PersonDisplay extends Component {
       <Display>
         { this.props.state && this.props.state.previousEntries && this.props.state.previousEntries.length > 0 &&
           <React.Fragment>
-            <a
+            <button
               className="backButton"
               onClick={ () => { this.backOneEntry() } }
-              >&laquo; Back to { this.props.state.previousEntries[ this.props.state.previousEntries.length - 1 ].name }</a>
+              >&laquo; Back to { this.props.state.previousEntries[ this.props.state.previousEntries.length - 1 ].name }</button>
               <br/>
           </React.Fragment>
         }

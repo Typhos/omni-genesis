@@ -24,3 +24,10 @@ header.appHeader {
     }
   }
 }
+
+@media screen and (max-width:$breakpoint-mobile) {
+  header.appHeader {
+    padding: 0.25em $mobileSidePadding;
+    width: 94vw;
+  }
+}

@@ -51,7 +51,6 @@
     top: 1em;
     border: 0;
     cursor: pointer;
-    font-size: 0.8em;
     font-variant: small-caps;
     letter-spacing: 0.1em;
     padding: 0.66em 1em;
@@ -182,6 +181,18 @@
       }
 
       p.name {
+      }
+    }
+  }
+
+  .statsShell {
+    .grouping {
+      &.stats {
+        .block {
+          display: inline-block;
+          padding: 1em 0;
+          width: 6vw;
+        }
       }
     }
   }

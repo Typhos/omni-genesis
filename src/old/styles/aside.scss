@@ -10,24 +10,6 @@ aside.leftAside {
   margin: 2em 0 0;
   padding: 0.25rem 1rem;
 
-  select {
-    display: block;
-    width: 215px;
-
-    border: 0;
-    border-bottom: 1px solid $midTone;
-    
-    font-size: 1.2em;
-    font-family: $fira;
-    font-variant: small-caps;
-    letter-spacing: 0.1em;
-    
-    background-color: transparent;
-    
-    margin: 1rem 0;
-    padding: 0.25rem 0.5rem;
-  }
-
   input[type="number"] {
     display: block;
     width: 200px;
@@ -45,41 +27,6 @@ aside.leftAside {
     border-bottom: 1px solid $midTone;
   }
 }
-
-button.buildButton {
-  display: block;
-  width: 90%;
-
-  margin: 2.5em auto 1em;
-  padding: 1em 1em;
-
-  color: $moodGreen;
-  font-size: 1.4em;
-  font-family: $fira;
-  font-variant: small-caps;
-  letter-spacing: 0.066em;
-  
-  border: 0;
-  border-radius: 3px;
-
-  background-color: rgba($button-color, 0.9);
-
-  cursor: pointer;
-
-  transition: 0.3s ease-in-out;
-
-  &:hover {
-    transform: scale(1.05);
-    
-    background-color: $button-color;
-  }
-
-  &:active {
-    transform: scale(0.8);
-    cursor: wait;
-  }
-}
-
 
 @media screen and (max-width:$breakpoint-mobile) {
   aside.leftAside {
@@ -109,10 +56,6 @@ button.buildButton {
 
     input[type=number] {
       padding-left: 1em;
-    }
-
-    .buildButton {
-      margin-top: 2em;
     }
   }
 }

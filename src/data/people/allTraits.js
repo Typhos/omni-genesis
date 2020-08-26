@@ -1,5 +1,5 @@
-import quirks from "data/people/quirks";
-import values from "data/people/values";
+import quirks from "./quirks";
+import values from "./values";
 
 export default {
   ...quirks,

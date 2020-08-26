@@ -44,6 +44,8 @@
       "Ward"
     ],
     "adjective":[
+      "New",
+      "Old",
       "Sturdy",
       "Enduring",
       "Lonely",
@@ -61,7 +63,7 @@
       "Shining",
       "Splendid",
       "Imposing",
-      "Wonderous",
+      "Wondrous",
       "Green",
       "Red",
       "Black",
@@ -142,6 +144,8 @@
       "Tradesman"
     ],
     "adjective":[
+      "New",
+      "Old",
       "Sturdy",
       "Enduring",
       "Lonely",
@@ -154,7 +158,7 @@
       "Elder",
       "Exalted",
       "Famous",
-      "Wonderous",
+      "Wondrous",
       "Splendid",
       "Imposing",
       "Green",
@@ -245,6 +249,8 @@
       "Dagger"
     ],
     "adjective":[
+      "New",
+      "Old",
       "Deadly",
       "Famous",
       "Sturdy",
@@ -264,7 +270,7 @@
       "Shining",
       "Splendid",
       "Imposing",
-      "Wonderous",
+      "Wondrous",
       "Silver"
     ],
     "staff":[
@@ -916,7 +922,7 @@
       "Sweet",
       "Lofty",
       "Heavenly",
-      "Wonderous",
+      "Wondrous",
       "Lovely",
       "Alluring",
       "Enchanting",

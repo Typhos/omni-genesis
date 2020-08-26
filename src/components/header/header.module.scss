@@ -1,0 +1,33 @@
+@import '../../styles/mixins';
+
+.appHeader {
+  background-color: $charcoal;
+  color: $lightText;
+  padding: 0.75rem 1rem;
+  margin: 0;
+  height: 4rem;
+  border-bottom: 1px solid $moodGreen;
+
+  small {
+    font-size: 0.75em;
+    text-transform: uppercase;
+  }
+
+  .headerBox {
+    max-width: 100rem;
+    margin: 0 auto;
+    display: block;
+
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (max-width:$breakpoint-mobile) {
+  .appHeader {
+    padding: 0.25em $mobileSidePadding;
+    width: 94vw;
+  }
+}

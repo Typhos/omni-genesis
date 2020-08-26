@@ -1,0 +1,35 @@
+@import '../../../styles/mixins';
+
+.title {
+  display: block;
+}
+
+.select {
+  display: block;
+  width: 215px;
+
+  border: 0;
+  border-bottom: 1px solid $midTone;
+  
+  font-size: 1.2em;
+  font-family: $fira;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  
+  background-color: transparent;
+  
+  margin: 1rem 0;
+  padding: 0.25rem 0.5rem;
+}
+
+@media screen and (max-width:$breakpoint-mobile) {
+  select {
+    display: inline-block;
+    width: auto;
+    min-width: 12em;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    margin-right: 0;
+  }
+}

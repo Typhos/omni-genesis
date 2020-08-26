@@ -1,21 +1,20 @@
 // components
-import Utils from "components/utils";
+import Utils from "../../utils";
+import StatGenerator from "../dndStatBlock/statGenerator";
 
 //data
-import crData from "data/mechanics/monsterCR";
-import openSourceRaceData from "data/races/5eToolsRaces";
-import Languages from "data/languages/all";
-
-import StatGenerator from "components/generators/dndStatBlock/statGenerator";
+import CrData from "../../../data/mechanics/monsterCR";
+import Languages from "../../../data/languages/all";
+import OpenSourceRaceData from "../../../data/races/5eToolsRaces";
 
 export default class StatBlock {
 
   constructor (race, subRace, cr) {
-    this.raceDataObj = openSourceRaceData.race.filter( tR => tR.name.toLowerCase() === race && tR.source === "PHB" )[0];
+    this.raceDataObj = OpenSourceRaceData.race.filter( tR => tR.name.toLowerCase() === race && tR.source === "PHB" )[0];
 
     if ( !cr ) {
       // no CR provided? set the CR between 1/8 and 4.
-      this.defensiveCR = crData.cr[ Utils.randomArrayIndex( 7) ]._cr;
+      this.defensiveCR = CrData.cr[ Utils.randomArrayIndex( 7) ]._cr;
       this.offensiveCR = this.defensiveCR;
       this.targetCR = this.defensiveCR;
     } else if ( cr ) {
@@ -25,7 +24,7 @@ export default class StatBlock {
     }
 
     // If no CR is provided, pick a random CR between 1/8 (index 0) and 5 (index 7).
-    this.cr = (!cr) ? crData.cr[Utils.randomArrayIndex( 7)]._cr : cr;
+    this.cr = (!cr) ? CrData.cr[Utils.randomArrayIndex( 7)]._cr : cr;
 
     const crArray = this.getCrIndexArray( this.cr );
     const offense = this.getOffStats( crArray[0] );
@@ -83,7 +82,7 @@ export default class StatBlock {
 
 
     function getAC () {
-      const baseAC = crData.cr[dCr].ac;
+      const baseAC = CrData.cr[dCr].ac;
       
       // console.log(`base AC = ${baseAC}`);
 
@@ -97,7 +96,7 @@ export default class StatBlock {
 
     function getHP(crChange) {
       const nCr = ( dCr - crChange < 0 ) ? 0 : dCr - crChange;
-      const stats = crData.cr[nCr];
+      const stats = CrData.cr[nCr];
 
       // console.log(`hp index after shift = ${nCr}`);
       // console.log(`hp range = ${stats.hpmin} to ${stats.hpmax}`);
@@ -124,7 +123,7 @@ export default class StatBlock {
 
 
     function getAtkBonus () {
-      const atkBonus = crData.cr[oCr].attackbonus;
+      const atkBonus = CrData.cr[oCr].attackbonus;
       // console.log(`base attackbonus = ${atkBonus}`);
 
       const atkMod = Utils.randomInt(-4,4);
@@ -137,7 +136,7 @@ export default class StatBlock {
 
     function getDpr(crChange) {
       const nCr = ( oCr - crChange < 0 ) ? 0 : oCr - crChange;
-      const stats = crData.cr[nCr];
+      const stats = CrData.cr[nCr];
 
       // console.log(`dpr index after shift = ${nCr}`);
       // console.log(`dpr range = ${stats.dprmin} to ${stats.dprmax}`);
@@ -156,7 +155,7 @@ export default class StatBlock {
     let oCR = this.offensiveCR.toString();
     let dCR = this.defensiveCR.toString();
 
-    const CRArray = crData.cr.map( entry => {
+    const CRArray = CrData.cr.map( entry => {
       return entry._cr;
     });
 
@@ -225,7 +224,7 @@ export default class StatBlock {
   }
 
   getPB() {
-    return crData.cr.find( index => index._cr === this.cr ).pb;
+    return CrData.cr.find( index => index._cr === this.cr ).pb;
   }
 
   getHitDice(hp, size, stats) {
@@ -376,18 +375,18 @@ export default class StatBlock {
   splitCr (desiredCR) {
     // This function takes a desired CR and splits it into combinations that can make up an average.
     // It then returns the indexes of those CRs from the CR data table
-    const desiredIndex = crData.cr.findIndex( e => e._cr === desiredCR );
+    const desiredIndex = CrData.cr.findIndex( e => e._cr === desiredCR );
     const maxSpread = 4;
 
     let avgOptsArray = [];
 
     for (let i = 0; i <= maxSpread; i++) {
       const low = (desiredIndex-i <= 0) ? 0 : desiredIndex-i;
-      const high = (desiredIndex+i >= crData.cr.length - 1) ? crData.cr.length - 1 : desiredIndex+i;      
+      const high = (desiredIndex+i >= CrData.cr.length - 1) ? CrData.cr.length - 1 : desiredIndex+i;      
 
       avgOptsArray.push([low, high]);
 
-      if (desiredIndex+i >= crData.cr.length - 1 || desiredIndex-i <= 0) {
+      if (desiredIndex+i >= CrData.cr.length - 1 || desiredIndex-i <= 0) {
         // terminate loop early if we hit the top or bottom of the possible options
         break;
       }

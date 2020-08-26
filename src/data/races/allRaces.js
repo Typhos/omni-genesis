@@ -1,27 +1,27 @@
-import dragonborn from "data/races/dragonborn";
-import dwarf from "data/races/dwarf";
-import elf       from "data/races/elf";
-import gnome from "data/races/gnome";
-import halfElf from "data/races/half-elf";
-import halfOrc from "data/races/half-orc";
-import halfling from "data/races/halfling";
-import human from "data/races/human";
-import tiefling from "data/races/tiefling";
+import dragonborn from "./dragonborn";
+import dwarf from "./dwarf";
+import elf       from "./elf";
+import gnome from "./gnome";
+import halfElf from "./half-elf";
+import halfOrc from "./half-orc";
+import halfling from "./halfling";
+import human from "./human";
+import tiefling from "./tiefling";
 
-// import aasimar     from "data/races/aasimar";
-// import anubari from "data/races/anubari";
-// import drow from "data/races/drow";
-// import firbolg from "data/races/firbolg";
-// import goblin from "data/races/goblin";
-// import goliath from "data/races/goliath";
-// import hobgoblin from "data/races/hobgoblin";
-// import kenku from "data/races/kenku";
-// import kobold from "data/races/kobold";
-// import lizardfolk from "data/races/lizardfolk";
-// import marus from "data/races/marus";
-// import orc from "data/races/orc";
-// import serbonji from "data/races/serbonji";
-// import uklang from "data/races/uklang";
+// import aasimar     from "./aasimar";
+// import anubari from "./anubari";
+// import drow from "./drow";
+// import firbolg from "./firbolg";
+// import goblin from "./goblin";
+// import goliath from "./goliath";
+// import hobgoblin from "./hobgoblin";
+// import kenku from "./kenku";
+// import kobold from "./kobold";
+// import lizardfolk from "./lizardfolk";
+// import marus from "./marus";
+// import orc from "./orc";
+// import serbonji from "./serbonji";
+// import uklang from "./uklang";
 
 export default {
   ...dwarf,

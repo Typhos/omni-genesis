@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Display from "components/display/";
+import Display from "components/display/display";
 import Utils from "components/utils";
 import Noble from "components/generators/person/noble";
 

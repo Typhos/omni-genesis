@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Display from "components/display";
-import StatBlock from "components/display/statBlock";
+import Display from "components/display/display";
+import StatBlock from "components/display/statBlock/statBlock";
 import Utils from "components/utils";
 
 import "styles/person.scss";

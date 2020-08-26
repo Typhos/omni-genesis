@@ -1,9 +1,8 @@
 // Common Components
-import Utils from "components/utils";
+import Utils from "../../utils";
 
 // Data
-import openSourceRaceData from "data/races/5eToolsRaces";
-
+import openSourceRaceData from "../../../data/races/5eToolsRaces";
 
 export default class Stats {
 

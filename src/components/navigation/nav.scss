@@ -1,0 +1,55 @@
+@import '../../styles/mixins';
+
+.navigation {
+  display: flex;
+  background-color: $charcoal;
+  color: $lightText;
+  padding: 0.75rem 1rem;
+  margin: 0;
+  height: 2rem;
+  align-items: center;
+
+  .navBox {
+    width: auto;
+    display: flex;
+    justify-content: flex-start;
+
+    a {
+      margin: 0 4em 0 0;
+      text-decoration: none;
+      letter-spacing: 0.15em;
+
+      &:after {
+        content: "\25BC";
+        margin-left: 0.5em;
+        color: rgba($lightText, 0.25);
+      }
+
+      &:hover:after,
+      &.active {
+        color: $moodGreen;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:$breakpoint-mobile) {
+  .navigation {
+    padding: 0.25em $mobileSidePadding;
+    width: 94vw;
+
+    .navBox {
+      justify-content: space-evenly;
+      width: 100vw;
+
+      a {
+        margin: 0;
+
+        &:after {
+          content: "";
+          margin: 0;
+        }
+      }
+    }
+  }
+}

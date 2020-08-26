@@ -1,4 +1,4 @@
-@import './mixins', './balloon';
+@import "./mixins", "./balloon";
 
 html {
   padding: 0;
@@ -8,7 +8,7 @@ html {
 body {
   font-family: $sansText;
   font-size: 15px;
-  background-color: $offWhite;
+  background-color: $lightText;
   padding: 0;
   margin: 0;
 }
@@ -46,7 +46,7 @@ h3 {
 
 h4 {
   font-size: 16px;
-  font-family: $headingText;
+  font-family: $serifText;
   letter-spacing: 0.075em;
   margin: 1em 0 0;
   padding: 0;
@@ -61,8 +61,7 @@ h4 {
   cursor: pointer;
 }
 
-
-@media screen and (max-width:$breakpoint-mobile) {
+@media screen and (max-width: $breakpoint-mobile) {
   main.content {
     width: 94vw;
     padding: 0 $mobileSidePadding;

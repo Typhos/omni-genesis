@@ -1,5 +1,5 @@
-import centhris from "data/gods/centhris";
-import faerun from "data/gods/faerun";
+import centhris from "./centhris";
+import faerun from "./faerun";
 
 export default {
   ...centhris,

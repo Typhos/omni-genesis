@@ -1,16 +1,14 @@
-import Utils from "components/utils";
+import Utils from "../../utils";
+import PersonGenerator from "../person/person";
 
-import Weapons from "data/weapons";
-import Armor from "data/armor";
-import Jewelry from "data/jewelry";
-import Items from "data/items";
-
-import MaterialData from "data/materials";
-
-import PersonGenerator from "components/generators/person/person";
+// DATA
+import Armor from "../../../data/armor";
+import Items from "../../../data/items";
+import Jewelry from "../../../data/jewelry";
+import MaterialData from "../../../data/materials";
+import Weapons from "../../../data/weapons";
 
 const itemsData = {...Weapons, ...Armor, ...Jewelry, ...Items};
-
 
 export default class Item {
   

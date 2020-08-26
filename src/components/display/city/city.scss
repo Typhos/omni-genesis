@@ -1,0 +1,52 @@
+@import "../../../styles/mixins";
+
+.cityName {
+  margin: 1em 0 0;
+  letter-spacing: 0.1em;
+  background-color: rgba(#9595a5, 0.15);
+  border-bottom: 1px solid #000;
+  padding: 0.1em 0.2em;
+}
+
+.cityImg {
+  width: 100%;
+  opacity: 0.5;
+  margin-bottom: 0.5em;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #000;
+}
+
+.infoDisplayHeading {
+  margin: 1.5em 0 0.25em;
+  font-size: 1.5em;
+  text-transform: capitalize;
+  border-bottom: 1px solid $charcoal;
+}
+
+.groupHeading {
+  border-bottom: 1px solid $midTone;
+  padding: 0;
+  margin: 0 0 1em;
+
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: $sansText;
+}
+
+.info {
+  &__label {
+    // color: $ckGold;
+  }
+
+  &__value {
+    color: $dndGold;
+  }
+}
+
+.nobleNames {
+  span {
+    font-size: 0.85em;
+  }
+}

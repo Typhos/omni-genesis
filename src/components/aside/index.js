@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import "styles/aside.scss";
+import styles from "./aside.module.scss";
 
 export default class Aside extends Component {
 
   render () {
 
     return (
-      <aside className="leftAside">
+      <aside className={styles.aside}>
         {this.props.children}
       </aside>
     )

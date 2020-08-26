@@ -1,0 +1,43 @@
+@import '../../../styles/mixins';
+
+$bgColor: $charcoal;
+$secondaryColor: $moodGreen;
+
+.standard {
+  display: block;
+  cursor: pointer;
+  width: 90%;
+
+  margin: 2.5em auto 1em;
+  padding: 1em 1em;
+
+  color: $secondaryColor;
+  font-family: $fira;
+  font-size: 1.4em;
+  font-variant: small-caps;
+  letter-spacing: 0.066em;
+  
+  border: 0;
+  border-radius: 3px;
+
+  background-color: rgba($bgColor, 0.9);
+
+  transition: 0.3s ease-in-out;  
+
+  &:hover {
+    transform: scale(1.05);
+    background-color: $bgColor;
+  }
+
+  &:active {
+    transform: scale(0.8);
+    cursor: wait;
+  }
+}
+
+
+@media screen and (max-width:$breakpoint-mobile) {
+  .standard{
+    margin-top: 2em;
+  }
+}

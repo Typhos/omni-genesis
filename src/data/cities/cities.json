@@ -1,38 +1,29 @@
 {
   "sizes": {
-    "hamlet": [20,150],
-    "village": [151,999],
-    "castle-town": [350,1200],
-    "town": [1000,4000],
-    "city": [8000,25000],
+    "hamlet": [20, 150],
+    "village": [151, 999],
+    "castle-town": [350, 1200],
+    "town": [1000, 4000],
+    "city": [8000, 25000],
     "metropolis": [25001, 99999]
+  },
+  "images": {
+    "hamlet": "hamlet.jpg",
+    "village": "village.jpg",
+    "castle-town": "castle-town.jpg",
+    "town": "town.jpg",
+    "city": "city.jpg",
+    "metropolis": "metropolis.jpg"
   },
   "economy": {
     "hamlet": {
-      "main": [
-        "farming",
-        "fishing",
-        "mining",
-        "herding",
-        "logging"
-      ]
+      "main": ["farming", "fishing", "mining", "herding", "logging"]
     },
     "village": {
-      "main": [
-        "farming",
-        "fishing",
-        "mining",
-        "herding",
-        "logging"
-      ]
+      "main": ["farming", "fishing", "mining", "herding", "logging"]
     },
     "castle-town": {
-      "main": [
-        "town market",
-        "mercenaries",
-        "mining",
-        "logging"
-      ],
+      "main": ["town market", "mercenaries", "mining", "logging"],
       "svDiff": {
         "blacksmith": 750,
         "armorsmith": 1000,
@@ -45,27 +36,13 @@
       }
     },
     "town": {
-      "main": [
-        "town market",
-        "crafting",
-        "mercenaries",
-        "farming",
-        "fishing"
-      ]
+      "main": ["town market", "crafting", "mercenaries", "farming", "fishing"]
     },
     "city": {
-      "main": [
-        "trade",
-        "workshops",
-        "guilds"
-      ]
+      "main": ["trade", "workshops", "guilds"]
     },
     "metropolis": {
-      "main": [
-        "trade",
-        "workshops",
-        "guilds"
-      ]
+      "main": ["trade", "workshops", "guilds"]
     }
   }
 }

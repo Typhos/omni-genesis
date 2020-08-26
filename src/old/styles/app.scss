@@ -1,0 +1,71 @@
+@import './mixins', './balloon';
+
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: $sansText;
+  font-size: 15px;
+  background-color: $offWhite;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: $lightText;
+
+  &:hover {
+    color: $moodGreen;
+  }
+}
+
+main.content {
+  display: flex;
+  justify-content: flex-start;
+
+  max-width: 980px;
+
+  margin: 0;
+  padding: 0 1em;
+}
+
+h1 {
+  font-size: 2em;
+  font-family: $styleText;
+  padding: 0;
+  margin: 0;
+}
+
+h2,
+h3 {
+  margin: 1em 0;
+  font-family: $headingText;
+}
+
+h4 {
+  font-size: 16px;
+  font-family: $headingText;
+  letter-spacing: 0.075em;
+  margin: 1em 0 0;
+  padding: 0;
+  border-bottom: 1px solid $charcoal;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+
+@media screen and (max-width:$breakpoint-mobile) {
+  main.content {
+    width: 94vw;
+    padding: 0 $mobileSidePadding;
+    flex-wrap: wrap;
+  }
+}

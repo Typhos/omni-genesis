@@ -1,0 +1,20 @@
+{
+  "dwarven": {
+    "dwarf": 300,
+    "human": 35,
+    "elf": 10,
+    "half-elf": 10,
+    "half-orc": 10,
+    "halfling": 20,
+    "gnome": 10
+  },
+  "elven": {
+    "elf": 300,
+    "dwarf": 10,
+    "human": 30,
+    "half-elf": 60,
+    "half-orc": 10,
+    "halfling": 10,
+    "gnome": 40
+  }
+}

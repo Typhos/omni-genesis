@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import Aside from "components/aside";
-import Display from "components/display";
-import StatBlock from "components/display/statBlock";
-import Accordion from "components/display/accordion";
+import Accordion from "../../components/accordion/accordion";
+import Aside from "../../components/aside";
+import Display from "../../components/display/display";
+import MerchantGenerator from "../../components/generators/merchants/merchantGenerator";
+import StatBlock from "../../components/display/statBlock/statBlock";
+import Button from "../../components/controls/button/buttonStandard";
+import Select from "../../components/controls/select/selectStandard";
 
-import Race from "data/races/allRaces";
-import merchantsObj from "data/merchants/merchants";
-import tavernsObj from "data/merchants/taverns";
-
-import MerchantGenerator from "components/generators/merchants/merchantGenerator";
+import Race from "../../data/races/allRaces";
+import merchantsObj from "../../data/merchants/merchants";
+import tavernsObj from "../../data/merchants/taverns";
 
 const allShops = {...merchantsObj, ...tavernsObj};
 
@@ -30,7 +31,7 @@ export default class Shops extends Component {
 
   change (e) {
     this.setState({
-      [e.target.className]: e.target.value
+      [e.target.name]: e.target.value
     });
   }
 
@@ -61,66 +62,53 @@ export default class Shops extends Component {
       owner: state.owner
     });
 
-    console.log(generatedShop)
-    // this.runTest(500);
-
-    this.setState({newShop: generatedShop});
-  }
-
-
-  runTest(num) {
-    console.log(`Making ${num} shops`);
-    console.time('shops');
-    new Array(num).fill(undefined).map( () => new MerchantGenerator());
-    console.timeEnd('shops');
+    this.setState({shop: generatedShop});
   }
 
   render() {
-    const shop = this.state.newShop;
+    const {shop, size, type, owner, atmosphere} = this.state;
 
     return (
       <div className="App">
         <main className="content">
            <Aside>
-            <label>Shop Type
-              <select className="type" onChange={this.change} value={this.state.type}>
-                <option value="all">random shop</option>
-                {this.getOptions(allShops)}
-              </select>
-            </label>
-            { this.state.type === "inn" &&
-              <label>Size
-                <select className="owner" onChange={this.change} value={this.state.owner}>
-                  <option value="all">random size</option>
-                  {this.getOptions(allShops["inn"].size)}
-                </select>
-              </label>
+            <Select title={"Shop Type"} name={"type"} value={type} onChange={this.change} >
+              <option value="all">random shop</option>
+              {this.getOptions(allShops)}
+            </Select>
+            
+            {/* 
+            { type === "inn" &&
+              <Select title={"Size"} name={"size"} value={size} onChange={this.change} >
+                <option value="all">random size</option>
+                {this.getOptions(allShops["inn"].size)}
+              </Select>
             }
-            { this.state.type === "inn" && 
-              <label>Atmosphere
-                <select className="owner" onChange={this.change} value={this.state.owner}>
-                  <option value="all">random atmosphere</option>
-                  {this.getOptions(allShops["inn"].atmosphere)}
-                </select>
-              </label>
+            { type === "inn" && 
+              <Select title={"Atmosphere"} name={"atmosphere"} value={atmosphere} onChange={this.change} >
+                <option value="all">random atmosphere</option>
+                {this.getOptions(allShops["inn"].atmosphere)}
+              </Select>
             }
-            { this.state.type === "tavern" &&
-              <label>Type of Tavern
-                <select className="owner" onChange={this.change} value={this.state.owner}>
-                  <option value="all">random type</option>
-                  {this.getOptions(Race)}
-                </select>
-              </label>
+            { type === "tavern" &&
+              <Select title={"Atmosphere"} name={"atmosphere"} value={atmosphere} onChange={this.change} >
+                <option value="all">random atmosphere</option>
+                {this.getOptions(allShops["tavern"].atmosphere)}
+              </Select>
             }
-            <label>Shop Owner
-              <select className="owner" onChange={this.change} value={this.state.owner}>
-                <option value="all">random owner</option>
-                {this.getOptions(Race)}
-              </select>
-            </label>
-            <button id="generateShop" className="buildButton" onClick={this.initShopGen}>build shop</button>
+
+            <Select title={"Shop Owner"} name={"owner"} value={owner} onChange={this.change} >
+              <option value="all">random owner</option>
+              {this.getOptions(Race)}
+            </Select> 
+            */}
+            
+            <Button id={"generateShop"} className={"buildButton"} onClick={this.initShopGen}>
+              build shop
+            </Button>
+
           </Aside>
-          { this.state.newShop && 
+          { this.state.shop && 
             <Display>
               <h2 className="shopName">{shop.name}</h2>
               <h3 className="shopType">{shop.shopType}</h3>
@@ -128,13 +116,13 @@ export default class Shops extends Component {
                 <p className="shopDetails">{shop.name} is a {shop.size}, {shop.atmosphere} {shop.shopType}.</p>
                 <p className="ownerInfo">This {shop.shopType} is owned by {shop.owner.name.displayName}, the {shop.owner.age} year old {shop.owner.race} {shop.owner.occupation}.</p>
               </div>
-              { this.state.newShop.inventory && 
+              { this.state.shop.inventory && 
                 <div className="inventory">
                   inventory
                 </div>
               }
 
-              { this.state.newShop && shop.owner.stats && 
+              { this.state.shop && shop.owner.stats && 
                 <Accordion title={"Owner Stats"}>
                   <StatBlock person={shop.owner} />
                 </Accordion>

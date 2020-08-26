@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import Utils from "components/utils";
-import Aside from "components/aside";
-import Display from "components/display";
-import Item from "components/generators/items/item";
+import Aside from "../../components/aside";
+import Display from "../../components/display/display";
+import Item from "../../components/generators/items/item";
+import Button from "../../components/controls/button/buttonStandard";
+import Select from "../../components/controls/select/selectStandard";
 
-import Weapons from "data/weapons";
-import Armor from "data/armor";
-import Jewelry from "data/jewelry";
-import Items from "data/items";
-
-const itemsData = {...Weapons, ...Armor, ...Jewelry, ...Items};
+import Weapons from "../../data/weapons";
+import Armor from "../../data/armor";
+import Jewelry from "../../data/jewelry";
+import Items from "../../data/items";
 
 export default class ItemGenerator extends Component {
 
@@ -18,56 +17,41 @@ export default class ItemGenerator extends Component {
 
     this.state = {
       item: undefined,
-      category: "all",
       type: undefined,
-      subtype: undefined
+      subtype: undefined,
+      category: "all"
     };
 
     this.change = this.change.bind(this);
-    this.updateState = this.updateState.bind(this);
     this.initItemGen = this.initItemGen.bind(this);
     this.getOptions = this.getOptions.bind(this);
   }
 
   change(e) {
-    if (e.target.className === "category") {
-      this.setState({
-        [e.target.className]: e.target.value,
-        "type": "all",
-        "subtype": undefined
-      });
-    } else if (e.target.className === "type") {
-      this.setState({
-        [e.target.className]: e.target.value,
-        "subtype": "all"
-      });
-    } else {
-      this.setState({
-        [e.target.className]: e.target.value
-      });  
-    }    
-  }
+    // Hierarchy of the object is: category -> type -> subtype
+    // If a category of higher order category changes, it invalidates the lower category.
+    let name = e.target.name;
+    let val = e.target.value;
+    let updateObj = {...this.state};
 
-  updateState(obj) {
-    this.setState(obj);
+    if ( name === "category" ) {
+      updateObj.type = undefined;
+      updateObj.subtype = undefined;
+    } else if ( name === "type" ) {
+      updateObj.subtype = undefined;
+    }
+    
+    this.setState({
+      ...updateObj,
+      [name]: val
+    });
   }
 
   initItemGen() {
-    const state = this.state;
-    const generatedItem = new Item(state.category, state.type, state.subtype);
+    const {category, type, subtype} = this.state;
+    const generatedItem = new Item(category, type, subtype);
 
-    // this.runTest(500);
     this.setState({item: generatedItem});
-  }  
-  
-  runTest(num) {
-    console.log(`Test by making ${num} items`);
-    console.time('items');
-    for ( let i = num; i > 0; i-- ) {
-      Utils.setNewSeed();
-      new Item();
-    };
-    console.timeEnd('items');
   }
 
   getOptions(obj) {
@@ -80,82 +64,70 @@ export default class ItemGenerator extends Component {
   }
 
   render() {
-    const item = this.state.item;
-    const typeGroup = (this.state.category !== "all") ? itemsData[this.state.category] : undefined;
-    const subGroups = (this.state.type !== undefined && this.state.type !== "all") ? itemsData[this.state.category][this.state.type].subtype : undefined;
+    const { item, category, type, subtype } = this.state;
+    const itemsData = {...Weapons, ...Armor, ...Jewelry, ...Items};
+    const typeGroup = (category !== "all") ? itemsData[category] : undefined;
+    const subGroups = (type && type !== "all") ? itemsData[category][type].subtype : undefined;
 
     return (
-      <div className="App">
-        <main className="content">
-          <Aside>
-            <select className="category" onChange={this.change} value={this.state.category}>
+      <main className="content">
+        <Aside>
+          <Select title={"Item Type"} name={"category"} onChange={this.change} value={category}>
               <option value="all">all</option>
               {this.getOptions(itemsData)}
-            </select>
+          </Select>
 
-            { this.state.category !== undefined && this.state.category !== "all" &&
-              <select className="type" onChange={this.change}>
+          { category !== "all" &&
+            <Select title={"Type of " + category} name={"type"} onChange={this.change} value={type}>
                 <option value="all">all</option>
                 {this.getOptions(typeGroup)}
-              </select>
-            }
+            </Select>
+          }
 
-            {  this.state.type !== undefined && this.state.type !== "all" &&
-              <select className="subtype" onChange={this.change}>
+          { type && type !== "all" &&
+            <Select title={"Type of " + type} name={"subtype"} onChange={this.change} value={subtype}>
                 <option value="all">all</option>
                 {this.getOptions(subGroups)}
-              </select>
+            </Select>
+          }
+
+          <Button id={"generateItem"} className={"buildButton"} onClick={this.initItemGen}>
+            build an item
+          </Button>
+        </Aside>
+
+        { item &&
+          <Display>
+
+            <h2 className="name">{item.primaryMaterial} {item.subtype}</h2>
+            <p className="description">{item.description}</p>
+
+            { item.fiveEStats && 
+              <section className="statsShell">
+                <div className="statBlock">
+                  <div className="grouping">
+                    <p><span className="classification">Type: </span> {item.fiveEStats.type}</p>
+                    <p><span className="classification">Value: </span> {item.fiveEStats.value} gp</p>
+                    { item.fiveEStats.damage && 
+                      <p><span className="classification">Damage: </span> 
+                        {item.fiveEStats.damage} {item.fiveEStats.damage_type.join(" / ")}
+                      </p>
+                    }
+                    { item.type.includes("armor") && item.fiveEStats.armor_class &&
+                      <p><span className="classification">AC: </span> {item.fiveEStats.armor_class}</p>
+                    }
+                    { item.fiveEStats.properties && item.fiveEStats.properties.length > 0 &&
+                      <p><span className="classification">Properties: </span> {item.fiveEStats.properties.join(", ")}</p>
+                    }
+                    <p><span className="classification">Weight: </span> {item.fiveEStats.weight} lbs</p>
+                  </div>
+                </div>
+              </section>
             }
 
-            <button id="generateItem" className="buildButton" onClick={this.initItemGen}>
-              { this.state.category === "all" &&
-                <span>build item</span>
-              }
-              {
-                this.state.type === "all" && this.state.category !== "all" &&
-                <span>build {this.state.category}</span>
-              }
-              {
-                this.state.subtype === "all" && this.state.type !== "all" &&
-                <span>build {this.state.type}</span>
-              }
-              {
-                this.state.subtype !== "all" && this.state.subtype !== undefined &&
-                <span>build {this.state.subtype}</span>
-              }
-            </button>
-          </Aside>
-
-          { item &&
-            <Display>
-              <h2 className="name">{item.primaryMaterial} {item.subtype}</h2>
-              <p className="description">{item.description}</p>
-              { item.fiveEStats && 
-                <section className="statsShell">
-                  <div className="statBlock">
-                    <div className="grouping">
-                      <p><span className="classification">Type: </span> {item.fiveEStats.type}</p>
-                      <p><span className="classification">Value: </span> {item.fiveEStats.value} gp</p>
-                      { item.fiveEStats.damage && 
-                        <p><span className="classification">Damage: </span> 
-                          {item.fiveEStats.damage} {item.fiveEStats.damage_type.join(" / ")}
-                        </p>
-                      }
-                      { item.type.includes("armor") && item.fiveEStats.armor_class &&
-                        <p><span className="classification">AC: </span> {item.fiveEStats.armor_class}</p>
-                      }
-                      { item.fiveEStats.properties && item.fiveEStats.properties.length > 0 &&
-                        <p><span className="classification">Properties: </span> {item.fiveEStats.properties.join(", ")}</p>
-                      }
-                      <p><span className="classification">Weight: </span> {item.fiveEStats.weight} lbs</p>
-                    </div>
-                  </div>
-                </section>
-              }
-            </Display>
-          }
-        </main>
-      </div>
+          </Display>
+        }
+      </main>
     );
   }
 }

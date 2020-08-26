@@ -1,0 +1,92 @@
+@import ".//mixins";
+
+.iconContainer {
+  position: absolute;
+  display: flex;
+
+  &.right {
+    right: 0.5em;
+    top: 3em;
+    width: 33%;
+    justify-content: space-evenly;
+  }
+
+  &.wide {
+    top: -2em;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+}
+
+.displayLayout {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 14px;
+  font-family: $sansText;
+  line-height: 1.66em;
+
+  .column {
+    margin-right: 10%;
+  }
+
+  .info {
+    .label {
+      letter-spacing: 0.05em;
+      margin-right: 0.5em;
+    }
+
+    .value {
+    }
+  }
+
+  p {
+    margin: 0;
+    position: relative;
+  }
+}
+
+.emojiIcon {
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 1rem;
+  margin-left: 0.33em;
+}
+
+.heading {
+  margin: 1em 0 0.25em;
+  text-transform: capitalize;
+  border: 0;
+}
+
+.infoTableRow {
+  font-size: 0.9em;
+  line-height: 1.1em;
+  padding: 0.1em 1em;
+  break-inside: avoid;
+  font-family: $sansText;
+
+  &:hover {
+    background-color: rgba($white, 0.66);
+  }
+
+  &.zero {
+    color: $midTone;
+
+    &:hover {
+      // color: $charcoal;
+      border-bottom-color: $moodGreen;
+    }
+
+    .info__value {
+      color: $midTone;
+    }
+  }
+
+  &.numeric {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media all and (max-width: $breakpoint-mobile) {
+}

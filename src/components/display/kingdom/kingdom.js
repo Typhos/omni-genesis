@@ -237,7 +237,9 @@ export default class KingdomDisplay extends Component {
             </p>
 
             <p className="">
-              <span className="info__label">Ruined Castles: </span>
+              <span className="info__label">
+                <em>Ruined Castles: </em>
+              </span>
               <span className="info__value">{kingdom.defenses.ruinedCastles.total}</span>
             </p>
           </div>

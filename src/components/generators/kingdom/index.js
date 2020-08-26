@@ -41,24 +41,13 @@ export default class Kingdom {
 
   getRandomName(culture) {
     // Originally this was done using town names from the city generator, but it resulted in too many countries sounding like towns or cities.
-    const { s1, s2, ev, ec, vowel } = namePieces;
 
-    let name = s1[Utils.randomArrayIndex(s1.length)];
-
-    if (Utils.coinFlip()) {
-      name += vowel[Utils.randomArrayIndex(vowel.length)];
-    }
-
-    // if name ends in a vowel, use the consonant endings
-    if (/[aeiouy]$/.test(name)) {
-      name = name.concat(ec[Utils.randomArrayIndex(ec.length)]);
-    } else {
-      if (Utils.coinFlip()) {
-        name = name.concat(s2[Utils.randomArrayIndex(s2.length)]);
-      }
-
-      name = name.concat(ev[Utils.randomArrayIndex(ev.length)]);
-    }
+    const { n1, n2, n3, n4 } = namePieces;
+    const na1 = n1[Utils.randomArrayIndex(n1.length)];
+    const na2 = n2[Utils.randomArrayIndex(n2.length)];
+    const na3 = n3[Utils.randomArrayIndex(n3.length)];
+    const na4 = n4[Utils.randomArrayIndex(n4.length)];
+    const name = na1 + na2 + na3 + na4;
 
     return name;
   }

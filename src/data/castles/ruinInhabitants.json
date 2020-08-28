@@ -1,0 +1,109 @@
+{
+  "creatures": [
+    {
+      "type": "undead",
+      "options": [
+        "zombies",
+        "ghouls",
+        "wights",
+        "wraiths",
+        "vampire",
+        "ghosts",
+        "banshee",
+        "death knight",
+        "demilich"
+      ]
+    },
+    {
+      "type": "giants",
+      "options": [
+        "ogres",
+        "ettin",
+        "hill giants",
+        "trolls",
+        "cyclops",
+        "oni",
+        "stone giants",
+        "fomorians",
+        "frost giants",
+        "cloud giants",
+        "fire giants"
+      ]
+    },
+    {
+      "type": "dragons",
+      "options": ["red dragon", "white dragon", "black dragon", "blue dragon", "green dragon"]
+    },
+    {
+      "type": "monstrosities",
+      "options": [
+        "worgs",
+        "darkmantles",
+        "kruthiks",
+        "harpies",
+        "ankhegs",
+        "griffons",
+        "basilisks",
+        "hook horrors",
+        "manticore",
+        "owlbear",
+        "winter wolves",
+        "yetis",
+        "girallon",
+        "bulette",
+        "gorgon",
+        "ropers",
+        "chimera",
+        "medusa",
+        "hydra",
+        "behir"
+      ]
+    },
+    {
+      "type": "humanoids",
+      "options": [
+        "bandits",
+        "leper colony",
+        "cultists",
+        "rebels",
+        "brigands",
+        "lizardfolk",
+        "orcs",
+        "goblins",
+        "drow",
+        "grimlocks",
+        "kobolds",
+        "troglodytes",
+        "gnolls",
+        "hobgoblins",
+        "grung",
+        "slavers",
+        "wererats",
+        "werewolf",
+        "wereboar",
+        "werebear",
+        "circus troupe",
+        "gypsies",
+        "blackguard order",
+        "blood witch",
+        "assassins"
+      ]
+    },
+    {
+      "type": "aberrations",
+      "options": [
+        "beholder",
+        "chokers",
+        "nothics",
+        "grells",
+        "chuul",
+        "otyugh",
+        "slaad",
+        "cloaker",
+        "star spawn hulk",
+        "balhannoth",
+        "morkoth"
+      ]
+    }
+  ]
+}

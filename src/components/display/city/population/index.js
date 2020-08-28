@@ -24,7 +24,7 @@ export default class PopulationDisplay extends Component {
       const val = array[1];
 
       return (
-        <li name={name} key={name} className={`infoTableRow numeric ${val === 0 ? "zero" : ""}`}>
+        <li name={name} key={name} className={`infoTable__row numeric ${val === 0 ? "zero" : ""}`}>
           <span className="name">{name}:</span>{" "}
           <span className="info__value">{Utils.numberWithCommas(val)}</span>
         </li>

@@ -8,6 +8,7 @@ import Tabs from "../../tabs";
 
 import CityTabsDisplay from "./cities";
 import TownTabsDisplay from "./towns";
+import CastleTabsDisplay from "./castles";
 
 import "./kingdom.scss";
 
@@ -67,7 +68,7 @@ export default class KingdomDisplay extends Component {
         <li
           name={array[i].name}
           key={array[i].name + i}
-          className={`infoTableRow numeric pointer`}
+          className={`infoTable__row numeric pointer`}
           onClick={() => {
             this.sendToCityEntry(fullObj, array[i].name, type);
           }}
@@ -94,18 +95,19 @@ export default class KingdomDisplay extends Component {
   }
 
   render() {
-    const kingdom = this.props.kingdom;
+    const {
+      kingdom,
+      kingdom: {
+        defenses: {
+          activeCastles: { borderKeeps, civilKeeps },
+          ruinedCastles,
+        },
+      },
+    } = this.props;
 
     return (
       <Display>
-        {/* <input
-          type="text"
-          className="name heading"
-          size={kingdom.name.length + kingdom.name.length / 3}
-          onChange={this.updateName}
-          value={kingdom.name}
-        /> */}
-        <h1 className="kingdomName">{kingdom.name}</h1>
+        <h1 className="displayLayout__header">{kingdom.name}</h1>
 
         <div className="iconContainer right">
           <span
@@ -228,12 +230,14 @@ export default class KingdomDisplay extends Component {
 
             <p className="">
               <span className="info__label">Border Castles: </span>
-              <span className="info__value">{kingdom.defenses.activeCastles.borderKeeps}</span>
+              <span className="info__value">
+                {kingdom.defenses.activeCastles.borderKeeps.total}
+              </span>
             </p>
 
             <p className="">
               <span className="info__label">Interior Castles: </span>
-              <span className="info__value">{kingdom.defenses.activeCastles.civilKeeps}</span>
+              <span className="info__value">{kingdom.defenses.activeCastles.civilKeeps.total}</span>
             </p>
 
             <p className="">
@@ -251,8 +255,6 @@ export default class KingdomDisplay extends Component {
             <TwoColumnDisplay>
               <CityTabsDisplay kingdom={kingdom} />
             </TwoColumnDisplay>
-          </div>
-          <div label="Towns">
             <h3 className="tabs__groupHeading">Notable Towns of {kingdom.name}</h3>
             <ThreeColumnDisplay>
               <TownTabsDisplay kingdom={kingdom} />
@@ -263,8 +265,22 @@ export default class KingdomDisplay extends Component {
             <ThreeColumnDisplay>TBD</ThreeColumnDisplay>
           </div>
           <div label="Castles">
-            <h3 className="tabs__groupHeading">Castles of {kingdom.name}</h3>
-            <ThreeColumnDisplay>TBD</ThreeColumnDisplay>
+            <h3 className="tabs__groupHeading">Important Castles of {kingdom.name}</h3>
+
+            <h4 className="tabs__sectionHeading">Border Castles</h4>
+            <TwoColumnDisplay>
+              <CastleTabsDisplay castles={borderKeeps.castleArray} />
+            </TwoColumnDisplay>
+
+            <h4 className="tabs__sectionHeading">Interior Castles</h4>
+            <TwoColumnDisplay>
+              <CastleTabsDisplay castles={civilKeeps.castleArray} />
+            </TwoColumnDisplay>
+
+            <h4 className="tabs__sectionHeading">Castle Ruins</h4>
+            <TwoColumnDisplay>
+              <CastleTabsDisplay castles={ruinedCastles.castleArray} />
+            </TwoColumnDisplay>
           </div>
           <div label="Regions">
             <h3 className="tabs__groupHeading">

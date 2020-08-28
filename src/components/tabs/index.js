@@ -4,15 +4,16 @@ import Tab from "./tab";
 import "../../styles/tabs.scss";
 
 export default class Tabs extends Component {
-  // static propTypes = {
-  //   children: PropTypes.instanceOf(Array).isRequired,
-  // };
-
   constructor(props) {
     super(props);
 
+    let children = null;
+    if (Array.isArray(this.props.children)) {
+      children = this.props.children.filter((e) => Boolean(e))[0].props.label;
+    }
+
     this.state = {
-      activeTab: this.props.children.filter((e) => Boolean(e))[0].props.label,
+      activeTab: children,
     };
   }
 
@@ -27,7 +28,9 @@ export default class Tabs extends Component {
       state: { activeTab },
     } = this;
 
-    children = children.filter((e) => Boolean(e));
+    if (Array.isArray(children)) {
+      children = children.filter((e) => Boolean(e));
+    }
 
     return (
       <div className="tabs">
@@ -35,14 +38,7 @@ export default class Tabs extends Component {
           {children.map((child) => {
             const { label } = child.props;
 
-            return (
-              <Tab
-                activeTab={activeTab}
-                key={label}
-                label={label}
-                onClick={onClickTabItem}
-              />
-            );
+            return <Tab activeTab={activeTab} key={label} label={label} onClick={onClickTabItem} />;
           })}
         </ol>
         <div className="tabs__contentGroup">

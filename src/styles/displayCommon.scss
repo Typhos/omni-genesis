@@ -1,4 +1,4 @@
-@import ".//mixins";
+@import "./mixins";
 
 .iconContainer {
   position: absolute;
@@ -24,6 +24,41 @@
   font-size: 14px;
   font-family: $sansText;
   line-height: 1.66em;
+  margin-top: 2em;
+
+  &__header {
+    letter-spacing: 0.1em;
+    font-size: 1.66em;
+    font-family: $styleText;
+    text-transform: capitalize;
+
+    padding: 0.5em 0.5em;
+    margin: 1em 0 0;
+    background-color: rgba(#9595a5, 0.15);
+    border-bottom: 1px solid $midTone;
+  }
+
+  &__name {
+    margin: 1em 0 0;
+    border-bottom: 1px solid $midTone;
+    font-family: $styleText;
+    text-transform: capitalize;
+    font-size: 1.66em;
+  }
+
+  &__subHeading {
+    font-weight: 400;
+    font-variant-caps: small-caps;
+    font-size: 1.66em;
+    line-height: 1.66em;
+    letter-spacing: 0.066em;
+
+    margin: 0.33em 0 0.66em;
+  }
+
+  &__description {
+    line-height: 1.6em;
+  }
 
   .column {
     margin-right: 10%;
@@ -58,7 +93,7 @@
   border: 0;
 }
 
-.infoTableRow {
+.infoTable__row {
   font-size: 0.9em;
   line-height: 1.1em;
   padding: 0.1em 1em;
@@ -66,16 +101,11 @@
   font-family: $sansText;
 
   &:hover {
-    background-color: rgba($white, 0.66);
+    background-color: rgba($charcoal, 0.66);
   }
 
   &.zero {
     color: $midTone;
-
-    &:hover {
-      // color: $charcoal;
-      border-bottom-color: $moodGreen;
-    }
 
     .info__value {
       color: $midTone;
@@ -85,6 +115,7 @@
   &.numeric {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 

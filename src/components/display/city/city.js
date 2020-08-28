@@ -76,7 +76,7 @@ export default class CityDisplay extends Component {
 
     for (let [name, val] of Object.entries(obj)) {
       list.push(
-        <li name={name} key={name} className={`infoTableRow numeric ${val === 0 ? "zero" : ""}`}>
+        <li name={name} key={name} className={`infoTable__row numeric ${val === 0 ? "zero" : ""}`}>
           <span className="name">{name}:</span>{" "}
           <span className="info__value">{Utils.numberWithCommas(val)}</span>
         </li>
@@ -110,7 +110,7 @@ export default class CityDisplay extends Component {
             </React.Fragment>
           )}
 
-        <h1 className="cityName">{city.name}</h1>
+        <h1 className="displayLayout__header">{city.name}</h1>
 
         <div className="iconContainer right">
           <span

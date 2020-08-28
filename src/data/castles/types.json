@@ -1,0 +1,66 @@
+{
+  "types": [
+    {
+      "name": "lowland castle",
+      "location": [
+        {
+          "description": "lowland plains",
+          "requiredTerrain": ["plain", "marsh"]
+        }
+      ]
+    },
+    {
+      "name": "ridge castle",
+      "location": [
+        {
+          "description": "end of a ridge",
+          "requiredTerrain": ["hill", "mountain"]
+        }
+      ]
+    },
+    {
+      "name": "spur castle",
+      "location": [
+        {
+          "description": "spur projecting from a hill",
+          "requiredTerrain": ["hill", "mountain"]
+        }
+      ]
+    },
+    {
+      "name": "toll castle",
+      "location": [
+        {
+          "description": "mountain pass",
+          "requiredTerrain": ["mountain"]
+        },
+        {
+          "description": "river crossing",
+          "requiredTerrain": ["river"]
+        },
+        {
+          "description": "border crossing",
+          "requiredTerrain": ["hill", "river", "mountain"]
+        }
+      ]
+    },
+    {
+      "name": "hilltop castle",
+      "location": [
+        {
+          "description": "hilltop",
+          "requiredTerrain": ["hill", "mountain"]
+        }
+      ]
+    },
+    {
+      "name": "hillside castle",
+      "location": [
+        {
+          "description": "side of a hill",
+          "requiredTerrain": ["hill", "mountain"]
+        }
+      ]
+    }
+  ]
+}

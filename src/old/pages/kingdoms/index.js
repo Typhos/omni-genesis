@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Utils from "../../components/utils";
 import Aside from "../../components/aside";
-import Kingdom from '../../components/generators/kingdom';
+import Kingdom from "../../components/generators/kingdom";
 import KingdomDisplay from "../../components/display/kingdom";
-import CityDisplay from '../../components/display/city';
-import PersonDisplay from '../../components/display/person';
-import LoadingSpinner from '../../components/display/loadingSpinner';
+import CityDisplay from "../../components/display/city";
+import PersonDisplay from "../../components/display/person";
+import LoadingSpinner from "../../components/display/loadingSpinner";
 
 import stateSizes from "../../data/kingdoms/sizes";
 import placeNames from "../../data/names/randomPlaceNames";
 
 export default class Kingdoms extends Component {
-  
   constructor(props) {
     super(props);
     Utils.setNewSeed();
 
     this.state = {
-      "seed": Math.seed,
-      "loading": false
+      seed: global.seed,
+      loading: false,
     };
 
     this.change = this.change.bind(this);
@@ -26,28 +25,28 @@ export default class Kingdoms extends Component {
     this.stateHandler = this.stateHandler.bind(this);
   }
 
-  change (e) {
+  change(e) {
     let name = e.target.name;
     let value = e.target.value;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
   buildKingdom() {
-    const params = {...this.state};
+    const params = { ...this.state };
     const kingdom = new Kingdom(params);
     Utils.setNewSeed();
 
     this.setState({
-      "kingdom": kingdom,
-      "loading": false,
-      "seed": Math.seed,
-      "display": null,
-      "fullDisplay": null,
-      "city": null,
-      "previousEntries": [],
+      kingdom: kingdom,
+      loading: false,
+      seed: global.seed,
+      display: null,
+      fullDisplay: null,
+      city: null,
+      previousEntries: [],
     });
   }
 
@@ -59,25 +58,29 @@ export default class Kingdoms extends Component {
     }
 
     if (filterKey) {
-      keys = keys.filter(e => e !== filterKey);
+      keys = keys.filter((e) => e !== filterKey);
     }
 
-    return keys.map( key => {
-      return <option key={key} value={key}>{key}</option>
+    return keys.map((key) => {
+      return (
+        <option key={key} value={key}>
+          {key}
+        </option>
+      );
     });
   }
 
-  stateHandler(obj){
+  stateHandler(obj) {
     this.setState(obj);
   }
 
   render() {
-    const {size, culture, seed, kingdom, city, person, loading} = this.state;
+    const { size, culture, seed, kingdom, city, person, loading } = this.state;
 
     return (
       <div className="App">
         <main className="content">
-        <Aside>
+          <Aside>
             <label>
               <span>State Size</span>
               <select name="size" onChange={this.change} value={size}>
@@ -90,34 +93,33 @@ export default class Kingdoms extends Component {
               <span>Culture</span>
               <select name="culture" onChange={this.change} value={culture}>
                 <option value="all">random culture</option>
-                {this.getOptions( placeNames, true)}
+                {this.getOptions(placeNames, true)}
               </select>
             </label>
 
             <label>
               <span>Seed</span>
-              <input type="number" name="seed" onChange={this.change} value={seed}/>
+              <input type="number" name="seed" onChange={this.change} value={seed} />
             </label>
 
-            <button id="generateState" className="buildButton" onClick={this.buildKingdom}>build kingdom</button>
+            <button id="generateState" className="buildButton" onClick={this.buildKingdom}>
+              build kingdom
+            </button>
           </Aside>
-            
+
           <LoadingSpinner name="kingdomLoading" show={loading}>
             <span>Loading...</span>
           </LoadingSpinner>
 
-          { kingdom && 
-            <KingdomDisplay kingdom={kingdom} state={this.state} stateHandler={this.stateHandler}/>
-          }
+          {kingdom && (
+            <KingdomDisplay kingdom={kingdom} state={this.state} stateHandler={this.stateHandler} />
+          )}
 
-          { city &&
-            <CityDisplay city={city} state={this.state} stateHandler={this.stateHandler}/>
-          }
+          {city && <CityDisplay city={city} state={this.state} stateHandler={this.stateHandler} />}
 
-          { person &&
-            <PersonDisplay person={person} state={this.state} stateHandler={this.stateHandler}/>
-          }
-
+          {person && (
+            <PersonDisplay person={person} state={this.state} stateHandler={this.stateHandler} />
+          )}
         </main>
       </div>
     );

@@ -11,7 +11,6 @@
 .cityImg {
   width: 100%;
   opacity: 0.5;
-  margin-bottom: 0.5em;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #000;
 }
@@ -36,10 +35,6 @@
 }
 
 .info {
-  &__label {
-    // color: $ckGold;
-  }
-
   &__value {
     color: $dndGold;
   }

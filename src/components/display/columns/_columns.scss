@@ -1,5 +1,3 @@
-@import "../../../styles/mixins.scss";
-
 .heading {
   margin: 1em 0 0.25em;
   text-transform: capitalize;
@@ -9,18 +7,19 @@
 .infoTable {
   margin: 0.25em 0;
   padding: 0;
-  column-count: 2;
   column-gap: 1em;
   break-inside: avoid-column;
   list-style-type: none;
 
-  li {
+  &__row {
     font-size: 0.9rem;
-    line-height: 1.4em;
+    line-height: 1.33em;
     padding: 0.25em 1em;
     break-inside: avoid;
     font-family: $sansText;
+  }
 
+  &__highlightRow {
     &:hover {
       background-color: rgba($charcoal, 0.66);
     }

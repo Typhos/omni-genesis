@@ -14,14 +14,14 @@ import CityGenerator from "../../components/generators/city";
 //data
 import cityObj from "../../data/cities/cities";
 import pantheonsObj from "../../data/gods/pantheons";
-import placeNames from "../../data/names/randomPlaceNames";
+import placeNames from "../../data/places/randomPlaceNames";
 
 export default class Settlements extends Component {
   constructor(props) {
     super(props);
 
     Utils.setNewSeed();
-    const seed = Math.seed;
+    const seed = global.seed;
 
     this.state = {
       display: null,
@@ -57,7 +57,7 @@ export default class Settlements extends Component {
     this.setState({
       city: new CityGenerator(buildObj),
       display: null,
-      seed: Math.seed,
+      seed: global.seed,
       pantheon: buildObj.pantheon || "centhris",
     });
   }
@@ -104,7 +104,7 @@ export default class Settlements extends Component {
     this.setState({
       city: city,
       display: null,
-      seed: Math.seed,
+      seed: global.seed,
     });
   }
 
@@ -114,7 +114,7 @@ export default class Settlements extends Component {
     for (let i = 1; i <= num; i++) {
       Utils.setNewSeed();
       new CityGenerator({
-        seed: Math.seed,
+        seed: global.seed,
         type: undefined,
       });
     }

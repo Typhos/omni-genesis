@@ -1,15 +1,15 @@
 {
-  "armorsmith":{
-    "SV":2000,
-    "buildShop":true,
-    "owner":"armorsmith",
-    "plural":"armorsmiths",
-    "itemList":[
+  "armorsmith": {
+    "SV": 2000,
+    "buildShop": true,
+    "owner": "armorsmith",
+    "plural": "armorsmiths",
+    "itemList": [
       {
-        "type":"armor"
+        "category": "armor"
       }
     ],
-    "material_restrictions":[
+    "material_restrictions": [
       "mithral",
       "diamond",
       "star ruby",
@@ -18,17 +18,10 @@
       "sapphire",
       "fire opal"
     ],
-    "material_requirements":"undefined",
-    "default_inventory_value":3000,
-    "title":[
-      "Armors",
-      "Armor & Shields",
-      "Armor Shop",
-      "Wards",
-      "Smithy",
-      "Anvil"
-    ],
-    "noun":[
+    "material_requirements": "undefined",
+    "default_inventory_value": 1500,
+    "title": ["Armors", "Armor & Shields", "Armor Shop", "Wards", "Smithy", "Anvil"],
+    "noun": [
       "Forge",
       "Smithy",
       "Anvil",
@@ -43,7 +36,7 @@
       "Guardian",
       "Ward"
     ],
-    "adjective":[
+    "adjective": [
       "New",
       "Old",
       "Sturdy",
@@ -74,34 +67,32 @@
       "Silver",
       "Bronze"
     ],
-    "staff":[
-      "armorsmith's apprentice"
-    ]
+    "staff": ["armorsmith's apprentice"]
   },
-  "blacksmith":{
-    "SV":1500,
-    "buildShop":true,
-    "owner":"blacksmith",
-    "plural":"blacksmiths",
-    "itemList":[
+  "blacksmith": {
+    "SV": 1500,
+    "buildShop": true,
+    "owner": "blacksmith",
+    "plural": "blacksmiths",
+    "itemList": [
       {
-        "type":"good",
-        "subtype":"tool"
+        "category": "items",
+        "type": "tool"
       },
       {
-        "type":"good",
-        "subtype":"light source"
+        "category": "items",
+        "type": "light source"
       },
       {
-        "type":"good",
-        "subtype":"vessel"
+        "category": "items",
+        "type": "vessel"
       },
       {
-        "type":"good",
-        "subtype":"cookware"
+        "category": "items",
+        "type": "cookware"
       }
     ],
-    "material_restrictions":[
+    "material_restrictions": [
       "gold",
       "silver",
       "platinum",
@@ -114,24 +105,12 @@
       "fire opal",
       "bone"
     ],
-    "material_requirements":[
-      "iron",
-      "steel",
-      "bronze",
-      "copper",
-      "lead"
-    ],
-    "item_value_min":"undefined",
-    "item_value_max":50,
-    "default_inventory_value":200,
-    "title":[
-      "Metal Goods",
-      "Tools & Trades",
-      "Forge",
-      "Smithy",
-      "Anvil"
-    ],
-    "noun":[
+    "material_requirements": ["iron", "steel", "bronze", "copper", "lead"],
+    "item_value_min": "undefined",
+    "item_value_max": 50,
+    "default_inventory_value": 200,
+    "title": ["Metal Goods", "Tools & Trades", "Forge", "Smithy", "Anvil"],
+    "noun": [
       "Forge",
       "Smithy",
       "Anvil",
@@ -143,7 +122,7 @@
       "Lantern",
       "Tradesman"
     ],
-    "adjective":[
+    "adjective": [
       "New",
       "Old",
       "Sturdy",
@@ -171,46 +150,44 @@
       "Silver",
       "Bronze"
     ],
-    "staff":[
-      "blacksmith\\'s apprentice"
-    ]
+    "staff": ["blacksmith\\'s apprentice"]
   },
-  "weaponsmith":{
-    "SV":2000,
-    "buildShop":true,
-    "owner":"weaponsmith",
-    "plural":"weaponsmiths",
-    "itemList":[
+  "weaponsmith": {
+    "SV": 2000,
+    "buildShop": true,
+    "owner": "weaponsmith",
+    "plural": "weaponsmiths",
+    "itemList": [
       {
-        "type":"weapon",
-        "subtype":"axe"
+        "category": "weapons",
+        "type": "axe"
       },
       {
-        "type":"weapon",
-        "subtype":"sword"
+        "category": "weapons",
+        "type": "sword"
       },
       {
-        "type":"weapon",
-        "subtype":"mace"
+        "category": "weapons",
+        "type": "mace"
       },
       {
-        "type":"weapon",
-        "subtype":"spear"
+        "category": "weapons",
+        "type": "spear"
       },
       {
-        "type":"weapon",
-        "subtype":"polearm"
+        "category": "weapons",
+        "type": "polearm"
       },
       {
-        "type":"weapon",
-        "subtype":"dagger"
+        "category": "weapons",
+        "type": "dagger"
       },
       {
-        "type":"weapon",
-        "subtype":"fist-weapon"
+        "category": "weapons",
+        "type": "fist-weapon"
       }
     ],
-    "material_restrictions":[
+    "material_restrictions": [
       "gold",
       "silver",
       "platinum",
@@ -222,18 +199,10 @@
       "sapphire",
       "fire opal"
     ],
-    "material_requirements":"undefined",
-    "default_inventory_value":600,
-    "title":[
-      "Armory",
-      "Arms",
-      "Forge",
-      "Smithy",
-      "Anvil",
-      "Armaments",
-      "Arsenal"
-    ],
-    "noun":[
+    "material_requirements": "undefined",
+    "default_inventory_value": 600,
+    "title": ["Armory", "Arms", "Forge", "Smithy", "Anvil", "Armaments", "Arsenal"],
+    "noun": [
       "Forge",
       "Smithy",
       "Anvil",
@@ -248,7 +217,7 @@
       "Axe",
       "Dagger"
     ],
-    "adjective":[
+    "adjective": [
       "New",
       "Old",
       "Deadly",
@@ -273,26 +242,24 @@
       "Wondrous",
       "Silver"
     ],
-    "staff":[
-      "weaponsmith\\'s apprentice"
-    ]
+    "staff": ["weaponsmith\\'s apprentice"]
   },
-  "bowyer":{
-    "SV":850,
-    "buildShop":true,
-    "owner":"bowyer",
-    "plural":"bowyers",
-    "itemList":[
+  "bowyer": {
+    "SV": 850,
+    "buildShop": true,
+    "owner": "bowyer",
+    "plural": "bowyers",
+    "itemList": [
       {
-        "type":"weapon",
-        "subtype":"bow"
+        "category": "weapons",
+        "type": "bow"
       },
       {
-        "type":"weapon",
-        "subtype":"crossbow"
+        "category": "weapons",
+        "type": "crossbow"
       }
     ],
-    "material_restrictions":[
+    "material_restrictions": [
       "gold",
       "silver",
       "platinum",
@@ -304,9 +271,9 @@
       "sapphire",
       "fire opal"
     ],
-    "material_requirements":"undefined",
-    "default_inventory_value":500,
-    "title":[
+    "material_requirements": "undefined",
+    "default_inventory_value": 600,
+    "title": [
       "Bows",
       "Fletchery",
       "Hunting Supplies",
@@ -318,7 +285,7 @@
       "Hunting Supplies",
       "Hunt"
     ],
-    "noun":[
+    "noun": [
       "Ranger",
       "Hunter",
       "Huntsman",
@@ -334,7 +301,7 @@
       "Fox",
       "Deer"
     ],
-    "adjective":[
+    "adjective": [
       "Lonely",
       "Traveling",
       "Blind",
@@ -359,26 +326,22 @@
       "Sly",
       "Clever"
     ],
-    "staff":[
-      "bowyer\\'s apprentice"
-    ]
+    "staff": ["bowyer\\'s apprentice"]
   },
-  "jeweler":{
-    "SV":400,
-    "buildShop":true,
-    "owner":"jeweler",
-    "plural":"jewelers",
-    "itemList":[
+  "jeweler": {
+    "SV": 400,
+    "buildShop": true,
+    "owner": "jeweler",
+    "plural": "jewelers",
+    "itemList": [
       {
-        "type":"jewelry"
+        "category": "jewelry"
       }
     ],
-    "material_restrictions":[
-      "mithral"
-    ],
-    "material_requirements":"undefined",
-    "default_inventory_value":3000,
-    "title":[
+    "material_restrictions": ["mithral"],
+    "material_requirements": "undefined",
+    "default_inventory_value": 600,
+    "title": [
       "Jewelry",
       "Jewelry Store",
       "Exotic Jewelry",
@@ -391,7 +354,7 @@
       "Pendants",
       "Finery"
     ],
-    "noun":[
+    "noun": [
       "Jewels",
       "Gems",
       "Jewel",
@@ -415,7 +378,7 @@
       "Braclet",
       "Tiara"
     ],
-    "adjective":[
+    "adjective": [
       "King's",
       "Queen's",
       "Duke's",
@@ -430,41 +393,35 @@
       "Noble",
       "Royal"
     ],
-    "staff":[
+    "staff": [
       {
-        "title":"jeweler's apprentice",
-        "count":[
-          0,
-          2
-        ]
+        "title": "jeweler's apprentice",
+        "count": [0, 2]
       },
       {
-        "title":"clerk",
-        "count":[
-          1,
-          1
-        ]
+        "title": "clerk",
+        "count": [1, 1]
       }
     ]
   },
-  "clothier":{
-    "SV":250,
-    "buildShop":true,
-    "image":"needle",
-    "owner":"tailor",
-    "plural":"tailors",
-    "itemList":[
+  "clothier": {
+    "SV": 250,
+    "buildShop": true,
+    "image": "needle",
+    "owner": "tailor",
+    "plural": "tailors",
+    "itemList": [
       {
-        "type":"good",
-        "subtype":"clothing"
+        "category": "items",
+        "type": "clothing"
       }
     ],
-    "material_restrictions":"undefined",
-    "material_requirements":"undefined",
-    "item_value_min":"undefined",
-    "item_value_max":20,
-    "default_inventory_value":250,
-    "title":[
+    "material_restrictions": "undefined",
+    "material_requirements": "undefined",
+    "item_value_min": "undefined",
+    "item_value_max": 20,
+    "default_inventory_value": 250,
+    "title": [
       "Wardrobe",
       "Clothing",
       "Clothing Bazaar",
@@ -478,7 +435,7 @@
       "Bureau",
       "Garments"
     ],
-    "noun":[
+    "noun": [
       "Thimble",
       "Bazaar",
       "Emporium",
@@ -493,7 +450,7 @@
       "Cloth",
       "Spool"
     ],
-    "adjective":[
+    "adjective": [
       "Fancy",
       "Finest",
       "Lovely",
@@ -511,43 +468,34 @@
       "Royal",
       "Famous"
     ],
-    "staff":[
+    "staff": [
       {
-        "title":"tailor's apprentice",
-        "count":[
-          0,
-          1
-        ]
+        "title": "tailor's apprentice",
+        "count": [0, 1]
       }
     ]
   },
-  "furrier":{
-    "SV":250,
-    "buildShop":false,
-    "image":"needle",
-    "owner":"furrier",
-    "plural":"furriers",
-    "itemList":[
+  "furrier": {
+    "SV": 250,
+    "buildShop": false,
+    "image": "needle",
+    "owner": "furrier",
+    "plural": "furriers",
+    "itemList": [
       {
-        "type":"good",
-        "subtype":"clothing"
+        "category": "items",
+        "type": "clothing"
       }
     ],
-    "material_restrictions":"undefined",
-    "material_requirements":{
-      "group":"fur"
+    "material_restrictions": "undefined",
+    "material_requirements": {
+      "group": "fur"
     },
-    "item_value_min":"undefined",
-    "item_value_max":20,
-    "default_inventory_value":250,
-    "title":[
-      "Wardrobe",
-      "Clothing",
-      "Exotic Wears",
-      "Pelts",
-      "Furs"
-    ],
-    "noun":[
+    "item_value_min": "undefined",
+    "item_value_max": 20,
+    "default_inventory_value": 250,
+    "title": ["Wardrobe", "Clothing", "Exotic Wears", "Pelts", "Furs"],
+    "noun": [
       "Furs",
       "Pelts",
       "Rugs",
@@ -560,7 +508,7 @@
       "Vestments",
       "Needle"
     ],
-    "adjective":[
+    "adjective": [
       "Fancy",
       "Finest",
       "Lovely",
@@ -578,43 +526,31 @@
       "Royal",
       "Famous"
     ],
-    "staff":[
+    "staff": [
       {
-        "title":"furrier's apprentice",
-        "count":[
-          0,
-          1
-        ]
+        "title": "furrier's apprentice",
+        "count": [0, 1]
       }
     ]
   },
-  "cobbler":{
-    "SV":150,
-    "buildShop":false,
-    "owner":"cobbler",
-    "plural":"cobbler",
-    "itemList":[
+  "cobbler": {
+    "SV": 150,
+    "buildShop": false,
+    "owner": "cobbler",
+    "plural": "cobbler",
+    "itemList": [
       {
-        "type":"good",
-        "subtype":"footwear"
+        "category": "items",
+        "type": "footwear"
       }
     ],
-    "material_restrictions":[
-      "gold",
-      "platinum",
-      "mithral"
-    ],
-    "material_requirements":"undefined",
-    "item_value_min":"undefined",
-    "item_value_max":"undefined",
-    "default_inventory_value":300,
-    "title":[
-      "Shoe Shop",
-      "Footwear",
-      "Fine Shoes",
-      "Boots"
-    ],
-    "noun":[
+    "material_restrictions": ["gold", "platinum", "mithral"],
+    "material_requirements": "undefined",
+    "item_value_min": "undefined",
+    "item_value_max": "undefined",
+    "default_inventory_value": 300,
+    "title": ["Shoe Shop", "Footwear", "Fine Shoes", "Boots"],
+    "noun": [
       "Sole",
       "Shears",
       "Bazaar",
@@ -629,7 +565,7 @@
       "Shoe",
       "Boot"
     ],
-    "adjective":[
+    "adjective": [
       "Fancy",
       "Finest",
       "Lovely",
@@ -647,40 +583,31 @@
       "Royal",
       "Famous"
     ],
-    "staff":[
+    "staff": [
       {
-        "title":"cobbler's apprentice",
-        "count":[
-          0,
-          1
-        ]
+        "title": "cobbler's apprentice",
+        "count": [0, 1]
       }
     ]
   },
-  "hatter":{
-    "SV":950,
-    "buildShop":true,
-    "owner":"hatter",
-    "plural":"hatters",
-    "itemList":[
+  "hatter": {
+    "SV": 950,
+    "buildShop": true,
+    "owner": "hatter",
+    "plural": "hatters",
+    "itemList": [
       {
-        "type":"good",
-        "subtype":"headgear"
+        "category": "items",
+        "type": "headgear"
       }
     ],
-    "material_restrictions":"undefined",
-    "material_requirements":"undefined",
-    "item_value_min":"undefined",
-    "item_value_max":30,
-    "default_inventory_value":150,
-    "title":[
-      "Hats",
-      "Hattery",
-      "Headwear",
-      "Turbans & Bonnets",
-      "Fine Headwears"
-    ],
-    "noun":[
+    "material_restrictions": "undefined",
+    "material_requirements": "undefined",
+    "item_value_min": "undefined",
+    "item_value_max": 30,
+    "default_inventory_value": 150,
+    "title": ["Hats", "Hattery", "Headwear", "Turbans & Bonnets", "Fine Headwears"],
+    "noun": [
       "Turban",
       "Hat",
       "Chapeau",
@@ -693,7 +620,7 @@
       "Chaplet",
       "Wreath"
     ],
-    "adjective":[
+    "adjective": [
       "Finest",
       "Lovely",
       "Dancing",
@@ -710,28 +637,26 @@
       "Brown",
       "Grey"
     ],
-    "staff":[
-      "hatter's apprentice"
-    ]
+    "staff": ["hatter's apprentice"]
   },
-  "mercer":{
-    "SV":700,
-    "buildShop":true,
-    "image":"clothing",
-    "owner":"mercer",
-    "plural":"mercers",
-    "itemList":[
+  "mercer": {
+    "SV": 700,
+    "buildShop": true,
+    "image": "clothing",
+    "owner": "mercer",
+    "plural": "mercers",
+    "itemList": [
       {
-        "type":"good",
-        "subtype":"clothing"
+        "category": "items",
+        "type": "clothing"
       }
     ],
-    "material_restrictions":"undefined",
-    "material_requirements":"undefined",
-    "item_value_min":30,
-    "item_value_max":500,
-    "default_inventory_value":4000,
-    "title":[
+    "material_restrictions": "undefined",
+    "material_requirements": "undefined",
+    "item_value_min": 30,
+    "item_value_max": 500,
+    "default_inventory_value": 4000,
+    "title": [
       "Finery",
       "Boutique",
       "Emporium",
@@ -750,7 +675,7 @@
       "Bureau",
       "Garments"
     ],
-    "noun":[
+    "noun": [
       "Closet",
       "Market",
       "Emporium",
@@ -764,7 +689,7 @@
       "Thread",
       "Vestments"
     ],
-    "adjective":[
+    "adjective": [
       "Elegant",
       "Fancy",
       "Fine",
@@ -787,34 +712,26 @@
       "Loyal",
       "Exalted"
     ],
-    "staff":[
-      "mercery store clerk"
-    ]
+    "staff": ["mercery store clerk"]
   },
-  "apothecary":{
-    "SV":2000,
-    "buildShop":true,
-    "owner":"apothecary",
-    "plural":"apothecaries",
-    "itemList":[
+  "apothecary": {
+    "SV": 2000,
+    "buildShop": true,
+    "owner": "apothecary",
+    "plural": "apothecaries",
+    "itemList": [
       {
-        "type":"good",
-        "subtype":"potion"
+        "category": "items",
+        "type": "potion"
       }
     ],
-    "material_restrictions":"undefined",
-    "material_requirements":"undefined",
-    "item_value_min":"undefined",
-    "item_value_max":500,
-    "default_inventory_value":3500,
-    "title":[
-      "Potion Shop",
-      "Potions",
-      "Cauldron",
-      "Vials and Elixirs",
-      "Remedies"
-    ],
-    "noun":[
+    "material_restrictions": "undefined",
+    "material_requirements": "undefined",
+    "item_value_min": "undefined",
+    "item_value_max": 500,
+    "default_inventory_value": 2500,
+    "title": ["Potion Shop", "Potions", "Cauldron", "Vials and Elixirs", "Remedies"],
+    "noun": [
       "Cauldron",
       "Vial",
       "Flask",
@@ -829,7 +746,7 @@
       "Hermit",
       "Herbalist"
     ],
-    "adjective":[
+    "adjective": [
       "Blessed",
       "Cursed",
       "Trusty",
@@ -846,79 +763,44 @@
       "Ugly",
       "Wandering"
     ],
-    "staff":[
+    "staff": [
       {
-        "title":"potion maker's apprentice",
-        "count":[
-          0,
-          2
-        ]
+        "title": "potion maker's apprentice",
+        "count": [0, 2]
       }
     ]
   },
-  "barber":{
-    "SV":350,
-    "buildShop":false,
-    "owner":"barber",
-    "plural":"barbers",
-    "material_restrictions":"undefined",
-    "material_requirements":"undefined",
-    "item_value_min":"undefined",
-    "item_value_max":50,
-    "default_inventory_value":250,
-    "title":[
-      "Barber Shop",
-      "Barber's Office",
-      "Dentistry",
-      "Surgeries",
-      "Ointments"
-    ],
-    "noun":[
-      "Razor",
-      "Shears",
-      "Scalpel"
-    ],
-    "adjective":[
-      "Blessed",
-      "Trusty",
-      "Delicate",
-      "Lonely",
-      "Dancing",
-      "Wandering"
-    ],
-    "staff":[
+  "barber": {
+    "SV": 350,
+    "buildShop": false,
+    "owner": "barber",
+    "plural": "barbers",
+    "material_restrictions": "undefined",
+    "material_requirements": "undefined",
+    "item_value_min": "undefined",
+    "item_value_max": 50,
+    "default_inventory_value": 250,
+    "title": ["Barber Shop", "Barber's Office", "Dentistry", "Surgeries", "Ointments"],
+    "noun": ["Razor", "Shears", "Scalpel"],
+    "adjective": ["Blessed", "Trusty", "Delicate", "Lonely", "Dancing", "Wandering"],
+    "staff": [
       {
-        "title":"barber's apprentice",
-        "count":[
-          0,
-          1
-        ]
+        "title": "barber's apprentice",
+        "count": [0, 1]
       }
     ]
   },
-  "pastry":{
-    "SV":500,
-    "buildShop":false,
-    "owner":"pastry chef",
-    "plural":"pastry chefs",
-    "item_value_min":"undefined",
-    "item_value_max":2,
-    "title":[
-      "Pastries",
-      "Cakes",
-      "Pies",
-      "Deserts",
-      "Patisserie Shop",
-      "Oven"
-    ],
-    "noun":[
-      "Oven",
-      "Bun",
-      "Pie",
-      "Cake",
-      "Trifle"
-    ],
-    "adjective":[
+  "pastry": {
+    "SV": 500,
+    "buildShop": false,
+    "owner": "pastry chef",
+    "plural": "pastry chefs",
+    "item_value_min": "undefined",
+    "item_value_max": 2,
+    "default_inventory_value": 250,
+    "title": ["Pastries", "Cakes", "Pies", "Deserts", "Patisserie Shop", "Oven"],
+    "noun": ["Oven", "Bun", "Pie", "Cake", "Trifle"],
+    "adjective": [
       "Sweet",
       "Lofty",
       "Heavenly",
@@ -934,34 +816,21 @@
       "Seductive",
       "Tempting"
     ],
-    "staff":[
+    "staff": [
       {
-        "title":"apprentice baker",
-        "count":[
-          0,
-          2
-        ]
+        "title": "apprentice baker",
+        "count": [0, 2]
       }
     ]
   },
-  "mason":{
-    "SV":500,
-    "buildShop":false,
-    "owner":"mason",
-    "plural":"masons",
-    "title":[
-      "Construction",
-      "Masonry"
-    ],
-    "noun":[
-      "Trowel",
-      "Stone",
-      "Brick",
-      "Construction",
-      "Lantern",
-      "Tradesman"
-    ],
-    "adjective":[
+  "mason": {
+    "SV": 500,
+    "buildShop": false,
+    "owner": "mason",
+    "plural": "masons",
+    "title": ["Construction", "Masonry"],
+    "noun": ["Trowel", "Stone", "Brick", "Construction", "Lantern", "Tradesman"],
+    "adjective": [
       "Sturdy",
       "Enduring",
       "Loyal",
@@ -978,91 +847,89 @@
       "Purple",
       "White"
     ],
-    "staff":[
+    "staff": [
       {
-        "title":"apprentice mason",
-        "count":[
-          2,
-          6
-        ]
+        "title": "apprentice mason",
+        "count": [2, 6]
       }
     ]
   },
-  "carpenter":{
-    "SV":550,
-    "buildShop":false,
-    "owner":"carpenter",
-    "plural":"carpenters"
+  "carpenter": {
+    "SV": 550,
+    "buildShop": false,
+    "owner": "carpenter",
+    "plural": "carpenters"
   },
-  "weaver":{
-    "SV":600,
-    "buildShop":false,
-    "owner":"weaver",
-    "plural":"weavers"
+  "weaver": {
+    "SV": 600,
+    "buildShop": false,
+    "owner": "weaver",
+    "plural": "weavers"
   },
-  "chandler":{
-    "SV":700,
-    "buildShop":false,
-    "owner":"chandler",
-    "plural":"chandlers"
+  "chandler": {
+    "SV": 700,
+    "buildShop": false,
+    "owner": "chandler",
+    "plural": "chandlers"
   },
-  "cooper":{
-    "SV":700,
-    "buildShop":false,
-    "owner":"cooper",
-    "plural":"coopers"
+  "cooper": {
+    "SV": 700,
+    "buildShop": false,
+    "owner": "cooper",
+    "plural": "coopers"
   },
-  "baker":{
-    "SV":800,
-    "buildShop":false,
-    "owner":"baker",
-    "plural":"bakers",
-    "shopName":"bakery",
-    "shopNamePlural":"bakeries"
+  "baker": {
+    "SV": 800,
+    "buildShop": false,
+    "owner": "baker",
+    "plural": "bakers",
+    "shopName": "bakery",
+    "shopNamePlural": "bakeries"
   },
-  "waterCarrier":{
-    "SV":850,
-    "buildShop":false,
-    "owner":"water carrier",
-    "plural":"water carriers"
+  "waterCarrier": {
+    "SV": 850,
+    "buildShop": false,
+    "owner": "water carrier",
+    "plural": "water carriers"
   },
-  "scabardMaker":{
-    "SV":850,
-    "buildShop":false,
-    "owner":"scabbard maker",
-    "plural":"scabbard makers"
+  "scabardMaker": {
+    "SV": 850,
+    "buildShop": false,
+    "owner": "scabbard maker",
+    "plural": "scabbard makers"
   },
-  "wineSellers":{
-    "SV":900,
-    "buildShop":false,
-    "owner":"wine seller",
-    "plural":"wine sellers"
+  "wineSellers": {
+    "SV": 900,
+    "buildShop": false,
+    "owner": "wine seller",
+    "plural": "wine sellers"
   },
-  "saddler":{
-    "SV":1000,
-    "buildShop":false,
-    "owner":"saddler",
-    "plural":"saddlers"
+  "saddler": {
+    "SV": 1000,
+    "buildShop": false,
+    "owner": "saddler",
+    "plural": "saddlers"
   },
-  "bookBinder":{
-    "SV":3000,
-    "buildShop":false,
-    "owner":"bookbinder",
-    "plural":"bookbinders"
+  "bookBinder": {
+    "SV": 3000,
+    "buildShop": false,
+    "owner": "bookbinder",
+    "plural": "bookbinders"
   },
-  "purseMaker":{
-    "SV":1100,
-    "buildShop":false,
-    "owner":"purse maker",
-    "plural":"purse makers"
+  "purseMaker": {
+    "SV": 1100,
+    "buildShop": false,
+    "owner": "purse maker",
+    "plural": "purse makers"
   },
-  "reagentSeller":{
-    "SV":2800,
-    "buildShop":true,
-    "owner":"reagent seller",
-    "plural":"reagent sellers",
-    "establishments":"magic shops",
-    "title":[
+  "reagentSeller": {
+    "SV": 2800,
+    "buildShop": true,
+    "owner": "reagent seller",
+    "plural": "reagent sellers",
+    "establishments": "magic shops",
+    "default_inventory_value": 250,
+    "title": [
       "Magic Shop",
       "Reagents",
       "Oddities",
@@ -1075,7 +942,7 @@
       "Odds and Ends",
       "Occult Items"
     ],
-    "noun":[
+    "noun": [
       "Wand",
       "Tower",
       "Seer",
@@ -1092,7 +959,7 @@
       "Hermit",
       "Herbalist"
     ],
-    "adjective":[
+    "adjective": [
       "Wiley",
       "Old",
       "Keen",
@@ -1114,90 +981,91 @@
       "Refined"
     ]
   },
-  "butcher":{
-    "SV":1200,
-    "buildShop":false,
-    "owner":"butcher",
-    "plural":"butchers"
+  "butcher": {
+    "SV": 1200,
+    "buildShop": false,
+    "owner": "butcher",
+    "plural": "butchers"
   },
-  "fishmonger":{
-    "SV":1200,
-    "buildShop":false,
-    "owner":"fishmonger",
-    "plural":"fishmongers"
+  "fishmonger": {
+    "SV": 1200,
+    "buildShop": false,
+    "owner": "fishmonger",
+    "plural": "fishmongers"
   },
-  "brewer":{
-    "SV":1400,
-    "buildShop":false,
-    "owner":"brewer",
-    "plural":"brewers"
+  "brewer": {
+    "SV": 1400,
+    "buildShop": false,
+    "owner": "brewer",
+    "plural": "brewers"
   },
-  "spiceMerchant":{
-    "SV":1400,
-    "buildShop":false,
-    "owner":"spice merchant",
-    "plural":"spice merchants"
+  "spiceMerchant": {
+    "SV": 1400,
+    "buildShop": false,
+    "owner": "spice merchant",
+    "plural": "spice merchants"
   },
-  "healer":{
-    "SV":350,
-    "buildShop":false,
-    "owner":"healer",
-    "plural":"healers"
+  "healer": {
+    "SV": 350,
+    "buildShop": false,
+    "owner": "healer",
+    "plural": "healers"
   },
-  "doctor":{
-    "SV":1700,
-    "buildShop":false,
-    "owner":"doctor",
-    "plural":"doctors"
+  "doctor": {
+    "SV": 1700,
+    "buildShop": false,
+    "owner": "doctor",
+    "plural": "doctors"
   },
-  "locksmith":{
-    "SV":1900,
-    "buildShop":false,
-    "owner":"locksmith",
-    "plural":"locksmiths"
+  "locksmith": {
+    "SV": 1900,
+    "buildShop": false,
+    "owner": "locksmith",
+    "plural": "locksmiths"
   },
-  "ropemaker":{
-    "SV":1900,
-    "buildShop":false,
-    "owner":"ropemaker",
-    "plural":"ropemakers"
+  "ropemaker": {
+    "SV": 1900,
+    "buildShop": false,
+    "owner": "ropemaker",
+    "plural": "ropemakers"
   },
-  "tanner":{
-    "SV":2000,
-    "buildShop":false,
-    "owner":"tanner",
-    "plural":"tanners"
+  "tanner": {
+    "SV": 2000,
+    "buildShop": false,
+    "owner": "tanner",
+    "plural": "tanners"
   },
-  "sculptor":{
-    "SV":2000,
-    "buildShop":false,
-    "owner":"sculptor",
-    "plural":"sculptors"
+  "sculptor": {
+    "SV": 2000,
+    "buildShop": false,
+    "owner": "sculptor",
+    "plural": "sculptors"
   },
-  "rugmaker":{
-    "SV":2000,
-    "buildShop":false,
-    "owner":"rugmaker",
-    "plural":"rugmakers"
+  "rugmaker": {
+    "SV": 2000,
+    "buildShop": false,
+    "owner": "rugmaker",
+    "plural": "rugmakers"
   },
-  "cutler":{
-    "SV":2300,
-    "buildShop":false,
-    "owner":"cutler",
-    "plural":"culters"
+  "cutler": {
+    "SV": 2300,
+    "buildShop": false,
+    "owner": "cutler",
+    "plural": "culters"
   },
-  "woodcarver":{
-    "SV":2400,
-    "buildShop":false,
-    "owner":"woodcarver",
-    "plural":"woodcarvers"
+  "woodcarver": {
+    "SV": 2400,
+    "buildShop": false,
+    "owner": "woodcarver",
+    "plural": "woodcarvers"
   },
-  "bookseller":{
-    "SV":6300,
-    "buildShop":true,
-    "owner":"bookseller",
-    "plural":"booksellers",
-    "title":[
+  "bookseller": {
+    "SV": 6300,
+    "buildShop": true,
+    "owner": "bookseller",
+    "plural": "booksellers",
+    "default_inventory_value": 2500,
+    "title": [
       "Book Shop",
       "Book Store",
       "Books",
@@ -1208,16 +1076,8 @@
       "Novels",
       "Scrolls & Tomes"
     ],
-    "noun":[
-      "Book",
-      "Tome",
-      "Scroll",
-      "Quill",
-      "Parchment",
-      "Lexicon",
-      "Codex"
-    ],
-    "adjective":[
+    "noun": ["Book", "Tome", "Scroll", "Quill", "Parchment", "Lexicon", "Codex"],
+    "adjective": [
       "Wiley",
       "Old",
       "Keen",
@@ -1241,46 +1101,46 @@
       "Refined"
     ]
   },
-  "gloveMaker":{
-    "SV":2400,
-    "buildShop":false,
-    "owner":"glove maker",
-    "plural":"glove makers"
+  "gloveMaker": {
+    "SV": 2400,
+    "buildShop": false,
+    "owner": "glove maker",
+    "plural": "glove makers"
   },
-  "roofer":{
-    "SV":1800,
-    "buildShop":false,
-    "owner":"roofer",
-    "plural":"roofers"
+  "roofer": {
+    "SV": 1800,
+    "buildShop": false,
+    "owner": "roofer",
+    "plural": "roofers"
   },
-  "copyist":{
-    "SV":2000,
-    "buildShop":false,
-    "owner":"copyist",
-    "plural":"copyists"
+  "copyist": {
+    "SV": 2000,
+    "buildShop": false,
+    "owner": "copyist",
+    "plural": "copyists"
   },
-  "painter":{
-    "SV":1500,
-    "buildShop":false,
-    "owner":"painter",
-    "plural":"painters"
+  "painter": {
+    "SV": 1500,
+    "buildShop": false,
+    "owner": "painter",
+    "plural": "painters"
   },
-  "legalAdvocate":{
-    "SV":650,
-    "buildShop":false,
-    "owner":"lawyer",
-    "plural":"lawyers"
+  "legalAdvocate": {
+    "SV": 650,
+    "buildShop": false,
+    "owner": "lawyer",
+    "plural": "lawyers"
   },
-  "clergy":{
-    "SV":40,
-    "buildShop":false,
-    "owner":"cleric",
-    "plural":"clerics"
+  "clergy": {
+    "SV": 40,
+    "buildShop": false,
+    "owner": "cleric",
+    "plural": "clerics"
   },
-  "priest":{
-    "SV":800,
-    "buildShop":false,
-    "owner":"priest",
-    "plural":"priests"
+  "priest": {
+    "SV": 800,
+    "buildShop": false,
+    "owner": "priest",
+    "plural": "priests"
   }
 }

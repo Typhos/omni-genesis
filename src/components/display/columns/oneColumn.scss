@@ -1,0 +1,5 @@
+@import "../../../styles/mixins.scss", "columns";
+
+.infoTable.one {
+  column-count: 1;
+}

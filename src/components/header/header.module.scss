@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@import "../../styles/mixins";
 
 .appHeader {
   background-color: $charcoal;
@@ -7,25 +7,30 @@
   margin: 0;
   height: 4rem;
   border-bottom: 1px solid $moodGreen;
+}
 
-  small {
-    font-size: 0.75em;
-    text-transform: uppercase;
-  }
+.appTitle {
+  padding: 0;
+  margin: 0;
+  font-family: $styleText;
+}
 
-  .headerBox {
-    max-width: 100rem;
-    margin: 0 auto;
-    display: block;
+.tagline {
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
 
+.headerBox {
+  max-width: 100rem;
+  margin: 0 auto;
+  display: block;
 
-    a {
-      text-decoration: none;
-    }
+  a {
+    text-decoration: none;
   }
 }
 
-@media screen and (max-width:$breakpoint-mobile) {
+@media screen and (max-width: $breakpoint-mobile) {
   .appHeader {
     padding: 0.25em $mobileSidePadding;
     width: 94vw;

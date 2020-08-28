@@ -1,0 +1,24 @@
+@import "./mixins";
+
+.info {
+  &__key {
+    color: $dndGold;
+    font-size: 1.1em;
+  }
+
+  &__label {
+    position: relative;
+  }
+
+  &__note {
+    color: $midTone;
+  }
+
+  &__value {
+    color: $dndGold;
+  }
+}
+
+.gray {
+  color: $lightGray;
+}

@@ -10,18 +10,19 @@ import statDescriptionData from "data/statDescription";
 import traits from "data/people/allTraits";
 
 export default class Person {
-
-  constructor ( params = {} ) {
+  constructor(params = {}) {
     if (params.seed) {
-      Math.seed = params.seed;
-    } else if ( Math.seed === undefined ) { 
+      global.seed = params.seed;
+    } else if (global.seed === undefined) {
       Utils.setNewSeed();
     }
 
-    this.seed = params.seed || Math.seed;
-    this.inputParams = {...params};
+    this.seed = params.seed || global.seed;
+    this.inputParams = { ...params };
     this.race = params.race || this.getRace(params);
-    this.raceObj = openSourceRaceData.race.filter( r => r.name.toLowerCase() === this.race && r.source === "PHB")[0];
+    this.raceObj = openSourceRaceData.race.filter(
+      (r) => r.name.toLowerCase() === this.race && r.source === "PHB"
+    )[0];
     this.sex = params.sex || this.getSex();
     this.age = params.age || this.getAge(params);
 
@@ -54,26 +55,30 @@ export default class Person {
   getRace() {
     const racesArray = Object.keys(Races);
     const weightedArray = [];
-    const percentageModifier =  1 + ( Utils.randomInt(-8,15) / 10 )
+    const percentageModifier = 1 + Utils.randomInt(-8, 15) / 10;
 
-    racesArray.forEach( race => {
+    racesArray.forEach((race) => {
       const weight = Races[race].rarity * percentageModifier;
-      for ( let i = 1; i <= weight; i++ ) {
+      for (let i = 1; i <= weight; i++) {
         weightedArray.push(race);
       }
     });
 
-    return weightedArray[ Utils.randomArrayIndex( weightedArray.length) ];
+    return weightedArray[Utils.randomArrayIndex(weightedArray)];
   }
 
   getSubRace() {
-    let races = openSourceRaceData.race.filter( r => r.name.toLowerCase() === this.race && r.source === "PHB")[0];
+    let races = openSourceRaceData.race.filter(
+      (r) => r.name.toLowerCase() === this.race && r.source === "PHB"
+    )[0];
 
-    if ( races.subraces ) {
-      const filtered = races.subraces.filter( r => ( r.source === "PHB" || r.source === undefined ) && r.name !== "Variant" );
-      
-      if ( filtered.length > 0 ) {
-        return filtered[Utils.randomArrayIndex(filtered.length)];
+    if (races.subraces) {
+      const filtered = races.subraces.filter(
+        (r) => (r.source === "PHB" || r.source === undefined) && r.name !== "Variant"
+      );
+
+      if (filtered.length > 0) {
+        return filtered[Utils.randomArrayIndex(filtered)];
       }
     }
 
@@ -81,70 +86,68 @@ export default class Person {
   }
 
   displaySubrace() {
-    if ( this.subRaceObj) {
-      if ( this.subRaceObj.alias) return this.subRaceObj.alias[0];
+    if (this.subRaceObj) {
+      if (this.subRaceObj.alias) return this.subRaceObj.alias[0];
       return this.subRaceObj.name;
     }
     return "";
   }
 
   getSex() {
-    const sex = ["male","female"];
-    return sex[Utils.randomArrayIndex( sex.length)];
+    const sex = ["male", "female"];
+    return sex[Utils.randomArrayIndex(sex)];
   }
 
   getPronouns() {
-
-    if ( this.sex === "male" ) {
+    if (this.sex === "male") {
       return {
-        "subject": "he",
-        "object": "him",
-        "posAdj": "his",
-        "posNoun": "his",
-        "subjectCaps": "He",
-        "objectCaps": "Him",
-        "posAdjCaps": "His",
-        "posNounCaps": "His",
-        "reflexive": "himself",
-        "reflexiveCaps": "Himself",
-        "isAre": "is",
-        "hasHave": "has",
-        "wasWere": "was",
-        "doesDo": "does",
-        "noun": "man"
-      }
-    } else if ( this.sex === "female") {
+        subject: "he",
+        object: "him",
+        posAdj: "his",
+        posNoun: "his",
+        subjectCaps: "He",
+        objectCaps: "Him",
+        posAdjCaps: "His",
+        posNounCaps: "His",
+        reflexive: "himself",
+        reflexiveCaps: "Himself",
+        isAre: "is",
+        hasHave: "has",
+        wasWere: "was",
+        doesDo: "does",
+        noun: "man",
+      };
+    } else if (this.sex === "female") {
       return {
-        "subject": "she",
-        "object": "her",
-        "posAdj": "her",
-        "posNoun": "hers",
-        "subjectCaps": "She",
-        "objectCaps": "Her",
-        "posAdjCaps": "Her",
-        "posNounCaps": "Hers",
-        "reflexive": "herself",
-        "reflexiveCaps": "herself",
-        "isAre": "is",
-        "hasHave": "has",
-        "wasWere": "was",
-        "doesDo": "does",
-        "noun": "woman"
-      }
+        subject: "she",
+        object: "her",
+        posAdj: "her",
+        posNoun: "hers",
+        subjectCaps: "She",
+        objectCaps: "Her",
+        posAdjCaps: "Her",
+        posNounCaps: "Hers",
+        reflexive: "herself",
+        reflexiveCaps: "herself",
+        isAre: "is",
+        hasHave: "has",
+        wasWere: "was",
+        doesDo: "does",
+        noun: "woman",
+      };
     } else {
       return {
-        "subject": "They",
-        "object": "Them",
-        "posAdj": "Their",
-        "posNoun": "Theirs",
-        "isAre": "are",
-        "hasHave": "have",
-        "wasWere": "was",
-        "doesDo": "do",
-        "noun": "person"
-      }
+        subject: "They",
+        object: "Them",
+        posAdj: "Their",
+        posNoun: "Theirs",
+        isAre: "are",
+        hasHave: "have",
+        wasWere: "was",
+        doesDo: "do",
+        noun: "person",
+      };
     }
-
   }
 
   getName() {
@@ -152,7 +155,7 @@ export default class Person {
       race: this.race,
       sex: this.sex,
       jobGroup: this.jobGroup,
-      age: this.age
+      age: this.age,
     }).name;
   }
 
@@ -162,18 +165,17 @@ export default class Person {
     const childNum = lifespan / 6 - 1;
     const youthNum = lifespan / 4;
 
-    if ( params.child ) {
+    if (params.child) {
       age = Utils.randomInt(0, childNum);
 
-      if ( age === 0 ) age = "newborn";
-
-    } else if ( params.elderly ) {
-      const old = lifespan - lifespan/4;
-      const max = lifespan + lifespan/6;
+      if (age === 0) age = "newborn";
+    } else if (params.elderly) {
+      const old = lifespan - lifespan / 4;
+      const max = lifespan + lifespan / 6;
 
       age = Utils.randomInt(old, max);
     } else {
-      age = Utils.randomInt(youthNum, lifespan - lifespan/10);
+      age = Utils.randomInt(youthNum, lifespan - lifespan / 10);
     }
 
     return age;
@@ -186,13 +188,13 @@ export default class Person {
     let youngAdult = lifespan / 3;
     let elderNum = lifespan - lifespan / 4;
 
-    if ( age <= childNum ) {
+    if (age <= childNum) {
       return "Child";
-    } else if ( age <= youthNum) {
+    } else if (age <= youthNum) {
       return "Youth";
-    } else if ( age <= youngAdult) {
+    } else if (age <= youngAdult) {
       return "Young Adult";
-    } else if ( age >= elderNum ) {
+    } else if (age >= elderNum) {
       return "Elder";
     } else {
       return "Adult";
@@ -201,17 +203,17 @@ export default class Person {
 
   getJobGroup(params) {
     const allJobs = Object.keys(Professions.jobs);
-    return allJobs[ Utils.randomArrayIndex( allJobs.length) ];
+    return allJobs[Utils.randomArrayIndex(allJobs)];
   }
 
-  getOccupation(params){
+  getOccupation(params) {
     // What? You can just "get a job?". This really is a fantasy world.
 
-    if ( params.occupation ) {
+    if (params.occupation) {
       let job = params.occupation;
       // if a job is provided which has a / to split title based on sex, it is always Male/Female.
       // split the string and then return the appropriate one.
-      if ( job.indexOf("/") >= 0 ) {
+      if (job.indexOf("/") >= 0) {
         let index = this.sex === "male" ? 0 : 1;
         job = job.split("/")[index];
       }
@@ -220,20 +222,15 @@ export default class Person {
       const jobGroup = this.jobGroup;
       let job;
 
-      if ( jobGroup === "adventurer") {
-
+      if (jobGroup === "adventurer") {
         const classes = Object.keys(Professions.jobs[jobGroup]);
-        job = classes[ Utils.randomArrayIndex( classes.length) ];
-
-      } else if ( Array.isArray(Professions.jobs[jobGroup].list) ) {
-
+        job = classes[Utils.randomArrayIndex(classes)];
+      } else if (Array.isArray(Professions.jobs[jobGroup].list)) {
         job = Professions.jobs[jobGroup].list;
-        job = job[ Utils.randomArrayIndex( job.length) ];
-
+        job = job[Utils.randomArrayIndex(job)];
       } else {
-
         job = Professions.jobs[jobGroup].list[this.sex];
-        job = job[ Utils.randomArrayIndex( job.length) ];
+        job = job[Utils.randomArrayIndex(job)];
       }
 
       return job;
@@ -242,29 +239,37 @@ export default class Person {
 
   checkJobVerbage() {
     // for jobs with gender specific verbage.
-    if ( this.occupation.includes("*") ) {
-      let noun = ( this.sex === "male" ) ? "man" : "woman";
+    if (this.occupation.includes("*")) {
+      let noun = this.sex === "male" ? "man" : "woman";
       this.occupation = this.occupation.replace("*", noun);
     }
   }
 
-  getAlignment(params){
+  getAlignment(params) {
     const tendancy = Races[this.race].alignmentTendancies;
     const alignmentWeight = 2;
     const alignments = {
-      "any good": ["lawful good","neutral good","chaotic good"],
-      "any evil": ["lawful evil","neutral evil","chaotic evil"],
-      "any lawful": ["lawful good","lawful neutral","lawful evil"],
-      "any chaotic": ["chaotic good","chaotic neutral","chaotic evil"],
-      "any neutral": ["neutral good","neutral evil","lawful neutral","true neutral","chaotic neutral"]
+      "any good": ["lawful good", "neutral good", "chaotic good"],
+      "any evil": ["lawful evil", "neutral evil", "chaotic evil"],
+      "any lawful": ["lawful good", "lawful neutral", "lawful evil"],
+      "any chaotic": ["chaotic good", "chaotic neutral", "chaotic evil"],
+      "any neutral": [
+        "neutral good",
+        "neutral evil",
+        "lawful neutral",
+        "true neutral",
+        "chaotic neutral",
+      ],
     };
 
-    let authority = ["lawful","neutral","chaotic"];
-    let morality = ["good","neutral","evil"];
-    
-    if ( params.alignment && params.alignment.includes("any") ) {
-      return alignments[params.alignment][ Utils.randomArrayIndex( alignments[params.alignment].length) ];
-    } else if ( params.alignment !== undefined ) {
+    let authority = ["lawful", "neutral", "chaotic"];
+    let morality = ["good", "neutral", "evil"];
+
+    if (params.alignment && params.alignment.includes("any")) {
+      return alignments[params.alignment][
+        Utils.randomArrayIndex(alignments[params.alignment].length)
+      ];
+    } else if (params.alignment !== undefined) {
       return params.alignment;
     } else {
       if (tendancy) {
@@ -275,52 +280,59 @@ export default class Person {
         morality = [...morality, ...m];
       }
 
-      let output = `${authority[ Utils.randomArrayIndex( authority.length) ]} ${morality[ Utils.randomArrayIndex( morality.length) ]}`;
-      if (output === "neutral neutral")  output = "unaligned";
+      let output = `${authority[Utils.randomArrayIndex(authority)]} ${
+        morality[Utils.randomArrayIndex(morality)]
+      }`;
+      if (output === "neutral neutral") output = "unaligned";
 
       return output;
     }
   }
 
   getPhysicalInfo() {
-    const physicalObj = (this.subRaceObj && this.subRaceObj.heightAndWeight) || this.raceObj.heightAndWeight || {};
+    const physicalObj =
+      (this.subRaceObj && this.subRaceObj.heightAndWeight) || this.raceObj.heightAndWeight || {};
     let heightRoll = 1;
 
     if (physicalObj.heightMod) {
       heightRoll = diceMath(physicalObj.heightMod);
     }
 
-    let height = ( physicalObj.heightMod ) ? physicalObj.baseHeight + heightRoll : physicalObj.baseHeight;
-    let weight = ( physicalObj.weightMod ) ? physicalObj.baseWeight + (heightRoll * diceMath(physicalObj.weightMod)) : physicalObj.baseWeight;
+    let height = physicalObj.heightMod
+      ? physicalObj.baseHeight + heightRoll
+      : physicalObj.baseHeight;
+    let weight = physicalObj.weightMod
+      ? physicalObj.baseWeight + heightRoll * diceMath(physicalObj.weightMod)
+      : physicalObj.baseWeight;
 
     return {
-      "imperial":{
-        "height": height,
-        "weight": weight
+      imperial: {
+        height: height,
+        weight: weight,
       },
-      "metric": {
-        "height": parseInt( (height*2.54).toFixed(0) ),
-        "weight": parseFloat( (weight*0.453592).toFixed(2) )
-      }
-    }
+      metric: {
+        height: parseInt((height * 2.54).toFixed(0)),
+        weight: parseFloat((weight * 0.453592).toFixed(2)),
+      },
+    };
 
     function diceMath(str) {
-      return new Array( parseInt(str.split("d")[0]) )
+      return new Array(parseInt(str.split("d")[0]))
         .fill(undefined)
-        .map( x => Utils.randomInt(1, parseInt(str.split("d")[1]) ) )
-        .reduce( (a,b) =>  a+b, 0);
-    }    
+        .map((x) => Utils.randomInt(1, parseInt(str.split("d")[1])))
+        .reduce((a, b) => a + b, 0);
+    }
   }
 
   writeDescription() {
     let personality = this.getLikesAndDislikes();
 
     return {
-      "statsDescription": this.statsDescription(),
-      "quirk": this.pronounReplace(traits.quirks[ Utils.randomArrayIndex( traits.quirks.length) ]),
-      "likes": personality.likes,
-      "dislikes": personality.dislikes,
-      "physicalDescription": 0
+      statsDescription: this.statsDescription(),
+      quirk: this.pronounReplace(traits.quirks[Utils.randomArrayIndex(traits.quirks)]),
+      likes: personality.likes,
+      dislikes: personality.dislikes,
+      physicalDescription: 0,
     };
   }
 
@@ -328,147 +340,154 @@ export default class Person {
     let options = [...traits.values];
     let output = [];
 
-    new Array(4).fill(undefined).forEach( x => {
-      const index = Utils.randomArrayIndex( options.length);
-      const val = options[ index ];
+    new Array(4).fill(undefined).forEach((x) => {
+      const index = Utils.randomArrayIndex(options.length);
+      const val = options[index];
 
-      output.push( val );
+      output.push(val);
       options.splice(index, 1);
     });
 
-    const midpoint = Math.round( (output.length - 1) / 2);
-    const likes = output.splice( 0, midpoint ).join(" & ").trim();
+    const midpoint = Math.round((output.length - 1) / 2);
+    const likes = output.splice(0, midpoint).join(" & ").trim();
     const dislikes = output.join(" & ").trim();
 
     return {
-      "likes": likes,
-      "dislikes": dislikes
-    }
+      likes: likes,
+      dislikes: dislikes,
+    };
   }
 
   pronounReplace(str) {
     const pronouns = this.pronouns;
-    return str.split(/{(.*?)}/).filter( x => x !== "" && x !== " ").map( substr => {
-      for ( let [pro, rep] of Object.entries(pronouns) ) {
-        if (pro === substr) return rep; 
-      }
-      return substr;
-    }).join(" ");
-
+    return str
+      .split(/{(.*?)}/)
+      .filter((x) => x !== "" && x !== " ")
+      .map((substr) => {
+        for (let [pro, rep] of Object.entries(pronouns)) {
+          if (pro === substr) return rep;
+        }
+        return substr;
+      })
+      .join(" ");
   }
 
   statsDescription() {
     const stats = this.stats.coreStats.mods;
-    
+
     let sortableStats = [];
-    for ( let [key, value] of Object.entries(stats) ) {
-      sortableStats.push( [key, value] );
+    for (let [key, value] of Object.entries(stats)) {
+      sortableStats.push([key, value]);
     }
-    
+
     sortableStats = Utils.shuffleArray(sortableStats);
 
     let first = sortableStats[0];
     let description = [];
 
-    for ( let [key, value] of Object.entries(statDescriptionData[first[0]]) ) {
-      if ( key.includes(first[1]) ) description.push( value );
+    for (let [key, value] of Object.entries(statDescriptionData[first[0]])) {
+      if (key.includes(first[1])) description.push(value);
     }
 
-    return description.map( str => {
+    return description.map((str) => {
       return this.pronounReplace(str);
     });
   }
 
   buildJSON() {
     let json = {};
-    let name = this.name.displayName.replace(/\s/g,"-");
+    let name = this.name.displayName.replace(/\s/g, "-");
 
     json[name] = {
-      "playerKnown": false,
-      "path": "person",
-      "hideOnCat": false,
-      "tags": [],
-      "name": this.name.displayName,
-      "nickname": this.name.displayName,
-      "linkingWords": [],
-      "race": this.race.charAt(0).toUpperCase() + this.race.slice(1),
-      "age": this.age,
-      "birthYear": "",
-      "deathYear": "",
-      "gender": this.sex.charAt(0).toUpperCase() + this.sex.slice(1),
-      "titles": [],
-      "occupation": this.occupation.charAt(0).toUpperCase() + this.occupation.slice(1),
-      "affiliations": [],
-      "quote": "",
-      "description": [`@+${this.name.displayName}+@ is a ${this.sex}, ${this.race} ${this.occupation}. ${this.description.statsDescription[0]} ${this.description.quirk}`],
-      "articles": {},
-      "dmArticles": {}
+      playerKnown: false,
+      path: "person",
+      hideOnCat: false,
+      tags: [],
+      name: this.name.displayName,
+      nickname: this.name.displayName,
+      linkingWords: [],
+      race: this.race.charAt(0).toUpperCase() + this.race.slice(1),
+      age: this.age,
+      birthYear: "",
+      deathYear: "",
+      gender: this.sex.charAt(0).toUpperCase() + this.sex.slice(1),
+      titles: [],
+      occupation: this.occupation.charAt(0).toUpperCase() + this.occupation.slice(1),
+      affiliations: [],
+      quote: "",
+      description: [
+        `@+${this.name.displayName}+@ is a ${this.sex}, ${this.race} ${this.occupation}. ${this.description.statsDescription[0]} ${this.description.quirk}`,
+      ],
+      articles: {},
+      dmArticles: {},
     };
 
     if (this.stats) {
       const stats = this.stats;
-      const actions = function() {
+      const actions = function () {
         let array = [];
-        const attackStr = [null,null,"two","three"];
+        const attackStr = [null, null, "two", "three"];
 
-        if ( stats.attacks > 1 ) {
+        if (stats.attacks > 1) {
           let name = "Multiattack.";
-          let text = `${this.displayName} makes ${attackStr[stats.attacks]} melee or ranged attacks.`;
-          
+          let text = `${this.displayName} makes ${
+            attackStr[stats.attacks]
+          } melee or ranged attacks.`;
+
           array.push({
-            name: name, 
-            text: text
+            name: name,
+            text: text,
           });
         }
 
         array.push({
           name: "Sword.",
-          text: `Melee Weapon Attack: +${stats.attackBonus} to hit, reach 5 ft., one target. Hit: ${stats.atkDmg.damage.tPerAtk} (${stats.atkDmg.damage.dice[0]}d${stats.atkDmg.damage.dice[1]}+${stats.atkDmg.damage.dice[2]}) damage.`
+          text: `Melee Weapon Attack: +${stats.attackBonus} to hit, reach 5 ft., one target. Hit: ${stats.atkDmg.damage.tPerAtk} (${stats.atkDmg.damage.dice[0]}d${stats.atkDmg.damage.dice[1]}+${stats.atkDmg.damage.dice[2]}) damage.`,
         });
 
         array.push({
           name: "Bow.",
-          text: `Ranged Weapon Attack: +${stats.attackBonus} to hit, range 60/120 ft., one target. Hit: ${stats.atkDmg.damage.tPerAtk} (${stats.atkDmg.damage.dice[0]}d${stats.atkDmg.damage.dice[1]}+${stats.atkDmg.damage.dice[2]}) damage.`
+          text: `Ranged Weapon Attack: +${stats.attackBonus} to hit, range 60/120 ft., one target. Hit: ${stats.atkDmg.damage.tPerAtk} (${stats.atkDmg.damage.dice[0]}d${stats.atkDmg.damage.dice[1]}+${stats.atkDmg.damage.dice[2]}) damage.`,
         });
 
         return array;
-      }
+      };
 
-      const darkVision = (stats.perception.senses.darkvision) ? `Darkvision ${stats.perception.senses.darkvision} Ft.` : undefined;
+      const darkVision = stats.perception.senses.darkvision
+        ? `Darkvision ${stats.perception.senses.darkvision} Ft.`
+        : undefined;
 
       json[name].statBlock = {
-        "show": false,
-        "alignment": this.alignment,
-        "creatureType": `${stats.size} Humanoid`,
-        "stats": [
-          {"name": "STR", "val": stats.coreStats.scores.str},
-          {"name": "DEX", "val": stats.coreStats.scores.dex},
-          {"name": "CON", "val": stats.coreStats.scores.con},
-          {"name": "INT", "val": stats.coreStats.scores.int},
-          {"name": "WIS", "val": stats.coreStats.scores.wis},
-          {"name": "CHA", "val": stats.coreStats.scores.cha}
+        show: false,
+        alignment: this.alignment,
+        creatureType: `${stats.size} Humanoid`,
+        stats: [
+          { name: "STR", val: stats.coreStats.scores.str },
+          { name: "DEX", val: stats.coreStats.scores.dex },
+          { name: "CON", val: stats.coreStats.scores.con },
+          { name: "INT", val: stats.coreStats.scores.int },
+          { name: "WIS", val: stats.coreStats.scores.wis },
+          { name: "CHA", val: stats.coreStats.scores.cha },
         ],
-        "armor": stats.ac,
-        "hitPoint": stats.hp,
-        "hitDie": stats.hitDice,
-        "speed": `${stats.speed} ft.`,
-        "skills": "",
-        "savingThrows": "",
-        "damageResistances": "",
-        "damageVulnerabilities": "",
-        "damageImmunities": "",
-        "conditionImmunities": "",
-        "senses": darkVision,
-        "passiveWisdom": stats.perception.passive,
-        "languages": stats.languages.map(lang => lang.name).join(", "),
-        "challenge": stats.cr,
-        "abilities": [],
-        "actions": actions()
-      }
-
+        armor: stats.ac,
+        hitPoint: stats.hp,
+        hitDie: stats.hitDice,
+        speed: `${stats.speed} ft.`,
+        skills: "",
+        savingThrows: "",
+        damageResistances: "",
+        damageVulnerabilities: "",
+        damageImmunities: "",
+        conditionImmunities: "",
+        senses: darkVision,
+        passiveWisdom: stats.perception.passive,
+        languages: stats.languages.map((lang) => lang.name).join(", "),
+        challenge: stats.cr,
+        abilities: [],
+        actions: actions(),
+      };
     }
 
     return JSON.stringify(json, null, 2);
   }
-
 }

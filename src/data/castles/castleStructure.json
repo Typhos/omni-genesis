@@ -1,0 +1,36 @@
+{
+  "castleElements": {
+    "barbican": {
+      "description": "A barbican is a fortified outpost or gateway, such as at an outer defence perimeter of a city or castle, or any tower situated over a gate or bridge which was used for defensive purposes.",
+      "castleSizeNeeded": ["average", "large", "huge"]
+    },
+    "gatehouse": {
+      "description": "The gatehouse is an entry control point building, enclosing the primary entrance to a castle, manor house, or other fortification building.",
+      "castleSizeNeeded": ["tiny", "small", "average", "large", "huge"]
+    },
+    "outerWall": {
+      "description": "The outer curtain is the outmost defensive wall of a castle, spanning the length between two towers, or bastions.",
+      "castleSizeNeeded": ["large", "huge"]
+    },
+    "bailey": {
+      "description": "A bailey, or ward, in a fortification is a courtyard enclosed by a curtain wall. If a castle has multiple defensive walls, it will have multiple bailies.",
+      "castleSizeNeeded": ["tiny", "small", "average", "large", "huge"]
+    },
+    "innerWall": {
+      "description": "The curtain wall is the defensive wall of a castle, spanning the length between two towers, or bastions.",
+      "castleSizeNeeded": ["tiny", "small", "average", "large", "huge"]
+    },
+    "keep": {
+      "description": "The central, innermost fortified tower built within a castle.",
+      "castleSizeNeeded": ["tiny", "small", "average", "large", "huge"]
+    },
+    "moat": {
+      "description": "",
+      "castleSizeNeeded": ["average", "large", "huge"]
+    },
+    "towers": {
+      "description": "",
+      "castleSizeNeeded": ["small", "average", "large", "huge"]
+    }
+  }
+}

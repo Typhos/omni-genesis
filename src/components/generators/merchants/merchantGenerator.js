@@ -3,24 +3,34 @@ import Person from "../person/person";
 
 import merchantsObj from "../../../data/merchants/merchants";
 import tavernsObj from "../../../data/merchants/taverns";
+import Item from "../items/item";
 
 const allShops = { ...merchantsObj, ...tavernsObj };
 
 export default class Merchant {
   constructor(params = {}) {
+    let { seed, type, culture, batchMode } = params;
+
     if (params.seed) {
-      Math.seed = params.seed;
-    } else if (Math.seed === undefined) {
+      global.seed = seed;
+    } else if (global.seed === undefined) {
       Utils.setNewSeed();
     }
 
-    this.seed = Math.seed;
-    this.shopType = params.type || this.getShopType();
-    this.culture = params.culture || "";
-    this.owner = this.getOwner(params);
+    this.seed = global.seed;
+    this.shopType = type || this.getShopType();
+    this.culture = culture || "";
+    this.staff = this.getStaff(params);
     this.name = this.getName();
     this.size = this.getSize(params);
     this.atmosphere = this.getAtmosphere(params);
+
+    // TEMPORARY
+    if (this.shopType === "tavern" || this.shopType === "inn") batchMode = true;
+
+    if (!batchMode) {
+      this.inventory = this.getInventory();
+    }
   }
 
   getShopType() {
@@ -29,41 +39,43 @@ export default class Merchant {
       if (info.itemList !== undefined) type.push(key);
     }
 
-    type = type[Utils.randomArrayIndex(type.length)];
+    type = type[Utils.randomArrayIndex(type)];
 
     return type;
   }
 
-  getOwner(params) {
-    const { owner, culture } = params;
+  getStaff(params) {
+    const { culture } = params;
     const { shopType } = this;
 
-    return new Person({
-      race: owner,
+    const owner = new Person({
       jobGroup: "merchant",
       culture: culture,
       occupation: allShops[shopType].owner,
     });
+
+    return [owner];
   }
 
   getName() {
+    const { staff, shopType } = this;
     let nameStyle = ["ownerNamed"][Utils.randomInt(0, 2)];
 
     if (nameStyle === "ownerNamed") {
-      let name = this.owner.name.surname ? this.owner.name.surname : this.owner.name.name;
+      let name = staff[0].name.surname ? staff[0].name.surname : staff[0].name.name;
 
       name = /s$/.test(name.trim()) ? (name = name + "'") : name + "'s";
 
-      let title = allShops[this.shopType].title;
-      title = title[Utils.randomArrayIndex(title.length)];
+      let title = allShops[shopType].title;
+      title = title[Utils.randomArrayIndex(title)];
 
       return `${name} ${title}`;
     } else {
-      let adjective = allShops[this.shopType].adjective;
-      adjective = adjective[Utils.randomArrayIndex(adjective.length)];
+      let adjective = allShops[shopType].adjective;
+      adjective = adjective[Utils.randomArrayIndex(adjective)];
 
-      let noun = allShops[this.shopType].noun;
-      noun = noun[Utils.randomArrayIndex(noun.length)];
+      let noun = allShops[shopType].noun;
+      noun = noun[Utils.randomArrayIndex(noun)];
 
       return `the ${adjective} ${noun}`;
     }
@@ -75,7 +87,7 @@ export default class Merchant {
       size = Object.keys(size);
     }
 
-    return size[Utils.randomArrayIndex(size.length)];
+    return size[Utils.randomArrayIndex(size)];
   }
 
   getAtmosphere(options) {
@@ -90,6 +102,33 @@ export default class Merchant {
       atmosphere = Object.keys(atmosphere);
     }
 
-    return atmosphere[Utils.randomArrayIndex(atmosphere.length)];
+    return atmosphere[Utils.randomArrayIndex(atmosphere)];
+  }
+
+  getInventory() {
+    let { default_inventory_value, itemList } = allShops[this.shopType];
+    let targetShopValue = Utils.randomInt(default_inventory_value / 2, default_inventory_value * 2);
+    let currentGpValue = 0;
+    let items = [];
+
+    while (currentGpValue < targetShopValue) {
+      const randomType = itemList[Utils.randomArrayIndex(itemList)];
+      const newItem = new Item({
+        category: randomType.category,
+        type: randomType.type,
+      });
+
+      currentGpValue += newItem.fiveEStats.value || 10;
+      items.push(newItem);
+    }
+
+    items = items.sort((a, b) => {
+      if (b.subtype > a.subtype) return -1;
+    });
+
+    return {
+      gpValue: Math.round(currentGpValue),
+      items: items,
+    };
   }
 }

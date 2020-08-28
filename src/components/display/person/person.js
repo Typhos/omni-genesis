@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import Utils from "../../utils";
 import Display from "../display";
 import StatBlock from "../statBlock/statBlock";
-import Utils from "../../utils";
+import TwoColumnDisplay from "../columns/twoColumns.js";
+import OneColumnDisplay from "../columns/oneColumn.js";
 
 import displayStyles from "../display.module.scss";
-import styles from "./person.module.scss";
+// import styles from "./person.module.scss";
 
 export default class PersonDisplay extends Component {
   constructor(props) {
@@ -58,7 +60,7 @@ export default class PersonDisplay extends Component {
         <li
           name={array[i].name}
           key={array[i].name + i}
-          className={`infoTableRow numeric pointer`}
+          className={`infoTable__row numeric pointer`}
           onClick={() => {
             this.sendToCityEntry(fullObj, array[i].name, type);
           }}
@@ -85,7 +87,9 @@ export default class PersonDisplay extends Component {
   }
 
   render() {
-    const person = this.props.person;
+    const { person } = this.props;
+
+    console.log(person);
 
     return (
       <Display>
@@ -105,79 +109,81 @@ export default class PersonDisplay extends Component {
               <br />
             </React.Fragment>
           )}
-        <h2 className={`${displayStyles.headline} ${displayStyles.name}`}>
+        <h2 className={`displayLayout__name ${displayStyles.headline} ${displayStyles.name}`}>
           {person.name.displayName}
         </h2>
-        <h3 className={displayStyles.subHead}>
+        <h2 className="displayLayout__subHeading">
           {this.raceString(person)} {person.occupation}
-        </h3>
-        <ul className={styles.information}>
-          <li>
-            <strong>Sex:</strong>
-            <span className={styles.result}>{person.sex}</span>
+        </h2>
+
+        <TwoColumnDisplay>
+          <li className="infoTable__row">
+            <span className="info__label">Sex:</span>{" "}
+            <span className="info__value">{person.sex}</span>
           </li>
-          <li>
-            <strong>Alignment:</strong> <span className={styles.result}>{person.alignment}</span>
+          <li className="infoTable__row">
+            <span className="info__label">Alignment:</span>{" "}
+            <span className="info__value">{person.alignment}</span>
           </li>
-          <li>
-            <strong>Age:</strong>
-            <span className={styles.result}>
+          <li className="infoTable__row">
+            <span className="info__label">Age:</span>{" "}
+            <span className="info__value">
               {person.age} ({person.ageGroup})
             </span>
           </li>
-        </ul>
+        </TwoColumnDisplay>
 
         {person.physical && (
-          <ul className={styles.information}>
+          <TwoColumnDisplay>
             {this.props.state.imperial && (
               <React.Fragment>
-                <li>
-                  <strong>Height:</strong>
-                  <span className={styles.result}>
+                <li className="infoTable__row">
+                  <span className="info__label">Height:</span>{" "}
+                  <span className="info__value">
                     {Math.floor(person.physical.imperial.height / 12)} ft{" "}
                     {person.physical.imperial.height % 12} in
                   </span>
                 </li>
-                <li>
-                  <strong>Weight:</strong>
-                  <span className={styles.result}>{person.physical.imperial.weight} lbs.</span>
+                <li className="infoTable__row">
+                  <span className="info__label">Weight:</span>{" "}
+                  <span className="info__value">{person.physical.imperial.weight} lbs.</span>
                 </li>
               </React.Fragment>
             )}
             {!this.props.state.imperial && (
               <React.Fragment>
                 <li>
-                  <strong>Height:</strong>
-                  <span className={styles.result}>{person.physical.metric.height} cm</span>
+                  <span className="info__label">Height:</span>{" "}
+                  <span className="info__value">{person.physical.metric.height} cm</span>
                 </li>
                 <li>
-                  <strong>Weight:</strong>
-                  <span className={styles.result}>{person.physical.metric.weight} kg</span>
+                  <span className="info__label">Weight:</span>{" "}
+                  <span className="info__value">{person.physical.metric.weight} kg</span>
                 </li>
               </React.Fragment>
             )}
-          </ul>
+          </TwoColumnDisplay>
         )}
 
         {person.description && (
-          <div className={styles.description}>
-            <p>
-              <strong>Likes: </strong>
-              <span className="capitalize">{person.description.likes}</span>
-            </p>
-            <p>
-              <strong>Dislikes: </strong>
-              <span className="capitalize">{person.description.dislikes}</span>
-            </p>
-            <p>
-              <strong>Random Fact: </strong>
-              <span>{person.description.statsDescription[0]}</span>
-            </p>
-            <p>
-              <strong>Personality Quirk: </strong>
-              <span>{person.description.quirk}</span>
-            </p>
-          </div>
+          <OneColumnDisplay>
+            <li className="infoTable__row">
+              <span className="info__label">Likes: </span>{" "}
+              <span className="capitalize info__value">{person.description.likes}</span>
+            </li>
+            <li className="infoTable__row">
+              <span className="info__label">Dislikes: </span>{" "}
+              <span className="capitalize info__value">{person.description.dislikes}</span>
+            </li>
+            <li className="infoTable__row">
+              <span className="info__label">Random Fact: </span>{" "}
+              <span className="info__value">{person.description.statsDescription[0]}</span>
+            </li>
+            <li className="infoTable__row">
+              <span className="info__label">Personality Quirk: </span>{" "}
+              <span className="info__value">{person.description.quirk}</span>
+            </li>
+          </OneColumnDisplay>
         )}
         {person.stats && (
           <React.Fragment>

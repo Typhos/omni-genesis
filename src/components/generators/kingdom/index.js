@@ -1,10 +1,11 @@
 import Utils from "../../utils";
 import City from "../city";
 
-import placeNames from "../../../data/names/randomPlaceNames";
+import placeNames from "../../../data/places/randomPlaceNames";
 import stateSizes from "../../../data/kingdoms/sizes";
 import cityDataObj from "../../../data/cities/cities";
 import namePieces from "../../../data/kingdoms/names";
+import Castle from "../castle";
 
 // const kingdomWorker: Worker = new Worker("./workers/kingdomWorker.js");
 
@@ -15,15 +16,15 @@ import namePieces from "../../../data/kingdoms/names";
 export default class Kingdom {
   constructor(params = {}) {
     if (params.seed) {
-      Math.seed = params.seed;
-    } else if (Math.seed === undefined) {
+      global.seed = params.seed;
+    } else if (global.seed === undefined) {
       Utils.setNewSeed();
     }
 
     this.inputParams = { ...params };
 
     this.type = "kingdom";
-    this.seed = params.seed || Math.seed;
+    this.seed = params.seed || global.seed;
     this.culture = params.culture || this.getRandomCulture();
     this.name = this.getRandomName(this.culture);
     this.density = this.getRandomDensity(params.density);
@@ -36,17 +37,17 @@ export default class Kingdom {
   }
 
   getRandomCulture() {
-    return Object.keys(placeNames)[Utils.randomArrayIndex(Object.keys(placeNames).length)];
+    return Object.keys(placeNames)[Utils.randomArrayIndex(Object.keys(placeNames))];
   }
 
   getRandomName(culture) {
     // Originally this was done using town names from the city generator, but it resulted in too many countries sounding like towns or cities.
 
     const { n1, n2, n3, n4 } = namePieces;
-    const na1 = n1[Utils.randomArrayIndex(n1.length)];
-    const na2 = n2[Utils.randomArrayIndex(n2.length)];
-    const na3 = n3[Utils.randomArrayIndex(n3.length)];
-    const na4 = n4[Utils.randomArrayIndex(n4.length)];
+    const na1 = n1[Utils.randomArrayIndex(n1)];
+    const na2 = n2[Utils.randomArrayIndex(n2)];
+    const na3 = n3[Utils.randomArrayIndex(n3)];
+    const na4 = n4[Utils.randomArrayIndex(n4)];
     const name = na1 + na2 + na3 + na4;
 
     return name;
@@ -66,7 +67,7 @@ export default class Kingdom {
 
     const stateSizesKeys = Object.keys(stateSizes.sizes);
 
-    if (!sizeParam) sizeParam = stateSizesKeys[Utils.randomArrayIndex(stateSizesKeys.length)];
+    if (!sizeParam) sizeParam = stateSizesKeys[Utils.randomArrayIndex(stateSizesKeys)];
 
     const sqMiles = Utils.randomInt(stateSizes.sizes[sizeParam][0], stateSizes.sizes[sizeParam][1]);
     const land = landUse(sqMiles);
@@ -331,20 +332,46 @@ export default class Kingdom {
   }
 
   getActiveCastles(total) {
+    const { age, culture } = this;
     const borderKeepMod = 0.25;
     const borderKeepTotal = Math.round(total * borderKeepMod);
     const civilKeepTotal = total - borderKeepTotal;
 
+    const borderCastleBuildCount = borderKeepTotal > 4 ? 4 : borderKeepTotal;
+    const civilCastleBuildCount = civilKeepTotal > 6 ? 6 : civilKeepTotal;
+
+    const borderKeeps = new Array(borderCastleBuildCount).fill(undefined).map(() => {
+      return new Castle({ culture: culture, maxAge: age });
+    });
+
+    const civilKeeps = new Array(civilCastleBuildCount).fill(undefined).map(() => {
+      return new Castle({ culture: culture, maxAge: age });
+    });
+
     return {
       total: total,
-      borderKeeps: borderKeepTotal,
-      civilKeeps: civilKeepTotal,
+      borderKeeps: {
+        total: borderKeepTotal,
+        castleArray: borderKeeps,
+      },
+      civilKeeps: {
+        total: civilKeepTotal,
+        castleArray: civilKeeps,
+      },
     };
   }
 
   getRuinedCastles(total) {
+    const { age, culture } = this;
+    const count = total > 6 ? 6 : total;
+
+    const borderKeeps = new Array(count).fill(undefined).map(() => {
+      return new Castle({ ruin: true, culture: culture, maxAge: age });
+    });
+
     return {
       total: total,
+      castleArray: borderKeeps,
     };
   }
 }

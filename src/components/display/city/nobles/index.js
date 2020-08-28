@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import styles from "./nobles.module.scss";
-
 export default class NobleDisplay extends Component {
   render() {
     const {
@@ -24,15 +22,14 @@ export default class NobleDisplay extends Component {
       <li
         name={displayName}
         key={displayName + index}
-        className="infoTableRow names pointer"
+        className="infoTable__row names pointer"
         // onClick={() => {
         //   sendToPersonEntry(nobles, displayName, noblePeopleArray);
         // }}
       >
-        <span className={`${styles.label} capitalize`}>{occupation} </span>
-        <span className={styles.value}>
-          {displayName} <small>({race})</small>
-        </span>
+        <span className="info__label capitalize">{occupation} </span>
+        <span className="info__value">{displayName}</span>{" "}
+        <small className="info__label gray">({race})</small>
       </li>
     );
   }

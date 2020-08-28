@@ -10,7 +10,7 @@ import Select from "../../components/controls/select/selectStandard";
 import NumberInput from "../../components/controls/input/numberInput";
 
 import stateSizes from "../../data/kingdoms/sizes";
-import placeNames from "../../data/names/randomPlaceNames";
+import placeNames from "../../data/places/randomPlaceNames";
 
 export default class Kingdoms extends Component {
   constructor(props) {
@@ -18,8 +18,7 @@ export default class Kingdoms extends Component {
     Utils.setNewSeed();
 
     this.state = {
-      seed: Math.seed,
-      loading: false,
+      seed: global.seed,
     };
 
     this.change = this.change.bind(this);
@@ -45,8 +44,7 @@ export default class Kingdoms extends Component {
 
     this.setState({
       kingdom: kingdom,
-      loading: false,
-      seed: Math.seed,
+      seed: global.seed,
       display: null,
       fullDisplay: null,
       city: null,

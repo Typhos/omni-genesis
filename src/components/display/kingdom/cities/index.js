@@ -15,7 +15,7 @@ export default class CityTabsDisplay extends Component {
 
     return cities.map((city, i) => {
       return (
-        <li name={city.name} key={city.name} className={`infoTableRow numeric pointer`}>
+        <li name={city.name} key={city.name} className={`infoTable__row numeric pointer`}>
           <span className="info__label">
             {i === 0 && (
               <span

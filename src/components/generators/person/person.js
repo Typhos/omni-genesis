@@ -12,12 +12,12 @@ import Traits from "../../../data/people/allTraits";
 export default class Person {
   constructor(params = {}) {
     if (params.seed) {
-      Math.seed = params.seed;
-    } else if (Math.seed === undefined) {
+      global.seed = params.seed;
+    } else if (global.seed === undefined) {
       Utils.setNewSeed();
     }
 
-    this.seed = params.seed || Math.seed;
+    this.seed = params.seed || global.seed;
     this.inputParams = { ...params };
     this.race = params.race || this.getRace(params);
     this.raceObj = OpenSourceRaceData.race.filter(
@@ -65,7 +65,7 @@ export default class Person {
       }
     });
 
-    return weightedArray[Utils.randomArrayIndex(weightedArray.length)];
+    return weightedArray[Utils.randomArrayIndex(weightedArray)];
   }
 
   getSubRace() {
@@ -79,7 +79,7 @@ export default class Person {
       );
 
       if (filtered.length > 0) {
-        return filtered[Utils.randomArrayIndex(filtered.length)];
+        return filtered[Utils.randomArrayIndex(filtered)];
       }
     }
 
@@ -96,7 +96,7 @@ export default class Person {
 
   getSex() {
     const sex = ["male", "female"];
-    return sex[Utils.randomArrayIndex(sex.length)];
+    return sex[Utils.randomArrayIndex(sex)];
   }
 
   getPronouns() {
@@ -208,7 +208,7 @@ export default class Person {
     if (params.occupation) return undefined;
 
     const allJobs = Object.keys(Professions.jobs);
-    return allJobs[Utils.randomArrayIndex(allJobs.length)];
+    return allJobs[Utils.randomArrayIndex(allJobs)];
   }
 
   getOccupation(params) {
@@ -229,13 +229,13 @@ export default class Person {
 
       if (jobGroup === "adventurer") {
         const classes = Object.keys(Professions.jobs[jobGroup]);
-        job = classes[Utils.randomArrayIndex(classes.length)];
+        job = classes[Utils.randomArrayIndex(classes)];
       } else if (Array.isArray(Professions.jobs[jobGroup].list)) {
         job = Professions.jobs[jobGroup].list;
-        job = job[Utils.randomArrayIndex(job.length)];
+        job = job[Utils.randomArrayIndex(job)];
       } else {
         job = Professions.jobs[jobGroup].list[this.sex];
-        job = job[Utils.randomArrayIndex(job.length)];
+        job = job[Utils.randomArrayIndex(job)];
       }
 
       return job;
@@ -271,9 +271,7 @@ export default class Person {
     let morality = ["good", "neutral", "evil"];
 
     if (params.alignment && params.alignment.includes("any")) {
-      return alignments[params.alignment][
-        Utils.randomArrayIndex(alignments[params.alignment].length)
-      ];
+      return alignments[params.alignment][Utils.randomArrayIndex(alignments[params.alignment])];
     } else if (params.alignment !== undefined) {
       return params.alignment;
     } else {
@@ -285,8 +283,8 @@ export default class Person {
         morality = [...morality, ...m];
       }
 
-      let output = `${authority[Utils.randomArrayIndex(authority.length)]} ${
-        morality[Utils.randomArrayIndex(morality.length)]
+      let output = `${authority[Utils.randomArrayIndex(authority)]} ${
+        morality[Utils.randomArrayIndex(morality)]
       }`;
       if (output === "neutral neutral") output = "unaligned";
 
@@ -334,7 +332,7 @@ export default class Person {
 
     return {
       statsDescription: this.statsDescription(),
-      quirk: this.pronounReplace(Traits.quirks[Utils.randomArrayIndex(Traits.quirks.length)]),
+      quirk: this.pronounReplace(Traits.quirks[Utils.randomArrayIndex(Traits.quirks)]),
       likes: personality.likes,
       dislikes: personality.dislikes,
       physicalDescription: 0,
@@ -345,8 +343,8 @@ export default class Person {
     let options = [...Traits.values];
     let output = [];
 
-    new Array(4).fill(undefined).forEach((x) => {
-      const index = Utils.randomArrayIndex(options.length);
+    new Array(4).fill(undefined).forEach(() => {
+      const index = Utils.randomArrayIndex(options);
       const val = options[index];
 
       output.push(val);

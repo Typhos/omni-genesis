@@ -10,15 +10,14 @@
   &:after {
     content: "";
     display: block;
-    border: 1px solid $charcoal;
     width: 100%;
     height: 0.33rem;
-    background-color: $charcoal;
+    background-color: $lightGray;
   }
 }
 
 .statBlock {
-  background-color: $white;
+  background-color: rgba($charcoal, 0.66);
   display: block;
   font-size: 0.9em;
   line-height: 1.4em;
@@ -28,17 +27,23 @@
   padding: 1em 0;
   position: relative;
 
+  $accentText: $grayText;
+
   .name {
-    font-size: 1.8em;
     margin: 0.5rem 0 0;
-    color: $dndGreen;
+
+    font-size: 1.8em;
+    font-family: $serifText;
+    color: $lightText;
+    font-weight: 400;
     letter-spacing: 0.1em;
   }
 
   .subheading {
     font-size: 1.5em;
     margin: 1em 0;
-    color: $dndGreen;
+    color: $dndGold;
+    font-family: $styleText;
     letter-spacing: 0.075em;
     border-bottom: 0;
   }
@@ -57,13 +62,13 @@
     border-radius: 3px;
 
     &:hover {
-      background-color: rgba($charcoal,0.95);
+      background-color: rgba($charcoal, 0.95);
     }
   }
 
   .grouping {
     margin: 0 1.5em;
-    border-bottom: 2px solid $dndGreen;
+    border-bottom: 2px solid $accentText;
     break-inside: avoid;
     font-size: 0.95em;
 
@@ -81,7 +86,6 @@
       }
 
       strong {
-        color: $dndGreen;
         margin-right: 0.33em;
         letter-spacing: 0.075em;
       }
@@ -90,7 +94,7 @@
     &.basics,
     &.general {
       p {
-        color: $dndGreen;
+        color: $accentText;
       }
     }
 

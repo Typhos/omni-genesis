@@ -1,32 +1,36 @@
 export default class Utils {
   static setNewSeed(num) {
-    if (!num)
-      num = Math.abs(
-        Math.floor(
-          Math.sin(Math.random() * 9301) * 10000 * (Math.sin(Math.random() * 49297) * 100001)
-        )
-      );
-    Math.seed = num;
+    if (!num) num = this.genRandomSeedValue();
+    global.seed = num;
+  }
+
+  static genRandomSeedValue() {
+    return Math.abs(
+      Math.floor(
+        Math.sin(Math.random() * 9301) * 10000 * (Math.sin(Math.random() * 49297) * 100001)
+      )
+    );
+  }
+
+  static coinFlip() {
+    return Math.random() >= 0.5;
   }
 
   static randomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
 
-    Math.seed = (Math.seed * 9301 + 49297) % 233280;
-    const rnd = Math.seed / 233280;
+    global.seed = (global.seed * 9301 + 49297) % 233280;
+    const rnd = global.seed / 233280;
 
     return Math.floor(Math.abs(min + Math.floor(rnd * (max - min + 1))));
   }
 
-  static randomArrayIndex(max) {
+  static randomArrayIndex(array) {
     const min = 0;
-    max = Math.floor(max);
+    const max = array.length - 1;
 
-    Math.seed = (Math.seed * 9301 + 49297) % 233280;
-    const rnd = Math.seed / 233280;
-
-    return Math.floor(Math.abs(min + rnd * (max - min)));
+    return this.randomInt(min, max);
   }
 
   static shuffleArray(array) {
@@ -47,10 +51,6 @@ export default class Utils {
     }
 
     return array;
-  }
-
-  static coinFlip() {
-    return Math.random() >= 0.5;
   }
 
   static numberWithCommas(num) {

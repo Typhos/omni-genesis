@@ -26,17 +26,15 @@ export default class NobleDisplay extends Component {
           <TwoColumnDisplay>
             {val.map((shop, i) => {
               if (i <= 5) {
+                const { name, seed, staff } = shop;
+
                 const {
-                  name,
-                  seed,
-                  owner: {
-                    name: { displayName },
-                    race,
-                  },
-                } = shop;
+                  name: { displayName },
+                  race,
+                } = staff[0];
 
                 return (
-                  <li key={name + i} className="names" seed={seed}>
+                  <li key={name + i} className="infoTable__row" seed={seed}>
                     <p className="tabs__subHeading">{name}</p>
                     <p className="tabs__subInfo">
                       <span className="tabs__title">Owner:</span>{" "}

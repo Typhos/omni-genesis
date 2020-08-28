@@ -20,7 +20,7 @@ export default class Name {
 
   randomSex() {
     const sex = ["male", "female"];
-    return sex[Utils.randomArrayIndex(sex.length)];
+    return sex[Utils.randomArrayIndex(sex)];
   }
 
   randomRace() {
@@ -34,7 +34,7 @@ export default class Name {
       }
     });
 
-    return weightedArray[Utils.randomArrayIndex(weightedArray.length)];
+    return weightedArray[Utils.randomArrayIndex(weightedArray)];
   }
 
   getNameByRace() {
@@ -75,15 +75,11 @@ export default class Name {
       };
     } else {
       let firstName =
-        Names.dwarven.first[this.sex][Utils.randomArrayIndex(Names.dwarven.first[this.sex].length)];
+        Names.dwarven.first[this.sex][Utils.randomArrayIndex(Names.dwarven.first[this.sex])];
       let frontCompound =
-        Names.dwarven.last.frontCompound[
-          Utils.randomArrayIndex(Names.dwarven.last.frontCompound.length)
-        ];
+        Names.dwarven.last.frontCompound[Utils.randomArrayIndex(Names.dwarven.last.frontCompound)];
       let backCompound =
-        Names.dwarven.last.backCompound[
-          Utils.randomArrayIndex(Names.dwarven.last.backCompound.length)
-        ];
+        Names.dwarven.last.backCompound[Utils.randomArrayIndex(Names.dwarven.last.backCompound)];
 
       frontCompound =
         frontCompound.substr(0, 1).toUpperCase() + frontCompound.substr(1, frontCompound.length);
@@ -196,7 +192,7 @@ export default class Name {
     // if (Utils.randomInt(1, 2) === 1) {
     firstName = getXGEName();
     // } else {
-    // firstName = data.first[sex][Utils.randomArrayIndex(data.first[sex].length)];
+    // firstName = data.first[sex][Utils.randomArrayIndex(data.first[sex])];
     // }
 
     if (surnameJobs.some((job) => job === jobGroup)) {
@@ -207,9 +203,9 @@ export default class Name {
 
       if (culture && last[culture]) {
         const group = last[culture];
-        surname = group[Utils.randomArrayIndex(group.length)];
+        surname = group[Utils.randomArrayIndex(group)];
       } else {
-        surname = def[Utils.randomArrayIndex(def.length)];
+        surname = def[Utils.randomArrayIndex(def)];
       }
     }
 
@@ -248,8 +244,8 @@ export default class Name {
         return false;
       });
 
-      const randomGroup = tables[Utils.randomArrayIndex(tables.length)].table;
-      return randomGroup[Utils.randomArrayIndex(randomGroup.length)].result;
+      const randomGroup = tables[Utils.randomArrayIndex(tables)].table;
+      return randomGroup[Utils.randomArrayIndex(randomGroup)].result;
     }
   }
 
@@ -268,8 +264,8 @@ export default class Name {
       };
     } else {
       const firstNameGroup = Names.dragonborn.first[this.sex];
-      const fn1 = firstNameGroup.front[Utils.randomArrayIndex(firstNameGroup.front.length)];
-      const fn2 = firstNameGroup.back[Utils.randomArrayIndex(firstNameGroup.back.length)];
+      const fn1 = firstNameGroup.front[Utils.randomArrayIndex(firstNameGroup.front)];
+      const fn2 = firstNameGroup.back[Utils.randomArrayIndex(firstNameGroup.back)];
 
       // TODO - add random clan name generator if its worth the effort.
 
@@ -300,8 +296,8 @@ export default class Name {
       };
     } else {
       const firstNameGroup = Names.tiefling.first[this.sex];
-      const fn1 = firstNameGroup.front[Utils.randomArrayIndex(firstNameGroup.front.length)];
-      const fn2 = firstNameGroup.back[Utils.randomArrayIndex(firstNameGroup.back.length)];
+      const fn1 = firstNameGroup.front[Utils.randomArrayIndex(firstNameGroup.front)];
+      const fn2 = firstNameGroup.back[Utils.randomArrayIndex(firstNameGroup.back)];
 
       // TODO - add random clan name generator if its worth the effort.
 
@@ -341,8 +337,8 @@ export default class Name {
       const firstName = nameLenArr
         .map((x) => {
           const firstNameGroup = Names.gnome.first[this.sex];
-          const fn1 = firstNameGroup.front[Utils.randomArrayIndex(firstNameGroup.front.length)];
-          const fn2 = firstNameGroup.back[Utils.randomArrayIndex(firstNameGroup.back.length)];
+          const fn1 = firstNameGroup.front[Utils.randomArrayIndex(firstNameGroup.front)];
+          const fn2 = firstNameGroup.back[Utils.randomArrayIndex(firstNameGroup.back)];
 
           return fn1 + fn2;
         })

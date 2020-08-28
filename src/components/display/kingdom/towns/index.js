@@ -15,7 +15,7 @@ export default class TownTabsDisplay extends Component {
 
     return towns.map((town, i) => {
       return (
-        <li name={town.name} key={town.name} className={`infoTableRow numeric pointer`}>
+        <li name={town.name} key={town.name} className={`infoTable__row numeric pointer`}>
           <span className="info__label">{town.name}: </span>
           <span className="info__value">{Utils.numberWithCommas(town.population.total)}</span>
         </li>

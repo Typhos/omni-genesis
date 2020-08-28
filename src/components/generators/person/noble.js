@@ -37,18 +37,16 @@ export default class Noble extends Person {
       // Greek names have a suffix, so check for suffixes or prefixes
       if (last[`${culture}-suffix`]) {
         const suffix = last[`${culture}-suffix`];
-        return group[Utils.randomArrayIndex(group.length)].concat(
-          suffix[Utils.randomArrayIndex(suffix.length)]
-        );
+        return group[Utils.randomArrayIndex(group)].concat(suffix[Utils.randomArrayIndex(suffix)]);
       } else {
-        return group[Utils.randomArrayIndex(group.length)];
+        return group[Utils.randomArrayIndex(group)];
       }
     } else if (culture && last[`${culture}-${sex}`]) {
       const group = last[`${culture}-${sex}`];
-      return group[Utils.randomArrayIndex(group.length)];
+      return group[Utils.randomArrayIndex(group)];
     } else {
-      const part1 = nobleHouses.rand1[Utils.randomArrayIndex(nobleHouses.rand1.length)];
-      const part2 = nobleHouses.rand2[Utils.randomArrayIndex(nobleHouses.rand2.length)];
+      const part1 = nobleHouses.rand1[Utils.randomArrayIndex(nobleHouses.rand1)];
+      const part2 = nobleHouses.rand2[Utils.randomArrayIndex(nobleHouses.rand2)];
 
       return part1 + part2;
     }

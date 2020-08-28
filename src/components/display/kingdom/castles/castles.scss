@@ -1,0 +1,16 @@
+@import "../../../../styles/mixins";
+
+.tabs__title {
+  &.break {
+    display: inline-block;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid $midTone;
+  }
+}
+
+.info__value {
+  &.break {
+    display: block;
+    margin-bottom: 0.66em;
+  }
+}

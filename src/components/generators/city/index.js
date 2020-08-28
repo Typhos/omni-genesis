@@ -1,13 +1,12 @@
 import Utils from "../../utils";
 import MerchantGenerator from "../merchants/merchantGenerator";
-import Person from "../person/person";
 import Noble from "../person/noble";
 
 import cityObj from "../../../data/cities/cities";
 import merchantsObj from "../../../data/merchants/merchants";
 import tavernsObj from "../../../data/merchants/taverns";
 import pantheons from "../../../data/gods/pantheons";
-import placeNames from "../../../data/names/randomPlaceNames";
+import placeNames from "../../../data/places/randomPlaceNames";
 import governments from "../../../data/governments";
 
 import Races from "../../../data/races/allRaces";
@@ -18,12 +17,12 @@ const allShops = { ...tavernsObj, ...merchantsObj };
 export default class City {
   constructor(params) {
     if (params.seed) {
-      Math.seed = params.seed;
-    } else if (Math.seed === undefined) {
+      global.seed = params.seed;
+    } else if (!global.seed) {
       Utils.setNewSeed();
     }
 
-    this.seed = params.seed || Math.seed;
+    this.seed = global.seed;
     this.type = "city";
     this.inputParams = { ...params };
 
@@ -57,11 +56,11 @@ export default class City {
   randomCityType() {
     const sizes = Object.keys(cityObj.sizes);
 
-    return sizes[Utils.randomArrayIndex(sizes.length)];
+    return sizes[Utils.randomArrayIndex(sizes)];
   }
 
   randomCulture() {
-    return Object.keys(placeNames)[Utils.randomArrayIndex(Object.keys(placeNames).length)];
+    return Object.keys(placeNames)[Utils.randomArrayIndex(Object.keys(placeNames))];
   }
 
   setCitySize(population) {
@@ -85,18 +84,17 @@ export default class City {
   getCityName(culture) {
     // group parameter determines which region of the world the name comes from. English, French, German, Norse, Spanish/Italian, Greek, Slavik, etc.
     // a group may have multiple sets of options, such as the Norse group having multiple types from different Nordic countries.
-    let wordSet =
-      placeNames[culture].nameSet[Utils.randomArrayIndex(placeNames[culture].nameSet.length)];
+    let wordSet = placeNames[culture].nameSet[Utils.randomArrayIndex(placeNames[culture].nameSet)];
 
     let partsArray = wordSet.map((set) => {
-      return set[Utils.randomArrayIndex(set.length)];
+      return set[Utils.randomArrayIndex(set)];
     });
 
     if (placeNames[culture].prefix) {
       // chance to add a prefix name like North, Old, Port, Al, As, Khor, etc.
       if (Utils.randomInt(1, placeNames[culture].prefixChance) === 1) {
         const prePrefix =
-          placeNames[culture].prefix[Utils.randomArrayIndex(placeNames[culture].prefix.length)];
+          placeNames[culture].prefix[Utils.randomArrayIndex(placeNames[culture].prefix)];
         partsArray.unshift(prePrefix);
       }
     }
@@ -206,7 +204,7 @@ export default class City {
           jobGroup: "noble",
           race: noblePersonRace,
           culture: culture,
-          occupation: rolesArray[Utils.randomArrayIndex(rolesArray.length)],
+          occupation: rolesArray[Utils.randomArrayIndex(rolesArray)],
         });
       });
     }
@@ -264,7 +262,7 @@ export default class City {
 
     function getPrimaryEconomy() {
       const econ = cityObj.economy[cityType].main;
-      return econ[Utils.randomArrayIndex(econ.length)];
+      return econ[Utils.randomArrayIndex(econ)];
     }
 
     return {
@@ -329,6 +327,7 @@ export default class City {
                 type: key,
                 owner: ownerRace,
                 culture: culture,
+                batchMode: true,
               })
             );
             merchants.shopsTotal += 1;
@@ -389,7 +388,7 @@ export default class City {
       })
       .filter((e) => e !== undefined);
 
-    const selected = availableGovernments[Utils.randomArrayIndex(availableGovernments.length)];
+    const selected = availableGovernments[Utils.randomArrayIndex(availableGovernments)];
 
     const { culture } = this;
     const leaderRace = this.getRaceFromLocalBias();
@@ -450,7 +449,7 @@ export default class City {
       new Array(templeCount)
         .fill(undefined)
         .map((x) => {
-          const name = godsArr[Utils.randomArrayIndex(godsArr.length)];
+          const name = godsArr[Utils.randomArrayIndex(godsArr)];
 
           return name;
         })
@@ -475,7 +474,7 @@ export default class City {
       new Array(shrineCount)
         .fill(undefined)
         .map((x) => {
-          const name = godsArr[Utils.randomArrayIndex(godsArr.length)];
+          const name = godsArr[Utils.randomArrayIndex(godsArr)];
 
           return name;
         })
@@ -520,8 +519,8 @@ export default class City {
       "stone walls",
     ];
 
-    let roofStr = roofs[Utils.randomArrayIndex(roofs.length)];
-    let wallStr = walls[Utils.randomArrayIndex(walls.length)];
+    let roofStr = roofs[Utils.randomArrayIndex(roofs)];
+    let wallStr = walls[Utils.randomArrayIndex(walls)];
 
     return `${wallStr} & ${roofStr}`;
   }

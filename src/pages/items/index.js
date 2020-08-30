@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Aside from "../../components/aside";
 import Display from "../../components/display/display";
-import Item from "../../components/generators/items/item";
+import Item from "../../generators/items/item";
 import Button from "../../components/controls/button/buttonStandard";
 import Select from "../../components/controls/select/selectStandard";
 
@@ -77,28 +77,23 @@ export default class ItemGenerator extends Component {
     const subGroups = type && type !== "all" ? itemsData[category][type].subtype : undefined;
 
     return (
-      <main className="content">
+      <main className='content'>
         <Aside>
           <Select title={"Item Type"} name={"category"} onChange={this.change} value={category}>
-            <option value="all">all</option>
+            <option value='all'>all</option>
             {this.getOptions(itemsData)}
           </Select>
 
           {category !== "all" && (
             <Select title={"Type of " + category} name={"type"} onChange={this.change} value={type}>
-              <option value="all">all</option>
+              <option value='all'>all</option>
               {this.getOptions(typeGroup)}
             </Select>
           )}
 
           {type && type !== "all" && (
-            <Select
-              title={"Type of " + type}
-              name={"subtype"}
-              onChange={this.change}
-              value={subtype}
-            >
-              <option value="all">all</option>
+            <Select title={"Type of " + type} name={"subtype"} onChange={this.change} value={subtype}>
+              <option value='all'>all</option>
               {this.getOptions(subGroups)}
             </Select>
           )}
@@ -110,46 +105,41 @@ export default class ItemGenerator extends Component {
 
         {item && (
           <Display>
-            <h2 className="displayLayout__name">
+            <h2 className='displayLayout__name'>
               {item.primaryMaterial} {item.subtype}
             </h2>
-            <p className="displayLayout__description">{item.description}</p>
+            <p className='displayLayout__description'>{item.description}</p>
 
             {item.fiveEStats && (
-              <section className="statsShell">
-                <div className="statBlock">
-                  <div className="grouping">
+              <section className='statsShell'>
+                <div className='statBlock'>
+                  <div className='grouping'>
                     <p>
-                      <span className="info__label">Type: </span>{" "}
-                      <span className="info__value">{item.fiveEStats.type}</span>
+                      <span className='info__label'>Type: </span> <span className='info__value'>{item.fiveEStats.type}</span>
                     </p>
                     <p>
-                      <span className="info__label">Value: </span>{" "}
-                      <span className="info__value">{item.fiveEStats.value} gp</span>
+                      <span className='info__label'>Value: </span> <span className='info__value'>{item.fiveEStats.value} gp</span>
                     </p>
                     {item.fiveEStats.damage && (
                       <p>
-                        <span className="info__label">Damage: </span>
-                        <span className="info__value">
+                        <span className='info__label'>Damage: </span>
+                        <span className='info__value'>
                           {item.fiveEStats.damage} {item.fiveEStats.damage_type.join(" / ")}
                         </span>
                       </p>
                     )}
                     {item.type.includes("armor") && item.fiveEStats.armor_class && (
                       <p>
-                        <span className="info__label">AC: </span>{" "}
-                        <span className="info__value">{item.fiveEStats.armor_class}</span>
+                        <span className='info__label'>AC: </span> <span className='info__value'>{item.fiveEStats.armor_class}</span>
                       </p>
                     )}
                     {item.fiveEStats.properties && item.fiveEStats.properties.length > 0 && (
                       <p>
-                        <span className="info__label">Properties: </span>{" "}
-                        {item.fiveEStats.properties.join(", ")}
+                        <span className='info__label'>Properties: </span> {item.fiveEStats.properties.join(", ")}
                       </p>
                     )}
                     <p>
-                      <span className="classification">Weight: </span>{" "}
-                      <span className="info__value">{item.fiveEStats.weight} lbs</span>
+                      <span className='classification'>Weight: </span> <span className='info__value'>{item.fiveEStats.weight} lbs</span>
                     </p>
                   </div>
                 </div>

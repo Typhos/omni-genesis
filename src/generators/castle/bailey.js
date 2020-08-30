@@ -1,4 +1,4 @@
-import Utils from "../../utils";
+import Utils from "../../components/utils";
 import Keep from "./keep";
 
 export default class Bailey {

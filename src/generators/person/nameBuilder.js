@@ -1,9 +1,9 @@
-import Utils from "../../utils";
+import Utils from "../../components/utils";
 
 // Data
-import Names from "../../../data/names/allNames";
-import Races from "../../../data/races/allRaces";
-import xge from "../../../data/names/xgeNames";
+import Names from "../../data/names/allNames";
+import Races from "../../data/races/allRaces";
+import xge from "../../data/names/xgeNames";
 import { isCompositeComponent } from "react-dom/test-utils";
 
 export default class Name {
@@ -74,15 +74,11 @@ export default class Name {
         displayName: displayName.trim(),
       };
     } else {
-      let firstName =
-        Names.dwarven.first[this.sex][Utils.randomArrayIndex(Names.dwarven.first[this.sex])];
-      let frontCompound =
-        Names.dwarven.last.frontCompound[Utils.randomArrayIndex(Names.dwarven.last.frontCompound)];
-      let backCompound =
-        Names.dwarven.last.backCompound[Utils.randomArrayIndex(Names.dwarven.last.backCompound)];
+      let firstName = Names.dwarven.first[this.sex][Utils.randomArrayIndex(Names.dwarven.first[this.sex])];
+      let frontCompound = Names.dwarven.last.frontCompound[Utils.randomArrayIndex(Names.dwarven.last.frontCompound)];
+      let backCompound = Names.dwarven.last.backCompound[Utils.randomArrayIndex(Names.dwarven.last.backCompound)];
 
-      frontCompound =
-        frontCompound.substr(0, 1).toUpperCase() + frontCompound.substr(1, frontCompound.length);
+      frontCompound = frontCompound.substr(0, 1).toUpperCase() + frontCompound.substr(1, frontCompound.length);
 
       const clanName = frontCompound.concat(backCompound);
       const displayName = `${firstName} ${clanName}`;
@@ -134,11 +130,7 @@ export default class Name {
       let diceRoll = Utils.randomInt(1, 100);
 
       return options.table.find((entry) => {
-        if (
-          (diceRoll >= entry.min && diceRoll <= entry.max) ||
-          diceRoll === entry.min ||
-          diceRoll === entry.max
-        ) {
+        if ((diceRoll >= entry.min && diceRoll <= entry.max) || diceRoll === entry.min || diceRoll === entry.max) {
           return entry;
         }
 
@@ -155,11 +147,7 @@ export default class Name {
       let diceRoll = Utils.randomInt(1, 100);
 
       return nameObj.table.find((entry) => {
-        if (
-          (diceRoll >= entry.min && diceRoll <= entry.max) ||
-          diceRoll === entry.min ||
-          diceRoll === entry.max
-        ) {
+        if ((diceRoll >= entry.min && diceRoll <= entry.max) || diceRoll === entry.min || diceRoll === entry.max) {
           return entry;
         }
 
@@ -379,11 +367,7 @@ export default class Name {
     let diceRoll = Utils.randomInt(1, 100);
 
     return nameObj.table.find((entry) => {
-      if (
-        (diceRoll >= entry.min && diceRoll <= entry.max) ||
-        diceRoll === entry.min ||
-        diceRoll === entry.max
-      ) {
+      if ((diceRoll >= entry.min && diceRoll <= entry.max) || diceRoll === entry.min || diceRoll === entry.max) {
         return entry;
       }
 
@@ -400,11 +384,7 @@ export default class Name {
     let diceRoll = Utils.randomInt(1, 100);
 
     return nameObj.table.find((entry) => {
-      if (
-        (diceRoll >= entry.min && diceRoll <= entry.max) ||
-        diceRoll === entry.min ||
-        diceRoll === entry.max
-      ) {
+      if ((diceRoll >= entry.min && diceRoll <= entry.max) || diceRoll === entry.min || diceRoll === entry.max) {
         return entry;
       }
 

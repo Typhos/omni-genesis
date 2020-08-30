@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Accordion from "../../components/accordion/accordion";
 import Aside from "../../components/aside";
 import Display from "../../components/display/display";
-import MerchantGenerator from "../../components/generators/merchants/merchantGenerator";
+import MerchantGenerator from "../../generators/merchants/merchantGenerator";
 import Button from "../../components/controls/button/buttonStandard";
 import Select from "../../components/controls/select/selectStandard";
 import Tabs from "../../components/tabs";
@@ -76,11 +76,11 @@ export default class Shops extends Component {
     const { shop, stats, size, type, owner, atmosphere } = this.state;
 
     return (
-      <div className="App">
-        <main className="content">
+      <div className='App'>
+        <main className='content'>
           <Aside>
             <Select title={"Shop Type"} name={"type"} value={type} onChange={this.change}>
-              <option value="all">random shop</option>
+              <option value='all'>random shop</option>
               {this.getOptions(allShops)}
             </Select>
             <Button id={"generateShop"} className={"buildButton"} onClick={this.initShopGen}>

@@ -1,8 +1,8 @@
-import Utils from "../../utils";
+import Utils from "../../components/utils";
 import Person from "../person/person";
 
-import merchantsObj from "../../../data/merchants/merchants";
-import tavernsObj from "../../../data/merchants/taverns";
+import merchantsObj from "../../data/merchants/merchants";
+import tavernsObj from "../../data/merchants/taverns";
 import Item from "../items/item";
 
 const allShops = { ...merchantsObj, ...tavernsObj };
@@ -91,13 +91,7 @@ export default class Merchant {
   }
 
   getAtmosphere(options) {
-    let atmosphere = allShops[this.shopType].atmosphere || [
-      "dirty",
-      "colorful",
-      "beautiful",
-      "opulent",
-      "dingy",
-    ];
+    let atmosphere = allShops[this.shopType].atmosphere || ["dirty", "colorful", "beautiful", "opulent", "dingy"];
     if (!Array.isArray(atmosphere)) {
       atmosphere = Object.keys(atmosphere);
     }

@@ -5,8 +5,8 @@ import Button from "../../components/controls/button/buttonStandard";
 import Select from "../../components/controls/select/selectStandard";
 
 // Generators
-import Person from "../../components/generators/person/person";
-import Noble from "../../components/generators/person/noble";
+import Person from "../../generators/person/person";
+import Noble from "../../generators/person/noble";
 
 // Data
 import Professions from "../../data/professions";
@@ -30,13 +30,7 @@ const alignments = {
   "any evil": ["lawful evil", "neutral evil", "chaotic evil"],
   "any lawful": ["lawful good", "lawful neutral", "lawful evil"],
   "any chaotic": ["chaotic good", "chaotic neutral", "chaotic evil"],
-  "any neutral": [
-    "neutral good",
-    "neutral evil",
-    "lawful neutral",
-    "true neutral",
-    "chaotic neutral",
-  ],
+  "any neutral": ["neutral good", "neutral evil", "lawful neutral", "true neutral", "chaotic neutral"],
 };
 
 export default class People extends Component {
@@ -118,15 +112,14 @@ export default class People extends Component {
     const { jobGroup, job, sex } = this.state;
     const dataGroup = Professions.jobs[jobGroup];
     const mappable = dataGroup && Array.isArray(dataGroup.list);
-    const genderMappable =
-      dataGroup && !Array.isArray(dataGroup.list) && Array.isArray(dataGroup.list.male);
+    const genderMappable = dataGroup && !Array.isArray(dataGroup.list) && Array.isArray(dataGroup.list.male);
 
     return (
       <React.Fragment>
         {/* Genderless jobs */}
         {mappable && (
           <Select title={"Job"} name={"job"} value={job} onChange={this.change}>
-            <option value="all">random job</option>
+            <option value='all'>random job</option>
             {dataGroup.list.map((job) => (
               <option key={job} value={job}>
                 {job.replace("*", "person")}
@@ -138,14 +131,8 @@ export default class People extends Component {
         {/* Jobs with gender-specific titles */}
         {genderMappable && (
           <React.Fragment>
-            <Select
-              title={"Job"}
-              name={"job"}
-              value={job}
-              onChange={this.change}
-              disabled={sex === "all"}
-            >
-              <option value="all">random job</option>
+            <Select title={"Job"} name={"job"} value={job} onChange={this.change} disabled={sex === "all"}>
+              <option value='all'>random job</option>
               {sex !== "all" &&
                 dataGroup.list[sex].map((job) => (
                   <option key={job} value={job}>
@@ -155,8 +142,8 @@ export default class People extends Component {
             </Select>
 
             {sex === "all" && (
-              <p className="warning">
-                <span role="img" aria-label="warning">
+              <p className='warning'>
+                <span role='img' aria-label='warning'>
                   ⚠️
                 </span>{" "}
                 Please select a sex to choose a specific {jobGroup} job.
@@ -168,7 +155,7 @@ export default class People extends Component {
         {/* Adventuring Classes */}
         {jobGroup === "adventurer" && (
           <Select title={"Class"} name={"job"} value={job} onChange={this.change}>
-            <option value="all">random class</option>
+            <option value='all'>random class</option>
             {Object.keys(dataGroup).map((job) => (
               <option key={job} value={job}>
                 {job}
@@ -184,22 +171,22 @@ export default class People extends Component {
     const { person, race, sex, alignment, cr, jobGroup } = this.state;
 
     return (
-      <div className="App">
-        <main className="content">
+      <div className='App'>
+        <main className='content'>
           <Aside>
             <Select title={"Race"} name={"race"} value={race} onChange={this.change}>
-              <option value="all">random race</option>
+              <option value='all'>random race</option>
               {this.getOptions(Race)}
             </Select>
 
             <Select title={"Sex"} name={"sex"} value={sex} onChange={this.change}>
-              <option value="all">random sex</option>
-              <option value="male">male</option>
-              <option value="female">female</option>
+              <option value='all'>random sex</option>
+              <option value='male'>male</option>
+              <option value='female'>female</option>
             </Select>
 
             <Select title={"Alignment"} name={"alignment"} value={alignment} onChange={this.change}>
-              <option value="all">random alignment</option>
+              <option value='all'>random alignment</option>
               <option disabled>-------</option>
               {this.getOptions(alignments)}
               <option disabled>-------</option>
@@ -211,14 +198,14 @@ export default class People extends Component {
             </Select>
 
             <Select title={"Occupation"} name={"jobGroup"} value={jobGroup} onChange={this.change}>
-              <option value="all">random occupation</option>
+              <option value='all'>random occupation</option>
               {this.getOptions(Professions.jobs)}
             </Select>
 
             {this.getOccupationBlock()}
 
             <Select title={"Challenge"} name={"cr"} value={cr} onChange={this.change}>
-              <option value="all">random cr</option>
+              <option value='all'>random cr</option>
               {crData.cr.map((cr) => (
                 <option key={cr._cr} value={cr._cr}>
                   {cr._cr}
@@ -231,9 +218,7 @@ export default class People extends Component {
             </Button>
           </Aside>
 
-          {person && (
-            <PersonDisplay person={person} state={this.state} stateHandler={this.stateHandler} />
-          )}
+          {person && <PersonDisplay person={person} state={this.state} stateHandler={this.stateHandler} />}
         </main>
       </div>
     );

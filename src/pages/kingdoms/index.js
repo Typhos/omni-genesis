@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Utils from "../../components/utils";
 import Aside from "../../components/aside";
-import Kingdom from "../../components/generators/kingdom";
+import Kingdom from "../../generators/kingdom";
 import KingdomDisplay from "../../components/display/kingdom/kingdom";
 import CityDisplay from "../../components/display/city/city";
 import PersonDisplay from "../../components/display/person/person";
@@ -80,16 +80,16 @@ export default class Kingdoms extends Component {
     const { size, culture, seed, kingdom, city, person, loading } = this.state;
 
     return (
-      <div className="App">
-        <main className="content">
+      <div className='App'>
+        <main className='content'>
           <Aside>
             <Select title={"Kingdom Size"} name={"size"} value={size} onChange={this.change}>
-              <option value="all">random size</option>
+              <option value='all'>random size</option>
               {this.getOptions(stateSizes.sizes, false)}
             </Select>
 
             <Select title={"Culture"} name={"culture"} value={culture} onChange={this.change}>
-              <option value="all">random culture</option>
+              <option value='all'>random culture</option>
               {this.getOptions(placeNames, true)}
             </Select>
 
@@ -100,15 +100,11 @@ export default class Kingdoms extends Component {
             </Button>
           </Aside>
 
-          {kingdom && (
-            <KingdomDisplay kingdom={kingdom} state={this.state} stateHandler={this.stateHandler} />
-          )}
+          {kingdom && <KingdomDisplay kingdom={kingdom} state={this.state} stateHandler={this.stateHandler} />}
 
           {city && <CityDisplay city={city} state={this.state} stateHandler={this.stateHandler} />}
 
-          {person && (
-            <PersonDisplay person={person} state={this.state} stateHandler={this.stateHandler} />
-          )}
+          {person && <PersonDisplay person={person} state={this.state} stateHandler={this.stateHandler} />}
         </main>
       </div>
     );

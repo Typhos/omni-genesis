@@ -1,16 +1,16 @@
-import Utils from "../../utils";
+import Utils from "../../components/utils";
 import MerchantGenerator from "../merchants/merchantGenerator";
 import Noble from "../person/noble";
 
-import cityObj from "../../../data/cities/cities";
-import merchantsObj from "../../../data/merchants/merchants";
-import tavernsObj from "../../../data/merchants/taverns";
-import pantheons from "../../../data/gods/pantheons";
-import placeNames from "../../../data/places/randomPlaceNames";
-import governments from "../../../data/governments";
+import cityObj from "../../data/cities/cities";
+import merchantsObj from "../../data/merchants/merchants";
+import tavernsObj from "../../data/merchants/taverns";
+import pantheons from "../../data/gods/pantheons";
+import placeNames from "../../data/places/randomPlaceNames";
+import governments from "../../data/governments";
 
-import Races from "../../../data/races/allRaces";
-import racialBias from "../../../data/cities/racialBiases";
+import Races from "../../data/races/allRaces";
+import racialBias from "../../data/cities/racialBiases";
 
 const allShops = { ...tavernsObj, ...merchantsObj };
 
@@ -93,8 +93,7 @@ export default class City {
     if (placeNames[culture].prefix) {
       // chance to add a prefix name like North, Old, Port, Al, As, Khor, etc.
       if (Utils.randomInt(1, placeNames[culture].prefixChance) === 1) {
-        const prePrefix =
-          placeNames[culture].prefix[Utils.randomArrayIndex(placeNames[culture].prefix)];
+        const prePrefix = placeNames[culture].prefix[Utils.randomArrayIndex(placeNames[culture].prefix)];
         partsArray.unshift(prePrefix);
       }
     }
@@ -121,8 +120,7 @@ export default class City {
     racesArray.forEach((race) => {
       const percentageModifier = Utils.randomInt(-20, 30) / 10;
       if (racialBias[culture]) {
-        weight =
-          racialBias[culture][race] * percentageModifier || Races[race].rarity * percentageModifier;
+        weight = racialBias[culture][race] * percentageModifier || Races[race].rarity * percentageModifier;
       } else {
         weight = Races[race].rarity * percentageModifier;
       }
@@ -222,13 +220,7 @@ export default class City {
     function economyWording() {
       const bDesr = ["weak", "stable", "strong"];
 
-      const future = [
-        "declining rapidly",
-        "slowly declining",
-        "stable",
-        "slowly growing",
-        "growing rapidly",
-      ];
+      const future = ["declining rapidly", "slowly declining", "stable", "slowly growing", "growing rapidly"];
 
       const baseNum = Utils.randomArrayIndex(bDesr.length);
       const futureNum = Utils.randomArrayIndex(future.length);
@@ -309,9 +301,7 @@ export default class City {
 
       const totalShops = bonus ? guaranteedShops + 1 : guaranteedShops;
 
-      const shopTitle = allShops[key].establishments
-        ? allShops[key].establishments
-        : allShops[key].plural;
+      const shopTitle = allShops[key].establishments ? allShops[key].establishments : allShops[key].plural;
       merchants.tradesArray[shopTitle] = totalShops;
       merchants.tradesTotal += totalShops;
 
@@ -400,10 +390,7 @@ export default class City {
     });
 
     // Now that we have a government formed, we know what kind of people are important to run that institution. We can call for important people and give the array of possible titles.
-    this.population.importantPeople = this.importantPeople(
-      this.population.total,
-      governments[selected].roles
-    );
+    this.population.importantPeople = this.importantPeople(this.population.total, governments[selected].roles);
 
     this.population.importantPeople.noblePeopleArray.unshift(leader);
     this.population.importantPeople.number += 1;
@@ -503,21 +490,9 @@ export default class City {
   }
 
   getHouseArchitecture() {
-    const roofs = [
-      "thatch roofs",
-      "slate shingle roofs",
-      "terracotta tile roofs",
-      "log roofs",
-      "turf roofs",
-    ];
+    const roofs = ["thatch roofs", "slate shingle roofs", "terracotta tile roofs", "log roofs", "turf roofs"];
 
-    const walls = [
-      "timber frame walls",
-      "wattle and daub walls",
-      "cob walls",
-      "brick walls",
-      "stone walls",
-    ];
+    const walls = ["timber frame walls", "wattle and daub walls", "cob walls", "brick walls", "stone walls"];
 
     let roofStr = roofs[Utils.randomArrayIndex(roofs)];
     let wallStr = walls[Utils.randomArrayIndex(walls)];

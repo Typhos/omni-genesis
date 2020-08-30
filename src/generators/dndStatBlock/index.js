@@ -1,17 +1,15 @@
 // components
-import Utils from "../../utils";
+import Utils from "../../components/utils";
 import StatGenerator from "../dndStatBlock/statGenerator";
 
 //data
-import CrData from "../../../data/mechanics/monsterCR";
-import Languages from "../../../data/languages/all";
-import OpenSourceRaceData from "../../../data/races/5eToolsRaces";
+import CrData from "../../data/mechanics/monsterCR";
+import Languages from "../../data/languages/all";
+import OpenSourceRaceData from "../../data/races/5eToolsRaces";
 
 export default class StatBlock {
   constructor(race, subRace, cr) {
-    this.raceDataObj = OpenSourceRaceData.race.filter(
-      (tR) => tR.name.toLowerCase() === race && tR.source === "PHB"
-    )[0];
+    this.raceDataObj = OpenSourceRaceData.race.filter((tR) => tR.name.toLowerCase() === race && tR.source === "PHB")[0];
 
     if (!cr) {
       // no CR provided? set the CR between 1/8 and 4.
@@ -160,10 +158,8 @@ export default class StatBlock {
     // if no CR has been established, do it now
     if (!this.cr) {
       // check for fractions & do the math without Eval()
-      if (oCR.split("/")[1])
-        oCR = parseInt(oCR.split("/")[0], 10) / parseInt(oCR.split("/")[1], 10);
-      if (dCR.split("/")[1])
-        dCR = parseInt(dCR.split("/")[0], 10) / parseInt(dCR.split("/")[1], 10);
+      if (oCR.split("/")[1]) oCR = parseInt(oCR.split("/")[0], 10) / parseInt(oCR.split("/")[1], 10);
+      if (dCR.split("/")[1]) dCR = parseInt(dCR.split("/")[0], 10) / parseInt(dCR.split("/")[1], 10);
 
       let cr = ((parseFloat(oCR) + parseFloat(dCR)) / 2).toString();
 
@@ -275,9 +271,7 @@ export default class StatBlock {
     const raceData = this.raceDataObj;
     const languageProficiencies = raceData.languageProficiencies[0];
 
-    const standardLanguages = Languages.language.filter(
-      (lang) => lang.source === "PHB" && lang.type !== "secret"
-    );
+    const standardLanguages = Languages.language.filter((lang) => lang.source === "PHB" && lang.type !== "secret");
 
     const extraLangOptions = standardLanguages.filter((lang) => {
       for (let [key] of Object.entries(languageProficiencies)) {
@@ -289,8 +283,7 @@ export default class StatBlock {
     let output = [];
 
     for (let [name, val] of Object.entries(languageProficiencies)) {
-      if (val === true)
-        output.push(standardLanguages.filter((a) => a.name.toLowerCase() === name)[0]);
+      if (val === true) output.push(standardLanguages.filter((a) => a.name.toLowerCase() === name)[0]);
 
       if (name === "anyStandard") {
         let shuffled = Utils.shuffleArray(extraLangOptions);
@@ -382,8 +375,7 @@ export default class StatBlock {
 
     for (let i = 0; i <= maxSpread; i++) {
       const low = desiredIndex - i <= 0 ? 0 : desiredIndex - i;
-      const high =
-        desiredIndex + i >= CrData.cr.length - 1 ? CrData.cr.length - 1 : desiredIndex + i;
+      const high = desiredIndex + i >= CrData.cr.length - 1 ? CrData.cr.length - 1 : desiredIndex + i;
 
       avgOptsArray.push([low, high]);
 

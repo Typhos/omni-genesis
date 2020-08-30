@@ -1,12 +1,12 @@
-import Utils from "../../utils";
+import Utils from "../../components/utils";
 import PersonGenerator from "../person/person";
 
 // DATA
-import Armor from "../../../data/armor";
-import Items from "../../../data/items";
-import Jewelry from "../../../data/jewelry";
-import MaterialData from "../../../data/materials";
-import Weapons from "../../../data/weapons";
+import Armor from "../../data/armor";
+import Items from "../../data/items";
+import Jewelry from "../../data/jewelry";
+import MaterialData from "../../data/materials";
+import Weapons from "../../data/weapons";
 
 const itemsData = { ...Weapons, ...Armor, ...Jewelry, ...Items };
 
@@ -213,9 +213,7 @@ export default class Item {
     // let x = new Array(10000).fill(undefined);
     // x.map( x => new PersonGenerator());
 
-    const materials =
-      itemsData[this.category][this.type].subtype[this.subtype].materials ||
-      itemsData[this.category][this.type].materials;
+    const materials = itemsData[this.category][this.type].subtype[this.subtype].materials || itemsData[this.category][this.type].materials;
     const occupation = materials.maker[this.primaryGroup];
 
     if (!this.crafter) {

@@ -3,7 +3,7 @@ import Display from "../display";
 import ThreeColumnDisplay from "../columns/threeColumns.js";
 import TwoColumnDisplay from "../columns/twoColumns.js";
 import Utils from "../../utils";
-import City from "../../generators/city";
+import City from "../../../generators/city";
 import Tabs from "../../tabs";
 
 import CityTabsDisplay from "./cities";
@@ -75,12 +75,7 @@ export default class KingdomDisplay extends Component {
         >
           <strong>
             {capital !== "" && (
-              <span
-                role="img"
-                className="emjoiIcon text capital"
-                aria-label="capital city"
-                data-balloon-pos="up"
-              >
+              <span role='img' className='emjoiIcon text capital' aria-label='capital city' data-balloon-pos='up'>
                 👑
               </span>
             )}{" "}
@@ -107,13 +102,13 @@ export default class KingdomDisplay extends Component {
 
     return (
       <Display>
-        <h1 className="displayLayout__header">{kingdom.name}</h1>
+        <h1 className='displayLayout__header'>{kingdom.name}</h1>
 
-        <div className="iconContainer right">
+        <div className='iconContainer right'>
           <span
-            role="img"
-            className="emjoiIcon seed"
-            data-balloon-pos="up"
+            role='img'
+            className='emjoiIcon seed'
+            data-balloon-pos='up'
             aria-label={`seed: ${kingdom.seed}`}
             onClick={() => {
               navigator.clipboard.writeText(kingdom.seed);
@@ -123,10 +118,10 @@ export default class KingdomDisplay extends Component {
           </span>
 
           <span
-            role="img"
-            className="emjoiIcon save"
+            role='img'
+            className='emjoiIcon save'
             aria-label={`Copy URL to ${kingdom.name}`}
-            data-balloon-pos="left"
+            data-balloon-pos='left'
             onClick={() => {
               navigator.clipboard.writeText(Utils.buildShareURL(kingdom));
             }}
@@ -134,158 +129,133 @@ export default class KingdomDisplay extends Component {
             🔗
           </span>
 
-          <span
-            role="img"
-            className="emjoiIcon copyData"
-            aria-label={`Copy JSON for ${kingdom.name}`}
-            data-balloon-pos="left"
-          >
+          <span role='img' className='emjoiIcon copyData' aria-label={`Copy JSON for ${kingdom.name}`} data-balloon-pos='left'>
             📋
           </span>
         </div>
 
-        <div className="displayLayout">
-          <div className="column">
-            <p className="">
-              <span className="info__label">Area: </span>
-              <span className="info__value capitalize">
-                {Utils.numberWithCommas(kingdom.area.sqMiles)} sq. miles
-              </span>
+        <div className='displayLayout'>
+          <div className='column'>
+            <p className=''>
+              <span className='info__label'>Area: </span>
+              <span className='info__value capitalize'>{Utils.numberWithCommas(kingdom.area.sqMiles)} sq. miles</span>
             </p>
             <p>
-              <small className="info__note">
+              <small className='info__note'>
                 <em>{kingdom.area.description}</em>
               </small>
             </p>
             <br />
-            <p className="">
-              <span className="info__label">Arable Land: </span>
-              <span className="info__value">
-                {kingdom.area.arablePercent}% ({Utils.numberWithCommas(kingdom.area.arable)} sq.
-                miles)
+            <p className=''>
+              <span className='info__label'>Arable Land: </span>
+              <span className='info__value'>
+                {kingdom.area.arablePercent}% ({Utils.numberWithCommas(kingdom.area.arable)} sq. miles)
               </span>
             </p>
-            <p className="">
-              <span className="info__label">Wilderness: </span>
-              <span className="info__value">
-                {kingdom.area.wildernessPercent}% ({Utils.numberWithCommas(kingdom.area.wilderness)}{" "}
-                sq. miles)
+            <p className=''>
+              <span className='info__label'>Wilderness: </span>
+              <span className='info__value'>
+                {kingdom.area.wildernessPercent}% ({Utils.numberWithCommas(kingdom.area.wilderness)} sq. miles)
               </span>
             </p>
 
             <br />
 
-            <p className="capitalize">
+            <p className='capitalize'>
               <strong>Age: </strong>
-              <span className="info__value">{kingdom.age}</span>
+              <span className='info__value'>{kingdom.age}</span>
             </p>
 
-            <p className="capitalize">
+            <p className='capitalize'>
               <strong>Culture: </strong>
-              <span className="info__value">{kingdom.culture}</span>
+              <span className='info__value'>{kingdom.culture}</span>
             </p>
           </div>
-          <div className="column">
-            <p className="">
-              <span className="info__label">Population: </span>
-              <span className="info__value">
-                {Utils.numberWithCommas(kingdom.population.total)}
-              </span>
+          <div className='column'>
+            <p className=''>
+              <span className='info__label'>Population: </span>
+              <span className='info__value'>{Utils.numberWithCommas(kingdom.population.total)}</span>
             </p>
 
-            <p className="">
-              <span className="info__label">Density: </span>
-              <span className="info__value">
-                {Utils.numberWithCommas(kingdom.density.int)} persons per sq. mile
-              </span>{" "}
-              <span className="info__note">({kingdom.density.string})</span>
+            <p className=''>
+              <span className='info__label'>Density: </span>
+              <span className='info__value'>{Utils.numberWithCommas(kingdom.density.int)} persons per sq. mile</span>{" "}
+              <span className='info__note'>({kingdom.density.string})</span>
             </p>
 
             <br />
-            <p className="">
-              <span className="info__label">Cities: </span>
-              <span className="info__value">
-                {Utils.numberWithCommas(kingdom.settlements.cityInfo.count)}
-              </span>
+            <p className=''>
+              <span className='info__label'>Cities: </span>
+              <span className='info__value'>{Utils.numberWithCommas(kingdom.settlements.cityInfo.count)}</span>
             </p>
 
-            <p className="">
-              <span className="info__label">Towns: </span>
-              <span className="info__value">
-                {Utils.numberWithCommas(kingdom.settlements.townInfo.count)}
-              </span>
+            <p className=''>
+              <span className='info__label'>Towns: </span>
+              <span className='info__value'>{Utils.numberWithCommas(kingdom.settlements.townInfo.count)}</span>
             </p>
 
-            <p className="">
-              <span className="info__label">Urban Population: </span>
-              <span className="info__value">
-                {Utils.numberWithCommas(kingdom.settlements.urbanPopulation.total)}
-              </span>{" "}
-              <span className="info__note">
-                ({kingdom.settlements.urbanPopulation.percentage}%)
-              </span>
+            <p className=''>
+              <span className='info__label'>Urban Population: </span>
+              <span className='info__value'>{Utils.numberWithCommas(kingdom.settlements.urbanPopulation.total)}</span>{" "}
+              <span className='info__note'>({kingdom.settlements.urbanPopulation.percentage}%)</span>
             </p>
 
             <br />
 
-            <p className="">
-              <span className="info__label">Border Castles: </span>
-              <span className="info__value">
-                {kingdom.defenses.activeCastles.borderKeeps.total}
-              </span>
+            <p className=''>
+              <span className='info__label'>Border Castles: </span>
+              <span className='info__value'>{kingdom.defenses.activeCastles.borderKeeps.total}</span>
             </p>
 
-            <p className="">
-              <span className="info__label">Interior Castles: </span>
-              <span className="info__value">{kingdom.defenses.activeCastles.civilKeeps.total}</span>
+            <p className=''>
+              <span className='info__label'>Interior Castles: </span>
+              <span className='info__value'>{kingdom.defenses.activeCastles.civilKeeps.total}</span>
             </p>
 
-            <p className="">
-              <span className="info__label">
+            <p className=''>
+              <span className='info__label'>
                 <em>Ruined Castles: </em>
               </span>
-              <span className="info__value">{kingdom.defenses.ruinedCastles.total}</span>
+              <span className='info__value'>{kingdom.defenses.ruinedCastles.total}</span>
             </p>
           </div>
         </div>
 
         <Tabs>
-          <div label="Cities">
-            <h3 className="tabs__groupHeading">Cities of {kingdom.name}</h3>
+          <div label='Cities'>
+            <h3 className='tabs__groupHeading'>Cities of {kingdom.name}</h3>
             <TwoColumnDisplay>
               <CityTabsDisplay kingdom={kingdom} />
             </TwoColumnDisplay>
-            <h3 className="tabs__groupHeading">Notable Towns of {kingdom.name}</h3>
+            <h3 className='tabs__groupHeading'>Notable Towns of {kingdom.name}</h3>
             <ThreeColumnDisplay>
               <TownTabsDisplay kingdom={kingdom} />
             </ThreeColumnDisplay>
           </div>
-          <div label="Government">
-            <h3 className="tabs__groupHeading">Government of {kingdom.name}</h3>
+          <div label='Government'>
+            <h3 className='tabs__groupHeading'>Government of {kingdom.name}</h3>
             <ThreeColumnDisplay>TBD</ThreeColumnDisplay>
           </div>
-          <div label="Castles">
-            <h3 className="tabs__groupHeading">Important Castles of {kingdom.name}</h3>
+          <div label='Castles'>
+            <h3 className='tabs__groupHeading'>Important Castles of {kingdom.name}</h3>
 
-            <h4 className="tabs__sectionHeading">Border Castles</h4>
+            <h4 className='tabs__sectionHeading'>Border Castles</h4>
             <TwoColumnDisplay>
               <CastleTabsDisplay castles={borderKeeps.castleArray} />
             </TwoColumnDisplay>
 
-            <h4 className="tabs__sectionHeading">Interior Castles</h4>
+            <h4 className='tabs__sectionHeading'>Interior Castles</h4>
             <TwoColumnDisplay>
               <CastleTabsDisplay castles={civilKeeps.castleArray} />
             </TwoColumnDisplay>
 
-            <h4 className="tabs__sectionHeading">Castle Ruins</h4>
+            <h4 className='tabs__sectionHeading'>Castle Ruins</h4>
             <TwoColumnDisplay>
               <CastleTabsDisplay castles={ruinedCastles.castleArray} />
             </TwoColumnDisplay>
           </div>
-          <div label="Regions">
-            <h3 className="tabs__groupHeading">
-              Regions and Geographic Features of {kingdom.name}
-            </h3>
+          <div label='Regions'>
+            <h3 className='tabs__groupHeading'>Regions and Geographic Features of {kingdom.name}</h3>
             <ThreeColumnDisplay>TBD</ThreeColumnDisplay>
           </div>
         </Tabs>

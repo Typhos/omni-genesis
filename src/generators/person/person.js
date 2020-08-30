@@ -1,13 +1,13 @@
-import Utils from "../../utils";
+import Utils from "../../components/utils";
 import Name from "../person/nameBuilder";
 import StatBlock from "../dndStatBlock/";
 
 // == Data Imports
-import OpenSourceRaceData from "../../../data/races/5eToolsRaces";
-import Professions from "../../../data/professions";
-import Races from "../../../data/races/allRaces";
-import StatDescriptionData from "../../../data/statDescription";
-import Traits from "../../../data/people/allTraits";
+import OpenSourceRaceData from "../../data/races/5eToolsRaces";
+import Professions from "../../data/professions";
+import Races from "../../data/races/allRaces";
+import StatDescriptionData from "../../data/statDescription";
+import Traits from "../../data/people/allTraits";
 
 export default class Person {
   constructor(params = {}) {
@@ -20,9 +20,7 @@ export default class Person {
     this.seed = params.seed || global.seed;
     this.inputParams = { ...params };
     this.race = params.race || this.getRace(params);
-    this.raceObj = OpenSourceRaceData.race.filter(
-      (r) => r.name.toLowerCase() === this.race && r.source === "PHB"
-    )[0];
+    this.raceObj = OpenSourceRaceData.race.filter((r) => r.name.toLowerCase() === this.race && r.source === "PHB")[0];
     this.sex = params.sex || this.getSex();
     this.age = params.age || this.getAge(params);
     this.culture = params.culture;
@@ -69,14 +67,10 @@ export default class Person {
   }
 
   getSubRace() {
-    let races = OpenSourceRaceData.race.filter(
-      (r) => r.name.toLowerCase() === this.race && r.source === "PHB"
-    )[0];
+    let races = OpenSourceRaceData.race.filter((r) => r.name.toLowerCase() === this.race && r.source === "PHB")[0];
 
     if (races.subraces) {
-      const filtered = races.subraces.filter(
-        (r) => (r.source === "PHB" || r.source === undefined) && r.name !== "Variant"
-      );
+      const filtered = races.subraces.filter((r) => (r.source === "PHB" || r.source === undefined) && r.name !== "Variant");
 
       if (filtered.length > 0) {
         return filtered[Utils.randomArrayIndex(filtered)];
@@ -258,13 +252,7 @@ export default class Person {
       "any evil": ["lawful evil", "neutral evil", "chaotic evil"],
       "any lawful": ["lawful good", "lawful neutral", "lawful evil"],
       "any chaotic": ["chaotic good", "chaotic neutral", "chaotic evil"],
-      "any neutral": [
-        "neutral good",
-        "neutral evil",
-        "lawful neutral",
-        "true neutral",
-        "chaotic neutral",
-      ],
+      "any neutral": ["neutral good", "neutral evil", "lawful neutral", "true neutral", "chaotic neutral"],
     };
 
     let authority = ["lawful", "neutral", "chaotic"];
@@ -283,9 +271,7 @@ export default class Person {
         morality = [...morality, ...m];
       }
 
-      let output = `${authority[Utils.randomArrayIndex(authority)]} ${
-        morality[Utils.randomArrayIndex(morality)]
-      }`;
+      let output = `${authority[Utils.randomArrayIndex(authority)]} ${morality[Utils.randomArrayIndex(morality)]}`;
       if (output === "neutral neutral") output = "unaligned";
 
       return output;
@@ -293,20 +279,15 @@ export default class Person {
   }
 
   getPhysicalInfo() {
-    const physicalObj =
-      (this.subRaceObj && this.subRaceObj.heightAndWeight) || this.raceObj.heightAndWeight || {};
+    const physicalObj = (this.subRaceObj && this.subRaceObj.heightAndWeight) || this.raceObj.heightAndWeight || {};
     let heightRoll = 1;
 
     if (physicalObj.heightMod) {
       heightRoll = diceMath(physicalObj.heightMod);
     }
 
-    let height = physicalObj.heightMod
-      ? physicalObj.baseHeight + heightRoll
-      : physicalObj.baseHeight;
-    let weight = physicalObj.weightMod
-      ? physicalObj.baseWeight + heightRoll * diceMath(physicalObj.weightMod)
-      : physicalObj.baseWeight;
+    let height = physicalObj.heightMod ? physicalObj.baseHeight + heightRoll : physicalObj.baseHeight;
+    let weight = physicalObj.weightMod ? physicalObj.baseWeight + heightRoll * diceMath(physicalObj.weightMod) : physicalObj.baseWeight;
 
     return {
       imperial: {
@@ -433,9 +414,7 @@ export default class Person {
 
         if (stats.attacks > 1) {
           let name = "Multiattack.";
-          let text = `${this.displayName} makes ${
-            attackStr[stats.attacks]
-          } melee or ranged attacks.`;
+          let text = `${this.displayName} makes ${attackStr[stats.attacks]} melee or ranged attacks.`;
 
           array.push({
             name: name,
@@ -456,9 +435,7 @@ export default class Person {
         return array;
       };
 
-      const darkVision = stats.perception.senses.darkvision
-        ? `Darkvision ${stats.perception.senses.darkvision} Ft.`
-        : undefined;
+      const darkVision = stats.perception.senses.darkvision ? `Darkvision ${stats.perception.senses.darkvision} Ft.` : undefined;
 
       json[name].statBlock = {
         show: false,

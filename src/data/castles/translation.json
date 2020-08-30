@@ -1,0 +1,192 @@
+{
+  "translation": {
+    "dwarven": [
+      {
+        "type": "prefix",
+        "word": "Karak "
+      }
+    ],
+    "elven": [
+      {
+        "type": "suffix",
+        "word": "ost"
+      }
+    ],
+    "arabian": [
+      {
+        "type": "prefix",
+        "word": "Qalea "
+      },
+      {
+        "type": "prefix",
+        "word": "Qaleatan "
+      }
+    ],
+    "bohemian": [
+      {
+        "type": "prefix",
+        "word": "Hrad "
+      },
+      {
+        "type": "prefix",
+        "word": "Zámek "
+      },
+      {
+        "type": "prefix",
+        "word": "Pevnost "
+      }
+    ],
+    "dutch": [
+      {
+        "type": "prefix",
+        "name": "Kasteel van "
+      },
+      {
+        "type": "suffix",
+        "name": " Kasteel"
+      },
+      {
+        "type": "suffix",
+        "name": " fort"
+      }
+    ],
+    "english": [
+      {
+        "type": "prefix",
+        "word": "Castle "
+      },
+      {
+        "type": "suffix",
+        "word": " Castle"
+      },
+      {
+        "type": "suffix",
+        "word": " Fortress"
+      }
+    ],
+    "french": [
+      {
+        "type": "prefix",
+        "word": "Château "
+      },
+      {
+        "type": "prefix",
+        "word": "Château de "
+      },
+      {
+        "type": "prefix",
+        "word": "Forteresse de "
+      }
+    ],
+    "germanic": [
+      {
+        "type": "prefix",
+        "word": "Schloss "
+      },
+      {
+        "type": "prefix",
+        "word": "Schloss von "
+      },,
+      {
+        "type": "prefix",
+        "word": "Festung auf "
+      },
+      {
+        "type": "suffix",
+        "word": " Schloss"
+      }
+    ],
+    "greek": [
+      {
+        "type": "prefix",
+        "word": "Kástro "
+      },
+      {
+        "type": "prefix",
+        "word": "Kástro tou "
+      },
+      {
+        "type": "prefix",
+        "word": "Froúrio tou "
+      }
+    ],
+    "italian": [
+      {
+        "type": "prefix",
+        "word": "Castello di "
+      },
+      {
+        "type": "prefix",
+        "word": "Fortezza di "
+      }
+    ],
+    "japanese": [
+      {
+        "type": "suffix",
+        "word": "-jō"
+      }
+    ],
+    "nordic": [
+      {
+        "type": "prefix",
+        "word": "slottet "
+      },
+      {
+        "type": "prefix",
+        "word": "slottet i "
+      },
+      {
+        "type": "suffix",
+        "word": " slott"
+      }
+      {
+        "type": "suffix",
+        "word": " festning"
+      }
+    ],
+    "polish": [
+      {
+        "type": "prefix",
+        "word": "Kaer "
+      },
+      {
+        "type": "prefix",
+        "word": "Zamek "
+      }
+    ],
+    "russian": [
+      {
+        "type": "prefix",
+        "word": "Zamok "
+      },
+      {
+        "type": "prefix",
+        "word": "Krepost' "
+      }
+    ],
+    "slavik": [
+      {
+        "type": "prefix",
+        "word": "Hrad "
+      },
+      {
+        "type": "prefix",
+        "word": "Pevnosť "
+      }
+    ],
+    "spanish": [
+      {
+        "type": "prefix",
+        "word": "Castillo "
+      },
+      {
+        "type": "prefix",
+        "word": "Castillo de "
+      },
+      {
+        "type": "suffix",
+        "word": " del Castillo"
+      }
+    ]
+  }
+}

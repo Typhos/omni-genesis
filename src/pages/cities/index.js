@@ -9,7 +9,7 @@ import Select from "../../components/controls/select/selectStandard";
 import NumberInput from "../../components/controls/input/numberInput";
 
 //generators
-import CityGenerator from "../../components/generators/city";
+import CityGenerator from "../../generators/city";
 
 //data
 import cityObj from "../../data/cities/cities";
@@ -129,16 +129,16 @@ export default class Settlements extends Component {
     const { size, culture, pantheon, seed } = this.state;
 
     return (
-      <div className="App">
-        <main className="content">
+      <div className='App'>
+        <main className='content'>
           <Aside>
             <Select title={"City Size"} name={"size"} value={size} onChange={this.change}>
-              <option value="all">random size</option>
+              <option value='all'>random size</option>
               {this.getOptions(cityObj.sizes, false)}
             </Select>
 
             <Select title={"Culture"} name={"culture"} value={culture} onChange={this.change}>
-              <option value="all">random culture</option>
+              <option value='all'>random culture</option>
               {this.getOptions(placeNames, true)}
             </Select>
 
@@ -153,21 +153,9 @@ export default class Settlements extends Component {
             </Button>
           </Aside>
 
-          {this.state.city && (
-            <CityDisplay
-              city={this.state.city}
-              state={this.state}
-              stateHandler={this.stateHandler}
-            />
-          )}
+          {this.state.city && <CityDisplay city={this.state.city} state={this.state} stateHandler={this.stateHandler} />}
 
-          {this.state.person && (
-            <PersonDisplay
-              person={this.state.person}
-              state={this.state}
-              stateHandler={this.stateHandler}
-            />
-          )}
+          {this.state.person && <PersonDisplay person={this.state.person} state={this.state} stateHandler={this.stateHandler} />}
         </main>
       </div>
     );

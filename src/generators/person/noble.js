@@ -1,7 +1,7 @@
-import Utils from "../../utils";
+import Utils from "../../components/utils";
 import Person from "./person";
-import nobleHouses from "../../../data/names/nobleHouses";
-import Names from "../../../data/names/allNames";
+import nobleHouses from "../../data/names/nobleHouses";
+import Names from "../../data/names/allNames";
 
 export default class Noble extends Person {
   constructor(options = {}) {

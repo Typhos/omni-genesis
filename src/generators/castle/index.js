@@ -1,12 +1,16 @@
-import Utils from "../../utils";
-import Noble from "../person/noble";
+//components
+import Utils from "../../components/utils";
+
+// generators
 import Keep from "./keep";
 import Bailey from "./bailey";
+import Noble from "../person/noble";
 
-import placeNames from "../../../data/places/randomPlaceNames";
-
-import castleTypes from "../../../data/castles/types";
-import ruinCreatures from "../../../data/castles/ruinInhabitants";
+// data
+import placeNames from "../../data/places/randomPlaceNames";
+import castleTypes from "../../data/castles/types";
+import castleTranslation from "../../data/castles/translation";
+import ruinCreatures from "../../data/castles/ruinInhabitants";
 
 export default class Castle {
   constructor(params = {}) {
@@ -184,17 +188,11 @@ export default class Castle {
     // when a castle is abandoned to ruin, it is either because it's too damage to repair, or no longer is of strategic value. In the former case, it has major structural damage. In the latter, it is still functional. In both cases, it is possible that the ruin is possibly overrun by a monstrous force.
     let result = {};
 
-    const ruinOptions = [
-      { type: "abandoned", infestationPercentage: 75 },
-      { type: "destroyed", infestationPercentage: 50 },
-    ];
+    const ruinOptions = [{ type: "abandoned" }, { type: "destroyed" }];
     const ruinType = ruinOptions[Utils.randomArrayIndex(ruinOptions)];
+    result.ruinType = ruinType.type;
 
-    // check if the ruin is inhabited by something other than goodly knights...
-    const infested = Utils.randomInt(1, 100) <= ruinType.infestationPercentage ? true : false;
-    if (infested) {
-      result.residents = this.getRuinInhabitants();
-    }
+    result.residents = this.getRuinInhabitants();
 
     return result;
   }

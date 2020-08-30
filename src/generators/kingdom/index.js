@@ -1,10 +1,10 @@
-import Utils from "../../utils";
+import Utils from "../../components/utils";
 import City from "../city";
 
-import placeNames from "../../../data/places/randomPlaceNames";
-import stateSizes from "../../../data/kingdoms/sizes";
-import cityDataObj from "../../../data/cities/cities";
-import namePieces from "../../../data/kingdoms/names";
+import placeNames from "../../data/places/randomPlaceNames";
+import stateSizes from "../../data/kingdoms/sizes";
+import cityDataObj from "../../data/cities/cities";
+import namePieces from "../../data/kingdoms/names";
 import Castle from "../castle";
 
 // const kingdomWorker: Worker = new Worker("./workers/kingdomWorker.js");

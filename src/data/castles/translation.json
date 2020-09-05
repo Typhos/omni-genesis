@@ -86,7 +86,7 @@
       {
         "type": "prefix",
         "word": "Schloss von "
-      },,
+      },
       {
         "type": "prefix",
         "word": "Festung auf "
@@ -138,7 +138,7 @@
       {
         "type": "suffix",
         "word": " slott"
-      }
+      },
       {
         "type": "suffix",
         "word": " festning"

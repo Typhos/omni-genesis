@@ -1,55 +1,146 @@
 import Utils from "../../components/utils";
+import InscriptionElements from "../../data/items/inscriptionElements";
+import Materials from "../../data/items/materials";
 
 class Part {
-  constructor(partName) {
-    console.log(partName);
+  constructor(item, partObj) {
+    let part = this.getPartsToEngrave(partObj);
+    let elements = this.getInscriptionElements(partObj);
+
+    this.description = this.formDescriptiveSentence(item, part, elements);
+  }
+
+  getInscriptionElements(partObj) {
+    const { detailThings } = InscriptionElements;
+
+    // to provide even distribution of possible results, create an array with one key entry for each element in the given array. This will provide a more even spread.
+    let elementGroupKeys = getEvenKeyDistribution();
+
+    function getEvenKeyDistribution() {
+      let array = [];
+
+      Object.keys(detailThings).forEach((key) => {
+        let child = detailThings[key];
+        if (!Array.isArray(child)) {
+          // sub object like "person" group.
+          const keys = Object.keys(child);
+          keys.forEach((subKey) => {
+            let count = child[subKey].length > 20 ? 20 : child[subKey].length;
+            for (let i = 1; i < count; i++) {
+              array.push(key);
+            }
+          });
+        } else {
+          for (let i = 1; i < child.length; i++) {
+            array.push(key);
+          }
+        }
+      });
+      return array;
+    }
+
+    const elementGroupName = elementGroupKeys[Utils.randomArrayIndex(elementGroupKeys)];
+
+    if (elementGroupName === "pattern") {
+      // Patterns are just shown alone.
+      const patternsArray = detailThings[elementGroupName];
+      const pattern = patternsArray[Utils.randomArrayIndex(patternsArray)];
+      const aAn = /^[aeiouAEIOU]/.test(pattern) ? "an" : "a";
+
+      return `${aAn} ${pattern} pattern`;
+    } else if (elementGroupName === "person") {
+      return this.getPeopleEngraving(detailThings[elementGroupName]);
+    } else {
+      const elementArray = detailThings[elementGroupName];
+      let word = elementArray[Utils.randomArrayIndex(elementArray)];
+      word = this.checkForWordReplacement(word);
+      const aAn = /^[aeiouAEIOU]/.test(word) ? "an" : "a";
+
+      return `an image of ${aAn} ${word}`;
+    }
+  }
+
+  checkForWordReplacement(word) {
+    if (/\*(.*)\*/.test(word)) {
+      word = word.replace(/\*/g, "");
+      const replacementArray = Object.keys(Materials[word]);
+
+      return replacementArray[Utils.randomArrayIndex(replacementArray)];
+    }
+    return word;
+  }
+
+  getPeopleEngraving(dataObj) {
+    // obj of more options, currently only people obj qualifies.
+    const elementSubgroupKeys = Object.keys(dataObj);
+
+    if (Utils.coinFlip()) {
+      // pose a single figure in the engraving
+      const { name, isAre, aAn, plural } = getPersonElement();
+      let pose = this.getCharacterPose();
+
+      if (plural) {
+        pose = pose.replace(/( a )|( an )/, " ").replace(/\(|\)/, "");
+      } else {
+        pose = pose.replace(/\((.*)\)/, "");
+      }
+
+      return `image of ${aAn} ${name}. The ${name} ${isAre} ${pose}`;
+    } else {
+      // engraving of two creatures
+      const personOne = getPersonElement();
+      const personTwo = getPersonElement();
+      const interaction = this.getCharacterInteraction();
+
+      const generalDescription = `image of ${personOne.plural ? "" : `${personOne.aAn}`} ${
+        personOne.name
+      } and ${personTwo.plural ? "" : `${personTwo.aAn}`} ${personTwo.name}.`;
+
+      const interactionDescription = `The ${personOne.name} is ${interaction} the ${personTwo.name}`;
+
+      return generalDescription + " " + interactionDescription;
+    }
+
+    function getPersonElement() {
+      const elementSubgroupName = elementSubgroupKeys[Utils.randomArrayIndex(elementSubgroupKeys)];
+      const elementSubgroup = dataObj[elementSubgroupName];
+      const person = elementSubgroup[Utils.randomArrayIndex(elementSubgroup)];
+      const plural = elementSubgroupName.includes("plural");
+
+      const aAn = /^[aeiouAEIOU]/.test(person) ? "an" : "a";
+      const isAre = plural ? "are" : "is";
+
+      return {
+        name: person,
+        isAre: isAre,
+        aAn: aAn,
+        plural: plural,
+      };
+    }
+  }
+
+  getCharacterPose() {
+    const { poses } = InscriptionElements;
+
+    return poses[Utils.randomArrayIndex(poses)];
+  }
+
+  getCharacterInteraction() {
+    const { interactions } = InscriptionElements;
+
+    return interactions[Utils.randomArrayIndex(interactions)];
+  }
+
+  getPartsToEngrave(partObj) {
+    const { parts } = partObj;
+
+    return parts[Utils.randomArrayIndex(parts)];
+  }
+
+  formDescriptiveSentence(item, part, elements) {
+    const theEach = item.count > 1 || /(?!.*ss).+s$.*/.test(item.subtype) ? "Each" : "The";
+    return `${theEach} ${part} of the ${item.subtype} is engraved with ${elements}. `;
   }
 }
 
 export default Part;
-
-// materials: ["steel","blackthorn","bone"],
-// parts: [{matGroup: "metal"
-// material: "steel"
-// part: "head"},{matGroup: "wood"
-// material: "blackthorn"
-// part: "haft"},{matGroup: ""
-// material: ""
-// part: "pommel"}]
-
-// let parts = [];
-//     let requiredItemPieces = materials.required;
-//     let materialGroupsArray = [];
-//     let tempMaterialsArray = [];
-//     let specificsArray = [];
-
-//     // for each required part of an item, ie. hilt, cross guard, blade, etc, randomly pick one of the possible material options.
-//     // ie. A hilt could be made of wood or metal.
-//     Object.keys(requiredItemPieces).forEach((requiredPart) => {
-//       const pieces = requiredItemPieces[requiredPart];
-//       materialGroupsArray.push(pieces[Utils.randomArrayIndex(pieces)]);
-//     });
-
-//     // remove duplicate values with a Set. This allows the materials to be more streamlined and logical.
-//     // without this you end up with sword made of 4 different metals for no logical reason. It is simpler to have a sword where all the metal is steel instead.
-//     tempMaterialsArray = Array.from(new Set(materialGroupsArray));
-
-//     // Get the specific materials for each part of the
-//     specificsArray = tempMaterialsArray.map((m) => this.getMaterial(materials.restricted, m));
-
-//     // loop through required parts and insert specific materials into their group holder
-//     Object.keys(requiredItemPieces).forEach((req, i) => {
-//       let piece = {};
-
-//       piece.part = req;
-//       piece.matGroup = materialGroupsArray[i];
-
-//       tempMaterialsArray.forEach((mat, i) => {
-//         if (mat === piece.matGroup) {
-//           let result = specificsArray[i];
-//           piece.material = result;
-//         }
-//       });
-
-//       parts.push(piece);
-//     });

@@ -39,15 +39,15 @@
     "dutch": [
       {
         "type": "prefix",
-        "name": "Kasteel van "
+        "word": "Kasteel van "
       },
       {
         "type": "suffix",
-        "name": " Kasteel"
+        "word": " Kasteel"
       },
       {
         "type": "suffix",
-        "name": " fort"
+        "word": " fort"
       }
     ],
     "english": [

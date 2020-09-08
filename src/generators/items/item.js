@@ -14,12 +14,17 @@ import magicTierData from "../../data/items/magic/tiers";
 import WeaponNames from "../../data/items/weaponNames";
 import ArmorNames from "../../data/items/armorNames";
 import JewelryNames from "../../data/items/jewelryNames";
-import DetailingWords from "../../data/items/detailingWords";
+import InscriptionElements from "../../data/items/inscriptionElements";
 
 import Noble from "../person/noble";
 import Engraving from "./engraving";
 
-const itemsData = { ...Weapons, ...Armor, ...Jewelry, ...Items };
+const itemsData = {
+  ...Weapons,
+  ...Armor,
+  ...Jewelry,
+  ...Items,
+};
 
 export default class Item {
   constructor(options = {}) {
@@ -48,7 +53,7 @@ export default class Item {
 
     this.value = this.getItemValue();
 
-    console.log(this);
+    // console.log(this);
   }
 
   getRandomGroup(relativeItemDataObj, specificItemType) {
@@ -143,7 +148,9 @@ export default class Item {
     const type = itemsData[this.category][this.type];
     const item = type.subtype[this.subtype];
     const buildMaterials = item.materials || type.materials;
-    const { optionalParts } = { ...buildMaterials };
+    const { optionalParts } = {
+      ...buildMaterials,
+    };
 
     // only try to make optional parts if there are any to begin with.
     if (optionalParts) {
@@ -163,7 +170,7 @@ export default class Item {
           materials.push(partMaterial);
         });
       } else if (qualityRoll >= 6) {
-        console.log(this);
+        // console.log(this);
         const partsArray = Object.keys(optionalParts);
         const part = partsArray[Utils.randomArrayIndex(partsArray)];
         const materialsArray = optionalParts[part];
@@ -194,15 +201,21 @@ export default class Item {
     return group[Utils.randomArrayIndex(group)];
   }
 
-  getItemQuality(qualityRange = { minQuality: 1, maxQuality: 10 }, forceMagicItem) {
+  getItemQuality(
+    qualityRange = {
+      minQuality: 1,
+      maxQuality: 10,
+    },
+    forceMagicItem
+  ) {
     // quality roll is between 1 and 10. Each quality tier is determined by the itemQuality json
     // quality range parameter is an object with a min and max value.
     let { minQuality, maxQuality } = qualityRange;
 
     if (forceMagicItem) minQuality = 2;
 
-    // const qualityRoll = Utils.randomInt(minQuality, maxQuality);
-    const qualityRoll = Utils.randomInt(6, maxQuality);
+    const qualityRoll = Utils.randomInt(minQuality, maxQuality);
+    // const qualityRoll = Utils.randomInt(6, maxQuality);
     const { itemQuality } = qualityData;
     const { descriptor, valueModifier, statModifier } = itemQuality.find((quality) => {
       return Utils.numberInRange(qualityRoll, quality.rangeMin, quality.rangeMax);
@@ -261,22 +274,20 @@ export default class Item {
     // engrave a part of the item with some kind of symbol
 
     let engravingCount = 1;
-    if (qualityRoll === 8) {
-      engravingCount = Utils.randomInt(1, 2);
-    } else if (qualityRoll === 9) {
+    if (qualityRoll >= 10) {
       engravingCount = Utils.randomInt(1, 3);
-    } else if (qualityRoll === 10) {
-      engravingCount = Utils.randomInt(2, 4);
+    } else if (qualityRoll >= 8) {
+      engravingCount = Utils.randomInt(1, 2);
     }
 
-    let engravingArray = new Array(engravingCount).fill(null);
-    engravingArray.map(() => {
-      return new Engraving(buildDataObj);
-    });
+    let engravingString = "";
 
-    engravingArray = ["taco", "pizza", "beer"];
-
-    const engravingString = engravingArray.join("");
+    new Array(engravingCount)
+      .fill(null)
+      .map(() => {
+        return new Engraving(this, buildDataObj);
+      })
+      .forEach((engraving) => (engravingString += engraving.description));
 
     return engravingString;
   }
@@ -326,7 +337,7 @@ export default class Item {
 
       const {
         person: { single },
-      } = DetailingWords.detailThings;
+      } = InscriptionElements.detailThings;
       let carvingShape = single[Utils.randomArrayIndex(single)];
       let randomDataShapeDescription =
         buildDataObj.shape[Utils.randomArrayIndex(buildDataObj.shape)];
@@ -369,7 +380,9 @@ export default class Item {
 
       magicalProperties.magicTier = tier;
       magicalProperties.magicValue = tierValue * costModifier;
-      magicalProperties.enchanter = new Noble({ jobGroup: "magic" });
+      magicalProperties.enchanter = new Noble({
+        jobGroup: "magic",
+      });
     }
 
     return magicalProperties;
@@ -522,7 +535,7 @@ export default class Item {
     // parts
     if (parts.length > 1) result.description += `The ${subtype} has ${parts.length} parts. `;
 
-    console.log(materials);
+    // console.log(materials);
 
     materials.forEach((mat) => {
       let arr = [];
@@ -593,7 +606,10 @@ export default class Item {
     if (crafterRace === "all") crafterRace = undefined;
 
     if (!this.crafter) {
-      return new PersonGenerator({ race: crafterRace, occupation: occupation });
+      return new PersonGenerator({
+        race: crafterRace,
+        occupation: occupation,
+      });
     }
   }
 

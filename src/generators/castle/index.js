@@ -9,7 +9,7 @@ import Noble from "../person/noble";
 // data
 import placeNames from "../../data/places/randomPlaceNames";
 import castleTypes from "../../data/castles/types";
-// import castleTranslation from "../../data/castles/translation";
+import castleTranslation from "../../data/castles/translation";
 import ruinCreatures from "../../data/castles/ruinInhabitants";
 
 export default class Castle {
@@ -37,7 +37,7 @@ export default class Castle {
       this.siegeHoldoutTime = this.getSiegeHoldoutTime();
     }
 
-    console.log(this);
+    // console.log(this);
   }
 
   getCastleName(culture) {
@@ -45,40 +45,47 @@ export default class Castle {
     // a group may have multiple sets of options, such as the Norse group having multiple types from different Nordic countries.
     if (!culture) culture = "english";
 
-    let wordSet = placeNames[culture].nameSet[Utils.randomArrayIndex(placeNames[culture].nameSet)];
-
-    let partsArray = wordSet.map((set) => {
+    const {
+      translation
+    } = castleTranslation;
+    const culturalNames = translation[culture];
+    const wordSet = placeNames[culture].nameSet[Utils.randomArrayIndex(placeNames[culture].nameSet)];
+    const partsArray = wordSet.map((set) => {
       return set[Utils.randomArrayIndex(set)];
     });
 
     let name = partsArray.join("");
 
-    if (culture === "dwarven") {
-      // all dwarven castles should start with Karak, the dwarf word for fortress.
-      name = "Karak " + name;
-    } else if (culture === "elven") {
-      // if the name ends in a vowel remove it. this prevents too many 'iae-ost' style endings.
-      if (/[aeiou]$/.test(name)) name = name.substring(0, name.length - 1);
+    const nameObj = culturalNames[Utils.randomArrayIndex(culturalNames)];
+    const {
+      type,
+      word
+    } = nameObj;
 
-      name += "ost";
-    } else {
-      if (Utils.coinFlip()) {
-        name += " Castle";
-      } else {
-        name = "Castle " + name;
-      }
+    if (type === "prefix") {
+      name = word + name;
+    } else if (type === "suffix") {
+      name = name + word;
     }
 
     return name;
   }
 
   getCastleDetails() {
-    const { types } = castleTypes;
+    const {
+      types
+    } = castleTypes;
     const selectedType = types[Utils.randomArrayIndex(types)];
-    const { name, location } = selectedType;
+    const {
+      name,
+      location
+    } = selectedType;
 
     const locationObj = location[Utils.randomArrayIndex(location)];
-    const { description, requiredTerrain } = locationObj;
+    const {
+      description,
+      requiredTerrain
+    } = locationObj;
     const terrain = requiredTerrain[Utils.randomArrayIndex(requiredTerrain)];
 
     return {
@@ -91,7 +98,9 @@ export default class Castle {
   getStructure() {
     const {
       age,
-      size: { sizeValue },
+      size: {
+        sizeValue
+      },
     } = this;
 
     const parameters = {
@@ -108,12 +117,17 @@ export default class Castle {
 
   getCommander(culture) {
     const {
-      size: { sizeValue },
+      size: {
+        sizeValue
+      },
     } = this;
 
     const titles = ["Sergeant", "Lieutenant", "Captain", "Commander", "Lord/Lady"];
 
-    return new Noble({ occupation: titles[sizeValue - 1], culture: culture });
+    return new Noble({
+      occupation: titles[sizeValue - 1],
+      culture: culture
+    });
   }
 
   getCastleSize() {
@@ -131,7 +145,9 @@ export default class Castle {
   getGarrison() {
     // generally, the larger the keep, the larger the garrison.
     const {
-      size: { sizeValue },
+      size: {
+        sizeValue
+      },
     } = this;
     const baselineGarrison = 25;
     const garrisonModifier = 2 + Utils.randomInt(-75, 75) / 100;
@@ -142,7 +158,9 @@ export default class Castle {
   getLocalLevies() {
     // levy size is pulled from the surrounding territory.
     const {
-      size: { sizeValue },
+      size: {
+        sizeValue
+      },
       // details: { terrain },
     } = this;
 
@@ -167,7 +185,9 @@ export default class Castle {
   getSiegeHoldoutTime() {
     // Medieval sieges tended to only last a few weeks to a few months. In rare castes, they lasted over a year. The most common numbers I've found were that a well-supplied castle could manage to last roughly 6 months (180 days). A poorly supplied or managed castle might only last a month. Obviously magic changes that equation, but that's an impossible influence to account for, since...well...magic.
     const {
-      structuralStatus: { statusValue },
+      structuralStatus: {
+        statusValue
+      },
     } = this;
 
     const modifier = Utils.randomInt(15, 45) * (statusValue - 1);
@@ -188,7 +208,11 @@ export default class Castle {
     // when a castle is abandoned to ruin, it is either because it's too damage to repair, or no longer is of strategic value. In the former case, it has major structural damage. In the latter, it is still functional. In both cases, it is possible that the ruin is possibly overrun by a monstrous force.
     let result = {};
 
-    const ruinOptions = [{ type: "abandoned" }, { type: "destroyed" }];
+    const ruinOptions = [{
+      type: "abandoned"
+    }, {
+      type: "destroyed"
+    }];
     const ruinType = ruinOptions[Utils.randomArrayIndex(ruinOptions)];
     result.ruinType = ruinType.type;
 
@@ -198,11 +222,16 @@ export default class Castle {
   }
 
   getRuinInhabitants() {
-    const { creatures } = ruinCreatures;
+    const {
+      creatures
+    } = ruinCreatures;
     let result = {};
 
     const typeArray = creatures[Utils.randomArrayIndex(creatures)];
-    const { type, options } = typeArray;
+    const {
+      type,
+      options
+    } = typeArray;
 
     result.type = type;
     result.creature = options[Utils.randomArrayIndex(options)];

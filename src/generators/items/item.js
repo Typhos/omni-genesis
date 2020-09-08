@@ -278,6 +278,8 @@ export default class Item {
       engravingCount = Utils.randomInt(1, 3);
     } else if (qualityRoll >= 8) {
       engravingCount = Utils.randomInt(1, 2);
+    } else if (qualityRoll >= 6) {
+      engravingCount = Utils.randomInt(0, 1);
     }
 
     let engravingString = "";

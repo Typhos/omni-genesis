@@ -60,3 +60,16 @@ $boxHeight: 1.5rem;
     box-shadow: 0 0 1px $dndGreen;
   }
 }
+
+@media all and (max-width: $breakpoint-mobile) {
+  .label {
+    .toggle {
+      min-width: 0;
+    }
+  }
+
+  .switch {
+    margin-left: 3em;
+    top: 0.25em;
+  }
+}

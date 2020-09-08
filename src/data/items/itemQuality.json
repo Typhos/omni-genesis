@@ -1,0 +1,52 @@
+{
+  "itemQuality": [
+    {
+      "descriptor": "Poorly-crafted ",
+      "valueModifier": 0.5,
+      "statModifier": "-1",
+      "rangeMin": 1,
+      "rangeMax": 1,
+      "magicChance": 0
+    },
+    {
+      "descriptor": "",
+      "valueModifier": 1,
+      "statModifier": "",
+      "rangeMin": 2,
+      "rangeMax": 5,
+      "magicChance": 0
+    },
+    {
+      "descriptor": "Well-crafted",
+      "valueModifier": 2,
+      "statModifier": "",
+      "rangeMin": 6,
+      "rangeMax": 7,
+      "magicChance": 10
+    },
+    {
+      "descriptor": "Finely-crafted",
+      "valueModifier": 3,
+      "statModifier": "",
+      "rangeMin": 8,
+      "rangeMax": 8,
+      "magicChance": 33
+    },
+    {
+      "descriptor": "Superbly-crafted",
+      "valueModifier": 5,
+      "statModifier": "",
+      "rangeMin": 9,
+      "rangeMax": 9,
+      "magicChance": 50
+    },
+    {
+      "descriptor": "Master-crafted",
+      "valueModifier": 20,
+      "statModifier": "",
+      "rangeMin": 10,
+      "rangeMax": 10,
+      "magicChance": 100
+    }
+  ]
+}

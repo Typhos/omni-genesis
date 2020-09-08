@@ -6,7 +6,6 @@ import Select from "../../components/controls/select/selectStandard";
 
 // Generators
 import Person from "../../generators/person/person";
-import Noble from "../../generators/person/noble";
 
 // Data
 import Professions from "../../data/professions";
@@ -30,7 +29,13 @@ const alignments = {
   "any evil": ["lawful evil", "neutral evil", "chaotic evil"],
   "any lawful": ["lawful good", "lawful neutral", "lawful evil"],
   "any chaotic": ["chaotic good", "chaotic neutral", "chaotic evil"],
-  "any neutral": ["neutral good", "neutral evil", "lawful neutral", "true neutral", "chaotic neutral"],
+  "any neutral": [
+    "neutral good",
+    "neutral evil",
+    "lawful neutral",
+    "true neutral",
+    "chaotic neutral",
+  ],
 };
 
 export default class People extends Component {
@@ -112,7 +117,8 @@ export default class People extends Component {
     const { jobGroup, job, sex } = this.state;
     const dataGroup = Professions.jobs[jobGroup];
     const mappable = dataGroup && Array.isArray(dataGroup.list);
-    const genderMappable = dataGroup && !Array.isArray(dataGroup.list) && Array.isArray(dataGroup.list.male);
+    const genderMappable =
+      dataGroup && !Array.isArray(dataGroup.list) && Array.isArray(dataGroup.list.male);
 
     return (
       <React.Fragment>
@@ -131,7 +137,13 @@ export default class People extends Component {
         {/* Jobs with gender-specific titles */}
         {genderMappable && (
           <React.Fragment>
-            <Select title={"Job"} name={"job"} value={job} onChange={this.change} disabled={sex === "all"}>
+            <Select
+              title={"Job"}
+              name={"job"}
+              value={job}
+              onChange={this.change}
+              disabled={sex === "all"}
+            >
               <option value='all'>random job</option>
               {sex !== "all" &&
                 dataGroup.list[sex].map((job) => (
@@ -218,7 +230,9 @@ export default class People extends Component {
             </Button>
           </Aside>
 
-          {person && <PersonDisplay person={person} state={this.state} stateHandler={this.stateHandler} />}
+          {person && (
+            <PersonDisplay person={person} state={this.state} stateHandler={this.stateHandler} />
+          )}
         </main>
       </div>
     );

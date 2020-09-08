@@ -74,7 +74,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "pouches":[
                 "leather"
               ]
@@ -124,7 +124,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "pouches":[
                 "leather"
               ]
@@ -392,7 +392,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "tassels":[
                 "cloth"
               ]
@@ -709,7 +709,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "shield boss":[
                 "metal"
               ]
@@ -763,7 +763,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "shield boss":[
                 "metal"
               ]
@@ -817,7 +817,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "shield boss":[
                 "metal"
               ]
@@ -871,7 +871,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "shield boss":[
                 "metal"
               ]
@@ -929,7 +929,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "decorative markings":[
                 "metal"
               ]
@@ -977,7 +977,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "visor":[
                 "metal"
               ]
@@ -1028,7 +1028,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "decroative crest":[
                 "metal"
               ]
@@ -1079,7 +1079,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "visor":[
                 "metal"
               ],
@@ -1136,7 +1136,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "decroative crest":[
                 "metal"
               ],
@@ -1234,7 +1234,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "plume":[
                 "feather"
               ]
@@ -1288,7 +1288,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "accent detailing":[
                 "metal"
               ]
@@ -1339,7 +1339,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "accent detailing":[
                 "metal"
               ],
@@ -1386,7 +1386,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wings":[
                 "metal"
               ],

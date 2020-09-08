@@ -1,0 +1,862 @@
+{
+  "jewelry": {
+    "ring": {
+      "subtype": {
+        "ring": {
+          "count": 1,
+          "single": "ring",
+          "plural": "rings",
+          "stats": {
+            "type": "ring",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "band",
+            "required": {
+              "band": ["metal", "bone"]
+            },
+            "optionalParts": {
+              "filigree": ["metal", "bone"],
+              "jewel": ["gemstone"]
+            },
+            "default": "metal",
+            "creation": "designed",
+            "maker": {
+              "metal": "jeweler",
+              "bone": "jeweler"
+            }
+          }
+        },
+        "signet ring": {
+          "count": 1,
+          "single": "signet ring",
+          "plural": "signet rings",
+          "stats": {
+            "type": "ring",
+            "value": 20,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "band",
+            "required": {
+              "band": ["metal", "bone"],
+              "signet bezel": ["metal", "bone"]
+            },
+            "optionalParts": {
+              "filigree": ["metal", "bone"],
+              "accents": ["gemstone"]
+            },
+            "default": "metal",
+            "creation": "designed",
+            "maker": {
+              "metal": "jeweler",
+              "bone": "jeweler"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 100,
+              "parts": ["signet bezel"]
+            }
+          }
+        },
+        "puzzle ring": {
+          "count": 1,
+          "single": "puzzle ring",
+          "plural": "puzzle rings",
+          "stats": {
+            "type": "ring",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "band",
+            "required": {
+              "band": ["metal", "bone"],
+              "band": ["metal", "bone"]
+            },
+            "optionalParts": {
+              "interlocking ring": ["metal", "bone"],
+              "accents": ["gemstone"]
+            },
+            "default": "metal",
+            "creation": "designed",
+            "maker": {
+              "metal": "jeweler",
+              "bone": "jeweler"
+            }
+          }
+        }
+      }
+    },
+    "necklace": {
+      "subtype": {
+        "choker": {
+          "count": 1,
+          "single": "choker",
+          "plural": "chokers",
+          "stats": {
+            "type": "necklace",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "cord",
+            "required": {
+              "cord": ["metal", "cloth", "leather"]
+            },
+            "optionalParts": {
+              "studs": ["metal"],
+              "pendant": ["gemstone"]
+            },
+            "default": "leather",
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 50,
+              "parts": ["pendant"]
+            }
+          }
+        },
+        "collar": {
+          "count": 1,
+          "single": "collar",
+          "plural": "collars",
+          "stats": {
+            "type": "necklace",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "chain",
+            "required": {
+              "chain": ["metal"],
+              "insignia pendant": ["metal", "bone"]
+            },
+            "optionalParts": {
+              "accents": ["gemstone"]
+            },
+            "extra": ["emblem"],
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 100,
+              "parts": ["insignia pendant"]
+            }
+          }
+        },
+        "princess necklace": {
+          "count": 1,
+          "single": "princess necklace",
+          "plural": "princess necklaces",
+          "stats": {
+            "type": "necklace",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "cord",
+            "required": {
+              "cord": ["metal", "cloth", "leather"],
+              "pendant": ["gemstone", "metal"]
+            },
+            "optionalParts": {
+              "accents": ["gemstone"]
+            },
+            "default": "cloth",
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 75,
+              "parts": ["pendant"]
+            }
+          }
+        },
+        "matinee necklace": {
+          "count": 1,
+          "single": "matinee necklace",
+          "plural": "matinee necklaces",
+          "stats": {
+            "type": "necklace",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "chain",
+            "required": {
+              "chain": ["metal"],
+              "pendant": ["gemstone", "metal"]
+            },
+            "optionalParts": {
+              "accents": ["gemstone"]
+            },
+            "default": "metal",
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 75,
+              "parts": ["pendant"]
+            }
+          }
+        },
+        "lariat necklace": {
+          "count": 1,
+          "single": "lariat necklace",
+          "plural": "lariat necklaces",
+          "stats": {
+            "type": "necklace",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "cord",
+            "required": {
+              "cord": ["cloth", "leather"],
+              "pendant": ["gemstone", "metal"]
+            },
+            "optionalParts": {
+              "accents": ["gemstone"]
+            },
+            "default": "cloth",
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 75,
+              "parts": ["pendant"]
+            }
+          }
+        }
+      }
+    },
+    "earrings": {
+      "subtype": {
+        "hoop": {
+          "count": 2,
+          "single": "hoop",
+          "plural": "hoops",
+          "stats": {
+            "type": "earrings",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "hoop",
+            "required": {
+              "hoop": ["metal"]
+            },
+            "default": "metal",
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            }
+          }
+        },
+        "stud": {
+          "count": 2,
+          "single": "stud",
+          "plural": "studs",
+          "stats": {
+            "type": "earring",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "stud",
+            "required": {
+              "stud": ["metal", "bone"]
+            },
+            "optionalParts": {
+              "accents": ["gemstone"]
+            },
+            "default": "metal",
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "bone": "artisan",
+              "cloth": "artisan"
+            }
+          }
+        },
+        "dangle earrings": {
+          "count": 2,
+          "single": "dangle earring",
+          "plural": "dangle earrings",
+          "stats": {
+            "type": "earring",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "hook",
+            "required": {
+              "hook": ["metal"],
+              "pendant": ["gemstone", "metal", "bone"]
+            },
+            "optionalParts": {
+              "accent pendant": ["gemstone", "metal", "bone"]
+            },
+            "default": "metal",
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 75,
+              "parts": ["pendant"]
+            }
+          }
+        },
+        "drop earrings": {
+          "count": 2,
+          "single": "drop earring",
+          "plural": "drop earrings",
+          "stats": {
+            "type": "earring",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "hook",
+            "required": {
+              "hook": ["metal"],
+              "chain": ["metal"],
+              "pendant": ["gemstone", "metal", "bone"]
+            },
+            "optionalParts": {
+              "accent pendant": ["gemstone", "metal", "bone"]
+            },
+            "default": "metal",
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 75,
+              "parts": ["pendant"]
+            }
+          }
+        },
+        "chandelier earrings": {
+          "count": 2,
+          "single": "chandelier earring",
+          "plural": "chandelier earrings",
+          "stats": {
+            "type": "earring",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "hook",
+            "required": {
+              "hook": ["metal"],
+              "latice": ["metal"],
+              "pendant": ["gemstone", "metal", "bone"]
+            },
+            "optionalParts": {
+              "accent pendant": ["gemstone", "metal", "bone"],
+              "accent pendant": ["gemstone", "metal", "bone"],
+              "accent pendant": ["gemstone", "metal", "bone"]
+            },
+            "default": "metal",
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 50,
+              "parts": ["pendant"]
+            }
+          }
+        },
+        "teardrop earrings": {
+          "count": 2,
+          "single": "teardrop earring",
+          "plural": "teardrop earrings",
+          "stats": {
+            "type": "earring",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "hook",
+            "required": {
+              "hook": ["metal"],
+              "jewel": ["gemstone"]
+            },
+            "default": "metal",
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            }
+          }
+        }
+      }
+    },
+    "crown": {
+      "subtype": {
+        "crown": {
+          "count": 1,
+          "single": "crown",
+          "plural": "crowns",
+          "stats": {
+            "type": "crown",
+            "value": 0,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "ring",
+            "required": {
+              "ring": ["metal"],
+              "ornaments": ["metal", "bone"],
+              "arches": ["metal"]
+            },
+            "optionalParts": {
+              "sigil": ["metal", "bone"],
+              "jewel": ["gemstone"],
+              "accents": ["gemstone", "bone"]
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["lead"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 100,
+              "parts": ["sigil"]
+            }
+          }
+        },
+        "coronet": {
+          "count": 1,
+          "single": "coronet",
+          "plural": "coronets",
+          "stats": {
+            "type": "crown",
+            "value": 0,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "ring",
+            "required": {
+              "ring": ["metal"],
+              "ornaments": ["metal", "bone"]
+            },
+            "optionalParts": {
+              "signil": ["metal", "bone"],
+              "jewel": ["gemstone"],
+              "accents": ["gemstone", "bone"]
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["lead"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 100,
+              "parts": ["sigil"]
+            }
+          }
+        },
+        "tiara": {
+          "count": 1,
+          "single": "tiara",
+          "plural": "tiaras",
+          "stats": {
+            "type": "crown",
+            "value": 0,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "ring",
+            "required": {
+              "ring": ["metal"],
+              "ornaments": ["metal", "bone"]
+            },
+            "optionalParts": {
+              "jewel": ["gemstone"],
+              "accents": ["gemstone", "bone"]
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["lead"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            }
+          }
+        },
+        "diadem": {
+          "count": 1,
+          "single": "diadem",
+          "plural": "diadems",
+          "stats": {
+            "type": "crown",
+            "value": 0,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "ring",
+            "required": {
+              "ring": ["metal"],
+              "ornaments": ["metal", "bone"]
+            },
+            "optionalParts": {
+              "sigil": ["metal", "bone"],
+              "jewel": ["gemstone"],
+              "accents": ["gemstone", "bone"]
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["lead"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 100,
+              "parts": ["sigil"]
+            }
+          }
+        }
+      }
+    },
+    "braclet": {
+      "subtype": {
+        "bangle": {
+          "count": 1,
+          "single": "bangle",
+          "plural": "bangles",
+          "stats": {
+            "type": "braclet",
+            "value": 2,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "band",
+            "required": {
+              "band": ["metal", "bone", "glass"]
+            },
+            "optionalParts": {
+              "studs": ["metal", "bone"],
+              "accents": ["gemstone", "bone"]
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["lead", "copper", "platinum", "steel"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "glass": "jeweler",
+              "bone": "jeweler"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 33,
+              "parts": ["band"],
+              "method": "engraved",
+              "min": 1,
+              "max": 1
+            }
+          }
+        },
+        "link braclet": {
+          "count": 1,
+          "single": "link braclet",
+          "plural": "link braclets",
+          "stats": {
+            "type": "braclet",
+            "value": 2,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "band",
+            "required": {
+              "band": ["metal"],
+              "jewels": ["gemstone", "glass"]
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["lead", "copper", "platinum", "steel"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "glass": "jeweler"
+            }
+          }
+        },
+        "beaded braclet": {
+          "count": 1,
+          "single": "beaded braclet",
+          "plural": "beaded braclets",
+          "stats": {
+            "type": "braclet",
+            "value": 2,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "beads",
+            "required": {
+              "beads": ["metal", "bone", "glass", "gemstone"],
+              "string": ["cloth"]
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["lead", "copper", "platinum", "steel"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "glass": "jeweler",
+              "bone": "jeweler"
+            }
+          }
+        }
+      }
+    },
+    "torc": {
+      "subtype": {
+        "torc": {
+          "count": 1,
+          "single": "torc",
+          "plural": "torcs",
+          "stats": {
+            "type": "torc",
+            "value": 10,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "ring",
+            "required": {
+              "ring": ["metal"],
+              "terminals": ["metal"]
+            },
+            "optionalParts": {
+              "accents": ["gemstone", "bone"]
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["lead", "platinum", "steel", "copper"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith"
+            },
+            "extra": ["carving"],
+            "carving": {
+              "chance": 50,
+              "parts": ["terminals"],
+              "shape": [" head"],
+              "design": ["words", "engraving", "things", "person", "single"],
+              "count": 1
+            }
+          }
+        }
+      }
+    },
+    "scepter": {
+      "subtype": {
+        "marotte": {
+          "count": 1,
+          "single": "marotte",
+          "plural": "marottes",
+          "stats": {
+            "type": "scepter",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "staff",
+            "required": {
+              "staff": ["metal", "wood", "bone"],
+              "headcap": ["metal", "wood", "bone"]
+            },
+            "optionalParts": {
+              "wrapping": ["cloth", "leather"]
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["lead"]
+            },
+            "extra": ["carving"],
+            "creation": "created",
+            "maker": {
+              "metal": "smith",
+              "wood": "woodworker",
+              "bone": "bonecarver"
+            },
+            "carving": {
+              "parts": ["headcap"],
+              "shape": ["", " head"],
+              "design": ["words", "engraving", "things", "person", "single"],
+              "count": 1
+            }
+          }
+        },
+        "royal scepter": {
+          "count": 1,
+          "single": "royal scepter",
+          "plural": "royal scepters",
+          "stats": {
+            "type": "scepter",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "ornamental staff",
+            "required": {
+              "ornamental staff": ["metal", "wood", "bone"],
+              "jewel": ["gemstone"]
+            },
+            "optionalParts": {
+              "crest": ["metal", "bone"],
+              "accents": ["metal", "wood", "bone"],
+              "wrapping": ["cloth", "leather"],
+              "pommel": ["metal", "wood", "bone", "gemstone"]
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["lead"]
+            },
+            "creation": "created",
+            "maker": {
+              "metal": "smith",
+              "wood": "woodworker",
+              "bone": "bonecarver"
+            },
+            "extra": ["emblem", "carving"],
+            "emblem": {
+              "chance": 100,
+              "parts": ["crest"]
+            },
+            "carving": {
+              "parts": ["pommel"],
+              "shape": ["", " head"],
+              "design": ["words", "engraving", "things", "person", "single"],
+              "count": 1
+            }
+          }
+        },
+        "staff of office": {
+          "count": 1,
+          "single": "staff of office",
+          "plural": "staves of office",
+          "stats": {
+            "type": "scepter",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "staff",
+            "required": {
+              "staff": ["metal", "wood", "bone"],
+              "tip": ["metal"]
+            },
+            "optionalParts": {
+              "wrapping": ["cloth", "leather"]
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["lead"]
+            },
+            "creation": "created",
+            "maker": {
+              "metal": "smith",
+              "wood": "woodworker",
+              "bone": "bonecarver"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 100,
+              "parts": ["tip"]
+            }
+          }
+        }
+      }
+    }
+  }
+}

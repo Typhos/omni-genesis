@@ -19,7 +19,7 @@
                 "cloth"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "cuffs":[
                 "fur",
                 "cloth"
@@ -60,7 +60,7 @@
                 "bone"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "belt":[
                 "cloth",
                 "leather"
@@ -105,7 +105,7 @@
                 "cloth"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "collar":[
                 "fur"
               ],
@@ -144,7 +144,7 @@
                 "cloth"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "draw-string":[
                 "cloth"
               ]
@@ -216,7 +216,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "draw-string":[
                 "cloth"
               ],
@@ -263,7 +263,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "lining":[
                 "fur"
               ]
@@ -302,7 +302,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "trim":[
                 "cloth",
                 "fur"
@@ -350,7 +350,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "trim":[
                 "fur"
               ]
@@ -405,7 +405,7 @@
                 "cloth"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "laces":[
                 "cloth",
                 "leather"
@@ -453,7 +453,7 @@
                 "wood"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "laces":[
                 "cloth",
                 "leather"
@@ -509,7 +509,7 @@
                 "cloth"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "lining":[
                 "fur"
               ]
@@ -553,7 +553,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "accent feather":[
                 "feather"
               ]
@@ -590,7 +590,7 @@
                 "leather"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "band":[
                 "cloth",
                 "leather"
@@ -752,7 +752,7 @@
                 "cloth"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "jewel":[
                 "gemstone",
                 "glass"
@@ -799,7 +799,7 @@
                 "horn"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "tassels":[
                 "leather",
                 "cloth"
@@ -888,7 +888,7 @@
                 "wood"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -934,7 +934,7 @@
                 "wood"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -980,7 +980,7 @@
                 "wood"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -1035,7 +1035,7 @@
                 "bone"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -1170,7 +1170,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "frame":[
                 "metal",
                 "wood",
@@ -1207,7 +1207,7 @@
                 "",
                 " head"
               ],
-              "path":[
+              "design":[
                 "words",
                 "engraving",
                 "things",
@@ -1387,7 +1387,7 @@
                 "wood"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "handle wrap":[
                 "leather",
                 "cloth"
@@ -1430,7 +1430,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "key":[
                 "metal"
               ]
@@ -1478,7 +1478,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "handle wrapping":[
                 "leather",
                 "cloth"
@@ -1527,7 +1527,7 @@
                 "wood"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -1576,7 +1576,7 @@
                 "wood"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -1631,7 +1631,7 @@
                 "wood"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "handle wrapping":[
                 "leather",
                 "cloth"
@@ -1681,7 +1681,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "pouch":[
                 "cloth",
                 "leather"
@@ -1735,7 +1735,7 @@
                 "wood"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "strap":[
                 "leather",
                 "cloth"
@@ -1778,7 +1778,7 @@
                 "wood"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrap cover":[
                 "leather"
               ]
@@ -1833,7 +1833,7 @@
                 "clay"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "handle strap":[
                 "leather"
               ]
@@ -1882,7 +1882,7 @@
                 "horn"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "rim":[
                 "metal"
               ],
@@ -1940,7 +1940,7 @@
                 "glass"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "rim":[
                 "metal"
               ]
@@ -1982,7 +1982,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "rim":[
                 "metal"
               ],
@@ -2045,7 +2045,7 @@
                 "clay"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "footring":[
                 "metal",
                 "bone",
@@ -2113,7 +2113,7 @@
                 "clay"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "strap":[
                 "leather"
               ]
@@ -2169,7 +2169,7 @@
                 "wood"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "strap":[
                 "leather"
               ]
@@ -2225,7 +2225,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "strap":[
                 "leather"
               ]
@@ -2284,7 +2284,7 @@
                 "cloth"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "strap":[
                 "leather"
               ]
@@ -2327,7 +2327,7 @@
               "shape":[
                 " head"
               ],
-              "path":[
+              "design":[
                 "words",
                 "engraving",
                 "things",
@@ -2362,7 +2362,7 @@
                 "bone"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "strap":[
                 "leather"
               ]
@@ -2410,7 +2410,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "strap":[
                 "leather"
               ]
@@ -2446,7 +2446,7 @@
               "shape":[
                 " head"
               ],
-              "path":[
+              "design":[
                 "words",
                 "engraving",
                 "things",
@@ -2482,7 +2482,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "strap":[
                 "leather"
               ],
@@ -2545,7 +2545,7 @@
                 "cloth"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "hand-strap":[
                 "leather"
               ]
@@ -2581,7 +2581,7 @@
               "shape":[
                 " head"
               ],
-              "path":[
+              "design":[
                 "words",
                 "engraving",
                 "things",
@@ -2613,7 +2613,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "hand-strap":[
                 "leather"
               ]
@@ -2661,7 +2661,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "hand-strap":[
                 "leather"
               ]
@@ -2723,7 +2723,7 @@
                 "cloth"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "bow":[
                 "wood"
               ]
@@ -2759,7 +2759,7 @@
               "shape":[
                 " head"
               ],
-              "path":[
+              "design":[
                 "words",
                 "engraving",
                 "things",
@@ -2794,7 +2794,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "panes":[
                 "glass"
               ]
@@ -2835,7 +2835,7 @@
                 "glass"
               ]
             },
-            "optional":{
+            "optionalParts":{
 
             },
             "default":"metal",
@@ -2871,7 +2871,7 @@
                 "clay"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "handle":[
                 "clay"
               ],
@@ -2916,7 +2916,7 @@
                 "glass"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "handle":[
                 "metal"
               ]
@@ -2957,9 +2957,6 @@
                 "cloth"
               ]
             },
-            "optional":{
-
-            },
             "default":"wood",
             "creation":"crafted",
             "maker":{
@@ -2998,9 +2995,6 @@
               "continuous flame":[
                 "magic"
               ]
-            },
-            "optional":{
-
             },
             "default":"wood",
             "creation":"enchanted",
@@ -3050,9 +3044,6 @@
               "flammable wrapping":[
                 "cloth"
               ]
-            },
-            "optional":{
-
             },
             "default":"wood",
             "creation":"crafted",
@@ -3159,7 +3150,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "false bottom":[
                 "wood",
                 "metal"
@@ -3225,7 +3216,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -3278,7 +3269,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -3331,7 +3322,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -3384,7 +3375,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -3437,7 +3428,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -3490,7 +3481,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -3543,7 +3534,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -3596,7 +3587,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -3649,7 +3640,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -3702,7 +3693,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -3755,7 +3746,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -3808,7 +3799,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"
@@ -3861,7 +3852,7 @@
                 "metal"
               ]
             },
-            "optional":{
+            "optionalParts":{
               "wrapping":[
                 "leather",
                 "cloth"

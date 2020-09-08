@@ -28,7 +28,7 @@
 
   &__header {
     letter-spacing: 0.1em;
-    font-size: 1.66em;
+    font-size: 1.66rem;
     font-family: $styleText;
     text-transform: capitalize;
 
@@ -43,7 +43,19 @@
     border-bottom: 1px solid $midTone;
     font-family: $styleText;
     text-transform: capitalize;
-    font-size: 1.66em;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+  }
+
+  &__subName {
+    margin: 0.5em 0;
+
+    text-transform: capitalize;
+    color: $dndGold;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    font-family: $serifText;
+    font-weight: 400;
   }
 
   &__subHeading {

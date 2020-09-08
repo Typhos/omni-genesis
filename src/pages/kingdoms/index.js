@@ -77,7 +77,7 @@ export default class Kingdoms extends Component {
   }
 
   render() {
-    const { size, culture, seed, kingdom, city, person, loading } = this.state;
+    const { size, culture, seed, kingdom, city, person } = this.state;
 
     return (
       <div className='App'>
@@ -100,11 +100,15 @@ export default class Kingdoms extends Component {
             </Button>
           </Aside>
 
-          {kingdom && <KingdomDisplay kingdom={kingdom} state={this.state} stateHandler={this.stateHandler} />}
+          {kingdom && (
+            <KingdomDisplay kingdom={kingdom} state={this.state} stateHandler={this.stateHandler} />
+          )}
 
           {city && <CityDisplay city={city} state={this.state} stateHandler={this.stateHandler} />}
 
-          {person && <PersonDisplay person={person} state={this.state} stateHandler={this.stateHandler} />}
+          {person && (
+            <PersonDisplay person={person} state={this.state} stateHandler={this.stateHandler} />
+          )}
         </main>
       </div>
     );

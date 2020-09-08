@@ -91,7 +91,13 @@ export default class Merchant {
   }
 
   getAtmosphere(options) {
-    let atmosphere = allShops[this.shopType].atmosphere || ["dirty", "colorful", "beautiful", "opulent", "dingy"];
+    let atmosphere = allShops[this.shopType].atmosphere || [
+      "dirty",
+      "colorful",
+      "beautiful",
+      "opulent",
+      "dingy",
+    ];
     if (!Array.isArray(atmosphere)) {
       atmosphere = Object.keys(atmosphere);
     }
@@ -118,6 +124,7 @@ export default class Merchant {
 
     items = items.sort((a, b) => {
       if (b.subtype > a.subtype) return -1;
+      return 1;
     });
 
     return {

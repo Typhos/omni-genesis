@@ -1,18 +1,11 @@
 import React, { Component } from "react";
-import Accordion from "../../components/accordion/accordion";
 import Aside from "../../components/aside";
-import Display from "../../components/display/display";
 import MerchantGenerator from "../../generators/merchants/merchantGenerator";
 import Button from "../../components/controls/button/buttonStandard";
 import Select from "../../components/controls/select/selectStandard";
-import Tabs from "../../components/tabs";
 
 import ShopDisplay from "../../components/display/shop";
 
-import Inventory from "./";
-import StatBlock from "../../components/display/statBlock/statBlock";
-
-import Race from "../../data/races/allRaces";
 import merchantsObj from "../../data/merchants/merchants";
 import tavernsObj from "../../data/merchants/taverns";
 
@@ -73,7 +66,8 @@ export default class Shops extends Component {
   }
 
   render() {
-    const { shop, stats, size, type, owner, atmosphere } = this.state;
+    const { shop, type } = this.state;
+    // const { shop, stats, size, type, owner, atmosphere } = this.state;
 
     return (
       <div className='App'>

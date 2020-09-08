@@ -10,11 +10,11 @@ export default class CastleTabsDisplay extends Component {
       const {
         name,
         size,
-        details: { location },
+        // details: { location },
         commander,
         garrison,
-        levies,
-        age,
+        // levies,
+        // age,
         structuralStatus,
         siegeHoldoutTime,
       } = castle;
@@ -32,7 +32,8 @@ export default class CastleTabsDisplay extends Component {
             </p>
           )}
           <p className='tabs__subInfo'>
-            <span className='tabs__title'>Size:</span> <span className='info__value'>{size.sizeDescription} </span>
+            <span className='tabs__title'>Size:</span>{" "}
+            <span className='info__value'>{size.sizeDescription} </span>
           </p>
           {/* <p className="tabs__subInfo">
             <span className="tabs__title">Structure Age:</span>{" "}
@@ -50,7 +51,8 @@ export default class CastleTabsDisplay extends Component {
           )}
           {garrison && (
             <p className='tabs__subInfo'>
-              <span className='tabs__title'>Garrison:</span> <span className='info__value'>{garrison} </span>
+              <span className='tabs__title'>Garrison:</span>{" "}
+              <span className='info__value'>{garrison} </span>
             </p>
           )}
           {/* {levies && (
@@ -61,13 +63,17 @@ export default class CastleTabsDisplay extends Component {
           )} */}
           {siegeHoldoutTime && (
             <p className='tabs__subInfo'>
-              <span className='tabs__title'>Siege Holdout:</span> <span className='info__value'>{siegeHoldoutTime} days</span>
+              <span className='tabs__title'>Siege Holdout:</span>{" "}
+              <span className='info__value'>{siegeHoldoutTime} days</span>
             </p>
           )}
           {castle.remnants && (
             <p className='tabs__subInfo'>
-              <span className='tabs__title'>Occupant(s):</span> {!castle.remnants.residents && <span className='info__value'>none</span>}
-              {castle.remnants.residents && <span className='info__value'>{castle.remnants.residents.creature}</span>}
+              <span className='tabs__title'>Occupant(s):</span>{" "}
+              {!castle.remnants.residents && <span className='info__value'>none</span>}
+              {castle.remnants.residents && (
+                <span className='info__value'>{castle.remnants.residents.creature}</span>
+              )}
             </p>
           )}
         </li>

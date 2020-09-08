@@ -222,8 +222,8 @@ export default class City {
 
       const future = ["declining rapidly", "slowly declining", "stable", "slowly growing", "growing rapidly"];
 
-      const baseNum = Utils.randomArrayIndex(bDesr.length);
-      const futureNum = Utils.randomArrayIndex(future.length);
+      const baseNum = Utils.randomArrayIndex(bDesr);
+      const futureNum = Utils.randomArrayIndex(future);
 
       const futureDescription = function () {
         if (baseNum === 1 && futureNum === 2) {
@@ -267,7 +267,7 @@ export default class City {
 
   getCrimeRate() {
     const crimeRateDescription = ["nonexistent", "low", "average", "high", "pervasive"];
-    const index = Utils.randomArrayIndex(crimeRateDescription.length);
+    const index = Utils.randomArrayIndex(crimeRateDescription);
 
     return crimeRateDescription[index];
   }

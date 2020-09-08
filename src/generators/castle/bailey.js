@@ -72,9 +72,9 @@ export default class Bailey {
   }
 
   getWalls() {
-    const {
-      size: { sizeValue },
-    } = this;
+    // const {
+    //   size: { sizeValue },
+    // } = this;
     const storyHeight = 3.5;
 
     let { height } = this.towers;
@@ -88,9 +88,9 @@ export default class Bailey {
   }
 
   getGateHouse() {
-    const {
-      size: { sizeValue },
-    } = this;
+    // const {
+    //   size: { sizeValue },
+    // } = this;
     const storyHeight = 3.5;
     let { height } = this.walls;
 

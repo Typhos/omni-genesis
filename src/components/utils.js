@@ -16,6 +16,11 @@ export default class Utils {
     return Math.random() >= 0.5;
   }
 
+  static numberInRange(numberInQuestion: Number, min: Number, max: Number) {
+    // returns true or false
+    return numberInQuestion >= min && numberInQuestion <= max;
+  }
+
   static randomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);

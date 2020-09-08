@@ -22,13 +22,9 @@ export default class Noble extends Person {
   }
 
   getNobleHouse(race) {
-    const houses = [...nobleHouses.nobleHouses];
     const { culture, sex } = this;
     const {
-      human: {
-        last,
-        last: { def },
-      },
+      human: { last },
     } = Names;
 
     if (culture && last[culture]) {

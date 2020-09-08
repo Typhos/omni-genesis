@@ -25,12 +25,10 @@ export default class PopulationDisplay extends Component {
 
       return (
         <li name={name} key={name} className={`infoTable__row numeric ${val === 0 ? "zero" : ""}`}>
-          <span className="name">{name}:</span>{" "}
-          <span className="info__value">{Utils.numberWithCommas(val)}</span>
+          <span className='name'>{name}:</span>{" "}
+          <span className='info__value'>{Utils.numberWithCommas(val)}</span>
         </li>
       );
     });
-
-    return null;
   }
 }

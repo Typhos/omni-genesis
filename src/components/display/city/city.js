@@ -39,7 +39,9 @@ export default class CityDisplay extends Component {
   }
 
   backOneEntry() {
-    const priorEntry = this.props.state.previousEntries[this.props.state.previousEntries.length - 1];
+    const priorEntry = this.props.state.previousEntries[
+      this.props.state.previousEntries.length - 1
+    ];
     this.props.state.previousEntries.pop();
 
     this.props.stateHandler({
@@ -75,7 +77,8 @@ export default class CityDisplay extends Component {
     for (let [name, val] of Object.entries(obj)) {
       list.push(
         <li name={name} key={name} className={`infoTable__row numeric ${val === 0 ? "zero" : ""}`}>
-          <span className='name'>{name}:</span> <span className='info__value'>{Utils.numberWithCommas(val)}</span>
+          <span className='name'>{name}:</span>{" "}
+          <span className='info__value'>{Utils.numberWithCommas(val)}</span>
         </li>
       );
     }
@@ -90,19 +93,22 @@ export default class CityDisplay extends Component {
 
     return (
       <Display>
-        {this.props.state && this.props.state.previousEntries && this.props.state.previousEntries.length > 0 && (
-          <React.Fragment>
-            <button
-              className='backButton'
-              onClick={() => {
-                this.backOneEntry();
-              }}
-            >
-              &laquo; Back to {this.props.state.previousEntries[this.props.state.previousEntries.length - 1].name}
-            </button>
-            <br />
-          </React.Fragment>
-        )}
+        {this.props.state &&
+          this.props.state.previousEntries &&
+          this.props.state.previousEntries.length > 0 && (
+            <React.Fragment>
+              <button
+                className='backButton'
+                onClick={() => {
+                  this.backOneEntry();
+                }}
+              >
+                &laquo; Back to{" "}
+                {this.props.state.previousEntries[this.props.state.previousEntries.length - 1].name}
+              </button>
+              <br />
+            </React.Fragment>
+          )}
 
         <h1 className='displayLayout__header'>{city.name}</h1>
 
@@ -131,12 +137,17 @@ export default class CityDisplay extends Component {
             🔗
           </span>
 
-          <span role='img' className='emojiIcon copyData' aria-label={`Copy JSON for ${city.name}`} data-balloon-pos='left'>
+          <span
+            role='img'
+            className='emojiIcon copyData'
+            aria-label={`Copy JSON for ${city.name}`}
+            data-balloon-pos='left'
+          >
             📋
           </span>
         </div>
 
-        <img className='cityImg' src={path} />
+        <img className='cityImg' alt='' src={path} />
 
         <div className='displayLayout'>
           <div className='column'>
@@ -191,14 +202,18 @@ export default class CityDisplay extends Component {
           </div>
           <div className='info'>
             <p className='cityType'>
-              <span className='info__label'>Economy:</span> <span className='info__value'>{city.economy.description}</span>
+              <span className='info__label'>Economy:</span>{" "}
+              <span className='info__value'>{city.economy.description}</span>
             </p>
             <p className='info'>
-              <span className='info__label'>Economic Focus:</span> <span className='info__value'>{city.economy.primary}</span>
+              <span className='info__label'>Economic Focus:</span>{" "}
+              <span className='info__value'>{city.economy.primary}</span>
             </p>
             <p className='info'>
               <span className='info__label'>Tradesfolk: </span>
-              <span className='info__value'>{Utils.numberWithCommas(city.economy.merchants.tradesTotal)}</span>
+              <span className='info__value'>
+                {Utils.numberWithCommas(city.economy.merchants.tradesTotal)}
+              </span>
               <span className='info__value'>
                 {" "}
                 ({((city.economy.merchants.tradesTotal / city.population.total) * 100).toFixed(1)}
@@ -207,7 +222,9 @@ export default class CityDisplay extends Component {
             </p>
             <p className='info'>
               <span className='info__label'>Shops: </span>
-              <span className='info__value'>{Utils.numberWithCommas(city.economy.merchants.shopsTotal)}</span>
+              <span className='info__value'>
+                {Utils.numberWithCommas(city.economy.merchants.shopsTotal)}
+              </span>
             </p>
             <p className='info'>
               <span className='info__label'>Crime: </span>
@@ -220,11 +237,14 @@ export default class CityDisplay extends Component {
             </p>
             <p className='info'>
               <span className='info__label'>Shrines: </span>
-              <span className='info__value'>{Utils.numberWithCommas(city.religion.shrines.count)}</span>
+              <span className='info__value'>
+                {Utils.numberWithCommas(city.religion.shrines.count)}
+              </span>
             </p>
             <br />
             <p className='info'>
-              <span className='info__label'>Water Source:</span> <span className='info__value'>tbd</span>
+              <span className='info__label'>Water Source:</span>{" "}
+              <span className='info__value'>tbd</span>
             </p>
             {/* <br />
             <p className="info">
@@ -265,7 +285,9 @@ export default class CityDisplay extends Component {
           {city.economy.merchants.tradesTotal > 0 && (
             <div label='Tradesfolk'>
               <h3 className='tabs__groupHeading'>Tradesfolk of {city.name}</h3>
-              <ThreeColumnDisplay>{this.numericalObjectDisplay(city.economy.merchants.tradesArray)}</ThreeColumnDisplay>
+              <ThreeColumnDisplay>
+                {this.numericalObjectDisplay(city.economy.merchants.tradesArray)}
+              </ThreeColumnDisplay>
             </div>
           )}
           {(city.religion.temples.count > 0 || city.religion.shrines.count > 0) && (
@@ -273,13 +295,17 @@ export default class CityDisplay extends Component {
               {city.religion.temples.count > 0 && (
                 <React.Fragment>
                   <h3 className='tabs__groupHeading'>Temples</h3>
-                  <ThreeColumnDisplay>{this.numericalObjectDisplay(city.religion.temples.breakdown)}</ThreeColumnDisplay>
+                  <ThreeColumnDisplay>
+                    {this.numericalObjectDisplay(city.religion.temples.breakdown)}
+                  </ThreeColumnDisplay>
                 </React.Fragment>
               )}
               {city.religion.shrines.count > 0 && (
                 <React.Fragment>
                   <h3 className='tabs__groupHeading'>Shrines</h3>
-                  <ThreeColumnDisplay>{this.numericalObjectDisplay(city.religion.shrines.breakdown)}</ThreeColumnDisplay>
+                  <ThreeColumnDisplay>
+                    {this.numericalObjectDisplay(city.religion.shrines.breakdown)}
+                  </ThreeColumnDisplay>
                 </React.Fragment>
               )}
             </div>

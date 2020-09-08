@@ -1,0 +1,1896 @@
+{
+  "weapons": {
+    "axe": {
+      "subtype": {
+        "hand axe": {
+          "count": 1,
+          "single": "hand axe",
+          "plural": "hand axes",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 5,
+            "damage": ["1d6"],
+            "damage_type": ["slashing"],
+            "weight": 2,
+            "properties": ["light", "thrown"]
+          }
+        },
+        "battle axe": {
+          "count": 1,
+          "single": "battle axe",
+          "plural": "battle axes",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 10,
+            "damage": ["1d8"],
+            "damage_type": ["slashing"],
+            "weight": 4,
+            "properties": ["versatile (1d10)"]
+          }
+        },
+        "dwarven urgrosh": {
+          "count": 1,
+          "single": "dwarven urgrosh",
+          "plural": "dwarven urgroshes",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 22,
+            "damage": ["1d10"],
+            "damage_type": ["slashing"],
+            "weight": 12,
+            "properties": ["double weapon (1d4 piercing)", "two-handed", "heavy"]
+          }
+        },
+        "war pick": {
+          "count": 1,
+          "single": "war pick",
+          "plural": "war pick",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 5,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 2,
+            "properties": []
+          }
+        },
+        "cleaver": {
+          "count": 1,
+          "single": "cleaver",
+          "plural": "cleavers",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 5,
+            "damage": ["1d4"],
+            "damage_type": ["slashing"],
+            "weight": 2,
+            "properties": ["light"]
+          }
+        },
+        "tabarzin": {
+          "count": 1,
+          "single": "tabarzin",
+          "plural": "tabarzins",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 10,
+            "damage": ["1d8"],
+            "damage_type": ["slashing"],
+            "weight": 4,
+            "properties": ["versatile (1d10)"]
+          }
+        },
+        "hatchet": {
+          "count": 1,
+          "single": "hatchet",
+          "plural": "hatchets",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 5,
+            "damage": ["1d6"],
+            "damage_type": ["slashing"],
+            "weight": 2,
+            "properties": ["light", "thrown"]
+          }
+        },
+        "crowbill": {
+          "count": 1,
+          "single": "crowbill",
+          "plural": "crowbills",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 22,
+            "damage": ["1d8", "1d8"],
+            "damage_type": ["piercing", "slashing"],
+            "weight": 4
+          }
+        },
+        "great axe": {
+          "count": 1,
+          "single": "great axe",
+          "plural": "great axes",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 30,
+            "damage": ["1d12"],
+            "damage_type": ["slashing"],
+            "weight": 7,
+            "properties": ["heavy", "two-handed"]
+          }
+        },
+        "orchish double axe": {
+          "count": 1,
+          "single": "orchish double axe",
+          "plural": "orchish double axes",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 30,
+            "damage": ["1d8"],
+            "damage_type": ["slashing"],
+            "weight": 7,
+            "properties": ["heavy", "two-handed"]
+          }
+        }
+      },
+      "materials": {
+        "primary": "head",
+        "required": {
+          "head": ["metal"],
+          "haft": ["metal", "wood"]
+        },
+        "optionalParts": {
+          "strapping": ["cloth", "leather"],
+          "pommel": ["metal", "wood", "stone", "gemstone", "bone"]
+        },
+        "creation": "crafted",
+        "maker": {
+          "metal": "smith"
+        },
+        "default": "metal",
+        "restricted": {
+          "metal": ["platinum", "lead", "gold", "silver"]
+        },
+        "extra": ["emblem"],
+        "emblem": {
+          "chance": 33,
+          "parts": ["head"],
+          "method": "engraved",
+          "min": 1,
+          "max": 1
+        }
+      },
+      "synonyms": ["axe", "cleaver", "carver", "edge", "reaper"]
+    },
+    "sword": {
+      "subtype": {
+        "short sword": {
+          "count": 1,
+          "single": "short sword",
+          "plural": "short swords",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 10,
+            "damage": ["1d6"],
+            "damage_type": ["piercing"],
+            "weight": 2,
+            "properties": ["finesse", "light"]
+          }
+        },
+        "rapier": {
+          "count": 1,
+          "single": "rapier",
+          "plural": "rapiers",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 25,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 2,
+            "properties": ["finesse"]
+          }
+        },
+        "long sword": {
+          "count": 1,
+          "single": "long sword",
+          "plural": "long swords",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 15,
+            "damage": ["1d8"],
+            "damage_type": ["slashing"],
+            "weight": 3,
+            "properties": ["versatile (1d10)"]
+          }
+        },
+        "scimitar": {
+          "count": 1,
+          "single": "scimitar",
+          "plural": "scimitars",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 25,
+            "damage": ["1d6"],
+            "damage_type": ["slashing"],
+            "weight": 3,
+            "properties": ["finesse", "light"]
+          }
+        },
+        "falchion": {
+          "count": 1,
+          "single": "falchion",
+          "plural": "falchions",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 25,
+            "damage": ["1d6"],
+            "damage_type": ["slashing"],
+            "weight": 3,
+            "properties": ["finesse", "light"]
+          }
+        },
+        "broad sword": {
+          "count": 1,
+          "single": "broad sword",
+          "plural": "broad swords",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 15,
+            "damage": ["1d8"],
+            "damage_type": ["slashing"],
+            "weight": 3,
+            "properties": ["versatile (1d10)"]
+          }
+        },
+        "gladius": {
+          "count": 1,
+          "single": "gladius",
+          "plural": "gladi",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 10,
+            "damage": ["1d6"],
+            "damage_type": ["piercing"],
+            "weight": 2,
+            "properties": ["finesse", "light"]
+          }
+        },
+        "elven crescent blade": {
+          "count": 1,
+          "single": "elven crescent blade",
+          "plural": "elven crescent blades",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 80,
+            "damage": ["2d6"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "two-handed", "special"]
+          }
+        },
+        "two-handed sword": {
+          "count": 1,
+          "single": "two-handed sword",
+          "plural": "two-handed swords",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 50,
+            "damage": ["2d6"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "two-handed"]
+          }
+        },
+        "claymore": {
+          "count": 1,
+          "single": "claymore",
+          "plural": "claymores",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 50,
+            "damage": ["2d6"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "two-handed"]
+          }
+        },
+        "bastard sword": {
+          "count": 1,
+          "single": "bastard sword",
+          "plural": "bastard swords",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 15,
+            "damage": ["1d8"],
+            "damage_type": ["slashing"],
+            "weight": 3,
+            "properties": ["versatile (1d10)"]
+          }
+        },
+        "flamberge": {
+          "count": 1,
+          "single": "flamberge",
+          "plural": "flamberges",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 50,
+            "damage": ["2d6"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "two-handed"]
+          }
+        },
+        "espandon": {
+          "count": 1,
+          "single": "espandon",
+          "plural": "espandons",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 50,
+            "damage": ["2d6"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "two-handed"]
+          }
+        }
+      },
+      "materials": {
+        "primary": "blade",
+        "required": {
+          "blade": ["metal"],
+          "hilt": ["metal", "wood"],
+          "cross-guard": ["metal"],
+          "pommel": ["metal", "wood", "stone", "gemstone", "bone"]
+        },
+        "optionalParts": {
+          "hilt wrap": ["leather", "cloth"],
+          "tassel": ["leather", "cloth"],
+          "scabbard": ["leather"]
+        },
+        "creation": "forged",
+        "maker": {
+          "metal": "smith"
+        },
+        "default": "metal",
+        "restricted": {
+          "metal": ["platinum", "lead", "copper"]
+        },
+        "extra": ["carving", "emblem"],
+        "carving": {
+          "chance": 25,
+          "parts": ["pommel"],
+          "shape": ["", " head"],
+          "design": ["words", "engraving", "things", "person", "single"],
+          "count": 1
+        },
+        "emblem": {
+          "chance": 33,
+          "parts": ["blade"],
+          "method": "engraved",
+          "min": 1,
+          "max": 1
+        }
+      },
+      "synonyms": ["sword", "blade"]
+    },
+    "mace": {
+      "subtype": {
+        "club": {
+          "count": 1,
+          "single": "club",
+          "plural": "clubs",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 0.1,
+            "damage": ["1d4"],
+            "damage_type": ["bludgeoning"],
+            "weight": 2,
+            "properties": ["light"]
+          },
+          "materials": {
+            "primary": "body",
+            "required": {
+              "body": ["metal", "stone", "bone"]
+            },
+            "optionalParts": {
+              "haft wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecrafter",
+              "bone": "artisan"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            }
+          }
+        },
+        "mace": {
+          "count": 1,
+          "single": "mace",
+          "plural": "maces",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 5,
+            "damage": ["1d6"],
+            "damage_type": ["bludgeoning"],
+            "weight": 4,
+            "properties": []
+          },
+          "materials": {
+            "primary": "head",
+            "required": {
+              "head": ["metal", "stone", "bone"],
+              "haft": ["metal", "wood"]
+            },
+            "optionalParts": {
+              "pommel": ["metal", "wood", "stone", "gemstone", "bone"],
+              "haft wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecrafter"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 33,
+              "parts": ["head"],
+              "method": "engraved",
+              "min": 1,
+              "max": 1
+            }
+          }
+        },
+        "spiked mace": {
+          "count": 1,
+          "single": "spiked mace",
+          "plural": "spiked maces",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 5,
+            "damage": ["1d6"],
+            "damage_type": ["bludgeoning"],
+            "weight": 4,
+            "properties": []
+          },
+          "materials": {
+            "primary": "head",
+            "required": {
+              "head": ["metal", "stone"],
+              "spikes": ["metal", "stone", "bone"],
+              "haft": ["metal", "wood"]
+            },
+            "optionalParts": {
+              "pommel": ["metal", "wood", "stone", "gemstone", "bone"],
+              "haft wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecrafter"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            },
+            "extra": ["carving"],
+            "carving": {
+              "chance": 33,
+              "parts": ["pomel"],
+              "shape": ["", " head"],
+              "design": ["words", "engraving", "things", "person", "single"],
+              "count": 1
+            }
+          }
+        },
+        "morning star": {
+          "count": 1,
+          "single": "morning star",
+          "plural": "morning stars",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 15,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 4,
+            "properties": []
+          },
+          "materials": {
+            "primary": "head",
+            "required": {
+              "head": ["metal", "stone"],
+              "spikes": ["metal", "stone", "bone"],
+              "haft": ["metal", "wood"]
+            },
+            "optionalParts": {
+              "pommel": ["metal", "wood", "stone", "gemstone", "bone"],
+              "haft wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecrafter"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            },
+            "extra": ["carving"],
+            "carving": {
+              "chance": 33,
+              "parts": ["pomel"],
+              "shape": ["", " head"],
+              "design": ["words", "engraving", "things", "person", "single"],
+              "count": 1
+            }
+          }
+        },
+        "flail": {
+          "count": 1,
+          "single": "flail",
+          "plural": "flails",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 10,
+            "damage": ["1d8"],
+            "damage_type": ["bludgeoning"],
+            "weight": 2,
+            "properties": []
+          },
+          "materials": {
+            "primary": "head",
+            "required": {
+              "head": ["metal", "stone"],
+              "spikes": ["metal", "stone", "bone"],
+              "chain": ["metal"],
+              "handle": ["metal", "wood"]
+            },
+            "optionalParts": {
+              "handle wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecrafter"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            }
+          }
+        },
+        "warhammer": {
+          "count": 1,
+          "single": "warhammer",
+          "plural": "warhammers",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 15,
+            "damage": ["1d8"],
+            "damage_type": ["bludgeoning"],
+            "weight": 2,
+            "properties": ["versatile (1d10)"]
+          },
+          "materials": {
+            "primary": "head",
+            "required": {
+              "head": ["metal", "stone"],
+              "haft": ["metal", "wood"]
+            },
+            "optionalParts": {
+              "pommel": ["metal", "wood", "stone", "gemstone", "bone"],
+              "haft wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecrafter"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 33,
+              "parts": ["head"],
+              "method": "engraved",
+              "min": 1,
+              "max": 1
+            }
+          }
+        },
+        "flanged mace": {
+          "count": 1,
+          "single": "flanged mace",
+          "plural": "flanged maces",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 5,
+            "damage": ["1d6"],
+            "damage_type": ["bludgeoning"],
+            "weight": 4,
+            "properties": []
+          },
+          "materials": {
+            "primary": "head",
+            "required": {
+              "head": ["metal", "stone"],
+              "haft": ["metal", "wood"]
+            },
+            "optionalParts": {
+              "pommel": ["metal", "wood", "stone", "gemstone", "bone"],
+              "haft wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecrafter"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            },
+            "extra": ["carving"],
+            "carving": {
+              "chance": 33,
+              "parts": ["pomel"],
+              "shape": ["", " head"],
+              "design": ["words", "engraving", "things", "person", "single"],
+              "count": 1
+            }
+          }
+        },
+        "light hammer": {
+          "count": 1,
+          "single": "light hammer",
+          "plural": "light hammers",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 2,
+            "damage": ["1d4"],
+            "damage_type": ["bludgeoning"],
+            "weight": 2,
+            "properties": ["light", "thrown"],
+            "range": ["20/60"]
+          },
+          "materials": {
+            "primary": "head",
+            "required": {
+              "head": ["metal", "stone"],
+              "haft": ["metal", "wood"]
+            },
+            "optionalParts": {
+              "pommel": ["metal", "wood", "stone", "gemstone", "bone"],
+              "haft wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecrafter"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 33,
+              "parts": ["head"],
+              "method": "engraved",
+              "min": 1,
+              "max": 1
+            }
+          }
+        },
+        "maul": {
+          "count": 1,
+          "single": "maul",
+          "plural": "mauls",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 10,
+            "damage": ["2d6"],
+            "damage_type": ["bludgeoning"],
+            "weight": 10,
+            "properties": ["heavy", "two-handed"]
+          },
+          "materials": {
+            "primary": "head",
+            "required": {
+              "head": ["metal", "stone"],
+              "haft": ["metal", "wood"]
+            },
+            "optionalParts": {
+              "pommel": ["metal", "wood", "stone", "gemstone", "bone"],
+              "haft wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecrafter"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 33,
+              "parts": ["head"],
+              "method": "engraved",
+              "min": 1,
+              "max": 1
+            }
+          }
+        },
+        "great club": {
+          "count": 1,
+          "single": "great club",
+          "plural": "great clubs",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 0.2,
+            "damage": ["1d8"],
+            "damage_type": ["bludgeoning"],
+            "weight": 10,
+            "properties": ["two-handed"]
+          },
+          "materials": {
+            "primary": "body",
+            "required": {
+              "body": ["wood", "stone"]
+            },
+            "optionalParts": {
+              "spikes": ["wood", "stone", "bone"],
+              "wrapping": ["leather", "cloth"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecrafter"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            }
+          }
+        },
+        "gnomish double pick": {
+          "count": 1,
+          "single": "gnomish double pick",
+          "plural": "gnomish double picks",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 20,
+            "damage": ["1d6"],
+            "damage_type": ["piercing"],
+            "weight": 10
+          },
+          "materials": {
+            "primary": "head",
+            "required": {
+              "head": ["metal", "stone"],
+              "haft": ["metal", "wood"]
+            },
+            "optionalParts": {
+              "pommel": ["metal", "wood", "stone", "gemstone", "bone"],
+              "haft wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecrafter"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            },
+            "extra": ["carving"],
+            "carving": {
+              "chance": 33,
+              "parts": ["pomel"],
+              "shape": ["", " head"],
+              "design": ["words", "engraving", "things", "person", "single"],
+              "count": 1
+            }
+          }
+        },
+        "dwarven mordenkrad": {
+          "count": 1,
+          "single": "dwarven mordenkrad",
+          "plural": "dwarven mordenkrads",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 10,
+            "damage": ["3d4"],
+            "damage_type": ["bludgeoning"],
+            "weight": 10,
+            "properties": ["heavy", "two-handed"]
+          },
+          "materials": {
+            "primary": "head",
+            "required": {
+              "head": ["metal", "stone"],
+              "haft": ["metal", "wood"]
+            },
+            "optionalParts": {
+              "pommel": ["metal", "wood", "stone", "gemstone", "bone"],
+              "haft wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecrafter"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 33,
+              "parts": ["head"],
+              "method": "engraved",
+              "min": 1,
+              "max": 1
+            }
+          }
+        }
+      },
+      "synonyms": ["mace", "hammer", "mallet", "club", "fist"]
+    },
+    "spear": {
+      "subtype": {
+        "javelin": {
+          "count": "many",
+          "single": "javelin",
+          "plural": "javelins",
+          "stats": {
+            "use_method": "thrown",
+            "type": "simple",
+            "value": 0.5,
+            "damage": ["1d6"],
+            "damage_type": ["piercing"],
+            "weight": 2,
+            "properties": ["thrown"],
+            "range": "30/120"
+          },
+          "materials": {
+            "primary": "shaft",
+            "required": {
+              "point": ["metal", "stone", "bone"],
+              "shaft": ["wood"]
+            },
+            "optionalParts": {
+              "tassel": ["leather", "cloth"],
+              "strapping": ["leather", "cloth"]
+            },
+            "creation": "forged",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecraft",
+              "bone": "boneworker"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            }
+          }
+        },
+        "spear": {
+          "count": 1,
+          "single": "spear",
+          "plural": "spears",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 1,
+            "damage": ["1d6"],
+            "damage_type": ["piercing"],
+            "weight": 3,
+            "properties": ["thrown", "versatile (1d8)"],
+            "range": "20/60"
+          },
+          "materials": {
+            "primary": "shaft",
+            "required": {
+              "point": ["metal", "stone", "bone"],
+              "shaft": ["wood"]
+            },
+            "optionalParts": {
+              "tassel": ["leather", "cloth"],
+              "strapping": ["leather", "cloth"]
+            },
+            "creation": "forged",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecraft",
+              "bone": "boneworker"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            }
+          }
+        },
+        "trident": {
+          "count": 1,
+          "single": "trident",
+          "plural": "tridents",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 5,
+            "damage": ["1d6"],
+            "damage_type": ["piercing"],
+            "weight": 4,
+            "properties": ["thrown", "versatile (1d8)"],
+            "range": "20/60"
+          },
+          "materials": {
+            "primary": "points",
+            "required": {
+              "points": ["metal", "stone", "bone"],
+              "shaft": ["wood"]
+            },
+            "optionalParts": {
+              "tassel": ["leather", "cloth"],
+              "strapping": ["leather", "cloth"]
+            },
+            "creation": "forged",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecraft",
+              "bone": "boneworker"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            }
+          }
+        },
+        "longspear": {
+          "count": 1,
+          "single": "longspear",
+          "plural": "longspears",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 12,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 18,
+            "properties": ["versatile (1d10)"]
+          },
+          "materials": {
+            "primary": "shaft",
+            "required": {
+              "points": ["metal", "stone", "bone"],
+              "shaft": ["wood"]
+            },
+            "optionalParts": {
+              "tassel": ["leather", "cloth"],
+              "strapping": ["leather", "cloth"]
+            },
+            "creation": "forged",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecraft",
+              "bone": "boneworker"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            }
+          }
+        },
+        "lance": {
+          "count": 1,
+          "single": "lance",
+          "plural": "lances",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 10,
+            "damage": ["1d12"],
+            "damage_type": ["piercing"],
+            "weight": 6,
+            "properties": ["reach", "special"]
+          },
+          "materials": {
+            "primary": "shaft",
+            "required": {
+              "shaft": ["metal", "wood"],
+              "guard": ["metal", "wood"],
+              "handle": ["wood"]
+            },
+            "optionalParts": {
+              "handle wrapping": ["leather", "cloth"]
+            },
+            "creation": "forged",
+            "maker": {
+              "metal": "weaponsmith",
+              "wood": "weaponsmith"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"],
+              "cloth": ["lace", "silk"]
+            }
+          }
+        },
+        "pike": {
+          "count": 1,
+          "single": "pike",
+          "plural": "pikes",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 5,
+            "damage": ["1d10"],
+            "damage_type": ["piercing"],
+            "weight": 18,
+            "properties": ["heavy", "two-handed", "reach"]
+          },
+          "materials": {
+            "primary": "shaft",
+            "required": {
+              "point": ["metal", "stone", "bone"],
+              "shaft": ["wood"]
+            },
+            "optionalParts": {
+              "strapping": ["leather", "cloth"]
+            },
+            "creation": "forged",
+            "maker": {
+              "metal": "smith",
+              "stone": "stonecraft",
+              "bone": "boneworker",
+              "wood": "smith"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            }
+          }
+        },
+        "dragonborn greatspear": {
+          "count": 1,
+          "single": "dragonborn greatspear",
+          "plural": "dragonborn greatspears",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 10,
+            "damage": ["1d10"],
+            "damage_type": ["piercing"],
+            "weight": 18,
+            "properties": ["heavy", "two-handed", "reach"]
+          },
+          "materials": {
+            "primary": "shaft",
+            "required": {
+              "point": ["metal", "bone"],
+              "shaft": ["wood"]
+            },
+            "optionalParts": {
+              "tassel": ["leather", "cloth"],
+              "strapping": ["leather", "cloth"]
+            },
+            "creation": "forged",
+            "maker": {
+              "metal": "smith",
+              "bone": "boneworker",
+              "wood": "smith"
+            },
+            "default": "metal",
+            "restricted": {
+              "metal": ["platinum", "lead", "gold", "silver"]
+            }
+          }
+        }
+      },
+      "synonyms": ["spear", "lance", "pike", "glaive"]
+    },
+    "staff": {
+      "subtype": {
+        "walking stick": {
+          "count": 1,
+          "single": "walking stick",
+          "plural": "walking sticks",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 0.2,
+            "damage": ["1d6"],
+            "damage_type": ["bludgeoning"],
+            "weight": 4,
+            "properties": ["versatile (1d8)"]
+          },
+          "materials": {
+            "primary": "shaft",
+            "required": {
+              "shaft": ["metal", "wood", "bone"]
+            },
+            "optionalParts": {
+              "ornamental headpiece": ["metal", "wood", "bone"],
+              "wrapping": ["leather", "cloth"]
+            },
+            "restricted": {
+              "metal": ["platinum", "lead", "steel", "copper"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "wood": "woodworker",
+              "bone": "bonecarver"
+            },
+            "default": "wood",
+            "extra": ["carving"],
+            "carving": {
+              "chance": 100,
+              "parts": ["ornamental headpiece"],
+              "shape": [" head"],
+              "design": ["words", "engraving", "things", "person", "single"],
+              "count": 1
+            }
+          }
+        },
+        "quarterstaff": {
+          "count": 1,
+          "single": "quarterstaff",
+          "plural": "quarterstaves",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 0.2,
+            "damage": ["1d6"],
+            "damage_type": ["bludgeoning"],
+            "weight": 4,
+            "properties": ["versatile (1d8)"]
+          },
+          "materials": {
+            "primary": "shaft",
+            "required": {
+              "shaft": ["metal", "wood", "bone"]
+            },
+            "optionalParts": {
+              "wrapping": ["leather", "cloth"]
+            },
+            "restricted": {
+              "metal": ["platinum", "lead", "steel", "copper"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "wood": "woodworker",
+              "bone": "bonecarver"
+            },
+            "default": "wood",
+            "extra": ["carving"],
+            "carving": {
+              "chance": 100,
+              "parts": ["head"],
+              "shape": [" head"],
+              "design": ["words", "engraving", "things", "person", "single"],
+              "count": 1
+            }
+          }
+        },
+        "mage's staff": {
+          "count": 1,
+          "single": "mage's staff",
+          "plural": "mage's staves",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 0.2,
+            "damage": ["1d6"],
+            "damage_type": ["bludgeoning"],
+            "weight": 4,
+            "properties": ["versatile (1d8)"]
+          },
+          "materials": {
+            "primary": "shaft",
+            "required": {
+              "shaft": ["metal", "wood", "bone"]
+            },
+            "optionalParts": {
+              "ornamental headpiece": ["metal", "wood", "bone", "gemstone"],
+              "wrapping": ["leather", "cloth"]
+            },
+            "restricted": {
+              "metal": ["platinum", "lead", "steel", "copper"]
+            },
+            "creation": "crafted",
+            "maker": {
+              "metal": "smith",
+              "wood": "woodworker",
+              "bone": "bonecarver"
+            },
+            "default": "wood",
+            "extra": ["carving"],
+            "carving": {
+              "chance": 100,
+              "parts": ["ornamental headpiece"],
+              "shape": [" head", ""],
+              "design": ["words", "engraving", "things", "person", "single"],
+              "count": 1
+            }
+          }
+        }
+      },
+      "synonyms": ["staff"]
+    },
+    "polearm": {
+      "subtype": {
+        "halberd": {
+          "count": 1,
+          "single": "halberd",
+          "plural": "halberds",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 20,
+            "damage": ["1d10"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "reach", "two-handed"]
+          }
+        },
+        "glaive": {
+          "count": 1,
+          "single": "glaive",
+          "plural": "glaives",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 20,
+            "damage": ["1d10"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "reach", "two-handed"]
+          }
+        },
+        "scythe": {
+          "count": 1,
+          "single": "scythe",
+          "plural": "scythes",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 25,
+            "damage": ["1d10"],
+            "damage_type": ["slashing"],
+            "weight": 4,
+            "properties": ["special", "two-handed"]
+          }
+        },
+        "ranseur": {
+          "count": 1,
+          "single": "ranseur",
+          "plural": "ranseurs",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 20,
+            "damage": ["1d10"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "reach", "two-handed"]
+          }
+        },
+        "bardiche": {
+          "count": 1,
+          "single": "bardiche",
+          "plural": "bardiches",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 20,
+            "damage": ["1d10"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "reach", "two-handed"]
+          }
+        },
+        "bill": {
+          "count": 1,
+          "single": "bill",
+          "plural": "bills",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 20,
+            "damage": ["1d10"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "reach", "two-handed"]
+          }
+        },
+        "bec-de-corbin": {
+          "count": 1,
+          "single": "bec-de-corbin",
+          "plural": "bec-de-corbins",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 20,
+            "damage": ["1d10"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "reach", "two-handed"]
+          }
+        },
+        "partizan": {
+          "count": 1,
+          "single": "partizan",
+          "plural": "partizans",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 20,
+            "damage": ["1d10"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "reach", "two-handed"]
+          }
+        },
+        "lochaber axe": {
+          "count": 1,
+          "single": "lochaber axe",
+          "plural": "lochaber axes",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 20,
+            "damage": ["1d10"],
+            "damage_type": ["slashing"],
+            "weight": 6,
+            "properties": ["heavy", "reach", "two-handed"]
+          }
+        }
+      },
+      "materials": {
+        "primary": "head",
+        "required": {
+          "head": ["metal"],
+          "haft": ["metal", "wood"]
+        },
+        "optionalParts": {
+          "tassel": ["cloth"],
+          "strapping": ["cloth", "leather"]
+        },
+        "restricted": {
+          "metal": ["lead", "platinum", "gold", "silver", "copper", "mithral"]
+        },
+        "creation": "forged",
+        "maker": {
+          "metal": "smith"
+        },
+        "default": "metal",
+        "extra": ["emblem"],
+        "emblem": {
+          "chance": 33,
+          "parts": ["head"],
+          "method": "engraved",
+          "min": 1,
+          "max": 1
+        }
+      },
+      "synonyms": ["blade", "pike", "guard"]
+    },
+    "bow": {
+      "subtype": {
+        "short bow": {
+          "count": 1,
+          "single": "short bow",
+          "plural": "short bows",
+          "stats": {
+            "use_method": "ranged",
+            "type": "simple",
+            "value": 25,
+            "damage": ["1d6"],
+            "damage_type": ["piercing"],
+            "weight": 2,
+            "properties": ["ammunition", "two-handed"],
+            "range": "80/320"
+          }
+        },
+        "long bow": {
+          "count": 1,
+          "single": "long bow",
+          "plural": "long bows",
+          "stats": {
+            "use_method": "ranged",
+            "type": "martial",
+            "value": 50,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 2,
+            "properties": ["ammunition", "two-handed", "heavy"],
+            "range": "150/600"
+          }
+        },
+        "elven long bow": {
+          "count": 1,
+          "single": "elven long bow",
+          "plural": "elven long bows",
+          "stats": {
+            "use_method": "ranged",
+            "type": "martial",
+            "value": 50,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 2,
+            "properties": ["ammunition", "two-handed", "heavy"],
+            "range": "150/600"
+          }
+        },
+        "hunter's bow": {
+          "count": 1,
+          "single": "hunter's bow",
+          "plural": "hunter's bows",
+          "stats": {
+            "use_method": "ranged",
+            "type": "martial",
+            "value": 50,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 2,
+            "properties": ["ammunition", "two-handed", "heavy"],
+            "range": "150/600"
+          }
+        },
+        "composite bow": {
+          "count": 1,
+          "single": "composite bow",
+          "plural": "composite bows",
+          "stats": {
+            "use_method": "ranged",
+            "type": "martial",
+            "value": 50,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 2,
+            "properties": ["ammunition", "two-handed", "heavy"],
+            "range": "150/600"
+          }
+        },
+        "great bow": {
+          "count": 1,
+          "single": "great bow",
+          "plural": "great bows",
+          "stats": {
+            "use_method": "ranged",
+            "type": "martial",
+            "value": 100,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 2,
+            "properties": ["ammunition", "two-handed", "heavy", "special"],
+            "range": "150/600"
+          }
+        }
+      },
+      "materials": {
+        "primary": "body",
+        "required": {
+          "body": ["wood"],
+          "string": ["cloth"]
+        },
+        "creation": "crafted",
+        "maker": {
+          "metal": "smith",
+          "wood": "bowyer"
+        },
+        "default": "wood",
+        "restricted": {
+          "cloth": ["silk", "lace"]
+        },
+        "extra": ["emblem"],
+        "emblem": {
+          "chance": 33,
+          "parts": ["body"],
+          "method": "carved",
+          "min": 1,
+          "max": 1
+        }
+      },
+      "synonyms": ["bow"]
+    },
+    "dagger": {
+      "subtype": {
+        "dagger": {
+          "count": 1,
+          "single": "dagger",
+          "plural": "daggers",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 2,
+            "damage": ["1d4"],
+            "damage_type": ["piercing"],
+            "weight": 1,
+            "properties": ["finesse", "light", "thrown"],
+            "range": "20/60"
+          }
+        },
+        "throwing dagger": {
+          "count": 1,
+          "single": "throwing dagger",
+          "plural": "throwing daggers",
+          "stats": {
+            "use_method": "thrown",
+            "type": "simple",
+            "value": 2,
+            "damage": ["1d4"],
+            "damage_type": ["piercing"],
+            "weight": 1,
+            "properties": ["finesse", "light", "thrown"],
+            "range": "20/60"
+          }
+        },
+        "stiletto": {
+          "count": 1,
+          "single": "stiletto",
+          "plural": "stilettos",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 6,
+            "damage": ["1d6"],
+            "damage_type": ["piercing"],
+            "weight": 1,
+            "properties": ["finesse", "light"]
+          }
+        },
+        "dirk": {
+          "count": 1,
+          "single": "dirk",
+          "plural": "dirks",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 6,
+            "damage": ["1d6"],
+            "damage_type": ["piercing"],
+            "weight": 1,
+            "properties": ["finesse", "light"]
+          }
+        },
+        "kris": {
+          "count": 1,
+          "single": "kris",
+          "plural": "kris",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 10,
+            "damage": ["1d6"],
+            "damage_type": ["piercing"],
+            "weight": 1,
+            "properties": ["finesse", "light", "special"]
+          }
+        }
+      },
+      "materials": {
+        "primary": "blade",
+        "required": {
+          "blade": ["metal"],
+          "hilt": ["metal", "wood"]
+        },
+        "optionalParts": {
+          "pommel": ["metal", "wood", "stone", "gemstone", "bone"]
+        },
+        "creation": "forged",
+        "maker": {
+          "metal": "smith"
+        },
+        "default": "metal",
+        "restricted": {
+          "metal": ["gold", "platinum", "lead"]
+        },
+        "extra": ["carving"],
+        "carving": {
+          "chance": 33,
+          "parts": ["pommel"],
+          "shape": [" head"],
+          "design": ["words", "engraving", "things", "person", "single"],
+          "count": 1
+        }
+      },
+      "synonyms": ["dagger", "blade", "knife", "razor"]
+    },
+    "crossbow": {
+      "subtype": {
+        "hand crossbow": {
+          "count": 1,
+          "single": "hand crossbow",
+          "plural": "hand crossbows",
+          "stats": {
+            "use_method": "ranged",
+            "type": "martial",
+            "value": 75,
+            "damage": ["1d6"],
+            "damage_type": ["piercing"],
+            "weight": 3,
+            "properties": ["ammunition", "light", "loading"],
+            "range": "30/120"
+          }
+        },
+        "light crossbow": {
+          "count": 1,
+          "single": "light crossbow",
+          "plural": "light crossbows",
+          "stats": {
+            "use_method": "ranged",
+            "type": "simple",
+            "value": 25,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 5,
+            "properties": ["ammunition", "two-handed", "loading"],
+            "range": "80/320"
+          }
+        },
+        "light crossbow": {
+          "count": 1,
+          "single": "light crossbow",
+          "plural": "light crossbows",
+          "stats": {
+            "use_method": "ranged",
+            "type": "simple",
+            "value": 25,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 5,
+            "properties": ["ammunition", "two-handed", "loading"],
+            "range": "80/320"
+          }
+        },
+        "gnomish crossbow": {
+          "count": 1,
+          "single": "gnomish crossbow",
+          "plural": "gnomish crossbows",
+          "stats": {
+            "use_method": "ranged",
+            "type": "simple",
+            "value": 25,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 5,
+            "properties": ["ammunition", "two-handed", "loading"],
+            "range": "80/320"
+          }
+        },
+        "heavy crossbow": {
+          "count": 1,
+          "single": "heavy crossbow",
+          "plural": "heavy crossbows",
+          "stats": {
+            "use_method": "ranged",
+            "type": "martial",
+            "value": 50,
+            "damage": ["1d10"],
+            "damage_type": ["piercing"],
+            "weight": 18,
+            "properties": ["ammunition", "two-handed", "heavy", "loading"],
+            "range": "100/400"
+          }
+        },
+        "repeating crossbow": {
+          "count": 1,
+          "single": "repeating crossbow",
+          "plural": "repeating crossbows",
+          "stats": {
+            "use_method": "ranged",
+            "type": "martial",
+            "value": 100,
+            "damage": ["1d8"],
+            "damage_type": ["piercing"],
+            "weight": 2,
+            "properties": ["ammunition", "two-handed", "loading", "special"],
+            "range": "80/320"
+          }
+        }
+      },
+      "materials": {
+        "primary": "stock",
+        "required": {
+          "stock": ["metal", "wood"],
+          "lath": ["metal"],
+          "stirrup": ["metal"],
+          "string": ["cloth"],
+          "trigger": ["metal"]
+        },
+        "optionalParts": {
+          "wrapping": ["cloth", "leather"],
+          "strap": ["cloth", "leather"]
+        },
+        "creation": "crafted",
+        "maker": {
+          "metal": "atilliator",
+          "wood": "atilliator"
+        },
+        "default": "metal",
+        "restricted": {
+          "metal": ["platinum", "lead", "gold", "silver"],
+          "cloth": ["silk"]
+        },
+        "extra": ["emblem"],
+        "emblem": {
+          "chance": 33,
+          "parts": ["stock"],
+          "min": 1,
+          "max": 3
+        }
+      },
+      "synonyms": ["crossbow"]
+    },
+    "fist-weapon": {
+      "subtype": {
+        "katar": {
+          "count": 2,
+          "single": "katar",
+          "plural": "katars",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 10,
+            "damage": ["1d6"],
+            "damage_type": ["piercing"],
+            "weight": 4,
+            "properties": ["light", "finesse"]
+          }
+        },
+        "tiger claw": {
+          "count": 2,
+          "single": "tiger claw",
+          "plural": "tiger claws",
+          "stats": {
+            "use_method": "melee",
+            "type": "martial",
+            "value": 6,
+            "damage": ["1d4"],
+            "damage_type": ["slashing"],
+            "weight": 4,
+            "properties": ["light", "finesse"]
+          }
+        },
+        "wrist blade": {
+          "count": 2,
+          "single": "wrist blade",
+          "plural": "wrist blades",
+          "stats": {
+            "use_method": "melee",
+            "type": "simple",
+            "value": 3,
+            "damage": ["1d4"],
+            "damage_type": ["piercing"],
+            "weight": 1,
+            "properties": ["light", "finesse", "special"]
+          }
+        }
+      },
+      "materials": {
+        "primary": "blade",
+        "required": {
+          "blade": ["metal"],
+          "handle": ["metal", "wood"]
+        },
+        "optionalParts": {
+          "tassel": ["cloth", "leather"],
+          "settings": ["gemstone", "bone"],
+          "strapping": ["cloth", "leather"]
+        },
+        "restricted": {
+          "metal": ["platinum", "lead", "gold", "copper"]
+        },
+        "creation": "forged",
+        "maker": {
+          "metal": "smith"
+        },
+        "default": "metal"
+      },
+      "synonyms": ["gauntlets", "claws"]
+    },
+    "wand": {
+      "subtype": {
+        "wand": {
+          "count": 1,
+          "single": "wand",
+          "plural": "wands",
+          "stats": {
+            "use_method": "melee",
+            "type": "arcane",
+            "value": 5,
+            "damage": ["1"],
+            "damage_type": ["bludgeoning"],
+            "weight": 1,
+            "properties": ["special"]
+          }
+        }
+      },
+      "materials": {
+        "primary": "shaft",
+        "required": {
+          "shaft": ["wood", "bone"],
+          "arcane core": ["magical", "bone"]
+        },
+        "optionalParts": {
+          "headpiece": ["gemstone", "bone", "metal"],
+          "ornate handle": ["wood", "bone", "metal"]
+        },
+        "creation": "crafted",
+        "maker": {
+          "wood": "wandmaker",
+          "metal": "wandmaker",
+          "bone": "wandmaker"
+        },
+        "default": "wood",
+        "extra": ["carving"],
+        "carving": {
+          "parts": ["headpiece", "ornate handle"],
+          "shape": [""],
+          "design": ["words", "engraving", "things", "person", "single"],
+          "count": 1
+        }
+      },
+      "synonyms": ["wand"]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "tiers": [
+    {
+      "tier": "common",
+      "tierValue": 100,
+      "odds": [1, 25]
+    },
+    {
+      "tier": "uncommon",
+      "tierValue": 500,
+      "odds": [26, 50]
+    },
+    {
+      "tier": "rare",
+      "tierValue": 5000,
+      "odds": [51, 70]
+    },
+    {
+      "tier": "very rare",
+      "tierValue": 50000,
+      "odds": [71, 85]
+    },
+    {
+      "tier": "legendary",
+      "tierValue": 500000,
+      "odds": [86, 100]
+    }
+  ]
+}

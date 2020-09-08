@@ -9,7 +9,7 @@ import Noble from "../person/noble";
 // data
 import placeNames from "../../data/places/randomPlaceNames";
 import castleTypes from "../../data/castles/types";
-import castleTranslation from "../../data/castles/translation";
+// import castleTranslation from "../../data/castles/translation";
 import ruinCreatures from "../../data/castles/ruinInhabitants";
 
 export default class Castle {
@@ -143,7 +143,7 @@ export default class Castle {
     // levy size is pulled from the surrounding territory.
     const {
       size: { sizeValue },
-      details: { terrain },
+      // details: { terrain },
     } = this;
 
     const baselineLevy = 30;

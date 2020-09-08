@@ -1,0 +1,62 @@
+@import "../../../styles/mixins";
+
+$boxHeight: 1.5rem;
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 3rem;
+  height: 1rem;
+}
+
+.toggle {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: $midTone;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 2.33rem;
+
+  &:before {
+    position: absolute;
+    content: "";
+    height: 1.66em;
+    width: 1.66em;
+    left: -0.1rem;
+    bottom: -0.266rem;
+    background-color: $white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px $midTone;
+  }
+}
+
+.checkbox {
+  display: none;
+
+  &:checked + .toggle:before {
+    transform: translateX(1.8rem);
+    background-color: $dndGreen;
+    box-shadow: 1px 1px 2px $charcoal;
+  }
+
+  &:checked + .toggle {
+    background-color: rgba($dndGreen, 0.5);
+  }
+
+  &:focus + .toggle {
+    box-shadow: 0 0 1px $dndGreen;
+  }
+}

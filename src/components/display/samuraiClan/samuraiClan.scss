@@ -1,0 +1,52 @@
+@import "../../../styles/mixins";
+
+.statList {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+
+  &__item {
+    margin-right: 0.5rem;
+
+    &--name {
+      color: $dndGold;
+    }
+
+    &:after {
+      content: ",";
+    }
+
+    &:last-child:after {
+      content: "";
+    }
+  }
+}
+
+.lineItem {
+  margin-bottom: 1rem;
+
+  .lineHeading {
+    color: $moodGreen;
+    margin-right: 0.2em;
+  }
+
+  p:not(:first-child) {
+    margin-left: 1rem;
+  }
+}
+
+.samurai {
+  &__traits {
+    color: $dndGold;
+
+    &--trait {
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.kanji {
+  color: $blueLight;
+}

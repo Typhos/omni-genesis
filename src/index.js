@@ -11,6 +11,7 @@ import People from "./pages/people/index";
 import Shops from "./pages/shops/index";
 import Cities from "./pages/cities/index";
 import Kingdoms from "./pages/kingdoms/index";
+import Clans from "./pages/clans/index";
 import { Error404 } from "./pages/404/index";
 
 const routing = (
@@ -24,6 +25,7 @@ const routing = (
       <Route path="/shops/" component={Shops} />
       <Route path="/cities/" component={Cities} />
       <Route path="/kingdoms/" component={Kingdoms} />
+      <Route path="/clan/" component={Clans} />
 
       <Route component={Error404} />
     </Switch>

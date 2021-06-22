@@ -1,0 +1,67 @@
+{
+  "tiers": [
+    {
+      "level": "Impoverished",
+      "modifier": 0.1,
+      "range": 1
+    },
+    {
+      "level": "Poor",
+      "modifier": 0.5,
+      "range": [2, 3]
+    },
+    {
+      "level": "Typical",
+      "modifier": 1,
+      "range": [4, 7]
+    },
+    {
+      "level": "Prosperous",
+      "modifier": 1.5,
+      "range": [8, 9]
+    },
+    {
+      "level": "Wealthy",
+      "modifier": 2,
+      "range": 10
+    }
+  ],
+  "enterprises": [
+    {
+      "name": "Craftsmen",
+      "text": "All samurai clans are, to some degree, self-sufficient, producing the goods necessary to perform their duties and live. Occasionally, a clan learns to focus on a particular craft, with its products being of such a quality as to incite the interest of other clans. Samurai in such a clan, particularly those exhibiting a talent for the craft, will be expected to produce goods to sell for the good of the clan. Other samurai may find employ guarding the goods produced, or transporting them to sell."
+    },
+    {
+      "name": "Land",
+      "text": "A good number of samurai clans are involved in the business of land-ownership. They oversee a territory, one ceded to them by the daimyo, charging non-samurai who live upon their land a fee for the privilege of doing so. Such taxes may be collected either as monies or as goods. Samurai within the clan may perform a number of functions, with some working as tax-collectors, others serving as accountants or still others maintaining stores of collected goods. Those living on the land rightfully expect the samurai to protect them and so some samurai also serve time on patrols, policing the area."
+    },
+    {
+      "name": "Shipping",
+      "text": "Samurai clans near border areas are well situated to make a living through the regulation of shipping. Such clans may themselves take part in the buying and selling of goods, but they are just as likely to focus on maintaining roads, collecting travel fees, and confiscating a percentage of goods being moved through their territory."
+    },
+    {
+      "name": "Farming",
+      "text": "The lowliest of clans make their living farming the soil. Such samurai are generally looked down upon by other non-farming clans, yet they continue to toil, knowing that if they do not work, they do not eat. Samurai in farming clans are expected to tend to their own plot of land, as a farmer."
+    },
+    {
+      "name": "Guard Work",
+      "text": "Samurai clans situated near important locales, or in major cities, may be called upon to provide protection to either a person, a neighborhood (or neighborhoods), or an important site. Such guard duty can take various forms, with samurai acting as bodyguards, patrolling city streets as a constabulary, or standing watch over an important shrine."
+    },
+    {
+      "name": "Horses",
+      "text": "While all samurai clans claim proficiency with horses, not every clan actively breeds and raises these beasts, choosing instead to buy what they need from those clans who do. Samurai in horse clans are expected to be able to ride and break the animals, as necessary. Samurai may be called upon to inspect herds, transport and defend livestock, or exhibit the creatures for sale."
+    },
+    {
+      "name": "Mercenary Work",
+      "text": "All samurai clans, at one point or another, are likely to fight on behalf of another clan. Often the reason is political, but a few clans derive a steady income by temporarily “allying” themselves in return for financial compensation. Samurai belonging to a mercenary clan with suitable martial skills are expected to go fight wherever their clan leader sends them, without question."
+    },
+    {
+      "name": "Politics",
+      "text": "All samurai are involved in politics to some extent. Clans focused on politics as an enterprise are generally large and ambitious. They are heavily involved in matters local and national, seeking to elevate their own prestige through choice appointments and skillful maneuvers in the passing of laws and edicts. Samurai in political clans might be expected to attend court, marry for the clan’s political advantage, or fill official offices in the capital of the province or nation."
+    },
+    {
+      "name": "Soldiering",
+      "text": "All samurai clans train their men for war, but some maintain a standing army or military force. Such a force is constantly training for battle and constantly ready to fight where they are sent. Samurai in such a situation are soldiers, living a life similar to soldiers everywhere."
+    }
+  ]
+}

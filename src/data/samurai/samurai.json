@@ -1,0 +1,50 @@
+{
+  "samuraiTraits": [
+    "Active",
+    "Bold",
+    "Gloomy",
+    "Hot-Tempered",
+    "Just",
+    "Learned",
+    "Martial",
+    "Proud",
+    "Quiet",
+    "Religious",
+    "Romantic",
+    "Ruthless",
+    "Stern",
+    "Strong",
+    "Stubborn",
+    "Suspicious",
+    "Superstitious",
+    "Thoughtful",
+    "Unpredictable",
+    "Vengeful"
+  ],
+  "samuraiClasses": [
+    {
+      "name": "Samurai",
+      "range": [1, 8]
+    },
+    {
+      "name": "Paladin",
+      "range": [9, 14]
+    },
+    {
+      "name": "Ranger",
+      "range": [15, 16]
+    },
+    {
+      "name": "Cleric",
+      "range": [17, 18]
+    },
+    {
+      "name": "Monk",
+      "range": 19
+    },
+    {
+      "name": "Sorcerer",
+      "range": 20
+    }
+  ]
+}

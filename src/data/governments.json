@@ -29,7 +29,7 @@
     "leader": "Elder",
     "description": "This government is a spiritualistic form of democracy, where a religious council supervises the democratic process and serves in an advisory role.",
     "availableTo": ["hamlet", "village", "castle-town", "town"],
-    "roles": ["cleric", "priest", "vicar", "revend", "lord/lady"]
+    "roles": ["cleric", "priest", "vicar", "reverend", "lord/lady"]
   },
   "militaryCommissariat": {
     "name": "Military Commissariat",

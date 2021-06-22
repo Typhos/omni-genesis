@@ -1,0 +1,213 @@
+{
+  "personalityTraits": [
+    [
+      {
+        "name": "Brave",
+        "description": "Challenges or danger, X fears nothing.",
+        "statChanges": []
+      },
+      {
+        "name": "Craven",
+        "description": "X does not enjoy being challenged, or scared, at all.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Calm",
+        "description": "X takes things in stride, leading a slow-paced life.",
+        "statChanges": []
+      },
+      {
+        "name": "Wrathful",
+        "description": "X is quick to anger and fury.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Chaste",
+        "description": "X dislikes intimate contact, avoiding the temptations of the flesh.",
+        "statChanges": []
+      },
+      {
+        "name": "Lustful",
+        "description": "Carnal desires burn hot in X's core.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Content",
+        "description": "What they already have, be it much or little, is enough for X.",
+        "statChanges": []
+      },
+      {
+        "name": "Ambitious",
+        "description": "X knows what they want, and they are not afraid to try and get it.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Diligent",
+        "description": "X does not shy away from hard work.",
+        "statChanges": []
+      },
+      {
+        "name": "Lazy",
+        "description": "The easiest road in life is the road most taken by X.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Fickle",
+        "description": "X changes their mind more often than not, making them hard to predict.",
+        "statChanges": []
+      },
+      {
+        "name": "Stubborn",
+        "description": "X does not back down for anything.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Forgiving",
+        "description": "X is quick to move on from most things.",
+        "statChanges": []
+      },
+      {
+        "name": "Vengeful",
+        "description": "X is slow to forget a slight or someone who does them wrong.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Generous",
+        "description": "Acts of benevolence and charity are no strangers to X.",
+        "statChanges": []
+      },
+      {
+        "name": "Greedy",
+        "description": "X keeps a tight grip on their purse and is always looking for ways to engorge it.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Gregarious",
+        "description": "X enjoys spending time with other people.",
+        "statChanges": []
+      },
+      {
+        "name": "Shy",
+        "description": "X prefers to avoid interacting with other people.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Honest",
+        "description": "X values truth and sincerity highly.",
+        "statChanges": []
+      },
+      {
+        "name": "Deceitful",
+        "description": "To lie and deceive is in X's nature.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Humble",
+        "description": "X does not ask for much in life.",
+        "statChanges": []
+      },
+      {
+        "name": "Arrogant",
+        "description": "X has no problem with their sense of worth.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Just",
+        "description": "X has a strong sense of justice.",
+        "statChanges": []
+      },
+      {
+        "name": "Arbitrary",
+        "description": "X does their own thing and has little regard for others.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Patient",
+        "description": "To wait and bide their time is a specialty of X.",
+        "statChanges": []
+      },
+      {
+        "name": "Impatient",
+        "description": "X thinks that most things should happen fast: ideally they should happen now!",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Temperate",
+        "description": "According to X, it's best to enjoy things in moderation.",
+        "statChanges": []
+      },
+      {
+        "name": "Gluttonous",
+        "description": "X scoffs at moderation; they want it all!",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Trusting",
+        "description": "X is quick to place their faith in others.",
+        "statChanges": []
+      },
+      {
+        "name": "Paranoid",
+        "description": "X sees enemies in every shadow.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Zealous",
+        "description": "Religious conviction burns bright at the center of X.",
+        "statChanges": []
+      },
+      {
+        "name": "Cynical",
+        "description": "X trusts the self-interest of others above all else.",
+        "statChanges": []
+      }
+    ],
+    [
+      {
+        "name": "Compassionate",
+        "description": "Both merciful and sympathetic, X is warmhearted.",
+        "statChanges": []
+      },
+      {
+        "name": "Callous",
+        "description": "Being called both heartless and cold-blooded, X is indifferent to most.",
+        "statChanges": []
+      },
+      {
+        "name": "Sadistic",
+        "description": "Few things bring X as much joy as the suffering of others.",
+        "statChanges": []
+      }
+    ]
+  ]
+}

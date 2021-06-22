@@ -7,7 +7,7 @@ export default class Bailey {
     this.age = params.age || this.getAge();
     this.size = params.size || this.getSize();
 
-    console.log(this.size);
+    // console.log(this.size);
 
     this.towers = this.getTowers();
     this.walls = this.getWalls();

@@ -20,7 +20,9 @@ export default class Person {
     this.seed = params.seed || global.seed;
     this.inputParams = { ...params };
     this.race = params.race || this.getRace(params);
-    this.raceObj = OpenSourceRaceData.race.filter((r) => r.name.toLowerCase() === this.race && r.source === "PHB")[0];
+    this.raceObj = OpenSourceRaceData.race.filter(
+      (r) => r.name.toLowerCase() === this.race && r.source === "PHB"
+    )[0];
     this.sex = params.sex || this.getSex();
     this.age = params.age || this.getAge(params);
     this.culture = params.culture;
@@ -67,10 +69,14 @@ export default class Person {
   }
 
   getSubRace() {
-    let races = OpenSourceRaceData.race.filter((r) => r.name.toLowerCase() === this.race && r.source === "PHB")[0];
+    let races = OpenSourceRaceData.race.filter(
+      (r) => r.name.toLowerCase() === this.race && r.source === "PHB"
+    )[0];
 
     if (races.subraces) {
-      const filtered = races.subraces.filter((r) => (r.source === "PHB" || r.source === undefined) && r.name !== "Variant");
+      const filtered = races.subraces.filter(
+        (r) => (r.source === "PHB" || r.source === undefined) && r.name !== "Variant"
+      );
 
       if (filtered.length > 0) {
         return filtered[Utils.randomArrayIndex(filtered)];
@@ -252,7 +258,13 @@ export default class Person {
       "any evil": ["lawful evil", "neutral evil", "chaotic evil"],
       "any lawful": ["lawful good", "lawful neutral", "lawful evil"],
       "any chaotic": ["chaotic good", "chaotic neutral", "chaotic evil"],
-      "any neutral": ["neutral good", "neutral evil", "lawful neutral", "true neutral", "chaotic neutral"],
+      "any neutral": [
+        "neutral good",
+        "neutral evil",
+        "lawful neutral",
+        "true neutral",
+        "chaotic neutral",
+      ],
     };
 
     let authority = ["lawful", "neutral", "chaotic"];
@@ -271,7 +283,9 @@ export default class Person {
         morality = [...morality, ...m];
       }
 
-      let output = `${authority[Utils.randomArrayIndex(authority)]} ${morality[Utils.randomArrayIndex(morality)]}`;
+      let output = `${authority[Utils.randomArrayIndex(authority)]} ${
+        morality[Utils.randomArrayIndex(morality)]
+      }`;
       if (output === "neutral neutral") output = "unaligned";
 
       return output;
@@ -279,15 +293,20 @@ export default class Person {
   }
 
   getPhysicalInfo() {
-    const physicalObj = (this.subRaceObj && this.subRaceObj.heightAndWeight) || this.raceObj.heightAndWeight || {};
+    const physicalObj =
+      (this.subRaceObj && this.subRaceObj.heightAndWeight) || this.raceObj.heightAndWeight || {};
     let heightRoll = 1;
 
     if (physicalObj.heightMod) {
       heightRoll = diceMath(physicalObj.heightMod);
     }
 
-    let height = physicalObj.heightMod ? physicalObj.baseHeight + heightRoll : physicalObj.baseHeight;
-    let weight = physicalObj.weightMod ? physicalObj.baseWeight + heightRoll * diceMath(physicalObj.weightMod) : physicalObj.baseWeight;
+    let height = physicalObj.heightMod
+      ? physicalObj.baseHeight + heightRoll
+      : physicalObj.baseHeight;
+    let weight = physicalObj.weightMod
+      ? physicalObj.baseWeight + heightRoll * diceMath(physicalObj.weightMod)
+      : physicalObj.baseWeight;
 
     return {
       imperial: {
@@ -312,12 +331,35 @@ export default class Person {
     let personality = this.getLikesAndDislikes();
 
     return {
+      personality: this.getPersonalityTraits(),
       statsDescription: this.statsDescription(),
       quirk: this.pronounReplace(Traits.quirks[Utils.randomArrayIndex(Traits.quirks)]),
       likes: personality.likes,
       dislikes: personality.dislikes,
-      physicalDescription: 0,
+      // physicalDescription: 0,
     };
+  }
+
+  getPersonalityTraits() {
+    let traits = [...Traits.personalityTraits];
+    const traitsArray = new Array(3).fill(undefined).map(() => getTraitSet());
+
+    let concatString = traitsArray.map((trait) => trait.name).join(", ");
+
+    return {
+      traits: traitsArray,
+      text: concatString,
+    };
+
+    function getTraitSet() {
+      const index = Utils.randomArrayIndex(traits);
+      const options = traits[index];
+
+      // remove picked trait group
+      traits.splice(index, 1);
+
+      return options[Utils.randomArrayIndex(options)];
+    }
   }
 
   getLikesAndDislikes() {
@@ -414,7 +456,9 @@ export default class Person {
 
         if (stats.attacks > 1) {
           let name = "Multiattack.";
-          let text = `${this.displayName} makes ${attackStr[stats.attacks]} melee or ranged attacks.`;
+          let text = `${this.displayName} makes ${
+            attackStr[stats.attacks]
+          } melee or ranged attacks.`;
 
           array.push({
             name: name,
@@ -435,7 +479,9 @@ export default class Person {
         return array;
       };
 
-      const darkVision = stats.perception.senses.darkvision ? `Darkvision ${stats.perception.senses.darkvision} Ft.` : undefined;
+      const darkVision = stats.perception.senses.darkvision
+        ? `Darkvision ${stats.perception.senses.darkvision} Ft.`
+        : undefined;
 
       json[name].statBlock = {
         show: false,

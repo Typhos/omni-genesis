@@ -1,0 +1,752 @@
+{
+  "clanNames": {
+    "prefix": [
+      {
+        "part": "Aka",
+        "kanji": "赤"
+      },
+      {
+        "part": "Ashi",
+        "kanji": "足"
+      },
+      {
+        "part": "Asa",
+        "kanji": "朝"
+      },
+      {
+        "part": "Cho",
+        "kanji": "貯"
+      },
+      {
+        "part": "Furu",
+        "kanji": "古"
+      },
+      {
+        "part": "Hama",
+        "kanji": "濱"
+      },
+      {
+        "part": "Hara",
+        "kanji": "原"
+      },
+      {
+        "part": "Hashi",
+        "kanji": "橋"
+      },
+      {
+        "part": "Hatake",
+        "kanji": "畑"
+      },
+      {
+        "part": "Hide",
+        "kanji": "英"
+      },
+      {
+        "part": "Hira",
+        "kanji": "平"
+      },
+      {
+        "part": "Ichi",
+        "kanji": "市"
+      },
+      {
+        "part": "Ishi",
+        "kanji": "石"
+      },
+      {
+        "part": "Ita",
+        "kanji": "板"
+      },
+      {
+        "part": "Kaba",
+        "kanji": "樺"
+      },
+      {
+        "part": "Kana",
+        "kanji": "金"
+      },
+      {
+        "part": "Kaku",
+        "kanji": "閣"
+      },
+      {
+        "part": "Kage",
+        "kanji": "影"
+      },
+      {
+        "part": "Katsu",
+        "kanji": "勝"
+      },
+      {
+        "part": "Kaze",
+        "kanji": "風"
+      },
+      {
+        "part": "Ketsu",
+        "kanji": "穴"
+      },
+      {
+        "part": "Masa",
+        "kanji": "柾"
+      },
+      {
+        "part": "Matsu",
+        "kanji": "松"
+      },
+      {
+        "part": "Misaki",
+        "kanji": "岬"
+      },
+      {
+        "part": "Mori",
+        "kanji": "森"
+      },
+      {
+        "part": "Moto",
+        "kanji": "元"
+      },
+      {
+        "part": "Mura",
+        "kanji": "村"
+      },
+      {
+        "part": "Na",
+        "kanji": "南"
+      },
+      {
+        "part": "Naka",
+        "kanji": "中"
+      },
+      {
+        "part": "Saka",
+        "kanji": "坂"
+      },
+      {
+        "part": "Saki",
+        "kanji": "咲"
+      },
+      {
+        "part": "Saku",
+        "kanji": "索"
+      },
+      {
+        "part": "Sato",
+        "kanji": "里"
+      },
+      {
+        "part": "Shima",
+        "kanji": "島"
+      },
+      {
+        "part": "Shiro",
+        "kanji": "白"
+      },
+      {
+        "part": "Shuu",
+        "kanji": "楢"
+      },
+      {
+        "part": "Suzu",
+        "kanji": "鈴"
+      },
+      {
+        "part": "Suzuki",
+        "kanji": "鱸"
+      },
+      {
+        "part": "Da",
+        "kanji": "田"
+      },
+      {
+        "part": "Ta",
+        "kanji": "田"
+      },
+      {
+        "part": "Taka",
+        "kanji": "鷹"
+      },
+      {
+        "part": "Take",
+        "kanji": "竹"
+      },
+      {
+        "part": "Tani",
+        "kanji": "谷"
+      },
+      {
+        "part": "Tatsu",
+        "kanji": "竜"
+      },
+      {
+        "part": "Toku",
+        "kanji": "徳"
+      },
+      {
+        "part": "Tsu",
+        "kanji": "津"
+      },
+      {
+        "part": "Tsuki",
+        "kanji": "月"
+      },
+      {
+        "part": "Umi",
+        "kanji": "海"
+      },
+      {
+        "part": "Yama",
+        "kanji": "山"
+      }
+    ],
+    "suffix": [
+      {
+        "part": "Be",
+        "kanji": "辺"
+      },
+      {
+        "part": "Gawa",
+        "kanji": "川"
+      },
+      {
+        "part": "Hama",
+        "kanji": "濱"
+      },
+      {
+        "part": "Hara",
+        "kanji": "原"
+      },
+      {
+        "part": "Hashi",
+        "kanji": "橋"
+      },
+      {
+        "part": "Kabe",
+        "kanji": "壁"
+      },
+      {
+        "part": "Kage",
+        "kanji": "影"
+      },
+      {
+        "part": "Kawa",
+        "kanji": "川"
+      },
+      {
+        "part": "Ta",
+        "kanji": "田"
+      },
+      {
+        "part": "Da",
+        "kanji": "田"
+      },
+      {
+        "part": "Kami",
+        "kanji": "祇"
+      },
+      {
+        "part": "Ki",
+        "kanji": "木"
+      },
+      {
+        "part": "Mizu",
+        "kanji": "水"
+      },
+      {
+        "part": "Moto",
+        "kanji": "元"
+      },
+      {
+        "part": "Mura",
+        "kanji": "村"
+      },
+      {
+        "part": "No",
+        "kanji": "野"
+      },
+      {
+        "part": "Oka",
+        "kanji": "岡"
+      },
+      {
+        "part": "Saki",
+        "kanji": "咲"
+      },
+      {
+        "part": "Suna",
+        "kanji": "砂"
+      },
+      {
+        "part": "Sawa",
+        "kanji": "沢"
+      },
+      {
+        "part": "Shima",
+        "kanji": "島"
+      },
+      {
+        "part": "Tada",
+        "kanji": "只"
+      },
+      {
+        "part": "Tani",
+        "kanji": "谷"
+      },
+      {
+        "part": "Tsu",
+        "kanji": "津"
+      },
+      {
+        "part": "Ura",
+        "kanji": "浦"
+      },
+      {
+        "part": "Wara",
+        "kanji": "藁"
+      },
+      {
+        "part": "Ya",
+        "kanji": "屋"
+      },
+      {
+        "part": "Yama",
+        "kanji": "山"
+      },
+      {
+        "part": "Yori",
+        "kanji": "寄"
+      }
+    ]
+  },
+  "givenNames": [
+    {
+      "part": "Aki",
+      "kanji": "明",
+      "meaning": "bright"
+    },
+    {
+      "part": "Aki",
+      "kanji": "顯",
+      "meaning": "manifest"
+    },
+    {
+      "part": "Ari",
+      "kanji": "有",
+      "meaning": "exist"
+    },
+    {
+      "part": "Atsu",
+      "kanji": "敦",
+      "meaning": "kindliness"
+    },
+    {
+      "part": "Chika",
+      "kanji": "親",
+      "meaning": "relative"
+    },
+    {
+      "part": "Fusa",
+      "kanji": "房",
+      "meaning": "tassel"
+    },
+    {
+      "part": "Haru",
+      "kanji": "治",
+      "meaning": "govern"
+    },
+    {
+      "part": "Haru",
+      "kanji": "晴",
+      "meaning": "clear"
+    },
+    {
+      "part": "Hide",
+      "kanji": "英",
+      "meaning": "hero"
+    },
+    {
+      "part": "Hide",
+      "kanji": "秀",
+      "meaning": "excellence"
+    },
+    {
+      "part": "Hiko",
+      "kanji": "彦",
+      "meaning": "prince"
+    },
+    {
+      "part": "Hira",
+      "kanji": "衡",
+      "meaning": "equilibrium"
+    },
+    {
+      "part": "Hiro",
+      "kanji": "広",
+      "meaning": "wide"
+    },
+    {
+      "part": "Hisa",
+      "kanji": "久",
+      "meaning": "long (time)"
+    },
+    {
+      "part": "Ie",
+      "kanji": "家",
+      "meaning": "house"
+    },
+    {
+      "part": "Kage",
+      "kanji": "景",
+      "meaning": "view"
+    },
+    {
+      "part": "Kane",
+      "kanji": "兼",
+      "meaning": "concurrent"
+    },
+    {
+      "part": "Kata",
+      "kanji": "片",
+      "meaning": "one side"
+    },
+    {
+      "part": "Kata",
+      "kanji": "方",
+      "meaning": "direction"
+    },
+    {
+      "part": "Kata",
+      "kanji": "賢",
+      "meaning": "wisdom"
+    },
+    {
+      "part": "Katsu",
+      "kanji": "勝",
+      "meaning": "victory"
+    },
+    {
+      "part": "Kazu",
+      "kanji": "一",
+      "meaning": "first"
+    },
+    {
+      "part": "Kazu",
+      "kanji": "和",
+      "meaning": "harmony"
+    },
+    {
+      "part": "Kiyo",
+      "kanji": "清",
+      "meaning": "pure"
+    },
+    {
+      "part": "Ko",
+      "kanji": "高",
+      "meaning": "tall"
+    },
+    {
+      "part": "Kore",
+      "kanji": "是",
+      "meaning": "this"
+    },
+    {
+      "part": "Kore",
+      "kanji": "惟",
+      "meaning": "reflect"
+    },
+    {
+      "part": "Kuni",
+      "kanji": "国",
+      "meaning": "country"
+    },
+    {
+      "part": "Masa",
+      "kanji": "政",
+      "meaning": "path"
+    },
+    {
+      "part": "Masa",
+      "kanji": "正",
+      "meaning": "correct"
+    },
+    {
+      "part": "Masa",
+      "kanji": "昌",
+      "meaning": "prosperous"
+    },
+    {
+      "part": "Masa",
+      "kanji": "雅",
+      "meaning": "elegant"
+    },
+    {
+      "part": "Michi",
+      "kanji": "道",
+      "meaning": "path"
+    },
+    {
+      "part": "Mitsu",
+      "kanji": "密",
+      "meaning": "careful"
+    },
+    {
+      "part": "Mitsu",
+      "kanji": "満",
+      "meaning": "full"
+    },
+    {
+      "part": "Mochi",
+      "kanji": "持",
+      "meaning": "hold"
+    },
+    {
+      "part": "Mori",
+      "kanji": "盛",
+      "meaning": "prosper"
+    },
+    {
+      "part": "Mori",
+      "kanji": "守",
+      "meaning": "guard"
+    },
+    {
+      "part": "Moro",
+      "kanji": "帥",
+      "meaning": "instruct"
+    },
+    {
+      "part": "Moto",
+      "kanji": "元",
+      "meaning": "origin"
+    },
+    {
+      "part": "Moto",
+      "kanji": "基",
+      "meaning": "basis"
+    },
+    {
+      "part": "Mune",
+      "kanji": "宗",
+      "meaning": "religion"
+    },
+    {
+      "part": "Naga",
+      "kanji": "長",
+      "meaning": "length"
+    },
+    {
+      "part": "Naka",
+      "kanji": "仲",
+      "meaning": "relationship"
+    },
+    {
+      "part": "Nao",
+      "kanji": "直",
+      "meaning": "honesty"
+    },
+    {
+      "part": "Nari",
+      "kanji": "成",
+      "meaning": "become"
+    },
+    {
+      "part": "Nari",
+      "kanji": "業",
+      "meaning": "vocation"
+    },
+    {
+      "part": "Nobu",
+      "kanji": "宣",
+      "meaning": "proclaim"
+    },
+    {
+      "part": "Nobu",
+      "kanji": "信",
+      "meaning": "faith"
+    },
+    {
+      "part": "Nori",
+      "kanji": "憲",
+      "meaning": "law"
+    },
+    {
+      "part": "Nori",
+      "kanji": "教",
+      "meaning": "teach"
+    },
+    {
+      "part": "Sada",
+      "kanji": "定",
+      "meaning": "establish"
+    },
+    {
+      "part": "Sada",
+      "kanji": "貞",
+      "meaning": "righteousness"
+    },
+    {
+      "part": "Sane",
+      "kanji": "実",
+      "meaning": "truth"
+    },
+    {
+      "part": "Shige",
+      "kanji": "重",
+      "meaning": "respect"
+    },
+    {
+      "part": "Shige",
+      "kanji": "茂",
+      "meaning": "luxuriant"
+    },
+    {
+      "part": "Sue",
+      "kanji": "季",
+      "meaning": "seasons"
+    },
+    {
+      "part": "Suke",
+      "kanji": "助",
+      "meaning": "help"
+    },
+    {
+      "part": "Tada",
+      "kanji": "忠",
+      "meaning": "loyalty"
+    },
+    {
+      "part": "Tada",
+      "kanji": "直",
+      "meaning": "straight"
+    },
+    {
+      "part": "Taka",
+      "kanji": "高",
+      "meaning": "high"
+    },
+    {
+      "part": "Taka",
+      "kanji": "孝",
+      "meaning": "filial"
+    },
+    {
+      "part": "Take",
+      "kanji": "武",
+      "meaning": "warrior"
+    },
+    {
+      "part": "Tame",
+      "kanji": "為",
+      "meaning": "welfare"
+    },
+    {
+      "part": "Tane",
+      "kanji": "胤",
+      "meaning": "offspring"
+    },
+    {
+      "part": "Teru",
+      "kanji": "輝",
+      "meaning": "shining"
+    },
+    {
+      "part": "Toki",
+      "kanji": "時",
+      "meaning": "time"
+    },
+    {
+      "part": "Tomo",
+      "kanji": "朝",
+      "meaning": "dynasty"
+    },
+    {
+      "part": "Tomo",
+      "kanji": "具",
+      "meaning": "tool"
+    },
+    {
+      "part": "Toshi",
+      "kanji": "俊",
+      "meaning": "feeling"
+    },
+    {
+      "part": "Toshi",
+      "kanji": "敏",
+      "meaning": "alert"
+    },
+    {
+      "part": "Toshi",
+      "kanji": "利",
+      "meaning": "benefit"
+    },
+    {
+      "part": "Tsune",
+      "kanji": "常",
+      "meaning": "normal"
+    },
+    {
+      "part": "Tsune",
+      "kanji": "経",
+      "meaning": "experience"
+    },
+    {
+      "part": "Uchi",
+      "kanji": "内",
+      "meaning": "inner"
+    },
+    {
+      "part": "Uji",
+      "kanji": "氏",
+      "meaning": "clan"
+    },
+    {
+      "part": "Yasu",
+      "kanji": "康",
+      "meaning": "peace"
+    },
+    {
+      "part": "Yasu",
+      "kanji": "安",
+      "meaning": "gentle"
+    },
+    {
+      "part": "Yori",
+      "kanji": "泰",
+      "meaning": "calm"
+    },
+    {
+      "part": "Yoshi",
+      "kanji": "願 ",
+      "meaning": "rely"
+    },
+    {
+      "part": "Yoshi",
+      "kanji": "良",
+      "meaning": "good"
+    },
+    {
+      "part": "Yoshi",
+      "kanji": "儀",
+      "meaning": "ceremony"
+    },
+    {
+      "part": "Yuki",
+      "kanji": "吉",
+      "meaning": "luck"
+    },
+    {
+      "part": "Yuki",
+      "kanji": "行",
+      "meaning": "go"
+    },
+    {
+      "part": "Yuki",
+      "kanji": "幸",
+      "meaning": "happiness"
+    },
+    {
+      "part": "Yuki",
+      "kanji": "之",
+      "meaning": "this"
+    }
+  ]
+}

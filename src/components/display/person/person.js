@@ -167,20 +167,24 @@ export default class PersonDisplay extends Component {
 
         {person.description && (
           <OneColumnDisplay>
-            <li className="infoTable__row">
+            {/* <li className="infoTable__row">
               <span className="info__label">Likes: </span>{" "}
               <span className="capitalize info__value">{person.description.likes}</span>
             </li>
             <li className="infoTable__row">
               <span className="info__label">Dislikes: </span>{" "}
               <span className="capitalize info__value">{person.description.dislikes}</span>
-            </li>
-            <li className="infoTable__row">
+            </li> */}
+            {/* <li className="infoTable__row">
               <span className="info__label">Random Fact: </span>{" "}
               <span className="info__value">{person.description.statsDescription[0]}</span>
+            </li> */}
+            <li className="infoTable__row">
+              <span className="info__label">Personality: </span>{" "}
+              <span className="info__value">{person.description.personality.text}</span>
             </li>
             <li className="infoTable__row">
-              <span className="info__label">Personality Quirk: </span>{" "}
+              <span className="info__label">Quirk: </span>{" "}
               <span className="info__value">{person.description.quirk}</span>
             </li>
           </OneColumnDisplay>

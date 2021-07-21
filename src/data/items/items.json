@@ -15,28 +15,18 @@
           "materials": {
             "primary": "robe",
             "required": {
-              "robe": [
-                "cloth"
-              ]
+              "robe": ["cloth"]
             },
             "optionalParts": {
-              "cuffs": [
-                "fur",
-                "cloth"
-              ],
-              "belt": [
-                "cloth",
-                "leather"
-              ]
+              "cuffs": ["fur", "cloth"],
+              "belt": ["cloth", "leather"]
             },
             "creation": "crafted",
             "maker": {
               "cloth": "tailor"
             },
             "default": "cloth",
-            "common": [
-              "cloth"
-            ]
+            "common": ["cloth"]
           }
         },
         "coat": {
@@ -52,40 +42,23 @@
           "materials": {
             "primary": "coat",
             "required": {
-              "coat": [
-                "cloth"
-              ],
-              "buttons": [
-                "metal",
-                "bone"
-              ]
+              "coat": ["cloth"],
+              "buttons": ["metal", "bone"]
             },
             "optionalParts": {
-              "belt": [
-                "cloth",
-                "leather"
-              ],
-              "collar": [
-                "fur"
-              ],
-              "lining": [
-                "fur"
-              ]
+              "belt": ["cloth", "leather"],
+              "collar": ["fur"],
+              "lining": ["fur"]
             },
             "creation": "created",
             "maker": {
               "cloth": "tailor"
             },
             "restricted": {
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "cloth": ["silk", "lace"]
             },
             "default": "cloth",
-            "common": [
-              "cloth"
-            ]
+            "common": ["cloth"]
           }
         },
         "cloak": {
@@ -101,30 +74,19 @@
           "materials": {
             "primary": "cloak",
             "required": {
-              "cloak": [
-                "cloth"
-              ]
+              "cloak": ["cloth"]
             },
             "optionalParts": {
-              "collar": [
-                "fur"
-              ],
-              "clasp": [
-                "metal",
-                "bone"
-              ],
-              "draw-string": [
-                "cloth"
-              ]
+              "collar": ["fur"],
+              "clasp": ["metal", "bone"],
+              "draw-string": ["cloth"]
             },
             "creation": "crafted",
             "maker": {
               "cloth": "tailor"
             },
             "default": "cloth",
-            "common": [
-              "cloth"
-            ]
+            "common": ["cloth"]
           }
         },
         "tunic": {
@@ -140,29 +102,20 @@
           "materials": {
             "primary": "tunic",
             "required": {
-              "tunic": [
-                "cloth"
-              ]
+              "tunic": ["cloth"]
             },
             "optionalParts": {
-              "draw-string": [
-                "cloth"
-              ]
+              "draw-string": ["cloth"]
             },
             "restricted": {
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "cloth": ["silk", "lace"]
             },
             "creation": "crafted",
             "maker": {
               "cloth": "tailor"
             },
             "default": "cloth",
-            "common": [
-              "cloth"
-            ]
+            "common": ["cloth"]
           }
         },
         "shirt": {
@@ -178,24 +131,17 @@
           "materials": {
             "primary": "shirt",
             "required": {
-              "shirt": [
-                "cloth"
-              ]
+              "shirt": ["cloth"]
             },
             "restricted": {
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "cloth": ["silk", "lace"]
             },
             "creation": "crafted",
             "maker": {
               "cloth": "tailor"
             },
             "default": "cloth",
-            "common": [
-              "cloth"
-            ]
+            "common": ["cloth"]
           }
         },
         "trousers": {
@@ -211,28 +157,15 @@
           "materials": {
             "primary": "trousers",
             "required": {
-              "trousers": [
-                "cloth",
-                "leather"
-              ]
+              "trousers": ["cloth", "leather"]
             },
             "optionalParts": {
-              "draw-string": [
-                "cloth"
-              ],
-              "buttons": [
-                "metal",
-                "bone"
-              ]
+              "draw-string": ["cloth"],
+              "buttons": ["metal", "bone"]
             },
             "restricted": {
-              "cloth": [
-                "silk",
-                "lace"
-              ],
-              "metal": [
-                "platinum"
-              ]
+              "cloth": ["silk", "lace"],
+              "metal": ["platinum"]
             },
             "creation": "crafted",
             "maker": {
@@ -240,9 +173,7 @@
               "leather": "tailor"
             },
             "default": "cloth",
-            "common": [
-              "cloth"
-            ]
+            "common": ["cloth"]
           }
         },
         "gloves": {
@@ -258,20 +189,13 @@
           "materials": {
             "primary": "gloves",
             "required": {
-              "gloves": [
-                "cloth",
-                "leather"
-              ]
+              "gloves": ["cloth", "leather"]
             },
             "optionalParts": {
-              "lining": [
-                "fur"
-              ]
+              "lining": ["fur"]
             },
             "restricted": {
-              "cloth": [
-                "silk"
-              ]
+              "cloth": ["silk"]
             },
             "creation": "crafted",
             "maker": {
@@ -279,9 +203,7 @@
               "leather": "tailor"
             },
             "default": "cloth",
-            "common": [
-              "cloth"
-            ]
+            "common": ["cloth"]
           }
         },
         "poncho": {
@@ -297,20 +219,11 @@
           "materials": {
             "primary": "poncho",
             "required": {
-              "poncho": [
-                "cloth",
-                "leather"
-              ]
+              "poncho": ["cloth", "leather"]
             },
             "optionalParts": {
-              "trim": [
-                "cloth",
-                "fur"
-              ],
-              "tassels": [
-                "cloth",
-                "leather"
-              ]
+              "trim": ["cloth", "fur"],
+              "tassels": ["cloth", "leather"]
             },
             "creation": "crafted",
             "maker": {
@@ -318,15 +231,10 @@
               "leather": "tailor"
             },
             "restricted": {
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "cloth": ["silk", "lace"]
             },
             "default": "cloth",
-            "common": [
-              "cloth"
-            ]
+            "common": ["cloth"]
           }
         },
         "belt": {
@@ -342,18 +250,11 @@
           "materials": {
             "primary": "strap",
             "required": {
-              "strap": [
-                "cloth",
-                "leather"
-              ],
-              "buckle": [
-                "metal"
-              ]
+              "strap": ["cloth", "leather"],
+              "buckle": ["metal"]
             },
             "optionalParts": {
-              "trim": [
-                "fur"
-              ]
+              "trim": ["fur"]
             },
             "creation": "crafted",
             "maker": {
@@ -361,23 +262,14 @@
               "leather": "leatherworker"
             },
             "restricted": {
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "cloth": ["silk", "lace"]
             },
             "default": "cloth",
-            "common": [
-              "cloth"
-            ],
-            "extra": [
-              "emblem"
-            ],
+            "common": ["cloth"],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "buckle"
-              ],
+              "parts": ["buckle"],
               "min": 1,
               "max": 3
             }
@@ -400,25 +292,14 @@
           "materials": {
             "primary": "boot",
             "required": {
-              "boot": [
-                "leather",
-                "cloth"
-              ]
+              "boot": ["leather", "cloth"]
             },
             "optionalParts": {
-              "laces": [
-                "cloth",
-                "leather"
-              ],
-              "lining": [
-                "fur"
-              ]
+              "laces": ["cloth", "leather"],
+              "lining": ["fur"]
             },
             "restricted": {
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "cloth": ["silk", "lace"]
             },
             "creation": "crafted",
             "maker": {
@@ -426,9 +307,7 @@
               "leather": "cobbler"
             },
             "default": "cloth",
-            "common": [
-              "cloth"
-            ]
+            "common": ["cloth"]
           }
         },
         "shoes": {
@@ -444,37 +323,17 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "leather",
-                "cloth"
-              ],
-              "sole": [
-                "leather",
-                "wood"
-              ]
+              "body": ["leather", "cloth"],
+              "sole": ["leather", "wood"]
             },
             "optionalParts": {
-              "laces": [
-                "cloth",
-                "leather"
-              ],
-              "buckle": [
-                "metal"
-              ],
-              "lining": [
-                "fur"
-              ]
+              "laces": ["cloth", "leather"],
+              "buckle": ["metal"],
+              "lining": ["fur"]
             },
             "restricted": {
-              "cloth": [
-                "silk",
-                "lace"
-              ],
-              "metal": [
-                "mithral",
-                "lead",
-                "copper"
-              ]
+              "cloth": ["silk", "lace"],
+              "metal": ["mithral", "lead", "copper"]
             },
             "creation": "crafted",
             "maker": {
@@ -482,9 +341,7 @@
               "leather": "cobbler"
             },
             "default": "cloth",
-            "common": [
-              "cloth"
-            ]
+            "common": ["cloth"]
           }
         },
         "sandals": {
@@ -500,25 +357,14 @@
           "materials": {
             "primary": "sole",
             "required": {
-              "sole": [
-                "leather",
-                "wood"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "sole": ["leather", "wood"],
+              "strap": ["leather", "cloth"]
             },
             "optionalParts": {
-              "lining": [
-                "fur"
-              ]
+              "lining": ["fur"]
             },
             "restricted": {
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "cloth": ["silk", "lace"]
             },
             "creation": "crafted",
             "maker": {
@@ -526,9 +372,7 @@
               "leather": "cobbler"
             },
             "default": "cloth",
-            "common": [
-              "cloth"
-            ]
+            "common": ["cloth"]
           }
         }
       }
@@ -548,15 +392,10 @@
           "materials": {
             "primary": "cap",
             "required": {
-              "cap": [
-                "cloth",
-                "leather"
-              ]
+              "cap": ["cloth", "leather"]
             },
             "optionalParts": {
-              "accent feather": [
-                "feather"
-              ]
+              "accent feather": ["feather"]
             },
             "creation": "crafted",
             "maker": {
@@ -564,10 +403,7 @@
               "leather": "tailor"
             },
             "restricted": {
-              "cloth": [
-                "lace",
-                "silk"
-              ]
+              "cloth": ["lace", "silk"]
             },
             "default": "cloth"
           }
@@ -585,16 +421,10 @@
           "materials": {
             "primary": "cap",
             "required": {
-              "cap": [
-                "cloth",
-                "leather"
-              ]
+              "cap": ["cloth", "leather"]
             },
             "optionalParts": {
-              "band": [
-                "cloth",
-                "leather"
-              ]
+              "band": ["cloth", "leather"]
             },
             "creation": "crafted",
             "maker": {
@@ -617,15 +447,9 @@
           "materials": {
             "primary": "bourrelet",
             "required": {
-              "bourrelet": [
-                "cloth"
-              ],
-              "cornette": [
-                "cloth"
-              ],
-              "patte": [
-                "cloth"
-              ]
+              "bourrelet": ["cloth"],
+              "cornette": ["cloth"],
+              "patte": ["cloth"]
             },
             "creation": "crafted",
             "maker": {
@@ -647,10 +471,7 @@
           "materials": {
             "primary": "hood",
             "required": {
-              "hood": [
-                "cloth",
-                "leather"
-              ]
+              "hood": ["cloth", "leather"]
             },
             "creation": "crafted",
             "maker": {
@@ -673,9 +494,7 @@
           "materials": {
             "primary": "headpiece",
             "required": {
-              "headpiece": [
-                "cloth"
-              ]
+              "headpiece": ["cloth"]
             },
             "creation": "crafted",
             "maker": {
@@ -697,9 +516,7 @@
           "materials": {
             "primary": "cap",
             "required": {
-              "cap": [
-                "cloth"
-              ]
+              "cap": ["cloth"]
             },
             "creation": "crafted",
             "maker": {
@@ -721,12 +538,8 @@
           "materials": {
             "primary": "headpiece",
             "required": {
-              "headpiece": [
-                "cloth"
-              ],
-              "chin strap": [
-                "cloth"
-              ]
+              "headpiece": ["cloth"],
+              "chin strap": ["cloth"]
             },
             "creation": "crafted",
             "maker": {
@@ -748,27 +561,18 @@
           "materials": {
             "primary": "cloth wrap",
             "required": {
-              "cloth wrap": [
-                "cloth"
-              ]
+              "cloth wrap": ["cloth"]
             },
             "optionalParts": {
-              "jewel": [
-                "gemstone",
-                "glass"
-              ],
-              "accent feather": [
-                "feather"
-              ]
+              "jewel": ["gemstone", "glass"],
+              "accent feather": ["feather"]
             },
             "creation": "woven",
             "maker": {
               "cloth": "tailor"
             },
             "restricted": {
-              "cloth": [
-                "lace"
-              ]
+              "cloth": ["lace"]
             },
             "default": "cloth"
           }
@@ -786,34 +590,19 @@
           "materials": {
             "primary": "ceremonial feathers",
             "required": {
-              "ceremonial feathers": [
-                "feather"
-              ],
-              "band": [
-                "cloth",
-                "leather"
-              ],
-              "accents": [
-                "metal",
-                "bone",
-                "horn"
-              ]
+              "ceremonial feathers": ["feather"],
+              "band": ["cloth", "leather"],
+              "accents": ["metal", "bone", "horn"]
             },
             "optionalParts": {
-              "tassels": [
-                "leather",
-                "cloth"
-              ]
+              "tassels": ["leather", "cloth"]
             },
             "creation": "crafted",
             "maker": {
               "feather": "plumer"
             },
             "restricted": {
-              "cloth": [
-                "lace",
-                "silk"
-              ]
+              "cloth": ["lace", "silk"]
             },
             "default": "cloth"
           }
@@ -831,13 +620,8 @@
           "materials": {
             "primary": "cap",
             "required": {
-              "cap": [
-                "cloth"
-              ],
-              "tassels": [
-                "cloth",
-                "leather"
-              ]
+              "cap": ["cloth"],
+              "tassels": ["cloth", "leather"]
             },
             "creation": "crafted",
             "maker": {
@@ -845,20 +629,13 @@
               "leather": "hatter"
             },
             "restricted": {
-              "cloth": [
-                "lace",
-                "silk"
-              ]
+              "cloth": ["lace", "silk"]
             },
             "default": "cloth",
-            "extra": [
-              "emblem"
-            ],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "cap"
-              ],
+              "parts": ["cap"],
               "min": 1,
               "max": 3
             }
@@ -881,18 +658,11 @@
           "materials": {
             "primary": "head",
             "required": {
-              "head": [
-                "metal"
-              ],
-              "handle": [
-                "wood"
-              ]
+              "head": ["metal"],
+              "handle": ["wood"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -901,16 +671,8 @@
               "wood": "woodworker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
@@ -927,18 +689,11 @@
           "materials": {
             "primary": "head",
             "required": {
-              "head": [
-                "metal"
-              ],
-              "handle": [
-                "wood"
-              ]
+              "head": ["metal"],
+              "handle": ["wood"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -947,16 +702,8 @@
               "wood": "woodworker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
@@ -973,18 +720,11 @@
           "materials": {
             "primary": "sawblade",
             "required": {
-              "sawblade": [
-                "metal"
-              ],
-              "handle": [
-                "wood"
-              ]
+              "sawblade": ["metal"],
+              "handle": ["wood"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -993,16 +733,8 @@
               "wood": "woodworker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
@@ -1019,27 +751,12 @@
           "materials": {
             "primary": "stand",
             "required": {
-              "stand": [
-                "metal",
-                "wood",
-                "bone"
-              ],
-              "arm": [
-                "metal",
-                "wood",
-                "bone"
-              ],
-              "baskets": [
-                "metal",
-                "wood",
-                "bone"
-              ]
+              "stand": ["metal", "wood", "bone"],
+              "arm": ["metal", "wood", "bone"],
+              "baskets": ["metal", "wood", "bone"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -1049,16 +766,8 @@
               "bone": "boneworker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
@@ -1075,21 +784,10 @@
           "materials": {
             "primary": "roof",
             "required": {
-              "roof": [
-                "cloth",
-                "leather"
-              ],
-              "poles": [
-                "wood",
-                "metal"
-              ],
-              "stakes": [
-                "wood",
-                "metal"
-              ],
-              "guy lines": [
-                "cloth"
-              ]
+              "roof": ["cloth", "leather"],
+              "poles": ["wood", "metal"],
+              "stakes": ["wood", "metal"],
+              "guy lines": ["cloth"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -1098,16 +796,8 @@
               "leather": "crafter"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
@@ -1124,14 +814,8 @@
           "materials": {
             "primary": "sack",
             "required": {
-              "sack": [
-                "cloth",
-                "leather"
-              ],
-              "straps": [
-                "cloth",
-                "leather"
-              ]
+              "sack": ["cloth", "leather"],
+              "straps": ["cloth", "leather"]
             },
             "default": "leather",
             "creation": "crafted",
@@ -1140,16 +824,8 @@
               "leather": "crafter"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
@@ -1166,19 +842,11 @@
           "materials": {
             "primary": "face",
             "required": {
-              "face": [
-                "metal"
-              ]
+              "face": ["metal"]
             },
             "optionalParts": {
-              "frame": [
-                "metal",
-                "wood",
-                "bone"
-              ],
-              "handle": [
-                "metal"
-              ]
+              "frame": ["metal", "wood", "bone"],
+              "handle": ["metal"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -1186,34 +854,14 @@
               "metal": "smith"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "gold",
-                "iron",
-                "bronze",
-                "copper"
-              ]
+              "metal": ["platinum", "lead", "gold", "iron", "bronze", "copper"]
             },
-            "extra": [
-              "carving"
-            ],
+            "extra": ["carving"],
             "carving": {
               "chance": 33,
-              "parts": [
-                "handle"
-              ],
-              "shape": [
-                "",
-                " head"
-              ],
-              "design": [
-                "words",
-                "engraving",
-                "things",
-                "person",
-                "single"
-              ],
+              "parts": ["handle"],
+              "shape": ["", " head"],
+              "design": ["words", "engraving", "things", "person", "single"],
               "count": 1
             }
           }
@@ -1231,9 +879,7 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "metal"
-              ]
+              "body": ["metal"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -1241,12 +887,7 @@
               "metal": "smith"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "gold",
-                "silver"
-              ]
+              "metal": ["platinum", "lead", "gold", "silver"]
             }
           }
         },
@@ -1263,10 +904,7 @@
           "materials": {
             "primary": "ink vial",
             "required": {
-              "ink vial": [
-                "glass",
-                "metal"
-              ]
+              "ink vial": ["glass", "metal"]
             },
             "default": "glass",
             "creation": "crafted",
@@ -1275,20 +913,12 @@
               "glass": "glassblower"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "copper"
-              ]
+              "metal": ["platinum", "lead", "copper"]
             },
-            "extra": [
-              "emblem"
-            ],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "ink vial"
-              ],
+              "parts": ["ink vial"],
               "min": 1,
               "max": 3
             }
@@ -1307,9 +937,7 @@
           "materials": {
             "primary": "quill",
             "required": {
-              "quill": [
-                "feather"
-              ]
+              "quill": ["feather"]
             },
             "default": "feather",
             "creation": "found",
@@ -1317,20 +945,12 @@
               "feather": "plumer"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "copper"
-              ]
+              "metal": ["platinum", "lead", "copper"]
             },
-            "extra": [
-              "emblem"
-            ],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "ink vial"
-              ],
+              "parts": ["ink vial"],
               "min": 1,
               "max": 3
             }
@@ -1349,9 +969,7 @@
           "materials": {
             "primary": "rope",
             "required": {
-              "rope": [
-                "cloth"
-              ]
+              "rope": ["cloth"]
             },
             "default": "cloth",
             "creation": "woven",
@@ -1359,9 +977,7 @@
               "cloth": "weaver"
             },
             "restricted": {
-              "cloth": [
-                "lace"
-              ]
+              "cloth": ["lace"]
             },
             "dye": false
           }
@@ -1379,19 +995,11 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "metal"
-              ],
-              "handle": [
-                "metal",
-                "wood"
-              ]
+              "body": ["metal"],
+              "handle": ["metal", "wood"]
             },
             "optionalParts": {
-              "handle wrap": [
-                "leather",
-                "cloth"
-              ]
+              "handle wrap": ["leather", "cloth"]
             },
             "default": "cloth",
             "creation": "forged",
@@ -1399,16 +1007,8 @@
               "metal": "smith"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "gold",
-                "silver",
-                "copper"
-              ],
-              "cloth": [
-                "lace",
-                "silk"
-              ]
+              "metal": ["platinum", "gold", "silver", "copper"],
+              "cloth": ["lace", "silk"]
             },
             "dye": false
           }
@@ -1426,14 +1026,10 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "metal"
-              ]
+              "body": ["metal"]
             },
             "optionalParts": {
-              "key": [
-                "metal"
-              ]
+              "key": ["metal"]
             },
             "default": "metal",
             "creation": "forged",
@@ -1441,12 +1037,7 @@
               "metal": "locksmith"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "gold",
-                "silver",
-                "copper"
-              ]
+              "metal": ["platinum", "gold", "silver", "copper"]
             }
           }
         }
@@ -1467,22 +1058,12 @@
           "materials": {
             "primary": "bowl",
             "required": {
-              "bowl": [
-                "metal"
-              ],
-              "handle": [
-                "metal",
-                "wood"
-              ],
-              "feet": [
-                "metal"
-              ]
+              "bowl": ["metal"],
+              "handle": ["metal", "wood"],
+              "feet": ["metal"]
             },
             "optionalParts": {
-              "handle wrapping": [
-                "leather",
-                "cloth"
-              ]
+              "handle wrapping": ["leather", "cloth"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -1491,18 +1072,8 @@
               "wood": "woodworker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "bronze",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "bronze", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
@@ -1519,19 +1090,11 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "metal"
-              ],
-              "handle": [
-                "metal",
-                "wood"
-              ]
+              "body": ["metal"],
+              "handle": ["metal", "wood"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -1540,18 +1103,8 @@
               "wood": "woodworker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "bronze",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "bronze", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
@@ -1568,19 +1121,11 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "metal"
-              ],
-              "handle": [
-                "metal",
-                "wood"
-              ]
+              "body": ["metal"],
+              "handle": ["metal", "wood"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -1589,18 +1134,8 @@
               "wood": "woodworker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "bronze",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "bronze", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
@@ -1617,25 +1152,13 @@
           "materials": {
             "primary": "bowl",
             "required": {
-              "bowl": [
-                "metal"
-              ],
-              "lid": [
-                "metal"
-              ],
-              "spout": [
-                "metal"
-              ],
-              "handle": [
-                "metal",
-                "wood"
-              ]
+              "bowl": ["metal"],
+              "lid": ["metal"],
+              "spout": ["metal"],
+              "handle": ["metal", "wood"]
             },
             "optionalParts": {
-              "handle wrapping": [
-                "leather",
-                "cloth"
-              ]
+              "handle wrapping": ["leather", "cloth"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -1644,17 +1167,8 @@
               "wood": "woodworker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
@@ -1671,21 +1185,12 @@
           "materials": {
             "primary": "fork",
             "required": {
-              "fork": [
-                "metal"
-              ],
-              "knife": [
-                "metal"
-              ],
-              "spoon": [
-                "metal"
-              ]
+              "fork": ["metal"],
+              "knife": ["metal"],
+              "spoon": ["metal"]
             },
             "optionalParts": {
-              "pouch": [
-                "cloth",
-                "leather"
-              ]
+              "pouch": ["cloth", "leather"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -1696,16 +1201,8 @@
               "bone": "bonecarver"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         }
@@ -1726,20 +1223,11 @@
           "materials": {
             "primary": "pouch",
             "required": {
-              "pouch": [
-                "leather"
-              ],
-              "stopper": [
-                "metal",
-                "stone",
-                "wood"
-              ]
+              "pouch": ["leather"],
+              "stopper": ["metal", "stone", "wood"]
             },
             "optionalParts": {
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "strap": ["leather", "cloth"]
             },
             "default": "leather",
             "creation": "crafted",
@@ -1747,12 +1235,7 @@
               "leather": "leatherworker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "gold",
-                "silver",
-                "copper"
-              ]
+              "metal": ["platinum", "gold", "silver", "copper"]
             }
           }
         },
@@ -1769,19 +1252,11 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "metal",
-                "wood"
-              ],
-              "cap": [
-                "metal",
-                "wood"
-              ]
+              "body": ["metal", "wood"],
+              "cap": ["metal", "wood"]
             },
             "optionalParts": {
-              "wrap cover": [
-                "leather"
-              ]
+              "wrap cover": ["leather"]
             },
             "default": "body",
             "creation": "crafted",
@@ -1790,20 +1265,12 @@
               "wood": "woodcarver"
             },
             "restricted": {
-              "metal": [
-                "steel",
-                "lead",
-                "copper"
-              ]
+              "metal": ["steel", "lead", "copper"]
             },
-            "extra": [
-              "emblem"
-            ],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "body"
-              ],
+              "parts": ["body"],
               "min": 1,
               "max": 3
             }
@@ -1822,21 +1289,11 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "metal",
-                "wood",
-                "clay"
-              ],
-              "handle": [
-                "metal",
-                "wood",
-                "clay"
-              ]
+              "body": ["metal", "wood", "clay"],
+              "handle": ["metal", "wood", "clay"]
             },
             "optionalParts": {
-              "handle strap": [
-                "leather"
-              ]
+              "handle strap": ["leather"]
             },
             "default": "body",
             "creation": "crafted",
@@ -1846,20 +1303,12 @@
               "clay": "potter"
             },
             "restricted": {
-              "metal": [
-                "steel",
-                "lead",
-                "copper"
-              ]
+              "metal": ["steel", "lead", "copper"]
             },
-            "extra": [
-              "emblem"
-            ],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "body"
-              ],
+              "parts": ["body"],
               "min": 1,
               "max": 3
             }
@@ -1878,19 +1327,11 @@
           "materials": {
             "primary": "horn",
             "required": {
-              "horn": [
-                "horn"
-              ]
+              "horn": ["horn"]
             },
             "optionalParts": {
-              "rim": [
-                "metal"
-              ],
-              "stand": [
-                "metal",
-                "bone",
-                "wood"
-              ]
+              "rim": ["metal"],
+              "stand": ["metal", "bone", "wood"]
             },
             "default": "horn",
             "creation": "crafted",
@@ -1898,20 +1339,12 @@
               "horn": "artisan"
             },
             "restricted": {
-              "metal": [
-                "steel",
-                "lead",
-                "copper"
-              ]
+              "metal": ["steel", "lead", "copper"]
             },
-            "extra": [
-              "emblem"
-            ],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "horn"
-              ],
+              "parts": ["horn"],
               "min": 1,
               "max": 3
             }
@@ -1930,20 +1363,12 @@
           "materials": {
             "primary": "bowl",
             "required": {
-              "bowl": [
-                "glass"
-              ],
-              "stem": [
-                "glass"
-              ],
-              "base": [
-                "glass"
-              ]
+              "bowl": ["glass"],
+              "stem": ["glass"],
+              "base": ["glass"]
             },
             "optionalParts": {
-              "rim": [
-                "metal"
-              ]
+              "rim": ["metal"]
             },
             "default": "glass",
             "creation": "blown",
@@ -1951,11 +1376,7 @@
               "glass": "glassblower"
             },
             "restricted": {
-              "metal": [
-                "steel",
-                "lead",
-                "copper"
-              ]
+              "metal": ["steel", "lead", "copper"]
             }
           }
         },
@@ -1972,23 +1393,13 @@
           "materials": {
             "primary": "bowl",
             "required": {
-              "bowl": [
-                "metal"
-              ],
-              "stem": [
-                "metal"
-              ],
-              "base": [
-                "metal"
-              ]
+              "bowl": ["metal"],
+              "stem": ["metal"],
+              "base": ["metal"]
             },
             "optionalParts": {
-              "rim": [
-                "metal"
-              ],
-              "accents": [
-                "gemstone"
-              ]
+              "rim": ["metal"],
+              "accents": ["gemstone"]
             },
             "default": "metal",
             "creation": "created",
@@ -1997,20 +1408,12 @@
               "glass": "glassblower"
             },
             "restricted": {
-              "metal": [
-                "steel",
-                "lead",
-                "copper"
-              ]
+              "metal": ["steel", "lead", "copper"]
             },
-            "extra": [
-              "emblem"
-            ],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "bowl"
-              ],
+              "parts": ["bowl"],
               "min": 1,
               "max": 3
             }
@@ -2029,34 +1432,13 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "metal",
-                "wood",
-                "clay"
-              ],
-              "handle": [
-                "metal",
-                "wood",
-                "clay"
-              ],
-              "lid": [
-                "metal",
-                "wood",
-                "clay"
-              ]
+              "body": ["metal", "wood", "clay"],
+              "handle": ["metal", "wood", "clay"],
+              "lid": ["metal", "wood", "clay"]
             },
             "optionalParts": {
-              "footring": [
-                "metal",
-                "bone",
-                "wood",
-                "clay"
-              ],
-              "tumbhook": [
-                "metal",
-                "bone",
-                "wood"
-              ]
+              "footring": ["metal", "bone", "wood", "clay"],
+              "tumbhook": ["metal", "bone", "wood"]
             },
             "default": "metal",
             "creation": "created",
@@ -2066,20 +1448,12 @@
               "clay": "artisan"
             },
             "restricted": {
-              "metal": [
-                "steel",
-                "lead",
-                "copper"
-              ]
+              "metal": ["steel", "lead", "copper"]
             },
-            "extra": [
-              "emblem"
-            ],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 75,
-              "parts": [
-                "bowl"
-              ],
+              "parts": ["bowl"],
               "min": 1,
               "max": 3
             }
@@ -2102,21 +1476,11 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "metal",
-                "stone",
-                "clay"
-              ],
-              "mouthpiece": [
-                "metal",
-                "stone",
-                "clay"
-              ]
+              "body": ["metal", "stone", "clay"],
+              "mouthpiece": ["metal", "stone", "clay"]
             },
             "optionalParts": {
-              "strap": [
-                "leather"
-              ]
+              "strap": ["leather"]
             },
             "default": "wood",
             "creation": "crafted",
@@ -2127,19 +1491,12 @@
               "clay": "potter"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead"
-              ]
+              "metal": ["platinum", "lead"]
             },
-            "extra": [
-              "emblem"
-            ],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "body"
-              ],
+              "parts": ["body"],
               "min": 1,
               "max": 2
             }
@@ -2158,21 +1515,11 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "metal",
-                "clay",
-                "wood"
-              ],
-              "mouthpiece": [
-                "metal",
-                "clay",
-                "wood"
-              ]
+              "body": ["metal", "clay", "wood"],
+              "mouthpiece": ["metal", "clay", "wood"]
             },
             "optionalParts": {
-              "strap": [
-                "leather"
-              ]
+              "strap": ["leather"]
             },
             "default": "wood",
             "creation": "crafted",
@@ -2183,19 +1530,12 @@
               "wood": "artisan"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead"
-              ]
+              "metal": ["platinum", "lead"]
             },
-            "extra": [
-              "emblem"
-            ],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "body"
-              ],
+              "parts": ["body"],
               "min": 1,
               "max": 2
             }
@@ -2214,21 +1554,12 @@
           "materials": {
             "primary": "shaft",
             "required": {
-              "shaft": [
-                "wood"
-              ],
-              "mouthpiece": [
-                "metal",
-                "wood"
-              ],
-              "bocal": [
-                "metal"
-              ]
+              "shaft": ["wood"],
+              "mouthpiece": ["metal", "wood"],
+              "bocal": ["metal"]
             },
             "optionalParts": {
-              "strap": [
-                "leather"
-              ]
+              "strap": ["leather"]
             },
             "default": "wood",
             "creation": "crafted",
@@ -2239,19 +1570,12 @@
               "wood": "artisan"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead"
-              ]
+              "metal": ["platinum", "lead"]
             },
-            "extra": [
-              "emblem"
-            ],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "body"
-              ],
+              "parts": ["body"],
               "min": 1,
               "max": 2
             }
@@ -2270,24 +1594,13 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "wood"
-              ],
-              "head": [
-                "wood"
-              ],
-              "tuning pegs": [
-                "metal",
-                "bone"
-              ],
-              "strings": [
-                "cloth"
-              ]
+              "body": ["wood"],
+              "head": ["wood"],
+              "tuning pegs": ["metal", "bone"],
+              "strings": ["cloth"]
             },
             "optionalParts": {
-              "strap": [
-                "leather"
-              ]
+              "strap": ["leather"]
             },
             "default": "wood",
             "creation": "crafted",
@@ -2298,42 +1611,21 @@
               "bone": "artisan"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead"
-              ],
-              "cloth": [
-                "lace",
-                "silk"
-              ]
+              "metal": ["platinum", "lead"],
+              "cloth": ["lace", "silk"]
             },
-            "extra": [
-              "emblem",
-              "carving"
-            ],
+            "extra": ["emblem", "carving"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "body"
-              ],
+              "parts": ["body"],
               "min": 1,
               "max": 2
             },
             "carving": {
               "chance": 25,
-              "parts": [
-                "head"
-              ],
-              "shape": [
-                " head"
-              ],
-              "design": [
-                "words",
-                "engraving",
-                "things",
-                "person",
-                "single"
-              ],
+              "parts": ["head"],
+              "shape": [" head"],
+              "design": ["words", "engraving", "things", "person", "single"],
               "count": 1
             }
           }
@@ -2351,21 +1643,11 @@
           "materials": {
             "primary": "pipes",
             "required": {
-              "pipes": [
-                "wood",
-                "metal",
-                "bone"
-              ],
-              "brace": [
-                "wood",
-                "metal",
-                "bone"
-              ]
+              "pipes": ["wood", "metal", "bone"],
+              "brace": ["wood", "metal", "bone"]
             },
             "optionalParts": {
-              "strap": [
-                "leather"
-              ]
+              "strap": ["leather"]
             },
             "default": "wood",
             "creation": "crafted",
@@ -2376,14 +1658,8 @@
               "bone": "artisan"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead"
-              ],
-              "cloth": [
-                "lace",
-                "silk"
-              ]
+              "metal": ["platinum", "lead"],
+              "cloth": ["lace", "silk"]
             }
           }
         },
@@ -2400,20 +1676,12 @@
           "materials": {
             "primary": "long pipe",
             "required": {
-              "long pipe": [
-                "metal"
-              ],
-              "curved mouthpiece": [
-                "metal"
-              ],
-              "bell": [
-                "metal"
-              ]
+              "long pipe": ["metal"],
+              "curved mouthpiece": ["metal"],
+              "bell": ["metal"]
             },
             "optionalParts": {
-              "strap": [
-                "leather"
-              ]
+              "strap": ["leather"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -2424,35 +1692,15 @@
               "bone": "artisan"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "copper",
-                "steel"
-              ],
-              "cloth": [
-                "lace",
-                "silk"
-              ]
+              "metal": ["platinum", "lead", "copper", "steel"],
+              "cloth": ["lace", "silk"]
             },
-            "extra": [
-              "carving"
-            ],
+            "extra": ["carving"],
             "carving": {
               "chance": 100,
-              "parts": [
-                "bell"
-              ],
-              "shape": [
-                " head"
-              ],
-              "design": [
-                "words",
-                "engraving",
-                "things",
-                "person",
-                "single"
-              ],
+              "parts": ["bell"],
+              "shape": [" head"],
+              "design": ["words", "engraving", "things", "person", "single"],
               "count": 1
             }
           }
@@ -2470,25 +1718,13 @@
           "materials": {
             "primary": "shell",
             "required": {
-              "shell": [
-                "wood",
-                "metal"
-              ],
-              "batter head": [
-                "leather"
-              ],
-              "tension rods": [
-                "wood",
-                "metal"
-              ]
+              "shell": ["wood", "metal"],
+              "batter head": ["leather"],
+              "tension rods": ["wood", "metal"]
             },
             "optionalParts": {
-              "strap": [
-                "leather"
-              ],
-              "drumsticks": [
-                "wood"
-              ]
+              "strap": ["leather"],
+              "drumsticks": ["wood"]
             },
             "default": "wood",
             "creation": "crafted",
@@ -2499,16 +1735,8 @@
               "bone": "artisan"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "copper",
-                "steel"
-              ],
-              "cloth": [
-                "lace",
-                "silk"
-              ]
+              "metal": ["platinum", "lead", "copper", "steel"],
+              "cloth": ["lace", "silk"]
             }
           }
         },
@@ -2525,30 +1753,14 @@
           "materials": {
             "primary": "soundbox",
             "required": {
-              "soundbox": [
-                "wood"
-              ],
-              "arms": [
-                "wood"
-              ],
-              "crossbar": [
-                "wood",
-                "metal",
-                "bone"
-              ],
-              "bridge": [
-                "wood",
-                "metal",
-                "bone"
-              ],
-              "strings": [
-                "cloth"
-              ]
+              "soundbox": ["wood"],
+              "arms": ["wood"],
+              "crossbar": ["wood", "metal", "bone"],
+              "bridge": ["wood", "metal", "bone"],
+              "strings": ["cloth"]
             },
             "optionalParts": {
-              "hand-strap": [
-                "leather"
-              ]
+              "hand-strap": ["leather"]
             },
             "default": "wood",
             "creation": "crafted",
@@ -2559,35 +1771,15 @@
               "bone": "artisan"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "copper",
-                "steel"
-              ],
-              "cloth": [
-                "lace",
-                "silk"
-              ]
+              "metal": ["platinum", "lead", "copper", "steel"],
+              "cloth": ["lace", "silk"]
             },
-            "extra": [
-              "carving"
-            ],
+            "extra": ["carving"],
             "carving": {
               "chance": 33,
-              "parts": [
-                "arms"
-              ],
-              "shape": [
-                " head"
-              ],
-              "design": [
-                "words",
-                "engraving",
-                "things",
-                "person",
-                "single"
-              ],
+              "parts": ["arms"],
+              "shape": [" head"],
+              "design": ["words", "engraving", "things", "person", "single"],
               "count": 2
             }
           }
@@ -2605,18 +1797,11 @@
           "materials": {
             "primary": "horn",
             "required": {
-              "horn": [
-                "metal",
-                "horn"
-              ],
-              "mouthpiece": [
-                "metal"
-              ]
+              "horn": ["metal", "horn"],
+              "mouthpiece": ["metal"]
             },
             "optionalParts": {
-              "hand-strap": [
-                "leather"
-              ]
+              "hand-strap": ["leather"]
             },
             "default": "horn",
             "creation": "crafted",
@@ -2627,16 +1812,8 @@
               "horn": "artisan"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "copper",
-                "steel"
-              ],
-              "cloth": [
-                "lace",
-                "silk"
-              ]
+              "metal": ["platinum", "lead", "copper", "steel"],
+              "cloth": ["lace", "silk"]
             }
           }
         },
@@ -2653,18 +1830,11 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "metal",
-                "horn"
-              ],
-              "mouthpiece": [
-                "metal"
-              ]
+              "body": ["metal", "horn"],
+              "mouthpiece": ["metal"]
             },
             "optionalParts": {
-              "hand-strap": [
-                "leather"
-              ]
+              "hand-strap": ["leather"]
             },
             "default": "horn",
             "creation": "crafted",
@@ -2675,16 +1845,8 @@
               "horn": "artisan"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "copper",
-                "steel"
-              ],
-              "cloth": [
-                "lace",
-                "silk"
-              ]
+              "metal": ["platinum", "lead", "copper", "steel"],
+              "cloth": ["lace", "silk"]
             }
           }
         },
@@ -2701,32 +1863,15 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "wood"
-              ],
-              "neck": [
-                "wood"
-              ],
-              "scroll": [
-                "wood"
-              ],
-              "bridge": [
-                "wood",
-                "bone",
-                "metal"
-              ],
-              "tuning pegs": [
-                "bone",
-                "metal"
-              ],
-              "strings": [
-                "cloth"
-              ]
+              "body": ["wood"],
+              "neck": ["wood"],
+              "scroll": ["wood"],
+              "bridge": ["wood", "bone", "metal"],
+              "tuning pegs": ["bone", "metal"],
+              "strings": ["cloth"]
             },
             "optionalParts": {
-              "bow": [
-                "wood"
-              ]
+              "bow": ["wood"]
             },
             "default": "wood",
             "creation": "crafted",
@@ -2737,35 +1882,15 @@
               "bone": "artisan"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "copper",
-                "steel"
-              ],
-              "cloth": [
-                "lace",
-                "silk"
-              ]
+              "metal": ["platinum", "lead", "copper", "steel"],
+              "cloth": ["lace", "silk"]
             },
-            "extra": [
-              "carving"
-            ],
+            "extra": ["carving"],
             "carving": {
               "chance": 25,
-              "parts": [
-                "scroll"
-              ],
-              "shape": [
-                " head"
-              ],
-              "design": [
-                "words",
-                "engraving",
-                "things",
-                "person",
-                "single"
-              ],
+              "parts": ["scroll"],
+              "shape": [" head"],
+              "design": ["words", "engraving", "things", "person", "single"],
               "count": 1
             }
           }
@@ -2787,17 +1912,11 @@
           "materials": {
             "primary": "frame",
             "required": {
-              "frame": [
-                "metal"
-              ],
-              "handle": [
-                "metal"
-              ]
+              "frame": ["metal"],
+              "handle": ["metal"]
             },
             "optionalParts": {
-              "panes": [
-                "glass"
-              ]
+              "panes": ["glass"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -2805,10 +1924,7 @@
               "metal": "smith"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead"
-              ]
+              "metal": ["platinum", "lead"]
             }
           }
         },
@@ -2825,20 +1941,12 @@
           "materials": {
             "primary": "frame",
             "required": {
-              "frame": [
-                "metal"
-              ],
-              "handle": [
-                "metal"
-              ],
-              "focusing lens ": [
-                "glass"
-              ]
+              "frame": ["metal"],
+              "handle": ["metal"],
+              "focusing lens ": ["glass"]
             },
             "optionalParts": {
-              "legs": [
-                "metal"
-              ]
+              "legs": ["metal"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -2846,10 +1954,7 @@
               "metal": "smith"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead"
-              ]
+              "metal": ["platinum", "lead"]
             }
           }
         },
@@ -2866,20 +1971,12 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "clay"
-              ],
-              "spout": [
-                "clay"
-              ]
+              "body": ["clay"],
+              "spout": ["clay"]
             },
             "optionalParts": {
-              "handle": [
-                "clay"
-              ],
-              "glass ": [
-                "glass"
-              ]
+              "handle": ["clay"],
+              "glass ": ["glass"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -2887,11 +1984,7 @@
               "clay": "potter"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "steel"
-              ]
+              "metal": ["platinum", "lead", "steel"]
             }
           }
         },
@@ -2908,20 +2001,12 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "metal"
-              ],
-              "stand": [
-                "metal"
-              ],
-              "glass ": [
-                "glass"
-              ]
+              "body": ["metal"],
+              "stand": ["metal"],
+              "glass ": ["glass"]
             },
             "optionalParts": {
-              "handle": [
-                "metal"
-              ]
+              "handle": ["metal"]
             },
             "default": "metal",
             "creation": "crafted",
@@ -2929,11 +2014,7 @@
               "metal": "smith"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "steel"
-              ]
+              "metal": ["platinum", "lead", "steel"]
             }
           }
         },
@@ -2952,12 +2033,8 @@
           "materials": {
             "primary": "shaft",
             "required": {
-              "shaft": [
-                "wood"
-              ],
-              "flammable wrapping": [
-                "cloth"
-              ]
+              "shaft": ["wood"],
+              "flammable wrapping": ["cloth"]
             },
             "default": "wood",
             "creation": "crafted",
@@ -2966,13 +2043,7 @@
               "wood": "artisan"
             },
             "restricted": {
-              "cloth": [
-                "linen",
-                "cotton",
-                "wool",
-                "lace",
-                "silk"
-              ]
+              "cloth": ["linen", "cotton", "wool", "lace", "silk"]
             },
             "dye": false
           }
@@ -2990,13 +2061,8 @@
           "materials": {
             "primary": "shaft",
             "required": {
-              "shaft": [
-                "wood",
-                "metal"
-              ],
-              "continuous flame": [
-                "magic"
-              ]
+              "shaft": ["wood", "metal"],
+              "continuous flame": ["magic"]
             },
             "default": "wood",
             "creation": "enchanted",
@@ -3005,21 +2071,8 @@
               "wood": "mage"
             },
             "restricted": {
-              "cloth": [
-                "linen",
-                "cotton",
-                "wool",
-                "lace",
-                "silk"
-              ],
-              "metal": [
-                "platinum",
-                "gold",
-                "lead",
-                "copper",
-                "steel",
-                "silver"
-              ]
+              "cloth": ["linen", "cotton", "wool", "lace", "silk"],
+              "metal": ["platinum", "gold", "lead", "copper", "steel", "silver"]
             },
             "dye": false
           }
@@ -3037,15 +2090,9 @@
           "materials": {
             "primary": "shaft",
             "required": {
-              "shaft": [
-                "metal"
-              ],
-              "collar": [
-                "metal"
-              ],
-              "flammable wrapping": [
-                "cloth"
-              ]
+              "shaft": ["metal"],
+              "collar": ["metal"],
+              "flammable wrapping": ["cloth"]
             },
             "default": "wood",
             "creation": "crafted",
@@ -3054,21 +2101,8 @@
               "wood": "artisan"
             },
             "restricted": {
-              "cloth": [
-                "linen",
-                "cotton",
-                "wool",
-                "lace",
-                "silk"
-              ],
-              "metal": [
-                "platinum",
-                "gold",
-                "lead",
-                "copper",
-                "steel",
-                "silver"
-              ]
+              "cloth": ["linen", "cotton", "wool", "lace", "silk"],
+              "metal": ["platinum", "gold", "lead", "copper", "steel", "silver"]
             },
             "dye": false
           }
@@ -3092,15 +2126,9 @@
           "materials": {
             "primary": "body",
             "required": {
-              "body": [
-                "wood"
-              ],
-              "headboard": [
-                "wood"
-              ],
-              "posts": [
-                "wood"
-              ]
+              "body": ["wood"],
+              "headboard": ["wood"],
+              "posts": ["wood"]
             },
             "default": "wood",
             "creation": "crafted",
@@ -3109,17 +2137,11 @@
               "stone": "stonecrafter",
               "wood": "carpenter"
             },
-            "restricted": {
-
-            },
-            "extra": [
-              "emblem"
-            ],
+            "restricted": {},
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "headboard"
-              ],
+              "parts": ["headboard"],
               "min": 1,
               "max": 3
             }
@@ -3140,27 +2162,13 @@
           "materials": {
             "primary": "box",
             "required": {
-              "box": [
-                "wood",
-                "metal"
-              ],
-              "lid": [
-                "wood",
-                "metal"
-              ],
-              "lock": [
-                "metal"
-              ]
+              "box": ["wood", "metal"],
+              "lid": ["wood", "metal"],
+              "lock": ["metal"]
             },
             "optionalParts": {
-              "false bottom": [
-                "wood",
-                "metal"
-              ],
-              "handles": [
-                "metal",
-                "leather"
-              ]
+              "false bottom": ["wood", "metal"],
+              "handles": ["metal", "leather"]
             },
             "default": "wood",
             "creation": "crafted",
@@ -3170,22 +2178,12 @@
               "wood": "carpenter"
             },
             "restricted": {
-              "metal": [
-                "lead",
-                "platinum",
-                "gold",
-                "silver",
-                "copper"
-              ]
+              "metal": ["lead", "platinum", "gold", "silver", "copper"]
             },
-            "extra": [
-              "emblem"
-            ],
+            "extra": ["emblem"],
             "emblem": {
               "chance": 33,
-              "parts": [
-                "lid"
-              ],
+              "parts": ["lid"],
               "min": 1,
               "max": 3
             }
@@ -3197,6 +2195,7 @@
       "subtype": {
         "potion of climbing": {
           "count": 1,
+          "consumable": true,
           "single": "potion of climbing",
           "plural": "potions of climbing",
           "flavor": "The potion is separated into brown, silver, and gray layers resembling bands of stone. Shaking the bottle fails to mix the colors.",
@@ -3210,23 +2209,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3234,22 +2222,14 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
         "potion of healing": {
           "count": 1,
+          "consumable": true,
           "single": "potion of healing",
           "plural": "potions of healing",
           "flavor": "The potion’s red liquid glimmers when agitated.",
@@ -3263,23 +2243,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3287,22 +2256,14 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
         "potion of poison": {
           "count": 1,
+          "consumable": true,
           "single": "potion of poison",
           "plural": "potions of poison",
           "flavor": "This concoction looks, smells, and tastes like a Potion of Healing or other beneficial potion. However, it is actually poison masked by illusion magic.",
@@ -3316,23 +2277,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3340,22 +2290,14 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
         "potion of animal friendship": {
           "count": 1,
+          "consumable": true,
           "single": "potion of animal friendship",
           "plural": "potions of animal friendship",
           "flavor": "Agitating this muddy liquid brings little bits into view: a fish scale, a hummingbird tongue, a cat claw, or a squirrel hair.",
@@ -3369,23 +2311,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3393,22 +2324,14 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
         "potion of growth": {
           "count": 1,
+          "consumable": true,
           "single": "potion of growth",
           "plural": "potions of growth",
           "flavor": "The red in the potion’s liquid continuously expands from a tiny bead to color the clear liquid around it and then contracts. Shaking the bottle fails to interrupt this process.",
@@ -3422,23 +2345,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3446,22 +2358,14 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
         "potion of water breathing": {
           "count": 1,
+          "consumable": true,
           "single": "potion of water breathing",
           "plural": "potions of water breathing",
           "flavor": "This potion's cloudy green fluid smells of the sea and has a jellyfish-like bubble floating in it.",
@@ -3475,23 +2379,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3499,22 +2392,14 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
         "potion of resistance": {
           "count": 1,
+          "consumable": true,
           "single": "potion of resistance",
           "plural": "potions of resistance",
           "flavor": "The liquid inside this bottle shimmers with the color of the element is provides resistance to.",
@@ -3528,23 +2413,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3552,22 +2426,14 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
         "philter of love": {
           "count": 1,
+          "consumable": true,
           "single": "philter of love",
           "plural": "philters of love",
           "flavor": "This potion’s rose-hued, effervescent liquid contains one easy-to-miss bubble shaped like a heart.",
@@ -3581,23 +2447,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3605,22 +2460,14 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
         "potion of greater healing": {
           "count": 1,
+          "consumable": true,
           "single": "potion of healing",
           "plural": "potions of healing",
           "flavor": "The potion’s red liquid glimmers when agitated.",
@@ -3634,23 +2481,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3658,22 +2494,14 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
         "elixir of health": {
           "count": 1,
+          "consumable": true,
           "single": "elixir of health",
           "plural": "elixirs of health",
           "flavor": "This potion's red liquid contains tiny bubbles of light.",
@@ -3687,23 +2515,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3711,22 +2528,14 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
         "oil of slipperiness": {
           "count": 1,
+          "consumable": true,
           "single": "oil of slipperiness",
           "plural": "oils of slipperiness",
           "flavor": "The liquid in the bottle is a thick, heavy, sticky, black unguent but flows quickly when poured",
@@ -3740,23 +2549,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3764,22 +2562,14 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
         "oil of etherealness": {
           "count": 1,
+          "consumable": true,
           "single": "oil of etherealness",
           "plural": "oils of etherealness",
           "flavor": "The bottle contains cloudy gray oil. Beads form on the outside of its bottle and quickly evaporate.",
@@ -3793,23 +2583,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3817,22 +2596,14 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         },
         "potion of hill giant strength": {
           "count": 1,
+          "consumable": true,
           "single": "potion of hill giant strength",
           "plural": "potions of hill giant strength",
           "flavor": "This potion's transparent liquid has floating in it a sliver of fingernail from a hill giant.",
@@ -3846,23 +2617,12 @@
           "materials": {
             "primary": "bottle",
             "required": {
-              "bottle": [
-                "glass"
-              ],
-              "stopper": [
-                "wood",
-                "metal"
-              ]
+              "bottle": ["glass"],
+              "stopper": ["wood", "metal"]
             },
             "optionalParts": {
-              "wrapping": [
-                "leather",
-                "cloth"
-              ],
-              "strap": [
-                "leather",
-                "cloth"
-              ]
+              "wrapping": ["leather", "cloth"],
+              "strap": ["leather", "cloth"]
             },
             "default": "glass",
             "creation": "brewed",
@@ -3870,17 +2630,8 @@
               "glass": "potion maker"
             },
             "restricted": {
-              "metal": [
-                "platinum",
-                "lead",
-                "silver",
-                "gold",
-                "mithral"
-              ],
-              "cloth": [
-                "silk",
-                "lace"
-              ]
+              "metal": ["platinum", "lead", "silver", "gold", "mithral"],
+              "cloth": ["silk", "lace"]
             }
           }
         }

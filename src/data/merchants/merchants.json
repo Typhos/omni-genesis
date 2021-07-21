@@ -2,6 +2,7 @@
   "armorsmith": {
     "SV": 2000,
     "buildShop": true,
+    "descriptor": "armorsmithy",
     "owner": "armorsmith",
     "plural": "armorsmiths",
     "itemList": [
@@ -20,7 +21,17 @@
     ],
     "material_requirements": "undefined",
     "default_inventory_value": 1500,
-    "title": ["Armors", "Armor & Shields", "Armor Shop", "Wards", "Smithy", "Anvil"],
+    "title": [
+      "Armors",
+      "Armor & Shields",
+      "Armor Shop",
+      "Wards",
+      "Smithy",
+      "Anvil",
+      "Crafts",
+      "Forge",
+      "Refuge"
+    ],
     "noun": [
       "Forge",
       "Smithy",
@@ -34,7 +45,18 @@
       "Bulwark",
       "Buckler",
       "Guardian",
-      "Ward"
+      "Ward",
+      "Helm",
+      "Armorer",
+      "Crafts",
+      "Watchman",
+      "Aegis",
+      "Targe",
+      "Refuge",
+      "Warden",
+      "Custodian",
+      "Sentinel",
+      "Sentry"
     ],
     "adjective": [
       "New",
@@ -65,13 +87,16 @@
       "White",
       "Golden",
       "Silver",
-      "Bronze"
+      "Bronze",
+      "Iron",
+      "Steel"
     ],
     "staff": ["armorsmith's apprentice"]
   },
   "blacksmith": {
     "SV": 1500,
     "buildShop": true,
+    "descriptor": "smithy",
     "owner": "blacksmith",
     "plural": "blacksmiths",
     "itemList": [
@@ -109,7 +134,19 @@
     "item_value_min": "undefined",
     "item_value_max": 50,
     "default_inventory_value": 200,
-    "title": ["Metal Goods", "Tools & Trades", "Forge", "Smithy", "Anvil"],
+    "title": [
+      "Metal Goods",
+      "Tools & Trades",
+      "Forge",
+      "Smithy",
+      "Anvil",
+      "Shope",
+      "Blacksmithy",
+      "Ironworks",
+      "Steelworks",
+      "Bellows",
+      "Metallurgy"
+    ],
     "noun": [
       "Forge",
       "Smithy",
@@ -120,7 +157,12 @@
       "Chalice",
       "Goblet",
       "Lantern",
-      "Tradesman"
+      "Tradesman",
+      "Shope",
+      "Ingot",
+      "Tongs",
+      "Vise",
+      "Crucible"
     ],
     "adjective": [
       "New",
@@ -148,13 +190,16 @@
       "White",
       "Golden",
       "Silver",
-      "Bronze"
+      "Bronze",
+      "Iron",
+      "Steel"
     ],
     "staff": ["blacksmith\\'s apprentice"]
   },
   "weaponsmith": {
     "SV": 2000,
     "buildShop": true,
+    "descriptor": "weaponsmithy",
     "owner": "weaponsmith",
     "plural": "weaponsmiths",
     "itemList": [
@@ -201,7 +246,19 @@
     ],
     "material_requirements": "undefined",
     "default_inventory_value": 600,
-    "title": ["Armory", "Arms", "Forge", "Smithy", "Anvil", "Armaments", "Arsenal"],
+    "title": [
+      "Armory",
+      "Arms",
+      "Forge",
+      "Smithy",
+      "Anvil",
+      "Armaments",
+      "Arsenal",
+      "Bladworks",
+      "Metalworks",
+      "Arms Shope",
+      "Bludgeons & Blades"
+    ],
     "noun": [
       "Forge",
       "Smithy",
@@ -210,12 +267,24 @@
       "Bellows",
       "Hammer",
       "Blade",
+      "Blades",
       "Weapon",
       "Armory",
       "Arsenal",
       "Knight",
       "Axe",
-      "Dagger"
+      "Dagger",
+      "Armaments",
+      "Spark",
+      "Shope",
+      "Ingots",
+      "Cutlass",
+      "Saber",
+      "Polearm",
+      "Spear",
+      "Lance",
+      "Halberd",
+      "Pike"
     ],
     "adjective": [
       "New",
@@ -231,6 +300,9 @@
       "Hallow",
       "Venerable",
       "Steadfast",
+      "Trusty",
+      "Dependable",
+      "Reliable",
       "Ancient",
       "Loyal",
       "Elder",
@@ -240,7 +312,9 @@
       "Splendid",
       "Imposing",
       "Wondrous",
-      "Silver"
+      "Silver",
+      "Iron",
+      "Steel"
     ],
     "staff": ["weaponsmith\\'s apprentice"]
   },
@@ -289,17 +363,26 @@
       "Ranger",
       "Hunter",
       "Huntsman",
+      "Trapper",
+      "Stalker",
       "Archer",
       "Marksman",
       "Outlander",
       "Woodsman",
       "Wanderer",
+      "Rover",
+      "Vagrant",
+      "Rambler",
+      "Adventurer",
+      "Pilgrim",
       "Arrow",
       "Bolt",
       "Huntress",
       "Hound",
       "Fox",
-      "Deer"
+      "Deer",
+      "Bear",
+      "Cougar"
     ],
     "adjective": [
       "Lonely",
@@ -331,6 +414,7 @@
   "jeweler": {
     "SV": 400,
     "buildShop": true,
+    "descriptor": "jewelery store",
     "owner": "jeweler",
     "plural": "jewelers",
     "itemList": [
@@ -352,7 +436,9 @@
       "Charms",
       "Regalia",
       "Pendants",
-      "Finery"
+      "Finery",
+      "Gallery",
+      "Rare Finds"
     ],
     "noun": [
       "Jewels",
@@ -366,6 +452,7 @@
       "Crown",
       "Gemstone",
       "Ring",
+      "Charm",
       "Scepter",
       "Necklace",
       "Pendant",
@@ -376,22 +463,32 @@
       "Opal",
       "Earring",
       "Braclet",
-      "Tiara"
+      "Tiara",
+      "Antiques"
     ],
     "adjective": [
-      "King's",
-      "Queen's",
-      "Duke's",
-      "Duchess'",
-      "Count's",
-      "Countess'",
       "Glittering",
       "Gleaming",
       "Shining",
       "Brilliant",
       "Exalted",
       "Noble",
-      "Royal"
+      "Royal",
+      "Elegant",
+      "Chic",
+      "Exquisite",
+      "Classic",
+      "Delicate",
+      "Dignified",
+      "Graceful",
+      "Grand",
+      "Opulent",
+      "Ornate",
+      "Polished",
+      "Refined",
+      "Simple",
+      "Stately",
+      "Stylish"
     ],
     "staff": [
       {
@@ -781,7 +878,7 @@
     "item_value_max": 50,
     "default_inventory_value": 250,
     "title": ["Barber Shop", "Barber's Office", "Dentistry", "Surgeries", "Ointments"],
-    "noun": ["Razor", "Shears", "Scalpel"],
+    "noun": ["Razor", "Shears", "Scalpel", "Shope", "Barber"],
     "adjective": ["Blessed", "Trusty", "Delicate", "Lonely", "Dancing", "Wandering"],
     "staff": [
       {

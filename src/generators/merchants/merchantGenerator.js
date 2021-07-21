@@ -1,9 +1,8 @@
-import Utils from "../../components/utils";
+import Item from "../items/item";
 import Person from "../person/person";
-
+import Utils from "../../components/utils";
 import merchantsObj from "../../data/merchants/merchants";
 import tavernsObj from "../../data/merchants/taverns";
-import Item from "../items/item";
 
 const allShops = { ...merchantsObj, ...tavernsObj };
 
@@ -19,6 +18,7 @@ export default class Merchant {
 
     this.seed = global.seed;
     this.shopType = type || this.getShopType();
+    this.shopDescriptor = this.getShopDescriptor(this.shopType);
     this.culture = culture || "";
     this.staff = this.getStaff(params);
     this.name = this.getName();
@@ -44,6 +44,10 @@ export default class Merchant {
     return type;
   }
 
+  getShopDescriptor(type) {
+    return allShops[type].descriptor || null;
+  }
+
   getStaff(params) {
     const { culture } = params;
     const { shopType } = this;
@@ -59,25 +63,46 @@ export default class Merchant {
 
   getName() {
     const { staff, shopType } = this;
-    let nameStyle = ["ownerNamed"][Utils.randomInt(0, 2)];
+    let nameStyle = ["ownerNamed", "dual"][Utils.randomInt(0, 3)];
 
-    if (nameStyle === "ownerNamed") {
-      let name = staff[0].name.surname ? staff[0].name.surname : staff[0].name.name;
+    const owner = staff[0];
+    const hasSurname = !!owner.name.surname;
+    const nameArray = hasSurname ? [owner.name.name, owner.name.surname] : [owner.name.name];
+    const finalName = nameArray[Utils.randomArrayIndex(nameArray)];
+    const name = /s$/.test(finalName.trim()) ? finalName + "'" : finalName + "'s";
 
-      name = /s$/.test(name.trim()) ? (name = name + "'") : name + "'s";
+    const adjective = getAdjective();
+    const noun = getNoun();
 
-      let title = allShops[shopType].title;
-      title = title[Utils.randomArrayIndex(title)];
+    switch (nameStyle) {
+      case "ownerNamed":
+        let title = allShops[shopType].title;
+        title = title[Utils.randomArrayIndex(title)];
 
-      return `${name} ${title}`;
-    } else {
-      let adjective = allShops[shopType].adjective;
-      adjective = adjective[Utils.randomArrayIndex(adjective)];
+        return `${name} ${title}`;
+      case "dual":
+        const nounOne = getNoun();
+        const nounTwo = getNoun(nounOne);
 
-      let noun = allShops[shopType].noun;
-      noun = noun[Utils.randomArrayIndex(noun)];
+        return `The ${nounOne} & ${nounTwo}`;
+      default:
+        return `The ${adjective} ${noun}`;
+    }
 
-      return `the ${adjective} ${noun}`;
+    function getNoun(exclude) {
+      const allNouns = allShops[shopType].noun;
+      let noun = allNouns[Utils.randomArrayIndex(allNouns)];
+
+      if (noun === exclude) return getNoun(exclude);
+      return noun;
+    }
+
+    function getAdjective(exclude) {
+      const allAdjectives = allShops[shopType].adjective;
+      const adjective = allAdjectives[Utils.randomArrayIndex(allAdjectives)];
+
+      if (adjective === exclude) return getAdjective(exclude);
+      return adjective;
     }
   }
 

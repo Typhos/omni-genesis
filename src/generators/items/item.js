@@ -1,24 +1,21 @@
-import Utils from "../../components/utils";
-import PersonGenerator from "../person/person";
-
-// DATA
 import Armor from "../../data/items/armor";
+import ArmorNames from "../../data/items/armorNames";
+import Engraving from "./engraving";
+import InscriptionElements from "../../data/items/inscriptionElements";
 import Items from "../../data/items/items";
 import Jewelry from "../../data/items/jewelry";
-import Weapons from "../../data/items/weapons";
-import MaterialData from "../../data/items/materials";
-
-import qualityData from "../../data/items/itemQuality";
-import magicTierData from "../../data/items/magic/tiers";
-
-import WeaponNames from "../../data/items/weaponNames";
-import ArmorNames from "../../data/items/armorNames";
 import JewelryNames from "../../data/items/jewelryNames";
-import InscriptionElements from "../../data/items/inscriptionElements";
-
+import MaterialData from "../../data/items/materials";
 import Noble from "../person/noble";
-import Engraving from "./engraving";
+import Person from "../person/person";
+import PersonGenerator from "../person/person";
+import Utils from "../../components/utils";
+import WeaponNames from "../../data/items/weaponNames";
+import Weapons from "../../data/items/weapons";
+import magicTierData from "../../data/items/magic/tiers";
+import qualityData from "../../data/items/itemQuality";
 
+// DATA
 const itemsData = {
   ...Weapons,
   ...Armor,
@@ -48,6 +45,7 @@ export default class Item {
     Object.assign(this, this.getItemName());
 
     this.crafter = crafter || this.getCrafter(crafterRace);
+    this.formerOwner = this.getFormerOwner();
 
     Object.assign(this, this.writeDescription());
 
@@ -95,6 +93,7 @@ export default class Item {
 
     details.fiveEStats = item.stats;
     details.count = item.count;
+    details.consumable = item.consumable;
 
     return details;
   }
@@ -640,5 +639,23 @@ export default class Item {
     }
 
     return worth;
+  }
+
+  getFormerOwner() {
+    const { subtype, consumable } = this;
+    const hadPreviousOwner = Utils.randomInt(1, 3) >= 2;
+    const formerOwner = new Person();
+    const description = `This ${subtype.toLowerCase()} was once owned by ${
+      formerOwner.name.displayName
+    } ${formerOwner.alignmentDescription}, ${formerOwner.race} ${formerOwner.occupation}.`;
+
+    if (hadPreviousOwner && !consumable) {
+      return {
+        fullStats: formerOwner,
+        description,
+      };
+    }
+
+    return undefined;
   }
 }

@@ -1,13 +1,18 @@
-import Utils from "../../components/utils";
 import Name from "../person/nameBuilder";
-import StatBlock from "../dndStatBlock/";
-
-// == Data Imports
 import OpenSourceRaceData from "../../data/races/5eToolsRaces";
 import Professions from "../../data/professions";
 import Races from "../../data/races/allRaces";
+import StatBlock from "../dndStatBlock/";
 import StatDescriptionData from "../../data/statDescription";
 import Traits from "../../data/people/allTraits";
+import Utils from "../../components/utils";
+
+// == Data Imports
+
+
+
+
+
 
 export default class Person {
   constructor(params = {}) {
@@ -38,6 +43,7 @@ export default class Person {
       this.subRaceObj = this.getSubRace();
       this.subrace = this.displaySubrace();
       this.alignment = this.getAlignment(params);
+      this.alignmentDescription = this.getAlignmentDescriptor(this.alignment);
 
       this.pronouns = this.getPronouns();
       this.ageGroup = this.getAgeGroup(this.age);
@@ -289,6 +295,30 @@ export default class Person {
       if (output === "neutral neutral") output = "unaligned";
 
       return output;
+    }
+  }
+
+  getAlignmentDescriptor(alignment) {
+    switch (alignment) {
+      case "lawful good":
+        return "the daring";
+      case "neutral good":
+        return "the kind";
+      case "chaotic good":
+        return "the mirthful";
+      case "lawful neutral":
+        return "the honorable";
+      case "chaotic neutral":
+        return "the carefree";
+      case "lawful evil":
+        return "the wicked";
+      case "neutral evil":
+        return "the vile";
+      case "chaotic evil":
+        return "the savage";
+
+      default:
+        return "the indifferent";
     }
   }
 

@@ -1,21 +1,34 @@
 import React, { Component } from "react";
 
-// Custom Components
-import Utils from "../../components/utils";
+import Armor from "../../data/items/armor";
 import Aside from "../../components/aside";
+import Button from "../../components/controls/button/buttonStandard";
 import Display from "../../components/display/display";
 import Item from "../../generators/items/item";
-import Button from "../../components/controls/button/buttonStandard";
-import Select from "../../components/controls/select/selectStandard";
-import Switch from "../../components/controls/switch";
-
-// DATA
-import Armor from "../../data/items/armor";
 import Items from "../../data/items/items";
 import Jewelry from "../../data/items/jewelry";
+import Races from "../../data/races/allRaces";
+import Select from "../../components/controls/select/selectStandard";
+import Switch from "../../components/controls/switch";
+import Utils from "../../components/utils";
 import Weapons from "../../data/items/weapons";
 
-import Races from "../../data/races/allRaces";
+// Custom Components
+
+
+
+
+
+
+
+
+// DATA
+
+
+
+
+
+
 
 export default class ItemGenerator extends Component {
   constructor(props) {
@@ -164,6 +177,10 @@ export default class ItemGenerator extends Component {
             <p className="displayLayout__description">
               {item.engraving} {item.carving}
             </p>
+            {item.formerOwner && (
+              <p className="displayLayout__description">{item.formerOwner.description}</p>
+            )}
+
             <p className="displayLayout__description">
               {item.crafter} {item.enchanter}
             </p>

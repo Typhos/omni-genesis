@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import Utils from "../../components/utils";
+
 import Aside from "../../components/aside";
+import Button from "../../components/controls/button/buttonStandard";
+import CityDisplay from "../../components/display/city/city";
 import Kingdom from "../../generators/kingdom";
 import KingdomDisplay from "../../components/display/kingdom/kingdom";
-import CityDisplay from "../../components/display/city/city";
-import PersonDisplay from "../../components/display/person/person";
-import Button from "../../components/controls/button/buttonStandard";
-import Select from "../../components/controls/select/selectStandard";
 import NumberInput from "../../components/controls/input/numberInput";
-
-import stateSizes from "../../data/kingdoms/sizes";
+import PersonDisplay from "../../components/display/person/person";
+import Select from "../../components/controls/select/selectStandard";
+import Utils from "../../components/utils";
 import placeNames from "../../data/places/randomPlaceNames";
+import stateSizes from "../../data/kingdoms/sizes";
 
 export default class Kingdoms extends Component {
   constructor(props) {
@@ -39,8 +39,6 @@ export default class Kingdoms extends Component {
     const params = { ...this.state };
     const kingdom = new Kingdom(params);
     Utils.setNewSeed();
-
-    console.log(kingdom);
 
     this.setState({
       kingdom: kingdom,
@@ -80,16 +78,16 @@ export default class Kingdoms extends Component {
     const { size, culture, seed, kingdom, city, person } = this.state;
 
     return (
-      <div className='App'>
-        <main className='content'>
+      <div className="App">
+        <main className="content">
           <Aside>
             <Select title={"Kingdom Size"} name={"size"} value={size} onChange={this.change}>
-              <option value='all'>random size</option>
+              <option value="all">random size</option>
               {this.getOptions(stateSizes.sizes, false)}
             </Select>
 
             <Select title={"Culture"} name={"culture"} value={culture} onChange={this.change}>
-              <option value='all'>random culture</option>
+              <option value="all">random culture</option>
               {this.getOptions(placeNames, true)}
             </Select>
 

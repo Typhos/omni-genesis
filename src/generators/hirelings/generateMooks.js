@@ -518,7 +518,8 @@ class Hireling {
   }
 
   checkLevel(level) {
-    const maxLevel = oseCharacterRaces[this.race].maxLevel;
+    let maxLevel = oseCharacterRaces[this.race].maxLevel;
+    if (maxLevel > 8) maxLevel = 8;
 
     if (level === 0 && this.race !== "Human") return 1;
 

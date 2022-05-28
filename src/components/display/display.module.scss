@@ -120,6 +120,7 @@ article.displayOutput {
     width: calc(#{$mobileWidth} - 6vw);
     padding: 0 $mobileSidePadding 1em;
     margin-top: 5em;
+    overflow-x: scroll;
 
     .displayLayout {
       column-count: 1;

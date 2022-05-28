@@ -23,8 +23,12 @@
   ],
   "samuraiClasses": [
     {
-      "name": "Samurai",
-      "range": [1, 8]
+      "name": "Fighter",
+      "range": [1, 2]
+    },
+    {
+      "name": "Knight",
+      "range": [3, 8]
     },
     {
       "name": "Paladin",
@@ -39,11 +43,11 @@
       "range": [17, 18]
     },
     {
-      "name": "Monk",
+      "name": "Assassin",
       "range": 19
     },
     {
-      "name": "Sorcerer",
+      "name": "Magic-User",
       "range": 20
     }
   ]

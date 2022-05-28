@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import Utils from "../../utils";
+
 import Display from "../display";
+import OneColumnDisplay from "../columns/oneColumn.js";
 import StatBlock from "../statBlock/statBlock";
 import TwoColumnDisplay from "../columns/twoColumns.js";
-import OneColumnDisplay from "../columns/oneColumn.js";
-
+import Utils from "../../utils";
 import displayStyles from "../display.module.scss";
+
 // import styles from "./person.module.scss";
 
 export default class PersonDisplay extends Component {
@@ -88,8 +89,6 @@ export default class PersonDisplay extends Component {
 
   render() {
     const { person } = this.props;
-
-    console.log(person);
 
     return (
       <Display>

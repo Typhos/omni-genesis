@@ -1,5 +1,28 @@
-
+.inputSection {
+  display: flex;
+  width: 100%;
+  margin: 0.5em auto;
+  justify-content: center;
+}
 
 .numberInput {
   font-size: 1em;
+}
+
+.checkBox {
+  &__input {
+    width: 15px;
+    height: 15px;
+  }
+
+  &__title {
+    margin-left: 1em;
+  }
+
+  &__label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 0 0 1.5em;
+  }
 }

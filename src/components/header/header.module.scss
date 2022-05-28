@@ -3,7 +3,7 @@
 .appHeader {
   background-color: $charcoal;
   color: $lightText;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.33rem;
   margin: 0;
   height: 4rem;
   border-bottom: 1px solid $moodGreen;
@@ -21,7 +21,7 @@
 }
 
 .headerBox {
-  max-width: 100rem;
+  // max-width: 100rem;
   margin: 0 auto;
   display: block;
 

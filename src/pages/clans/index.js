@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Utils from "../../components/utils";
+
 import Aside from "../../components/aside";
 import Button from "../../components/controls/button/buttonStandard";
-import Select from "../../components/controls/select/selectStandard";
-import NumberInput from "../../components/controls/input/numberInput";
-
 import ClanGenerator from "../../generators/samuraiClan/clanGenerator";
+import NumberInput from "../../components/controls/input/numberInput";
 import SamuraiClanDisplay from "../../components/display/samuraiClan";
+import Select from "../../components/controls/select/selectStandard";
+import Utils from "../../components/utils";
 
 export default class Clans extends Component {
   constructor(props) {
@@ -41,7 +41,7 @@ export default class Clans extends Component {
 
     const clan = new ClanGenerator(params);
 
-    console.log(clan);
+    // console.log(clan);
 
     this.setState({
       seed: global.seed,
@@ -118,15 +118,9 @@ export default class Clans extends Component {
               onChange={(el) => this.setState({ alignment: el.target.value })}
             >
               <option value="random">random</option>
-              <option value="lawful neutral">lawful neutral</option>
-              <option value="lawful good">lawful good</option>
-              <option value="lawful evil">lawful evil</option>
+              <option value="lawful">lawful</option>
               <option value="neutral">neutral</option>
-              <option value="neutral good">neutral good</option>
-              <option value="neutral evil">neutral evil</option>
-              <option value="chaotic neutral">chaotic neutral</option>
-              <option value="chaotic good">chaotic good</option>
-              <option value="chaotic evil">chaotic evil</option>
+              <option value="chaotic">chaotic</option>
             </Select>
 
             {/* <NumberInput

@@ -1,11 +1,10 @@
-import Utils from "../../components/utils";
 import City from "../city";
-
-import samuraiNamesData from "../../data/samurai/names";
-import samuraiData from "../../data/samurai/samurai";
+import Utils from "../../components/utils";
+import alignmentsData from "../../data/samurai/alignments";
 import clanQualitiesData from "../../data/samurai/clanQualities";
 import clanWealthData from "../../data/samurai/wealth";
-import alignmentsData from "../../data/samurai/alignments";
+import samuraiData from "../../data/samurai/samurai";
+import samuraiNamesData from "../../data/samurai/names";
 
 export default class ClanGenerator {
   constructor(params = {}) {
@@ -41,7 +40,7 @@ export default class ClanGenerator {
     this.alignmentShorthand = this.getAlignmentShorthand();
     this.clanName = this.getClanName();
     this.daimyo = this.getDaimyo();
-    this.clanHead = new Samurai(this.clanName, this.clanHeadTitle);
+    this.clanHead = new Samurai(this.clanName, this.clanHeadTitle, this.daimyo);
 
     const { clanTraits, clanTraitsDescriptions } = this.getClanQualities();
     this.qualities = clanTraits;
@@ -52,7 +51,7 @@ export default class ClanGenerator {
     this.purchaseLimit = this.purchaseLimit * this.wealth.wealthModifier;
 
     this.enterprises = this.getEnterprises();
-    this.members = this.getNotableMembers(this.readyWarriors);
+    this.members = this.getNotableMembers(this.readyWarriors, this.daimyo);
 
     const { name: provinceName } = new City({ culture: "japanese", size: "hamlet" });
     this.province = provinceName;
@@ -269,14 +268,14 @@ export default class ClanGenerator {
     };
   }
 
-  getNotableMembers(warriors) {
+  getNotableMembers(warriors, daimyo) {
     const count = Math.ceil(warriors / 1000);
-    return new Array(count).fill(null).map((_) => new Samurai(this.clanName));
+    return new Array(count).fill(null).map((_) => new Samurai(this.clanName, "", daimyo));
   }
 }
 
 class Samurai {
-  constructor(clanName = this.clanName, title = "") {
+  constructor(clanName, title = "", daimyo) {
     let { givenNames } = samuraiNamesData;
     let giveNamesArray = [...givenNames];
 
@@ -294,41 +293,40 @@ class Samurai {
       }
     });
 
-    let traits = this.getSamuraiTraits();
+    const totalLevels = this.getSamuraiLevel(title);
+    const characterLevel = totalLevels;
+    const className = this.getCharacterClass();
+    const characterClass = `${className} ${characterLevel}`;
 
-    // Character Classes
-    const multiclass = Utils.randomInt(1, 4) === 4 ? true : false;
-    const totalLevels = Utils.randomInt(5, 14);
-    let characterClasses = [];
-
-    if (!multiclass) {
-      const characterLevel = totalLevels;
-      const className = this.getCharacterClass();
-      characterClasses.push(`${className} ${characterLevel}`);
-    } else {
-      const levelSplit = Utils.randomInt(1, Math.floor(totalLevels / 2));
-      const classALevels = totalLevels - levelSplit;
-      const classBLevels = totalLevels - classALevels;
-
-      const classA = this.getCharacterClass();
-      const classB = this.getCharacterClass(classA);
-
-      characterClasses.push(`${classA} ${classALevels}`);
-      characterClasses.push(`${classB} ${classBLevels}`);
-    }
+    let traits = this.getSamuraiTraits(characterClass, daimyo);
 
     return {
       ...clanName,
       title,
       ...traits,
-      characterClasses,
+      characterClass,
       givenNameKanji: names.map((el) => el.kanji).join(""),
       givenNameText: names.map((el) => el.part).join(""),
       givenNameMeaning: names.map((el) => el.meaning).join(", "),
     };
   }
 
-  getCharacterClass(multiclass) {
+  getSamuraiLevel(title) {
+    const maxLevel = 12;
+    let minLevel = 3;
+    let levelSpreadArray = new Array();
+
+    if (title === "Daimyō") minLevel = 7;
+
+    for (let i = minLevel; i <= maxLevel; i++) {
+      const moreLevels = new Array(20 - i).fill(i);
+      levelSpreadArray = [...levelSpreadArray, ...moreLevels];
+    }
+
+    return levelSpreadArray[Utils.randomArrayIndex(levelSpreadArray)];
+  }
+
+  getCharacterClass() {
     const { samuraiClasses } = samuraiData;
     const randNum = Utils.randomInt(1, 20);
     const { name } = samuraiClasses.find((el) => {
@@ -341,13 +339,11 @@ class Samurai {
       }
     });
 
-    if (name === multiclass) return this.getCharacterClass(multiclass);
-
     return name;
   }
 
-  getSamuraiTraits() {
-    const alignment = this.getAlignment();
+  getSamuraiTraits(characterClass, daimyo) {
+    const alignment = this.getAlignment(characterClass, daimyo);
     const alignmentShorthand = this.getAlignmentShorthand(alignment);
     const traitDescriptions = clanQualitiesData;
 
@@ -375,9 +371,43 @@ class Samurai {
     return { alignment, alignmentShorthand, traits, traitsDescription };
   }
 
-  getAlignment() {
+  getAlignment(characterClass, daimyo) {
     const { alignments: alignmentsArray } = alignmentsData;
+
+    // knights must be the same alignment as their lord.
+    if (characterClass.includes("Knight") && daimyo) {
+      return daimyo.alignment;
+    }
+
     const randNum = Utils.randomInt(1, 100);
+    const alignmentRestritedClasses = [
+      {
+        name: "Assassin",
+        alignments: ["Neutral", "Chaotic"],
+      },
+      {
+        name: "Druid",
+        alignments: ["Neutral"],
+      },
+      {
+        name: "Paladin",
+        alignments: ["Lawful"],
+      },
+      {
+        name: "Ranger",
+        alignments: ["Lawful", "Neutral"],
+      },
+    ];
+
+    // if the Samurai's class has an alignment restriction, only allow it to be one of those alignments.
+    if (alignmentRestritedClasses.some((charClass) => characterClass.includes(charClass.name))) {
+      const alignmentOptions = alignmentRestritedClasses.find((charClass) =>
+        characterClass.includes(charClass.name)
+      );
+      const { alignments } = alignmentOptions;
+      return alignments[Utils.randomArrayIndex(alignments)];
+    }
+
     const { alignment } = alignmentsArray.find((el) => {
       const { range } = el;
 

@@ -1,4 +1,11 @@
-@import '../../../styles/mixins';
+@import "../../../styles/mixins";
+
+.selectBox {
+  display: flex;
+  width: 100%;
+  margin: 0.5em auto;
+  justify-content: center;
+}
 
 .title {
   display: block;
@@ -10,19 +17,19 @@
 
   border: 0;
   border-bottom: 1px solid $midTone;
-  
+
   font-size: 1.2em;
   font-family: $fira;
   font-variant: small-caps;
   letter-spacing: 0.1em;
-  
+
   background-color: transparent;
-  
+
   margin: 1rem 0;
   padding: 0.25rem 0.5rem;
 }
 
-@media screen and (max-width:$breakpoint-mobile) {
+@media screen and (max-width: $breakpoint-mobile) {
   select {
     display: inline-block;
     width: auto;

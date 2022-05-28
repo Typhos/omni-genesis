@@ -1,8 +1,9 @@
+import "./samuraiClan.scss";
+
 import React, { Component } from "react";
+
 import Display from "../display";
 import Utils from "../../utils";
-
-import "./samuraiClan.scss";
 
 export default class SamuraiClanDisplay extends Component {
   render() {
@@ -34,8 +35,8 @@ export default class SamuraiClanDisplay extends Component {
           title: daimyoTitle,
           traits: daimyoTraits,
           traitsDescription: daimyoTraitsDescription,
-          alignmentShorthand: daimyoAlignment,
-          characterClasses: daimyoCharacterClasses,
+          alignment: daimyoAlignment,
+          characterClass: daimyoCharacterClass,
         },
         clanHead: {
           clanNameText: clanHeadClanName,
@@ -45,8 +46,8 @@ export default class SamuraiClanDisplay extends Component {
           title: clanHeadTitle,
           traits: clanHeadTraits,
           traitsDescription: clanHeadTraitsDescription,
-          alignmentShorthand: clanHeadAlignment,
-          characterClasses: clanHeadCharacterClasses,
+          alignment: clanHeadAlignment,
+          characterClass: clanHeadCharacterClass,
         },
         qualities,
         members,
@@ -160,13 +161,7 @@ export default class SamuraiClanDisplay extends Component {
           </p>
           <ul>
             <li>
-              <span>{daimyoAlignment}</span>{" "}
-              {daimyoCharacterClasses.map((cl, i) => {
-                if (i === daimyoCharacterClasses.length - 1) {
-                  return cl;
-                }
-                return `${cl} / `;
-              })}
+              <span>{daimyoAlignment}</span> {daimyoCharacterClass}
             </li>
           </ul>
         </div>
@@ -214,15 +209,7 @@ export default class SamuraiClanDisplay extends Component {
           </p>
           <ul>
             <li>
-              <span>{clanHeadAlignment}</span>{" "}
-              <span>
-                {clanHeadCharacterClasses.map((cl, i) => {
-                  if (i === clanHeadCharacterClasses.length - 1) {
-                    return cl;
-                  }
-                  return `${cl} / `;
-                })}
-              </span>
+              <span>{clanHeadAlignment}</span> <span>{clanHeadCharacterClass}</span>
             </li>
           </ul>
         </div>
@@ -299,15 +286,8 @@ export default class SamuraiClanDisplay extends Component {
                   <span className="kanji clanHead__kanji">
                     {member.clanNameKanji} {member.givenNameKanji}
                   </span>
-                  , <span>{member.alignmentShorthand}</span>{" "}
-                  <span className="samurai__classes">
-                    {member.characterClasses.map((cl, i) => {
-                      if (i === member.characterClasses.length - 1) {
-                        return cl;
-                      }
-                      return `${cl} / `;
-                    })}
-                  </span>
+                  , <span>{member.alignment}</span>{" "}
+                  <span className="samurai__classes">{member.characterClass}</span>
                 </li>
               );
             })}

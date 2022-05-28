@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
+import { Link } from "react-router-dom";
 import styles from "./header.module.scss";
 
 export default class Header extends Component {
@@ -11,7 +11,7 @@ export default class Header extends Component {
           <Link to="/">
             <h1 className={styles.appTitle}>Omni Genesis</h1>
           </Link>
-          <small className={styles.tagline}>an RPG random content generator</small>
+          <small className={styles.tagline}>a random content generator for Old School RPGs</small>
         </div>
       </header>
     );

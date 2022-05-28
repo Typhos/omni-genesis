@@ -1,18 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-
-import Header from "./components/header";
-import Navigation from "./components/navigation";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import App from "./pages/app";
-import ItemGenerator from "./pages/items/index";
-import People from "./pages/people/index";
-import Shops from "./pages/shops/index";
 import Cities from "./pages/cities/index";
-import Kingdoms from "./pages/kingdoms/index";
 import Clans from "./pages/clans/index";
 import { Error404 } from "./pages/404/index";
+import Header from "./components/header";
+import Hirelings from "./pages/hirelings/index";
+import ItemGenerator from "./pages/items/index";
+import Kingdoms from "./pages/kingdoms/index";
+import Navigation from "./components/navigation";
+import People from "./pages/people/index";
+import React from "react";
+import ReactDOM from "react-dom";
+import Shops from "./pages/shops/index";
 
 const routing = (
   <Router>
@@ -20,9 +20,10 @@ const routing = (
     <Navigation />
     <Switch>
       <Route exact path="/" component={App} />
-      <Route path="/items/" component={ItemGenerator} />
-      <Route path="/people/" component={People} />
-      <Route path="/shops/" component={Shops} />
+      {/* <Route path="/items/" component={ItemGenerator} /> */}
+      {/* <Route path="/people/" component={People} /> */}
+      <Route path="/hirelings/" component={Hirelings} />
+      {/* <Route path="/shops/" component={Shops} /> */}
       <Route path="/cities/" component={Cities} />
       <Route path="/kingdoms/" component={Kingdoms} />
       <Route path="/clan/" component={Clans} />

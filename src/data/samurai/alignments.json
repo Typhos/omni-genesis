@@ -2,8 +2,8 @@
   "alignments": [
     {
       "range": [1, 69],
-      "alignment": "Lawful Neutral",
-      "shorthand": "LN",
+      "alignment": "Lawful",
+      "shorthand": "L",
       "qualities": ["Cold", "Honorable", "Meticulous"],
       "morale": 0,
       "honor": 1,
@@ -12,8 +12,8 @@
     },
     {
       "range": [70, 79],
-      "alignment": "Lawful Good",
-      "shorthand": "LG",
+      "alignment": "Lawful",
+      "shorthand": "L",
       "qualities": ["Charitable", "Honorable", "Meticulous"],
       "morale": 1,
       "honor": 2,
@@ -22,8 +22,8 @@
     },
     {
       "range": [80, 89],
-      "alignment": "Lawful Evil",
-      "shorthand": "LE",
+      "alignment": "Chaotic",
+      "shorthand": "C",
       "qualities": ["Devious", "Meticulous", "Vicious"],
       "morale": 0,
       "honor": 0,
@@ -42,8 +42,8 @@
     },
     {
       "range": [94, 95],
-      "alignment": "Neutral Evil",
-      "shorthand": "NE",
+      "alignment": "Neutral",
+      "shorthand": "N",
       "qualities": ["Cold", "Devious", "Greedy"],
       "morale": 0,
       "honor": -1,
@@ -52,8 +52,8 @@
     },
     {
       "range": [96, 97],
-      "alignment": "Neutral Good",
-      "shorthand": "NG",
+      "alignment": "Neutral",
+      "shorthand": "N",
       "qualities": ["Charitable", "Greedy", "Just"],
       "morale": 1,
       "honor": 1,
@@ -62,8 +62,8 @@
     },
     {
       "range": 98,
-      "alignment": "Chaotic Evil",
-      "shorthand": "CE",
+      "alignment": "Chaotic",
+      "shorthand": "C",
       "qualities": ["Cruel", "Riotous", "Vicious"],
       "morale": -1,
       "honor": -1,
@@ -72,8 +72,8 @@
     },
     {
       "range": 99,
-      "alignment": "Chaotic Good",
-      "shorthand": "CG",
+      "alignment": "Neutral",
+      "shorthand": "N",
       "qualities": ["Charitable", "Lawless", "Riotous"],
       "morale": 0,
       "honor": 1,
@@ -82,7 +82,7 @@
     },
     {
       "range": 100,
-      "alignment": "Chaotic Neutral",
+      "alignment": "Chaotic",
       "shorthand": "CN",
       "qualities": ["Greedy", "Lawless", "Riotous"],
       "morale": -1,
@@ -92,14 +92,8 @@
     }
   ],
   "steps": {
-    "Lawful Neutral": ["Lawful Good", "Lawful Evil", "Neutral"],
-    "Lawful Good": ["Lawful Neutral", "Neutral Good"],
-    "Lawful Evil": ["Lawful Neutral", "Neutral Evil"],
-    "Neutral": ["Lawful Neutral", "Chaotic Neutral", "Neutral Good", "Neutral Evil"],
-    "Neutral Good": ["Lawful Good", "Chaotic Good", "Neutral"],
-    "Neutral Evil": ["Lawful Evil", "Chaotic Evil", "Neutral"],
-    "Chaotic Neutral": ["Chaotic Good", "Chaotic Evil", "Neutral"],
-    "Chaotic Good": ["Neutral Good", "Chaotic Neutral"],
-    "Chaotic Evil": ["Chaotic Neutral", "Neutral Evil"]
+    "Lawful": ["Neutral"],
+    "Neutral": ["Lawful", "Chaotic"],
+    "Chaotic": ["Neutral"]
   }
 }

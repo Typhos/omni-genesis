@@ -244,19 +244,13 @@ const oseCharacterRaces = {
         armorOptions: ["Leather", "Leather & Shield", "Chainmail", "Chainmail & Shield"],
       },
       "Torch-Bearer": {
-        odds: 4,
+        odds: 6,
         alignments: ["Law", "Neutral", "Chaos"],
         weaponOptions: ["Dagger"],
         armorOptions: ["None"],
       },
       Porter: {
         odds: 3,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["Dagger"],
-        armorOptions: ["None"],
-      },
-      Chef: {
-        odds: 1,
         alignments: ["Law", "Neutral", "Chaos"],
         weaponOptions: ["Dagger"],
         armorOptions: ["None"],

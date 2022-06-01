@@ -1,20 +1,26 @@
 //components
+
 import React, { Component } from "react";
-import Utils from "../../components/utils";
+
 import Aside from "../../components/aside";
-import CityDisplay from "../../components/display/city/city";
-import PersonDisplay from "../../components/display/person/person";
 import Button from "../../components/controls/button/buttonStandard";
-import Select from "../../components/controls/select/selectStandard";
-import NumberInput from "../../components/controls/input/numberInput";
-
-//generators
+import CityDisplay from "../../components/display/city/city";
 import CityGenerator from "../../generators/city";
-
-//data
+import NumberInput from "../../components/controls/input/numberInput";
+import PersonDisplay from "../../components/display/person/person";
+import Select from "../../components/controls/select/selectStandard";
+import Utils from "../../components/utils";
 import cityObj from "../../data/cities/cities";
 import pantheonsObj from "../../data/gods/pantheons";
 import placeNames from "../../data/places/randomPlaceNames";
+
+//generators
+
+
+//data
+
+
+
 
 export default class Settlements extends Component {
   constructor(props) {
@@ -25,7 +31,6 @@ export default class Settlements extends Component {
 
     this.state = {
       display: null,
-      pantheon: "centhris",
       seed: seed,
       city: null,
     };
@@ -126,24 +131,20 @@ export default class Settlements extends Component {
   }
 
   render() {
-    const { size, culture, pantheon, seed } = this.state;
+    const { size, culture, seed } = this.state;
 
     return (
-      <div className='App'>
-        <main className='content'>
+      <div className="App">
+        <main className="content">
           <Aside>
             <Select title={"City Size"} name={"size"} value={size} onChange={this.change}>
-              <option value='all'>random size</option>
+              <option value="all">random size</option>
               {this.getOptions(cityObj.sizes, false)}
             </Select>
 
             <Select title={"Culture"} name={"culture"} value={culture} onChange={this.change}>
-              <option value='all'>random culture</option>
+              <option value="all">random culture</option>
               {this.getOptions(placeNames, true)}
-            </Select>
-
-            <Select title={"Pantheon"} name={"pantheon"} value={pantheon} onChange={this.change}>
-              {this.getOptions(pantheonsObj, true)}
             </Select>
 
             <NumberInput title={"Seed"} name={"seed"} value={seed} onChange={this.change} />
@@ -153,9 +154,21 @@ export default class Settlements extends Component {
             </Button>
           </Aside>
 
-          {this.state.city && <CityDisplay city={this.state.city} state={this.state} stateHandler={this.stateHandler} />}
+          {this.state.city && (
+            <CityDisplay
+              city={this.state.city}
+              state={this.state}
+              stateHandler={this.stateHandler}
+            />
+          )}
 
-          {this.state.person && <PersonDisplay person={this.state.person} state={this.state} stateHandler={this.stateHandler} />}
+          {this.state.person && (
+            <PersonDisplay
+              person={this.state.person}
+              state={this.state}
+              stateHandler={this.stateHandler}
+            />
+          )}
         </main>
       </div>
     );

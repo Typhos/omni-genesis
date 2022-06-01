@@ -1,16 +1,14 @@
-import Utils from "../../components/utils";
 import MerchantGenerator from "../merchants/merchantGenerator";
 import Noble from "../person/noble";
-
+import Races from "../../data/races/allRaces";
+import Utils from "../../components/utils";
 import cityObj from "../../data/cities/cities";
+import governments from "../../data/governments";
 import merchantsObj from "../../data/merchants/merchants";
-import tavernsObj from "../../data/merchants/taverns";
 import pantheons from "../../data/gods/pantheons";
 import placeNames from "../../data/places/randomPlaceNames";
-import governments from "../../data/governments";
-
-import Races from "../../data/races/allRaces";
 import racialBias from "../../data/cities/racialBiases";
+import tavernsObj from "../../data/merchants/taverns";
 
 const allShops = { ...tavernsObj, ...merchantsObj };
 
@@ -93,7 +91,8 @@ export default class City {
     if (placeNames[culture].prefix) {
       // chance to add a prefix name like North, Old, Port, Al, As, Khor, etc.
       if (Utils.randomInt(1, placeNames[culture].prefixChance) === 1) {
-        const prePrefix = placeNames[culture].prefix[Utils.randomArrayIndex(placeNames[culture].prefix)];
+        const prePrefix =
+          placeNames[culture].prefix[Utils.randomArrayIndex(placeNames[culture].prefix)];
         partsArray.unshift(prePrefix);
       }
     }
@@ -120,7 +119,8 @@ export default class City {
     racesArray.forEach((race) => {
       const percentageModifier = Utils.randomInt(-20, 30) / 10;
       if (racialBias[culture]) {
-        weight = racialBias[culture][race] * percentageModifier || Races[race].rarity * percentageModifier;
+        weight =
+          racialBias[culture][race] * percentageModifier || Races[race].rarity * percentageModifier;
       } else {
         weight = Races[race].rarity * percentageModifier;
       }
@@ -220,7 +220,13 @@ export default class City {
     function economyWording() {
       const bDesr = ["weak", "stable", "strong"];
 
-      const future = ["declining rapidly", "slowly declining", "stable", "slowly growing", "growing rapidly"];
+      const future = [
+        "declining rapidly",
+        "slowly declining",
+        "stable",
+        "slowly growing",
+        "growing rapidly",
+      ];
 
       const baseNum = Utils.randomArrayIndex(bDesr);
       const futureNum = Utils.randomArrayIndex(future);
@@ -301,7 +307,9 @@ export default class City {
 
       const totalShops = bonus ? guaranteedShops + 1 : guaranteedShops;
 
-      const shopTitle = allShops[key].establishments ? allShops[key].establishments : allShops[key].plural;
+      const shopTitle = allShops[key].establishments
+        ? allShops[key].establishments
+        : allShops[key].plural;
       merchants.tradesArray[shopTitle] = totalShops;
       merchants.tradesTotal += totalShops;
 
@@ -390,7 +398,10 @@ export default class City {
     });
 
     // Now that we have a government formed, we know what kind of people are important to run that institution. We can call for important people and give the array of possible titles.
-    this.population.importantPeople = this.importantPeople(this.population.total, governments[selected].roles);
+    this.population.importantPeople = this.importantPeople(
+      this.population.total,
+      governments[selected].roles
+    );
 
     this.population.importantPeople.noblePeopleArray.unshift(leader);
     this.population.importantPeople.number += 1;
@@ -406,12 +417,9 @@ export default class City {
     // Places of worship are tricky. The more faiths, the more temples. First we need to determine how many different faiths / gods a town has. Next, determine how much of the population is associated with each religion / cult.
     // In a polytheistic society, most people worship multiple gods for different purposes or at different times of the year. As such
 
-    // In Centhris, there are 18 major gods and numerous minor (at the time of this code, 8 minor deities are in the database). [http://centhris.herokuapp.com/pantheon/Centhrian-Pantheon]
-    // In Faerun, there are 48 gods (per the wiki. also, geez...) in the 5e pantheon. [https://forgottenrealms.fandom.com/wiki/Faer%C3%BBnian_pantheon]
-
     // Generally it takes 400 people to warrant a temple to a deity (irl churches). It takes ~150 to warrant a shrine.
     // If we assume the average person might worship 4 deities from the pantheon for various reasons, that's 4*population for shrine count. However, the temple count doesn't change, since you can't attend more than 1 temple service at a time.
-    const pantheon = pantheons[pantheonName] || pantheons["centhris"];
+    // const pantheon = pantheons[pantheonName] || pantheons["centhris"];
     const pop = this.population.total;
     const shrineSV = 100;
     const templeSV = 400;
@@ -419,80 +427,40 @@ export default class City {
     const religiousityMod = 1 + Utils.randomInt(-1, 10) / 10;
 
     let shrineCount = Math.floor((pop * 3) / (shrineSV * religiousityMod));
-    let templeCount = Math.floor(pop / (templeSV * religiousityMod));
+    let lawChurchCount = Math.floor(pop / (templeSV * religiousityMod));
+    let chaosTempleCount = Math.floor(pop / Utils.randomInt(3, 10) / (templeSV * religiousityMod));
 
-    const percentageChance = parseInt((pop / templeSV - templeCount) * 100);
-    const bonus = Utils.randomInt(1, 100) < percentageChance;
+    const percentageChanceLaw = parseInt((pop / templeSV - lawChurchCount) * 100);
+    const lawBonus = Utils.randomInt(1, 100) < percentageChanceLaw;
 
-    templeCount = bonus ? templeCount + 1 : templeCount;
+    lawChurchCount = lawBonus ? lawChurchCount + 1 : lawChurchCount;
 
-    function templesOfWhichGods() {
-      // major gods are twice as likely as lesser gods, so we'll build an array of both, but have 2 of each major in the array.
-      // multiple temples of the same god are fine. There are lot of churches in Rome!
-
-      const output = {};
-      let godsArr = [...pantheon.major.list, ...pantheon.major.list, ...pantheon.minor.list].sort();
-
-      new Array(templeCount)
-        .fill(undefined)
-        .map((x) => {
-          const name = godsArr[Utils.randomArrayIndex(godsArr)];
-
-          return name;
-        })
-        .forEach((temple) => {
-          if (!output[temple]) {
-            output[temple] = 1;
-          } else {
-            output[temple] += 1;
-          }
-        });
-
-      return output;
-    }
-
-    function shrinesToWhichGods() {
-      // major gods are twice as likely as lesser gods, so we'll build an array of both, but have 2 of each major in the array.
-      // multiple shrines of the same god are fine.
-
-      const output = {};
-      let godsArr = [...pantheon.major.list, ...pantheon.major.list, ...pantheon.minor.list].sort();
-
-      new Array(shrineCount)
-        .fill(undefined)
-        .map((x) => {
-          const name = godsArr[Utils.randomArrayIndex(godsArr)];
-
-          return name;
-        })
-        .forEach((shrine) => {
-          if (!output[shrine]) {
-            output[shrine] = 1;
-          } else {
-            output[shrine] += 1;
-          }
-        });
-
-      return output;
-    }
+    // always a chance of a secret temple of Chaos
+    if (Utils.randomInt(1, 6) === 1) chaosTempleCount += 1;
 
     return {
-      pantheon: pantheonName,
-      temples: {
-        count: templeCount,
-        breakdown: templesOfWhichGods(),
-      },
-      shrines: {
-        count: shrineCount,
-        breakdown: shrinesToWhichGods(),
-      },
+      chaosTemples: chaosTempleCount,
+      lawChurches: lawChurchCount,
+      shrines: shrineCount,
     };
   }
 
   getHouseArchitecture() {
-    const roofs = ["thatch roofs", "slate shingle roofs", "terracotta tile roofs", "log roofs", "turf roofs"];
+    const roofs = [
+      "thatch roofs",
+      "slate shingle roofs",
+      "terracotta tile roofs",
+      "log roofs",
+      "turf roofs",
+    ];
 
-    const walls = ["timber frame walls", "wattle and daub walls", "cob walls", "brick walls", "stone walls"];
+    const walls = [
+      "timber frame walls",
+      "wattle and daub walls",
+      "cob walls",
+      "brick walls",
+      "stone walls",
+    ];
 
     let roofStr = roofs[Utils.randomArrayIndex(roofs)];
     let wallStr = walls[Utils.randomArrayIndex(walls)];

@@ -1,18 +1,13 @@
+import "./hirelings.scss";
+
 import React, { Component } from "react";
 
 import Display from "../display";
-import OneColumnDisplay from "../columns/oneColumn.js";
-import StatBlock from "../statBlock/statBlock";
-import TwoColumnDisplay from "../columns/twoColumns.js";
-import Utils from "../../utils";
-import displayStyles from "../display.module.scss";
-import styles from "./hirelings.module.scss";
+import OneColumnDisplay from "../columns/oneColumn";
+import ThreeColumnDisplay from "../columns/threeColumns";
+import TwoColumnDisplay from "../columns/twoColumns";
 
 export default class HirelingsDisplay extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   updateDisplay(display) {
     if (this.props.state.display === display) {
       this.props.stateHandler({ display: null });
@@ -26,7 +21,7 @@ export default class HirelingsDisplay extends Component {
 
     if (!hirelings) {
       return (
-        <section className={styles.rules}>
+        <section className="hirelings__rules">
           <p>
             When seeking to <strong>hire sellswords</strong>, an adventuring group may visit known
             adventurer-friendly taverns, post notices, and distribute help-wanted pamphlets.
@@ -43,9 +38,84 @@ export default class HirelingsDisplay extends Component {
       );
     } else {
       return (
-        <Display>
+        <Display classes="hirelings">
           <h1 className={`displayLayout__header`}>Interested Parties</h1>
-          <table className={styles.hirelingsTable} cellSpacing="0">
+          <TwoColumnDisplay>
+            {roster
+              .sort((a, b) => b.level - a.level)
+              .map((mook, i) => {
+                const {
+                  name,
+                  race,
+                  charClass,
+                  level,
+                  hp,
+                  sex,
+                  alignment,
+                  armor,
+                  weapons,
+                  background,
+                  possession,
+                } = mook;
+
+                const getAlignment = (AL) => {
+                  switch (AL) {
+                    case "Law":
+                      return "Lawful";
+                    case "Chaos":
+                      return "Chaotic";
+                    default:
+                      return "Neutral";
+                  }
+                };
+
+                return (
+                  <li key={name + charClass + i} name={name} className="infoTable__row">
+                    <h2 className="subHead">{name}</h2>
+                    <TwoColumnDisplay>
+                      <li className="infoTable__row">
+                        <span className="info__label">{sex === "M" ? "Male" : "Female"}</span>
+                      </li>
+                      <li className="infoTable__row">
+                        <span className="info__label">{race !== "Human" ? race : charClass} </span>
+                        <span className="info__value">{level}</span>
+                      </li>
+                      <li className="infoTable__row">
+                        <span className="info__label">HP </span>
+                        <span className="info__value">{hp}</span>
+                      </li>
+                      <li className="infoTable__row">
+                        <span className="info__label">AL </span>
+                        <span className="info__value">{getAlignment(alignment)}</span>
+                      </li>
+                    </TwoColumnDisplay>
+                    <OneColumnDisplay>
+                      <li className="infoTable__row">
+                        <span className="info__label">Weapons</span>
+                        <span className="info__value">{weapons}</span>
+                      </li>
+
+                      <li className="infoTable__row">
+                        <span className="info__label">Armor</span>
+                        <span className="info__value">{armor}</span>
+                      </li>
+
+                      <li className="infoTable__row">
+                        <span className="info__label">Background</span>
+                        <span className="info__value">{background}</span>
+                      </li>
+
+                      <li className="infoTable__row">
+                        <span className="info__label">Possessions/Trait</span>
+                        <span className="info__value">{possession}</span>
+                      </li>
+                    </OneColumnDisplay>
+                  </li>
+                );
+              })}
+          </TwoColumnDisplay>
+
+          {/* <table className="hirelingsTable" cellSpacing="0">
             <thead>
               <tr>
                 <th>Name</th>
@@ -62,38 +132,40 @@ export default class HirelingsDisplay extends Component {
               </tr>
             </thead>
             <tbody>
-              {roster.map((mook) => {
-                const {
-                  name,
-                  race,
-                  charClass,
-                  level,
-                  hp,
-                  sex,
-                  alignment,
-                  armor,
-                  weapons,
-                  background,
-                  possession,
-                } = mook;
-                return (
-                  <tr key={`${name}-${charClass}-${race}`}>
-                    <td>{name}</td>
-                    <td>{charClass}</td>
-                    <td className={styles.center}>{level}</td>
-                    <td>{race}</td>
-                    <td className={styles.center}>{hp}</td>
-                    <td className={styles.center}>{sex}</td>
-                    <td>{weapons}</td>
-                    <td>{armor}</td>
-                    <td>{alignment}</td>
-                    <td>{background}</td>
-                    <td>{possession}</td>
-                  </tr>
-                );
-              })}
+              {roster
+                .sort((a, b) => b.level - a.level)
+                .map((mook) => {
+                  const {
+                    name,
+                    race,
+                    charClass,
+                    level,
+                    hp,
+                    sex,
+                    alignment,
+                    armor,
+                    weapons,
+                    background,
+                    possession,
+                  } = mook;
+                  return (
+                    <tr key={`${name}-${charClass}-${race}`}>
+                      <td>{name}</td>
+                      <td>{charClass}</td>
+                      <td className="center">{level}</td>
+                      <td>{race}</td>
+                      <td className="center">{hp}</td>
+                      <td className="center">{sex}</td>
+                      <td>{weapons}</td>
+                      <td>{armor}</td>
+                      <td>{alignment}</td>
+                      <td>{background}</td>
+                      <td>{possession}</td>
+                    </tr>
+                  );
+                })}
             </tbody>
-          </table>
+          </table> */}
           <h3>Recruiting cost: {cost} gp</h3>
         </Display>
       );

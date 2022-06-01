@@ -35,7 +35,6 @@ export default class Hirelings extends Component {
   hireMooks() {
     let { state } = this;
     const hirelings = new HirelingRoster(state);
-    console.log(hirelings);
     this.setState({ hirelings });
   }
 

@@ -28,6 +28,7 @@ export default class HirelingRoster {
         return base + 10;
       case "city":
         return base + 15;
+      // no default
     }
   }
 
@@ -68,7 +69,7 @@ export default class HirelingRoster {
     let array = new Array(100).fill(0);
 
     for (let i = 1; i <= maxHirelingLevel; i++) {
-      const odds = new Array(50 - i).fill(i);
+      const odds = new Array((10 - i) ** 2).fill(i);
       array.push(...odds);
     }
 
@@ -563,7 +564,9 @@ class Hireling {
       HD = oseCharacterRaces.Human.classes[this.charClass].hd;
     }
 
-    return Utils.randomInt(2, HD);
+    let hpArray = new Array(this.level).fill(undefined);
+
+    return hpArray.map(() => Utils.randomInt(2, HD)).reduce((total, val) => total + val);
   }
 
   rollSex() {

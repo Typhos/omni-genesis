@@ -313,13 +313,13 @@ class Samurai {
 
   getSamuraiLevel(title) {
     const maxLevel = 12;
-    let minLevel = 3;
+    let minLevel = 2;
     let levelSpreadArray = new Array();
 
     if (title === "Daimyō") minLevel = 7;
 
     for (let i = minLevel; i <= maxLevel; i++) {
-      const moreLevels = new Array(20 - i).fill(i);
+      const moreLevels = new Array((20 - i) ** 2).fill(i);
       levelSpreadArray = [...levelSpreadArray, ...moreLevels];
     }
 

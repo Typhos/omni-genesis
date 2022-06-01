@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import Aside from "../../components/aside";
 import Button from "../../components/controls/button/buttonStandard";
 import ClanGenerator from "../../generators/samuraiClan/clanGenerator";
-import NumberInput from "../../components/controls/input/numberInput";
 import SamuraiClanDisplay from "../../components/display/samuraiClan";
 import Select from "../../components/controls/select/selectStandard";
 import Utils from "../../components/utils";
@@ -94,7 +93,7 @@ export default class Clans extends Component {
   }
 
   render() {
-    const { size, alignment, clan, members } = this.state;
+    const { size, alignment, clan } = this.state;
 
     return (
       <div className="App">

@@ -23,7 +23,7 @@ export default class SamuraiClanDisplay extends Component {
       clan: {
         clanName: { clanNameText, clanNameKanji },
         alignment,
-        wealth: { level: wealthLevel, tier: wealthTier },
+        wealth: { level: wealthLevel },
         size: { clanTier, memberCount },
         stats: { honor, morale, lore, society },
         qualitiesDescriptions,
@@ -114,6 +114,7 @@ export default class SamuraiClanDisplay extends Component {
           </li>
         </ul>
 
+        <h3 className="subHead">Daimyo</h3>
         {/* DAIMYO HEAD */}
         <div className="lineItem daimyo">
           <p>
@@ -166,6 +167,16 @@ export default class SamuraiClanDisplay extends Component {
           </ul>
         </div>
 
+        <h3 className="subHead">
+          Clan{" "}
+          {daimyoClanName !== clanNameText && (
+            <small className="info__note">
+              <em>
+                (the {clanNameText} are a vassal of the {daimyoClanName})
+              </em>
+            </small>
+          )}
+        </h3>
         {/* CLAN HEAD */}
         <div className="lineItem clanHead">
           <p>

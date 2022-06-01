@@ -47,6 +47,14 @@
   }
 }
 
+.subHead {
+  font-size: 1.33em;
+  font-variant: small-caps;
+  width: 100%;
+  color: $lightText;
+  border-bottom: 1px solid $dndGold;
+}
+
 .kanji {
   color: $blueLight;
 }

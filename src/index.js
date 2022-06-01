@@ -6,13 +6,11 @@ import Clans from "./pages/clans/index";
 import { Error404 } from "./pages/404/index";
 import Header from "./components/header";
 import Hirelings from "./pages/hirelings/index";
-import ItemGenerator from "./pages/items/index";
 import Kingdoms from "./pages/kingdoms/index";
 import Navigation from "./components/navigation";
-import People from "./pages/people/index";
 import React from "react";
 import ReactDOM from "react-dom";
-import Shops from "./pages/shops/index";
+import TreasurePage from "./pages/treasure/index";
 
 const routing = (
   <Router>
@@ -27,6 +25,7 @@ const routing = (
       <Route path="/cities/" component={Cities} />
       <Route path="/kingdoms/" component={Kingdoms} />
       <Route path="/clan/" component={Clans} />
+      <Route path="/treasure/" component={TreasurePage} />
 
       <Route component={Error404} />
     </Switch>

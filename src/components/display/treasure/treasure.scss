@@ -1,0 +1,21 @@
+@import "../../../styles/mixins";
+
+.treasure {
+  &__list {
+    list-style: none;
+    padding-left: 1em;
+  }
+
+  &__chevron {
+    color: $moodGreen;
+  }
+
+  &__primary {
+    color: $white;
+  }
+
+  &__gpValue {
+    color: $lightGray;
+    font-size: 12px;
+  }
+}

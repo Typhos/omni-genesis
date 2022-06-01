@@ -1,0 +1,723 @@
+{
+  "A": {
+    "avgValue": 18000,
+    "rollArray": [
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "6",
+        "amount": "1000",
+        "itemType": "cp"
+      },
+      {
+        "percentage": 30,
+        "diceNum": "1",
+        "diceType": "6",
+        "amount": "1000",
+        "itemType": "sp"
+      },
+      {
+        "percentage": 20,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": "1000",
+        "itemType": "ep"
+      },
+      {
+        "percentage": 35,
+        "diceNum": "2",
+        "diceType": "6",
+        "amount": "1000",
+        "itemType": "gp"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "2",
+        "amount": "1000",
+        "itemType": "pp"
+      },
+      {
+        "percentage": 50,
+        "diceNum": "6",
+        "diceType": "6",
+        "amount": null,
+        "itemType": "gem(s)"
+      },
+      {
+        "percentage": 50,
+        "diceNum": "6",
+        "diceType": "6",
+        "amount": null,
+        "itemType": "pieces of jewellery"
+      },
+      {
+        "percentage": 30,
+        "diceNum": "3",
+        "diceType": null,
+        "amount": null,
+        "itemType": "magic items"
+      }
+    ]
+  },
+  "B": {
+    "avgValue": 2000,
+    "rollArray": [
+      {
+        "percentage": 50,
+        "diceNum": "1",
+        "diceType": "8",
+        "amount": "1000",
+        "itemType": "cp"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "6",
+        "amount": "1000",
+        "itemType": "sp"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": "1000",
+        "itemType": "ep"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "3",
+        "amount": "1000",
+        "itemType": "gp"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "6",
+        "amount": null,
+        "itemType": "gem(s)"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "6",
+        "amount": null,
+        "itemType": "piece(s) of jewellery"
+      },
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": null,
+        "amount": null,
+        "itemType": "magic sword, suit of armor, or weapon"
+      }
+    ]
+  },
+  "C": {
+    "avgValue": 1000,
+    "rollArray": [
+      {
+        "percentage": 20,
+        "diceNum": "1",
+        "diceType": "12",
+        "amount": "1000",
+        "itemType": "cp"
+      },
+      {
+        "percentage": 30,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": "1000",
+        "itemType": "sp"
+      },
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": "1000",
+        "itemType": "ep"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": null,
+        "itemType": "gem(s)"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": null,
+        "itemType": "piece(s) of jewellery"
+      },
+      {
+        "percentage": 10,
+        "diceNum": "2",
+        "diceType": null,
+        "amount": null,
+        "itemType": "magic items"
+      }
+    ]
+  },
+  "D": {
+    "avgValue": 3900,
+    "rollArray": [
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "8",
+        "amount": "1000",
+        "itemType": "cp"
+      },
+
+      {
+        "percentage": 15,
+        "diceNum": "1",
+        "diceType": "12",
+        "amount": "1000",
+        "itemType": "sp"
+      },
+
+      {
+        "percentage": 60,
+        "diceNum": "1",
+        "diceType": "6",
+        "amount": "1000",
+        "itemType": "gp"
+      },
+      {
+        "percentage": 30,
+        "diceNum": "1",
+        "diceType": "8",
+        "amount": null,
+        "itemType": "gem(s)"
+      },
+      {
+        "percentage": 30,
+        "diceNum": "1",
+        "diceType": "8",
+        "amount": null,
+        "itemType": "piece(s) of jewellery"
+      },
+      {
+        "percentage": 15,
+        "diceNum": "2",
+        "diceType": null,
+        "amount": null,
+        "itemType": "magic items plus 1 potion"
+      }
+    ]
+  },
+  "E": {
+    "avgValue": 2300,
+    "rollArray": [
+      {
+        "percentage": 5,
+        "diceNum": "1",
+        "diceType": "10",
+        "amount": "1000",
+        "itemType": "cp"
+      },
+      {
+        "percentage": 30,
+        "diceNum": "1",
+        "diceType": "12",
+        "amount": "1000",
+        "itemType": "2p"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": "1000",
+        "itemType": "ep"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "8",
+        "amount": "1000",
+        "itemType": "gp"
+      },
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "10",
+        "amount": null,
+        "itemType": "gem(s)"
+      },
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "10",
+        "amount": null,
+        "itemType": "piece(s) of jewellery"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "3",
+        "diceType": null,
+        "amount": null,
+        "itemType": "magic items plus 1 scroll"
+      }
+    ]
+  },
+  "F": {
+    "avgValue": 7700,
+    "rollArray": [
+      {
+        "percentage": 10,
+        "diceNum": "2",
+        "diceType": "10",
+        "amount": "1000",
+        "itemType": "sp"
+      },
+      {
+        "percentage": 20,
+        "diceNum": "1",
+        "diceType": "8",
+        "amount": "1000",
+        "itemType": "ep"
+      },
+      {
+        "percentage": 45,
+        "diceNum": "1",
+        "diceType": "12",
+        "amount": "1000",
+        "itemType": "gp"
+      },
+      {
+        "percentage": 30,
+        "diceNum": "1",
+        "diceType": "3",
+        "amount": "1000",
+        "itemType": "pp"
+      },
+      {
+        "percentage": 20,
+        "diceNum": "2",
+        "diceType": "12",
+        "amount": null,
+        "itemType": "gem(s)"
+      },
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "12",
+        "amount": null,
+        "itemType": "piece(s) of jewellery"
+      },
+      {
+        "percentage": 30,
+        "diceNum": "3",
+        "diceType": null,
+        "amount": null,
+        "itemType": "magic items (not weapons), plus 1 potion, plus 1 scroll"
+      }
+    ]
+  },
+  "G": {
+    "avgValue": 23000,
+    "rollArray": [
+      {
+        "percentage": 50,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": "1000",
+        "itemType": "gp"
+      },
+      {
+        "percentage": 50,
+        "diceNum": "1",
+        "diceType": "6",
+        "amount": "1000",
+        "itemType": "pp"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "3",
+        "diceType": "6",
+        "amount": null,
+        "itemType": "gem(s)"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "10",
+        "amount": null,
+        "itemType": "piece(s) of jewellery"
+      },
+      {
+        "percentage": 35,
+        "diceNum": "4",
+        "diceType": null,
+        "amount": null,
+        "itemType": "magic items plus 1 scroll"
+      }
+    ]
+  },
+  "H": {
+    "avgValue": 60000,
+    "rollArray": [
+      {
+        "percentage": 25,
+        "diceNum": "3",
+        "diceType": "8",
+        "amount": "1000",
+        "itemType": "cp"
+      },
+      {
+        "percentage": 50,
+        "diceNum": "1",
+        "diceType": "100",
+        "amount": "1000",
+        "itemType": "sp"
+      },
+      {
+        "percentage": 50,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": "10000",
+        "itemType": "ep"
+      },
+      {
+        "percentage": 50,
+        "diceNum": "1",
+        "diceType": "6",
+        "amount": "10000",
+        "itemType": "gp"
+      },
+      {
+        "percentage": 25,
+        "diceNum": "5",
+        "diceType": "4",
+        "amount": "1000",
+        "itemType": "pp"
+      },
+      {
+        "percentage": 50,
+        "diceNum": "1",
+        "diceType": "100",
+        "amount": null,
+        "itemType": "gem(s)"
+      },
+      {
+        "percentage": 50,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": "10",
+        "itemType": "piece(s) of jewellery"
+      },
+      {
+        "percentage": 15,
+        "diceNum": "4",
+        "diceType": null,
+        "amount": null,
+        "itemType": "magic items, plus 1 potion, plus 1 scroll"
+      }
+    ]
+  },
+  "I": {
+    "avgValue": 11000,
+    "rollArray": [
+      {
+        "percentage": 30,
+        "diceNum": "1",
+        "diceType": "8",
+        "amount": "1000",
+        "itemType": "pp"
+      },
+      {
+        "percentage": 50,
+        "diceNum": "2",
+        "diceType": "6",
+        "amount": null,
+        "itemType": "gem(s)"
+      },
+      {
+        "percentage": 50,
+        "diceNum": "2",
+        "diceType": "6",
+        "amount": null,
+        "itemType": "piece(s) of jewellery"
+      },
+      {
+        "percentage": 15,
+        "diceNum": "1",
+        "diceType": null,
+        "amount": null,
+        "itemType": "magic item"
+      }
+    ]
+  },
+  "J": {
+    "avgValue": 25,
+    "rollArray": [
+      {
+        "percentage": 25,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": "1000",
+        "itemType": "cp"
+      },
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "3",
+        "amount": "1000",
+        "itemType": "sp"
+      }
+    ]
+  },
+  "K": {
+    "avgValue": 180,
+    "rollArray": [
+      {
+        "percentage": 30,
+        "diceNum": "1",
+        "diceType": "6",
+        "amount": "1000",
+        "itemType": "sp"
+      },
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "2",
+        "amount": "1000",
+        "itemType": "ep"
+      }
+    ]
+  },
+  "L": {
+    "avgValue": 240,
+    "rollArray": [
+      {
+        "percentage": 50,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": null,
+        "itemType": "gem(s)"
+      }
+    ]
+  },
+  "M": {
+    "avgValue": 50000,
+    "rollArray": [
+      {
+        "percentage": 40,
+        "diceNum": "2",
+        "diceType": "4",
+        "amount": "1000",
+        "itemType": "gp"
+      },
+      {
+        "percentage": 50,
+        "diceNum": "5",
+        "diceType": "6",
+        "amount": "1000",
+        "itemType": "pp"
+      },
+      {
+        "percentage": 55,
+        "diceNum": "5",
+        "diceType": "4",
+        "amount": null,
+        "itemType": "gem(s)"
+      },
+      {
+        "percentage": 45,
+        "diceNum": "2",
+        "diceType": "6",
+        "amount": null,
+        "itemType": "piece(s) of jewellery"
+      }
+    ]
+  },
+  "N": {
+    "avgValue": 0,
+    "rollArray": [
+      {
+        "percentage": 40,
+        "diceNum": "2",
+        "diceType": "4",
+        "amount": null,
+        "itemType": "potion(s)"
+      }
+    ]
+  },
+  "O": {
+    "avgValue": 0,
+    "rollArray": [
+      {
+        "percentage": 50,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": null,
+        "itemType": "scroll(s)"
+      }
+    ]
+  },
+  "P": {
+    "avgValue": 0,
+    "rollArray": [
+      {
+        "percentage": 100,
+        "diceNum": "3",
+        "diceType": "8",
+        "amount": "1",
+        "itemType": "cp"
+      }
+    ]
+  },
+  "Q": {
+    "avgValue": 0,
+    "rollArray": [
+      {
+        "percentage": 100,
+        "diceNum": "3",
+        "diceType": "6",
+        "amount": "1",
+        "itemType": "sp"
+      }
+    ]
+  },
+  "R": {
+    "avgValue": 0,
+    "rollArray": [
+      {
+        "percentage": 100,
+        "diceNum": "2",
+        "diceType": "6",
+        "amount": "1",
+        "itemType": "ep"
+      }
+    ]
+  },
+  "S": {
+    "avgValue": 0,
+    "rollArray": [
+      {
+        "percentage": 100,
+        "diceNum": "2",
+        "diceType": "4",
+        "amount": "1",
+        "itemType": "gp"
+      }
+    ]
+  },
+  "T": {
+    "avgValue": 0,
+    "rollArray": [
+      {
+        "percentage": 100,
+        "diceNum": "1",
+        "diceType": "6",
+        "amount": "1",
+        "itemType": "pp"
+      }
+    ]
+  },
+  "U": {
+    "avgValue": 160,
+    "rollArray": [
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "100",
+        "amount": "1",
+        "itemType": "cp"
+      },
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "100",
+        "amount": "1",
+        "itemType": "sp"
+      },
+      {
+        "percentage": 5,
+        "diceNum": "1",
+        "diceType": "100",
+        "amount": "1",
+        "itemType": "gp"
+      },
+      {
+        "percentage": 5,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": null,
+        "itemType": "gem(s)"
+      },
+      {
+        "percentage": 5,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": null,
+        "itemType": "piece(s) of jewellery"
+      },
+      {
+        "percentage": 2,
+        "diceNum": "1",
+        "diceType": null,
+        "amount": null,
+        "itemType": "magic item"
+      }
+    ]
+  },
+  "V": {
+    "avgValue": 330,
+    "rollArray": [
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "100",
+        "amount": "1",
+        "itemType": "sp"
+      },
+      {
+        "percentage": 5,
+        "diceNum": "1",
+        "diceType": "100",
+        "amount": "1",
+        "itemType": "ep"
+      },
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "100",
+        "amount": "1",
+        "itemType": "gp"
+      },
+      {
+        "percentage": 5,
+        "diceNum": "1",
+        "diceType": "100",
+        "amount": "1",
+        "itemType": "ep"
+      },
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": null,
+        "itemType": "gem(s)"
+      },
+      {
+        "percentage": 10,
+        "diceNum": "1",
+        "diceType": "4",
+        "amount": null,
+        "itemType": "piece(s) of jewellery"
+      },
+      {
+        "percentage": 5,
+        "diceNum": "1",
+        "diceType": null,
+        "amount": null,
+        "itemType": "magic item"
+      }
+    ]
+  }
+}

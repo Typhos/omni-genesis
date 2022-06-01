@@ -3,3 +3,9 @@
 .infoTable.three {
   column-count: 3;
 }
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .infoTable.three {
+    column-count: 2;
+  }
+}

@@ -1,7 +1,8 @@
-import React, { Component } from "react";
 import "./oneColumn.scss";
 
-export default class ThreeColumnDisplay extends Component {
+import React, { Component } from "react";
+
+export default class OneColumnDisplay extends Component {
   render() {
     return (
       <React.Fragment>

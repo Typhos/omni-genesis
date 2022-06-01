@@ -37,13 +37,16 @@
   .navigation {
     padding: 0.25em $mobileSidePadding;
     width: 94vw;
+    height: auto;
 
     .navBox {
-      justify-content: space-evenly;
+      justify-content: space-around;
       width: 100vw;
+      flex-wrap: wrap;
 
       a {
         margin: 0;
+        padding: 0.5em 2em;
 
         &:after {
           content: "";

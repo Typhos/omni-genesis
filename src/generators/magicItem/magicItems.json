@@ -1,0 +1,1103 @@
+{
+  "itemGroups": {
+    "Armor or Shield": {
+      "odds": 10,
+      "itemsList": {
+        "Armor +1": {
+          "odds": 15
+        },
+        "Armor +1, Shield +1": {
+          "odds": 10
+        },
+        "Armor +1, Shield +2": {
+          "odds": 2
+        },
+        "Armor +1, Shield +3": {
+          "odds": 1
+        },
+        "Armor +2": {
+          "odds": 4
+        },
+        "Armor +2, Shield +1": {
+          "odds": 2
+        },
+        "Armor +2, Shield +2": {
+          "odds": 4
+        },
+        "Armor +2, Shield +3": {
+          "odds": 1
+        },
+        "Armor +3": {
+          "odds": 2
+        },
+        "Armor +3, Shield +1": {
+          "odds": 1
+        },
+        "Armor +3, Shield +2": {
+          "odds": 1
+        },
+        "Armor +3, Shield +3": {
+          "odds": 1
+        },
+        "Cursed Armor -1": {
+          "odds": 2
+        },
+        "Cursed Armor -2": {
+          "odds": 2
+        },
+        "Cursed Armor -2, Shield +1": {
+          "odds": 1
+        },
+        "Cursed Armor, AC 9 [10]": {
+          "odds": 2
+        },
+        "Cursed Shield -2": {
+          "odds": 5
+        },
+        "Cursed Shield, AC 9 [10]": {
+          "odds": 3
+        },
+        "Shield +1": {
+          "odds": 20
+        },
+        "Shield +2": {
+          "odds": 10
+        },
+        "Shield +3": {
+          "odds": 5
+        }
+      },
+      "armorTypes": {
+        "Leather": {
+          "odds": 2
+        },
+        "Chainmail": {
+          "odds": 3
+        },
+        "Plate mail": {
+          "odds": 2
+        }
+      }
+    },
+    "Misc. Item": {
+      "odds": 5,
+      "tables": [
+        {
+          "Alchemist's Beaker": {
+            "odds": 2
+          },
+          "Amulet of Prot. Against Possession": {
+            "odds": 1
+          },
+          "Amulet of Prot. Against Scrying": {
+            "odds": 3
+          },
+          "Apparatus of the Crab": {
+            "odds": 2
+          },
+          "Arrow of Location": {
+            "odds": 3
+          },
+          "Bag of Devouring": {
+            "odds": 1
+          },
+          "Bag of Holding": {
+            "odds": 5
+          },
+          "Bag of Transformation": {
+            "odds": 1
+          },
+          "Book of Foul Corruption": {
+            "odds": 1
+          },
+          "Book of Infinite Spells": {
+            "odds": 1
+          },
+          "Book of Sublime Holiness": {
+            "odds": 1
+          },
+          "Boots of Dancing": {
+            "odds": 1
+          },
+          "Boots of Levitation": {
+            "odds": 5
+          },
+          "Boots of Speed": {
+            "odds": 4
+          },
+          "Boots of Travelling and Leaping": {
+            "odds": 4
+          },
+          "Bracers of Armour": {
+            "odds": 15
+          },
+          "Bracers of Defencelessness": {
+            "odds": 2
+          },
+          "Brooch of Shielding": {
+            "odds": 7
+          },
+          "Broom of Flying": {
+            "odds": 5
+          },
+          "Candle of Invocation": {
+            "odds": 6
+          },
+          "Chime of Opening": {
+            "odds": 2
+          },
+          "Chime of Ravening": {
+            "odds": 1
+          },
+          "Cloak of Defence": {
+            "odds": 12
+          },
+          "Cloak of Flight": {
+            "odds": 10
+          },
+          "Cloak of Poison": {
+            "odds": 2
+          },
+          "Cloak of the Manta Ray": {
+            "odds": 3
+          }
+        },
+        {
+          "Crystal Ball": { "odds": 5 },
+          "Crystal Ball with Clairaudience": { "odds": 2 },
+          "Crystal Ball with ESP": { "odds": 1 },
+          "Crystal Hypnosis Ball": { "odds": 1 },
+          "Cube of Force": { "odds": 2 },
+          "Cube of Frost Resistance": { "odds": 2 },
+          "Decanter of Endless Water": { "odds": 3 },
+          "Deck of Many Things": { "odds": 4 },
+          "Displacer Cloak": { "odds": 4 },
+          "Drums of Panic": { "odds": 2 },
+          "Drums of Thunder": { "odds": 1 },
+          "Dust of Appearance": { "odds": 6 },
+          "Dust of Disappearance": { "odds": 6 },
+          "Dust of Sneezing and Choking": { "odds": 1 },
+          "Efreeti Bottle": { "odds": 1 },
+          "Elem. Summoning Device: Air": { "odds": 2 },
+          "Elem. Summoning Device: Earth": { "odds": 2 },
+          "Elem. Summoning Device: Fire": { "odds": 2 },
+          "Elem. Summoning Device: Water": { "odds": 2 },
+          "Elven Cloak and Boots": { "odds": 10 },
+          "Eyes of Charming": { "odds": 1 },
+          "Eyes of Minuscule Sight": { "odds": 2 },
+          "Eyes of Petrification": { "odds": 1 },
+          "Eyes of the Eagle": { "odds": 2 },
+          "Feather Token": {
+            "odds": 15,
+            "options": {
+              "Anchor": { "odds": 4 },
+              "Bird": { "odds": 3 },
+              "Fan": { "odds": 3 },
+              "Swan boat": { "odds": 3 },
+              "Tree": { "odds": 5 },
+              "Whip": { "odds": 2 }
+            }
+          },
+          "Figurine of Wondrous Power": {
+            "odds": 15,
+            "options": {
+              "Ebony fly": { "odds": 3 },
+              "Pair of golden lions": { "odds": 3 },
+              "Trio of ivory goats (travelling, travail, and terror)": { "odds": 2 },
+              "Marble elephant": { "odds": 3 },
+              "Obsidian steed": { "odds": 2 },
+              "Onyx dog": { "odds": 4 },
+              "Serpentine owl": { "odds": 3 }
+            }
+          },
+          "Flying Carpet": { "odds": 2 },
+          "Folding Boat": { "odds": 1 },
+          "Gauntlets of Ogre Power": { "odds": 2 }
+        },
+        {
+          "Gem of Brightness": { "odds": 1 },
+          "Gem of Monster Attraction": { "odds": 1 },
+          "Gem of Pristine Faceting": { "odds": 1 },
+          "Gem of Seeing": { "odds": 1 },
+          "Girdle of Giant Strength": { "odds": 1 },
+          "Gloves of Dexterity": { "odds": 2 },
+          "Gloves of Swimming and Climbing": { "odds": 3 },
+          "Helm of Alignment Changing": { "odds": 2 },
+          "Helm of Read Languages and Magic": { "odds": 5 },
+          "Helm of Telepathy": { "odds": 2 },
+          "Helm of Teleportation": { "odds": 1 },
+          "Horn of Blasting": { "odds": 1 },
+          "Horn of Cave-Ins": { "odds": 1 },
+          "Horn of Frothing": { "odds": 2 },
+          "Horn of the Tritons": { "odds": 4 },
+          "Horn of Valhalla": {
+            "odds": 7,
+            "options": {
+              "Silver": { "odds": 40 },
+              "Brass": { "odds": 35 },
+              "Bronze": { "odds": 15 },
+              "Iron": { "odds": 10 }
+            }
+          },
+          "Horseshoes of a Zephyr": { "odds": 2 },
+          "Horseshoes of Speed": { "odds": 3 },
+          "Incense of Meditation": { "odds": 5 },
+          "Incense of Obsession": { "odds": 1 },
+          "Instant Fortress": { "odds": 2 },
+          "Ioun Stones": {
+            "odds": 1,
+            "diceNum": "1",
+            "diceType": "10",
+            "options": {
+              "Pale blue rhomboid": { "odds": 1 },
+              "Scarlet and blue sphere": { "odds": 1 },
+              "Incandescent blue sphere": { "odds": 1 },
+              "Deep red sphere": { "odds": 1 },
+              "Pink rhomboid": { "odds": 1 },
+              "Pink and green sphere": { "odds": 1 },
+              "Pale green prism": { "odds": 1 },
+              "Clear spindle": { "odds": 1 },
+              "Pearly white spindle": { "odds": 1 },
+              "Pale lavender ellipsoid": { "odds": 1 },
+              "Lavender and green ellipsoid": { "odds": 1 },
+              "Vibrant purple prism": { "odds": 1 },
+              "Dusty rose prism": { "odds": 1 },
+              "Dull grey ellipsoid": { "odds": 6 }
+            }
+          },
+          "Iron Flask": { "odds": 2 },
+          "Jug of Endless Liquids": { "odds": 2 },
+          "Libram of Arcane Power": { "odds": 1 },
+          "Loadstone": { "odds": 2 },
+          "Luckstone": { "odds": 2 },
+          "Lyre of Building": { "odds": 1 },
+          "Marvellous Pigments": { "odds": 2 },
+          "Medallion of ESP 30'": { "odds": 3 },
+          "Medallion of ESP 90'": { "odds": 2 },
+          "Medallion of Thought Projection": { "odds": 2 },
+          "Mirror of Life Trapping": { "odds": 1 },
+          "Mirror of Mental Prowess": { "odds": 1 },
+          "Mirror of Opposition": { "odds": 1 },
+          "Necklace of Adaptation": { "odds": 3 },
+          "Necklace of Fireballs": { "odds": 4 },
+          "Necklace of Strangulation": { "odds": 2 },
+          "Net of Aquatic Snaring": { "odds": 4 },
+          "Net of Snaring": { "odds": 3 },
+          "Oil of Insubstantiality": { "odds": 3 },
+          "Oil of Slipperiness": { "odds": 3 },
+          "Pearl of Power": { "odds": 2 },
+          "Pearl of Wisdom": { "odds": 2 },
+          "Periapt of Foul Rotting": { "odds": 3 }
+        },
+        {
+          "Periapt of Health": { "odds": 2 },
+          "Periapt of Proof Against Poison": { "odds": 7 },
+          "Periapt of Wound Closure": { "odds": 4 },
+          "Phylactery of Betrayal": { "odds": 2 },
+          "Phylactery of Faithfulness": { "odds": 6 },
+          "Phylactery of Longevity": { "odds": 4 },
+          "Pipes of the Sewers": { "odds": 8 },
+          "Portable Hole": { "odds": 1 },
+          "Purse of Plentiful Coin": { "odds": 2 },
+          "Restorative Ointment": { "odds": 8 },
+          "Robe of Blending": { "odds": 7 },
+          "Robe of Eyes": { "odds": 1 },
+          "Robe of Powerlessness": { "odds": 1 },
+          "Robe of Scintillating Colours": { "odds": 1 },
+          "Robe of the Archmagi": { "odds": 1 },
+          "Robe of Useful Items": { "odds": 8 },
+          "Rope of Climbing": { "odds": 6 },
+          "Rope of Entanglement": { "odds": 4 },
+          "Rope of Strangulation": { "odds": 2 },
+          "Rug of Suffocation": { "odds": 1 },
+          "Saw of Felling": { "odds": 1 },
+          "Scarab of Chaos": { "odds": 2 },
+          "Scarab of Death": { "odds": 1 },
+          "Scarab of Protection": { "odds": 6 },
+          "Scarab of Rage": { "odds": 3 },
+          "Spade of Mighty Digging": { "odds": 1 },
+          "Sphere of Annihilation": { "odds": 1 },
+          "Sweet Water": { "odds": 3 },
+          "Talisman of the Sphere": { "odds": 1 },
+          "Vacuous Grimoire": { "odds": 2 },
+          "Well of Many Worlds": { "odds": 3 }
+        }
+      ]
+    },
+    "Potion": {
+      "odds": 20,
+      "itemsList": {
+        "Clairaudience": {
+          "odds": 3
+        },
+        "Clairvoyance": {
+          "odds": 4
+        },
+        "Control Animal": {
+          "odds": 3
+        },
+        "Control Dragon": {
+          "odds": 3
+        },
+        "Control Giant": {
+          "odds": 3
+        },
+        "Control Human": {
+          "odds": 3
+        },
+        "Control Plant": {
+          "odds": 3
+        },
+        "Control Undead": {
+          "odds": 3
+        },
+        "Delusion": {
+          "odds": 7
+        },
+        "Diminution": {
+          "odds": 4
+        },
+        "ESP": {
+          "odds": 4
+        },
+        "Fire Resistance": {
+          "odds": 4
+        },
+        "Flying": {
+          "odds": 4
+        },
+        "Gaseous Form": {
+          "odds": 4
+        },
+        "Giant Strength": {
+          "odds": 4
+        },
+        "Growth": {
+          "odds": 4
+        },
+        "Healing": {
+          "odds": 4
+        },
+        "Heroism": {
+          "odds": 5
+        },
+        "Invisibility": {
+          "odds": 4
+        },
+        "Invulnerability": {
+          "odds": 4
+        },
+        "Levitation": {
+          "odds": 4
+        },
+        "Longevity": {
+          "odds": 4
+        },
+        "Poison": {
+          "odds": 2
+        },
+        "Polymorph Self": {
+          "odds": 3
+        },
+        "Speed": {
+          "odds": 8
+        },
+        "Treasure Finding": {
+          "odds": 3
+        }
+      }
+    },
+    "Ring": {
+      "odds": 5,
+      "itemsList": {
+        "Control Animals": {
+          "odds": 5
+        },
+        "Control Humans": {
+          "odds": 5
+        },
+        "Control Plants": {
+          "odds": 6
+        },
+        "Delusion": {
+          "odds": 10
+        },
+        "Djinni Summoning": {
+          "odds": 3
+        },
+        "Fire Resistance": {
+          "odds": 10
+        },
+        "Invisibility": {
+          "odds": 11
+        },
+        "Protection +1, 5' radius": {
+          "odds": 5
+        },
+        "Protection +1": {
+          "odds": 15
+        },
+        "Regeneration": {
+          "odds": 2
+        },
+        "Spell Storing": {
+          "odds": 2
+        },
+        "Spell Turning": {
+          "odds": 6
+        },
+        "Telekinesis": {
+          "odds": 3
+        },
+        "Water Walking": {
+          "odds": 6
+        },
+        "Weakness": {
+          "odds": 6
+        },
+        "Wishes, 1-2": {
+          "odds": 2
+        },
+        "Wishes, 1-3": {
+          "odds": 1
+        },
+        "Wishes, 2-4": {
+          "odds": 1
+        },
+        "X-Ray Vision": {
+          "odds": 2
+        }
+      }
+    },
+    "Rod/Staff/Wand": {
+      "odds": 5,
+      "itemsList": {
+        "Immovable Rod": {
+          "odds": 2
+        },
+        "Rod of Absorption": {
+          "odds": 3
+        },
+        "Rod of Cancellation": {
+          "odds": 6
+        },
+        "Rod of Captivation": {
+          "odds": 1
+        },
+        "Rod of Lordly Might": {
+          "odds": 2
+        },
+        "Rod of Parrying": {
+          "odds": 1
+        },
+        "Rod of Resurrection": {
+          "odds": 1
+        },
+        "Rod of Striking": {
+          "odds": 1
+        },
+        "Staff of Commanding": {
+          "odds": 1
+        },
+        "Staff of Dispelling": {
+          "odds": 2
+        },
+        "Staff of Healing": {
+          "odds": 6
+        },
+        "Staff of Power": {
+          "odds": 1
+        },
+        "Staff of Snakes": {
+          "odds": 3
+        },
+        "Staff of Striking": {
+          "odds": 3
+        },
+        "Staff of Swarming Insects": {
+          "odds": 3
+        },
+        "Staff of the Healer": {
+          "odds": 2
+        },
+        "Staff of Withering": {
+          "odds": 2
+        },
+        "Staff of Wizardry": {
+          "odds": 1
+        },
+        "Staff of the Woodlands": {
+          "odds": 3
+        },
+        "Wand of Cold": {
+          "odds": 3
+        },
+        "Wand of Enemy Detection": {
+          "odds": 4
+        },
+        "Wand of Fear": {
+          "odds": 3
+        },
+        "Wand of Fire Balls": {
+          "odds": 3
+        },
+        "Wand of Illusion": {
+          "odds": 4
+        },
+        "Wand of Lightning Bolts": {
+          "odds": 3
+        },
+        "Wand of Magic Detection": {
+          "odds": 5
+        },
+        "Wand of Magic Missiles": {
+          "odds": 5
+        },
+        "Wand of Metal Detection": {
+          "odds": 5
+        },
+        "Wand of Negation": {
+          "odds": 5
+        },
+        "Wand of Paralysation": {
+          "odds": 3
+        },
+        "Wand of Polymorph": {
+          "odds": 3
+        },
+        "Wand of Radiance": {
+          "odds": 4
+        },
+        "Wand of Secret Door Detection": {
+          "odds": 3
+        },
+        "Wand of Summoning": {
+          "odds": 1
+        },
+        "Wand of Trap Detection": {
+          "odds": 2
+        }
+      }
+    },
+    "Scroll or Map": {
+      "odds": 30,
+      "itemsList": {
+        "1 Spell": {
+          "spellCount": 1,
+          "odds": 15
+        },
+        "2 Spells": {
+          "spellCount": 2,
+          "odds": 10
+        },
+        "3 Spell": {
+          "spellCount": 3,
+          "odds": 6
+        },
+        "5 Spells": {
+          "spellCount": 5,
+          "odds": 3
+        },
+        "7 Spells": {
+          "spellCount": 7,
+          "odds": 1
+        },
+        "Cursed Scroll": {
+          "odds": 5
+        },
+        "Protection from Elementals": {
+          "odds": 10
+        },
+        "Protection from Lycanthropes": {
+          "odds": 10
+        },
+        "Protection from Magic": {
+          "odds": 5
+        },
+        "Protection from Undead": {
+          "odds": 10
+        },
+        "Treasure Map: I": {
+          "odds": 3
+        },
+        "Treasure Map: II": {
+          "odds": 2
+        },
+        "Treasure Map: III": {
+          "odds": 2
+        },
+        "Treasure Map: IV": {
+          "odds": 1
+        },
+        "Treasure Map: V": {
+          "odds": 1
+        },
+        "Treasure Map: VI": {
+          "odds": 1
+        },
+        "Treasure Map: VII": {
+          "odds": 1
+        },
+        "Treasure Map: VIII": {
+          "odds": 4
+        },
+        "Treasure Map: IX": {
+          "odds": 5
+        },
+        "Treasure Map: X": {
+          "odds": 1
+        },
+        "Treasure Map: XI": {
+          "odds": 2
+        },
+        "Treasure Map: XII": {
+          "odds": 2
+        }
+      }
+    },
+    "Sword": {
+      "odds": 20,
+      "itemsList": {
+        "Short Sword +2, Quickness": {
+          "odds": 3
+        },
+        "Sword -1, Berserker (Cursed)": {
+          "odds": 3
+        },
+        "Sword -1, Cursed": {
+          "odds": 3
+        },
+        "Sword -2, Cursed": {
+          "odds": 3
+        },
+        "Sword +1": {
+          "odds": 16
+        },
+        "Sword +1, +2 vs Lycanthropes": {
+          "odds": 3
+        },
+        "Sword +1, +2 vs Spell Users": {
+          "odds": 3
+        },
+        "Sword +1, +3 vs Dragons": {
+          "odds": 3
+        },
+        "Sword +1, +3 vs Enchanted Creatures": {
+          "odds": 3
+        },
+        "Sword +1, +3 vs Regenerating Creatures": {
+          "odds": 3
+        },
+        "Sword +1, +3 vs Reptiles": {
+          "odds": 3
+        },
+        "Sword +1, +3 vs Shape Changers": {
+          "odds": 3
+        },
+        "Sword +1, +3 vs Undead": {
+          "odds": 3
+        },
+        "Sword +1, Dragon Slayer": {
+          "odds": 3
+        },
+        "Sword +1, Energy Drain": {
+          "odds": 1
+        },
+        "Sword +1, Flaming": {
+          "odds": 3
+        },
+        "Sword +1, Frost Brand": {
+          "odds": 2
+        },
+        "Sword +1, Giant Slayer": {
+          "odds": 3
+        },
+        "Sword +1, Light": {
+          "odds": 5
+        },
+        "Sword +1, Locate Objects": {
+          "odds": 2
+        },
+        "Sword +1, Luck": {
+          "odds": 1
+        },
+        "Sword +1, Sharpness": {
+          "odds": 1
+        },
+        "Sword +1, Sun Blade": {
+          "odds": 5
+        },
+        "Sword +1, Wishes": {
+          "odds": 1
+        },
+        "Sword +1, Wounding": {
+          "odds": 1
+        },
+        "Sword +2": {
+          "odds": 5
+        },
+        "Sword +2, Charm Person": {
+          "odds": 2
+        },
+        "Sword +2, Dancing": {
+          "odds": 1
+        },
+        "Sword +2, Nine Lives Stealer": {
+          "odds": 1
+        },
+        "Sword +2, Venger": {
+          "odds": 5
+        },
+        "Sword +2, Vorpal": {
+          "odds": 1
+        },
+        "Sword +3": {
+          "odds": 3
+        },
+        "Sword +3, Defender": {
+          "odds": 1
+        },
+        "Sword +3, Holy Avenger": {
+          "odds": 1
+        }
+      }
+    },
+    "Weapon": {
+      "odds": 5,
+      "itemsList": {
+        "Arrow +1, Slaying": {
+          "odds": 1
+        },
+        "Arrows +1": {
+          "odds": 11,
+          "options": {
+            "option1": {
+              "odds": 2,
+              "diceNum": "3",
+              "diceType": "10",
+              "objectName": "arrows"
+            },
+            "option2": {
+              "odds": 2,
+              "diceNum": "3",
+              "diceType": "10",
+              "objectName": "arrows"
+            }
+          }
+        },
+        "Arrows +2": {
+          "odds": 3,
+          "diceNum": "1",
+          "diceType": "6",
+          "objectName": "arrows"
+        },
+        "Axe +1": {
+          "odds": 4
+        },
+        "Axe +2": {
+          "odds": 2
+        },
+        "Bow +1": {
+          "odds": 3
+        },
+        "Crossbow +1, Distance": {
+          "odds": 1
+        },
+        "Crossbow +1, Speed": {
+          "odds": 1
+        },
+        "Crossbow +2, Accuracy": {
+          "odds": 1
+        },
+        "Crossbow Bolts +1": {
+          "odds": 4,
+          "options": {
+            "option1": {
+              "odds": 2,
+              "diceNum": "3",
+              "diceType": "10",
+              "objectName": "bolts"
+            },
+            "option2": {
+              "odds": 2,
+              "diceNum": "3",
+              "diceType": "10",
+              "objectName": "bolts"
+            }
+          }
+        },
+        "Crossbow Bolts +2": {
+          "odds": 5,
+          "diceNum": "1",
+          "diceType": "6",
+          "objectName": "bolts"
+        },
+        "Dagger +1": {
+          "odds": 3
+        },
+        "Dagger +1, Buckle": {
+          "odds": 1
+        },
+        "Dagger +1, Throwing": {
+          "odds": 1
+        },
+        "Dagger +1, Venomous": {
+          "odds": 1
+        },
+        "Dagger +2, +3 vs orcs, goblins, and kobolds": {
+          "odds": 3
+        },
+        "Dagger +2, Biter": {
+          "odds": 1
+        },
+        "Javelin of Lightning": {
+          "odds": 4,
+          "diceNum": "1",
+          "diceType": "4",
+          "bonus": 1,
+          "objectName": "javelins"
+        },
+        "Javelin of Seeking": {
+          "odds": 4,
+          "diceNum": "2",
+          "diceType": "4",
+          "objectName": "javelins"
+        },
+        "Mace +1": {
+          "odds": 4
+        },
+        "Mace +1, Disrupting": {
+          "odds": 1
+        },
+        "Mace +2": {
+          "odds": 3
+        },
+        "Mace +3": {
+          "odds": 1
+        },
+        "Sling +1": {
+          "odds": 5
+        },
+        "Sling Bullet +1, Impact": {
+          "odds": 1,
+          "diceNum": "1",
+          "diceType": "4",
+          "objectName": "bullets"
+        },
+        "Spear -1, Backbiter (Cursed)": {
+          "odds": 2
+        },
+        "Spear +1": {
+          "odds": 4
+        },
+        "Spear +2": {
+          "odds": 2
+        },
+        "Spear +3": {
+          "odds": 1
+        },
+        "Staff +1, Growing": {
+          "odds": 2
+        },
+        "Trident -2, Yearning (Cursed)": {
+          "odds": 2
+        },
+        "Trident +1, Fish Command": {
+          "odds": 5
+        },
+        "Trident +1, Submission": {
+          "odds": 2
+        },
+        "Trident +2, Warning": {
+          "odds": 4
+        },
+        "War Hammer +1": {
+          "odds": 3
+        },
+        "War Hammer +2": {
+          "odds": 2
+        },
+        "War Hammer +3, Dwarven Thrower": {
+          "odds": 1
+        },
+        "War Hammer +3, Thunderbolts": {
+          "odds": 1
+        }
+      }
+    }
+  },
+  "scrollSpellLevels": {
+    "Arcane": {
+      "1st Level": {
+        "odds": 25
+      },
+      "2nd Level": {
+        "odds": 25
+      },
+      "3rd Level": {
+        "odds": 20
+      },
+      "4th Level": {
+        "odds": 15
+      },
+      "5th Level": {
+        "odds": 10
+      },
+      "6th Level": {
+        "odds": 5
+      }
+    },
+    "Divine": {
+      "1st Level": {
+        "odds": 25
+      },
+      "2nd Level": {
+        "odds": 25
+      },
+      "3rd Level": {
+        "odds": 20
+      },
+      "4th Level": {
+        "odds": 15
+      },
+      "5th Level": {
+        "odds": 15
+      }
+    }
+  },
+  "sentientSwords": {
+    "languages": {
+      "1": {
+        "odds": 50
+      },
+      "2": {
+        "odds": 20
+      },
+      "3": {
+        "odds": 15
+      },
+      "4": {
+        "odds": 10
+      },
+      "5": {
+        "odds": 4
+      },
+      "twice": {
+        "odds": 1
+      }
+    },
+    "extraordinaryPowers": {
+      "Clairaudience": {
+        "odds": 10,
+        "duplicatesAllowed": false
+      },
+      "Clairvoyance": {
+        "odds": 10,
+        "duplicatesAllowed": false
+      },
+      "ESP": {
+        "odds": 10,
+        "duplicatesAllowed": false
+      },
+      "Extra Damage": {
+        "odds": 5,
+        "duplicatesAllowed": true
+      },
+      "Flying": {
+        "odds": 5,
+        "duplicatesAllowed": false
+      },
+      "Healing": {
+        "odds": 5,
+        "duplicatesAllowed": true
+      },
+      "Illusion": {
+        "odds": 9,
+        "duplicatesAllowed": false
+      },
+      "Levitation": {
+        "odds": 5,
+        "duplicatesAllowed": false
+      },
+      "Telekinesis": {
+        "odds": 10,
+        "duplicatesAllowed": false
+      },
+      "Telepathy": {
+        "odds": 10,
+        "duplicatesAllowed": false
+      },
+      "Teleportation": {
+        "odds": 9,
+        "duplicatesAllowed": false
+      },
+      "X-ray vision": {
+        "odds": 9,
+        "duplicatesAllowed": false
+      },
+      "2x": {
+        "odds": 2,
+        "duplicatesAllowed": false
+      },
+      "3x": {
+        "odds": 1,
+        "duplicatesAllowed": false
+      }
+    },
+    "sensoryPowers": {
+      "Detect evil or good": {
+        "odds": 10
+      },
+      "Detect gems": {
+        "odds": 5
+      },
+      "Detect magic": {
+        "odds": 10
+      },
+      "Detect metals": {
+        "odds": 10
+      },
+      "Detect shifting architecture": {
+        "odds": 15
+      },
+      "Detect slopes": {
+        "odds": 15
+      },
+      "Detect traps": {
+        "odds": 15
+      },
+      "Locate secret doors": {
+        "odds": 10
+      },
+      "See invisible objects": {
+        "odds": 10
+      },
+      "Roll an extraordinary power": {
+        "odds": 4
+      },
+      "2x": {
+        "odds": 1
+      }
+    },
+    "specialPurpose": {
+      "Slay arcane spellcasters": {
+        "odds": 1
+      },
+      "Slay divine spellcasters": {
+        "odds": 1
+      },
+      "Slay warriors": {
+        "odds": 1
+      },
+      "Slay monster": {
+        "odds": 1
+      },
+      "Defeat Law": {
+        "odds": 1
+      },
+      "Defeat Chaos": {
+        "odds": 1
+      }
+    }
+  }
+}

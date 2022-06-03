@@ -1,0 +1,56 @@
+{
+  "1st Level": [
+    "Cure Light Wounds",
+    "Cause Lt. Wounds",
+    "Detect Evil",
+    "Detect Magic",
+    "Light",
+    "Darkness",
+    "Protection from Evil",
+    "Purify Food and Water",
+    "Remove Fear",
+    "Cause Fear",
+    "Resist Cold"
+  ],
+  "2nd Level": [
+    "Bless",
+    "Blight",
+    "Find Traps",
+    "Hold Person",
+    "Know Alignment",
+    "Resist Fire",
+    "Silence 15' Radius",
+    "Snake Charm",
+    "Speak with Animals"
+  ],
+  "3rd Level": [
+    "Continual Light",
+    "Continual Darkness",
+    "Cure Disease",
+    "Cause Disease",
+    "Growth of Animal",
+    "Locate Object",
+    "Remove Curse",
+    "Curse",
+    "Striking"
+  ],
+  "4th Level": [
+    "Create Water",
+    "Cure Serious Wounds",
+    "Cause Sr. Wounds",
+    "Neutralize Poison",
+    "Protection from Evil 10' Radius",
+    "Speak with Plants",
+    "Sticks to Snakes"
+  ],
+  "5th Level": [
+    "Commune",
+    "Create Food",
+    "Dispel Evil",
+    "Insect Plague",
+    "Quest",
+    "Remove Quest",
+    "Raise Dead",
+    "Finger of Death"
+  ]
+}

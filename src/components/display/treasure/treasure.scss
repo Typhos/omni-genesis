@@ -4,6 +4,15 @@
   &__list {
     list-style: none;
     padding-left: 1em;
+
+    .indent {
+      margin-left: 2rem;
+    }
+  }
+
+  &__itemDescriptions {
+    color: $lightGray;
+    font-size: 13px;
   }
 
   &__chevron {

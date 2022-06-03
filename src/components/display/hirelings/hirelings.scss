@@ -33,7 +33,20 @@
     text-align: center;
   }
 
+  .subHead {
+    letter-spacing: 0.1em;
+  }
+
   .info {
+    &Table {
+      &__row {
+        padding: 0.5em;
+
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
     &__value {
       margin-left: 0.5em;
     }

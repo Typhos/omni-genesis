@@ -28,7 +28,7 @@ export default class TreasureDisplay extends Component {
       <Display>
         <h1 className="displayLayout__header">Treasure Table {table}</h1>
 
-        <h2 className="subHead">Treasure Breakdown</h2>
+        <h2 className="subHead">Treasure Breakdown ({Utils.numberWithCommas(total)} gp)</h2>
 
         {treasureArray.map((tv, i) => {
           return (
@@ -48,7 +48,7 @@ export default class TreasureDisplay extends Component {
                   </span>
                 )}
                 {tv.itemRolls !== "basic" && tv.includes("magic") && (
-                  <ul className="infoTable three">
+                  <ul className="infoTable one indent">
                     {magicItems.map((item, i) => {
                       if (itemsRoll === "vague") {
                         return (
@@ -59,8 +59,8 @@ export default class TreasureDisplay extends Component {
                       } else {
                         return (
                           <li className="infoTable__row numeric pointer" key={item + i}>
-                            <em className="treasure__gpValue">
-                              {!!item.itemName ? item.itemName : item.itemType} {item.details}
+                            <em className="treasure__itemDescriptions">
+                              ► {!!item.itemName ? item.itemName : item.itemType} {item.details}
                             </em>
                           </li>
                         );
@@ -89,9 +89,6 @@ export default class TreasureDisplay extends Component {
             {Utils.numberWithCommas(jewelleryValue)} gp
           </p>
         )}
-        <p className="description">
-          <strong>Total Value:</strong> {Utils.numberWithCommas(total)} gp
-        </p>
       </Display>
     );
   }

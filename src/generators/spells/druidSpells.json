@@ -1,0 +1,50 @@
+{
+  "1st Level": [
+    "Animal Friendship",
+    "Detect Danger",
+    "Entangle",
+    "Faerie Fire",
+    "Invisibility to Animals",
+    "Locate Plant or Animal",
+    "Predict Weather",
+    "Speak with Animals"
+  ],
+  "2nd Level": [
+    "Barkskin",
+    "Create Water",
+    "Cure Light Wounds",
+    "Cause Lt. Wounds",
+    "Heat Metal",
+    "Obscuring Mist",
+    "Produce Flame",
+    "Slow Poison",
+    "Warp Wood"
+  ],
+  "3rd Level": [
+    "Call Lightning",
+    "Growth of Nature",
+    "Hold Animal",
+    "Protection from Poison",
+    "Tree Shape",
+    "Water Breathing",
+    "Air Breathing"
+  ],
+  "4th Level": [
+    "Cure Serious Wounds",
+    "Cause Sr. Wounds",
+    "Dispel Magic",
+    "Protection from Fire and Lightning",
+    "Speak with Plants",
+    "Summon Animals",
+    "Temperature Control"
+  ],
+  "5th Level": [
+    "Commune with Nature",
+    "Control Weather",
+    "Pass Plant",
+    "Protection from Plants and Animals",
+    "Transmute Rock to Mud",
+    "Mud to Rock",
+    "Wall of Thorns"
+  ]
+}

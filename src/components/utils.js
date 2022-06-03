@@ -62,6 +62,13 @@ export default class Utils {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
+  static rollDice(diceQuantity, numberOfSides, bonusValue = 0) {
+    const arr = new Array(diceQuantity).fill(undefined);
+    let filledArr = arr.map(() => Utils.randomInt(1, numberOfSides));
+
+    return filledArr.reduce((total, num) => num + total) + bonusValue;
+  }
+
   static buildShareURL(dataObj) {
     const origin = window.location.origin;
     const path = window.location.pathname;

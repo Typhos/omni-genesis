@@ -77,8 +77,8 @@ export default class HirelingsDisplay extends Component {
                         <span className="info__label">{sex === "M" ? "Male" : "Female"}</span>
                       </li>
                       <li className="infoTable__row">
-                        <span className="info__label">{race !== "Human" ? race : charClass} </span>
-                        <span className="info__value">{level}</span>
+                        <span className="info__label">Lvl {level} </span>
+                        <span className="info__value">{race !== "Human" ? race : charClass}</span>
                       </li>
                       <li className="infoTable__row">
                         <span className="info__label">HP </span>

@@ -1,10 +1,10 @@
 import Utils from "../../components/utils";
-import clericSpells from "../spells/clericSpells.json";
-import druidSpells from "../spells/druidSpells.json";
-import illusionistSpells from "../spells/illusionistSpells.json";
-import itemTables from "./magicItems.json";
-import magicUserSpells from "../spells/magicUserSpells.json";
-import monstersTables from "./monsters.json";
+import clericSpells from "../../data/spells/clericSpells.json";
+import druidSpells from "../../data/spells/druidSpells.json";
+import illusionistSpells from "../../data/spells/illusionistSpells.json";
+import itemTables from "../../data/magicItems/magicItems.json";
+import magicUserSpells from "../../data/spells/magicUserSpells.json";
+import monstersTables from "../../data/monsters/monsters.json";
 
 class MagicItem {
   constructor(params = {}) {
@@ -13,7 +13,7 @@ class MagicItem {
 
     this.details = "";
     this.itemType = type || this.generateValueFromOdds(itemGroups);
-    this.itemName = this.getItem();
+    this.itemName = this.getItem(type);
   }
 
   generateValueFromOdds(inputObject) {
@@ -56,8 +56,11 @@ class MagicItem {
 
   getArmor() {
     const { itemGroups } = itemTables;
-    const { itemsList } = itemGroups[this.itemType];
-    return this.generateValueFromOdds(itemsList);
+    const { itemsList, armorTypes } = itemGroups[this.itemType];
+    const armorName = this.generateValueFromOdds(itemsList);
+    const armorType = this.generateValueFromOdds(armorTypes);
+
+    return armorName.replace("Armor", `${armorType} Armor`);
   }
 
   getPotion() {
@@ -205,13 +208,17 @@ class MagicItem {
     }
 
     const { itemGroups } = itemTables;
-    const { itemsList } = itemGroups[this.itemType];
-    const sword = this.generateValueFromOdds(itemsList);
+    const { itemsList, swordTypes } = itemGroups[this.itemType];
+    const type = this.generateValueFromOdds(swordTypes);
+    const sword = this.generateValueFromOdds(itemsList).replace("Sword", type);
 
     return sword;
   }
 
   getSentientSword() {
+    const { itemGroups } = itemTables;
+    const { swordTypes } = itemGroups[this.itemType];
+    const type = this.generateValueFromOdds(swordTypes);
     const intelligence = 6 + Utils.randomInt(1, 6);
     const alignment = this.getSwordAlignment();
     const powers = this.getPowers(intelligence);
@@ -233,7 +240,7 @@ class MagicItem {
 
     this.details = `[ ${specialPurpose}${alignment}, Int ${intelligence}, Ego ${ego}${languages}, ${powers} ]`;
 
-    return `Sentient Sword`;
+    return `Sentient ${type}`;
   }
 
   getSwordAlignment = () => {
@@ -336,7 +343,6 @@ class MagicItem {
     }
 
     function getExtraordinaryPower(obj) {
-      console.log(obj);
       const newPower = classThis.generateValueFromOdds(obj);
       if (
         extraordinaryPowersArray.includes(newPower) &&
@@ -348,7 +354,6 @@ class MagicItem {
     }
 
     function mergePowers(array) {
-      console.log(array);
       const powersArray = [];
       const powersObj = {};
       for (let i = 1; i <= array.length; i++) {
@@ -360,8 +365,6 @@ class MagicItem {
         }
       }
 
-      console.log(powersObj);
-
       for (let [power, count] of Object.entries(powersObj)) {
         if (count >= 2) {
           powersArray.push(`${count}x ${power}`);
@@ -369,8 +372,6 @@ class MagicItem {
           powersArray.push(`${power}`);
         }
       }
-
-      console.log(powersArray);
 
       return powersArray.sort();
     }

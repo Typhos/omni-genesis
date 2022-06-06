@@ -760,6 +760,20 @@
         "Sword +3, Holy Avenger": {
           "odds": 1
         }
+      },
+      "swordTypes": {
+        "Short sword": {
+          "odds": 2
+        },
+        "Longsword": {
+          "odds": 3
+        },
+        "Bastard sword": {
+          "odds": 2
+        },
+        "Two-handed sword": {
+          "odds": 1
+        }
       }
     },
     "Weapon": {

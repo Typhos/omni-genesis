@@ -16,7 +16,7 @@ export default class Utils {
     return Math.random() >= 0.5;
   }
 
-  static numberInRange(numberInQuestion: Number, min: Number, max: Number) {
+  static numberInRange(numberInQuestion, min, max) {
     // returns true or false
     return numberInQuestion >= min && numberInQuestion <= max;
   }
@@ -83,5 +83,41 @@ export default class Utils {
     }
 
     return origin + path + search + searchArray.join("&");
+  }
+
+  static combineDuplicateArrayElements(array) {
+    const outputArray = [];
+    const builderObj = {};
+    for (let i = 1; i <= array.length; i++) {
+      const index = i - 1;
+      if (builderObj.hasOwnProperty(array[index])) {
+        builderObj[array[index]]++;
+      } else {
+        builderObj[array[index]] = 1;
+      }
+    }
+
+    for (let [string, count] of Object.entries(builderObj)) {
+      if (count >= 2) {
+        outputArray.push(`${count}x ${string}`);
+      } else {
+        outputArray.push(`${string}`);
+      }
+    }
+
+    return outputArray.sort();
+  }
+
+  static generateValueFromOdds(inputObject) {
+    // require an object with child objects that each have an "odds" value to pick from
+    const array = [];
+
+    for (const [key, value] of Object.entries(inputObject)) {
+      const { odds } = value;
+      const classCount = new Array(odds).fill(key);
+      array.push(...classCount);
+    }
+
+    return array[Utils.randomArrayIndex(array)];
   }
 }

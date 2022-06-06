@@ -1,11 +1,11 @@
-import Utils from "../../components/utils";
+import Castle from "../castle";
 import City from "../city";
-
+import Utils from "../../components/utils";
+import cityDataObj from "../../data/cities/cities";
+import governmentData from "../../data/kingdoms/governments.json";
+import namePieces from "../../data/kingdoms/names";
 import placeNames from "../../data/places/randomPlaceNames";
 import stateSizes from "../../data/kingdoms/sizes";
-import cityDataObj from "../../data/cities/cities";
-import namePieces from "../../data/kingdoms/names";
-import Castle from "../castle";
 
 // const kingdomWorker: Worker = new Worker("./workers/kingdomWorker.js");
 
@@ -32,6 +32,7 @@ export default class Kingdom {
     this.population = this.getRandomPopulation(this.area, this.density.int);
     this.age = params.age || this.getRandomAge();
     this.defenses = this.getKingdomDenfenses();
+    this.government = this.getGovernmentInfo();
 
     this.settlements = this.buildSettlements(this);
   }
@@ -372,6 +373,57 @@ export default class Kingdom {
     return {
       total: total,
       castleArray: borderKeeps,
+    };
+  }
+
+  getGovernmentInfo() {
+    const {
+      numberOfRulers,
+      rulingClass,
+      legitimacy,
+      methodOfControl,
+      singleRulers,
+      multipleRulers,
+      internalStrife,
+      recentEvent,
+      historicalCrisis,
+      cultureTags,
+    } = governmentData;
+
+    // ruler count
+    const rulerCheck = Utils.generateValueFromOdds(numberOfRulers);
+    let rulerCount = 1;
+
+    if (numberOfRulers[rulerCheck].hasOwnProperty("diceNum")) {
+      let { diceNum, diceType } = numberOfRulers[rulerCheck];
+      rulerCount = Utils.rollDice(diceNum, diceType);
+    }
+
+    const govRulers = Utils.generateValueFromOdds(rulingClass);
+    const govLegitimacy = Utils.generateValueFromOdds(legitimacy);
+    const govControl = Utils.generateValueFromOdds(methodOfControl);
+    const govStrife = Utils.generateValueFromOdds(internalStrife);
+    const govEvent = Utils.generateValueFromOdds(recentEvent);
+    const govCrisis = Utils.generateValueFromOdds(historicalCrisis);
+    let cultureArray = new Array(Utils.randomInt(2, 4)).fill(undefined);
+    cultureArray = cultureArray.map(() => Utils.generateValueFromOdds(cultureTags));
+
+    let ruler = undefined;
+    if (rulerCount === 1) {
+      ruler = Utils.generateValueFromOdds(singleRulers);
+    } else {
+      ruler = Utils.generateValueFromOdds(multipleRulers);
+    }
+
+    return {
+      rulerCount,
+      govRulers,
+      govLegitimacy,
+      govControl,
+      govStrife,
+      govEvent,
+      govCrisis,
+      cultureArray,
     };
   }
 }

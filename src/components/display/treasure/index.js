@@ -8,15 +8,16 @@ import Utils from "../../utils";
 export default class TreasureDisplay extends Component {
   render() {
     const {
-      state: { treasure, table },
+      state: { treasure },
     } = this.props;
 
     const {
+      treasureTable,
       treasureArray,
       gemValue,
-      jewelleryValue,
+      JewelryValue,
       total,
-      jewellery,
+      Jewelry,
       gems,
       magicItems,
       itemsRoll,
@@ -26,7 +27,7 @@ export default class TreasureDisplay extends Component {
 
     return (
       <Display>
-        <h1 className="displayLayout__header">Treasure Table {table}</h1>
+        <h1 className="displayLayout__header">Treasure Table {treasureTable}</h1>
 
         <h2 className="subHead">Treasure Breakdown ({Utils.numberWithCommas(total)} gp)</h2>
 
@@ -41,10 +42,10 @@ export default class TreasureDisplay extends Component {
                     ( <em className="treasure__gpValue">{gems.join(", ")}</em> )
                   </span>
                 )}
-                {tv.includes("jewellery") && (
+                {tv.includes("Jewelry") && (
                   <span>
                     {" "}
-                    ( <em className="treasure__gpValue">{jewellery.join(", ")}</em> )
+                    ( <em className="treasure__gpValue">{Jewelry.join(", ")}</em> )
                   </span>
                 )}
                 {tv.itemRolls !== "basic" && tv.includes("magic") && (
@@ -75,7 +76,7 @@ export default class TreasureDisplay extends Component {
 
         {treasureArray.length <= 0 && <p className="description">► Empty Treasure Hoard</p>}
 
-        <h2 className="subHead">Summary</h2>
+        {(gemValue > 0 || JewelryValue > 0) && <h2 className="subHead">Summary</h2>}
 
         {gemValue > 0 && (
           <p className="description">
@@ -83,10 +84,10 @@ export default class TreasureDisplay extends Component {
             {Utils.numberWithCommas(gemValue)} gp
           </p>
         )}
-        {jewelleryValue > 0 && (
+        {JewelryValue > 0 && (
           <p className="description">
-            <strong>Jewellery Value Sum: </strong>
-            {Utils.numberWithCommas(jewelleryValue)} gp
+            <strong>Jewelry Value Sum: </strong>
+            {Utils.numberWithCommas(JewelryValue)} gp
           </p>
         )}
       </Display>

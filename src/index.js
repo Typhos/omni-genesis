@@ -7,6 +7,7 @@ import { Error404 } from "./pages/404/index";
 import Header from "./components/header";
 import Hirelings from "./pages/hirelings/index";
 import Kingdoms from "./pages/kingdoms/index";
+import MagicItemPage from "./pages/magicItem";
 import Navigation from "./components/navigation";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -24,6 +25,7 @@ const routing = (
       {/* <Route path="/shops/" component={Shops} /> */}
       <Route path="/cities/" component={Cities} />
       <Route path="/kingdoms/" component={Kingdoms} />
+      <Route path="/magicItems/" component={MagicItemPage} />
       <Route path="/clan/" component={Clans} />
       <Route path="/treasure/" component={TreasurePage} />
 

@@ -49,7 +49,7 @@
         "diceNum": "6",
         "diceType": "6",
         "amount": null,
-        "itemType": "pieces of jewellery"
+        "itemType": "pieces of jewelry"
       },
       {
         "percentage": 30,
@@ -103,7 +103,7 @@
         "diceNum": "1",
         "diceType": "6",
         "amount": null,
-        "itemType": "piece(s) of jewellery"
+        "itemType": "piece(s) of jewelry"
       },
       {
         "percentage": 10,
@@ -150,7 +150,7 @@
         "diceNum": "1",
         "diceType": "4",
         "amount": null,
-        "itemType": "piece(s) of jewellery"
+        "itemType": "piece(s) of jewelry"
       },
       {
         "percentage": 10,
@@ -199,7 +199,7 @@
         "diceNum": "1",
         "diceType": "8",
         "amount": null,
-        "itemType": "piece(s) of jewellery"
+        "itemType": "piece(s) of jewelry"
       },
       {
         "percentage": 15,
@@ -253,7 +253,7 @@
         "diceNum": "1",
         "diceType": "10",
         "amount": null,
-        "itemType": "piece(s) of jewellery"
+        "itemType": "piece(s) of jewelry"
       },
       {
         "percentage": 25,
@@ -307,7 +307,7 @@
         "diceNum": "1",
         "diceType": "12",
         "amount": null,
-        "itemType": "piece(s) of jewellery"
+        "itemType": "piece(s) of jewelry"
       },
       {
         "percentage": 30,
@@ -347,7 +347,7 @@
         "diceNum": "1",
         "diceType": "10",
         "amount": null,
-        "itemType": "piece(s) of jewellery"
+        "itemType": "piece(s) of jewelry"
       },
       {
         "percentage": 35,
@@ -408,7 +408,7 @@
         "diceNum": "1",
         "diceType": "4",
         "amount": "10",
-        "itemType": "piece(s) of jewellery"
+        "itemType": "piece(s) of jewelry"
       },
       {
         "percentage": 15,
@@ -441,7 +441,7 @@
         "diceNum": "2",
         "diceType": "6",
         "amount": null,
-        "itemType": "piece(s) of jewellery"
+        "itemType": "piece(s) of jewelry"
       },
       {
         "percentage": 15,
@@ -531,7 +531,7 @@
         "diceNum": "2",
         "diceType": "6",
         "amount": null,
-        "itemType": "piece(s) of jewellery"
+        "itemType": "piece(s) of jewelry"
       }
     ]
   },
@@ -655,7 +655,7 @@
         "diceNum": "1",
         "diceType": "4",
         "amount": null,
-        "itemType": "piece(s) of jewellery"
+        "itemType": "piece(s) of jewelry"
       },
       {
         "percentage": 2,
@@ -709,7 +709,7 @@
         "diceNum": "1",
         "diceType": "4",
         "amount": null,
-        "itemType": "piece(s) of jewellery"
+        "itemType": "piece(s) of jewelry"
       },
       {
         "percentage": 5,

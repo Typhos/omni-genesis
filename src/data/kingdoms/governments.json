@@ -1,0 +1,280 @@
+{
+  "numberOfRulers": {
+    "one": {
+      "odds": 5
+    },
+    "several": {
+      "odds": 2,
+      "diceNum": "1",
+      "diceType": "4"
+    },
+    "many": {
+      "odds": 1,
+      "diceNum": "2",
+      "diceType": "6"
+    }
+  },
+  "rulingClass": {
+    "Dynastic Nobility": {
+      "odds": 8
+    },
+    "Merchant Oligarchy": {
+      "odds": 2
+    },
+    "Magocracy": {
+      "odds": 1
+    },
+    "Theocracy": {
+      "odds": 2
+    },
+    "Monstrous Overlord(s)": {
+      "odds": 1
+    },
+    "Clan Chieftans": {
+      "odds": 1
+    }
+  },
+  "legitimacy": {
+    "Always been the rulers": {
+      "odds": 1
+    },
+    "Wiser and more virtuous": {
+      "odds": 1
+    },
+    "Awe-inspiring martial prowess": {
+      "odds": 1
+    },
+    "The gods chose them as the leaders": {
+      "odds": 1
+    },
+    "Chosen by popular will": {
+      "odds": 1
+    },
+    "Loved for their benevolence": {
+      "odds": 1
+    },
+    "Rule with an iron fist": {
+      "odds": 1
+    },
+    "Brought greater prosperity to the land": {
+      "odds": 1
+    },
+    "Conquered the former rulers": {
+      "odds": 1
+    },
+    "Overthrew former tyrant": {
+      "odds": 1
+    },
+    "Unified formerly shattered realm": {
+      "odds": 1
+    },
+    "Less bad than the alternatives": {
+      "odds": 1
+    }
+  },
+  "methodOfControl": {
+    "Subordinate lords pledged to the ruler": {
+      "odds": 1
+    },
+    "Obedient commoner bureaucracies": {
+      "odds": 1
+    },
+    "Magically-empowered enforcers": {
+      "odds": 1
+    },
+    "A major religion allied with state power": {
+      "odds": 1
+    },
+    "A powerful and respected judiciary": {
+      "odds": 1
+    },
+    "Savage brutes on the government leash": {
+      "odds": 1
+    },
+    "Economy-controlling officialdom": {
+      "odds": 1
+    },
+    "Divine blessings and curses on the people": {
+      "odds": 1
+    },
+    "Ingrained obedience in the populace": {
+      "odds": 1
+    },
+    "Hireling enforcers employed at need": {
+      "odds": 1
+    },
+    "Sorcerers in service to the ruler": {
+      "odds": 1
+    },
+    "A specific ethnic client group of the ruler": {
+      "odds": 1
+    }
+  },
+  "singleRulers": {
+    "King or queen over lesser lords": {
+      "odds": 1
+    },
+    "Autocrat with non-noble officials": {
+      "odds": 1
+    },
+    "President chosen by certain electors": {
+      "odds": 1
+    },
+    "Warlord recognized as the strongest": {
+      "odds": 1
+    },
+    "Seniormost representative of the ruling class": {
+      "odds": 1
+    },
+    "Divinely-chosen leader of the land": {
+      "odds": 1
+    },
+    "Monarch for a fixed term or situation": {
+      "odds": 1
+    },
+    "Wielder of some magical legitimacy": {
+      "odds": 1
+    }
+  },
+  "multipleRulers": {
+    "Nobly-born peers of the realm": {
+      "odds": 1
+    },
+    "Seniormost figures in the ruling class": {
+      "odds": 1
+    },
+    "Elect chosen by ruling class electors": {
+      "odds": 1
+    },
+    "Hereditary heirs to their positions": {
+      "odds": 1
+    },
+    "Warlords with the strongest backing": {
+      "odds": 1
+    },
+    "Oligarchs of greatest wealth or influence": {
+      "odds": 1
+    },
+    "Divinely-chosen representatives of their class": {
+      "odds": 1
+    },
+    "Bureaucratically-chosen ministers": {
+      "odds": 1
+    }
+  },
+  "internalStrife": {
+    "The ruler's trying to crush a too-powerful lord": { "odds": 1 },
+    "Ministers are trying to usurp power": { "odds": 1 },
+    "A grand scheme has gone terribly wrong": { "odds": 1 },
+    "External diplomacy has bungled something": { "odds": 1 },
+    "A usurper secretly controls a major power": { "odds": 1 },
+    "Foreign rivals are backing malcontents": { "odds": 1 },
+    "A different class demands a share of rule": { "odds": 1 },
+    "The existing ruling class wants more power": { "odds": 1 },
+    "A disfavored class is being oppressed": { "odds": 1 },
+    "Popular discontent is destroying legitimacy": { "odds": 1 },
+    "The prior ruler's incompetence still harms it": { "odds": 1 },
+    "The heir is unacceptable to many": { "odds": 1 }
+  },
+  "recentEvent": {
+    "A major official was executed for treason": { "odds": 1 },
+    "A critically-necessary heir was born": { "odds": 1 },
+    "A chief minister fell rapidly from grace": { "odds": 1 },
+    "A high noble made rebellious noises": { "odds": 1 },
+    "A major faith was offended by the rulers": { "odds": 1 },
+    "An allied nation was angered by some act": { "odds": 1 },
+    "An enemy nation's spy ring was revealed": { "odds": 1 },
+    "A vast governmental project was announced": { "odds": 1 },
+    "Corrupt officials plundered a great plan": { "odds": 1 },
+    "A major new bureaucracy was formed": { "odds": 1 },
+    "A heavy tax was levied to deal with an issue": { "odds": 1 },
+    "A general was dismissed for incompetence": { "odds": 1 },
+    "A folk hero rose to dangerous popularity": { "odds": 1 },
+    "A major infrastructure project was begun": { "odds": 1 },
+    "A fief or territory was put in new hands": { "odds": 1 },
+    "Certain merchants were fined to beggary": { "odds": 1 },
+    "A terrorist attack by rebels or external foes": { "odds": 1 },
+    "A major faction of officials collapsed": { "odds": 1 },
+    "A large bureaucracy was dissolved": { "odds": 1 },
+    "Internal province borders were redrawn": { "odds": 1 }
+  },
+  "historicalCrisis": {
+    "Barbarian invasion": { "odds": 1 },
+    "Colonial incursion from a greater power": { "odds": 1 },
+    "Decadent society or a great social evil": { "odds": 1 },
+    "Divine wrath upon them": { "odds": 1 },
+    "Domineering neighbor": { "odds": 1 },
+    "Economic collapse": { "odds": 1 },
+    "Failed external war": { "odds": 1 },
+    "Ideological divide": { "odds": 1 },
+    "Incompetent governance": { "odds": 1 },
+    "Internal refugees from disaster": { "odds": 1 },
+    "Loss of cultural confidence": { "odds": 1 },
+    "Magical calamity": { "odds": 1 },
+    "Malevolent religion": { "odds": 1 },
+    "Miserable poverty": { "odds": 1 },
+    "Natural disasters": { "odds": 1 },
+    "Noble infighting": { "odds": 1 },
+    "Religious or ideological excess": { "odds": 1 },
+    "Resource exhaustion": { "odds": 1 },
+    "Scheming wizards": { "odds": 1 },
+    "Some titanic monster": { "odds": 1 },
+    "Tyrannical rule": { "odds": 1 },
+    "Unsuccessful expansion": { "odds": 1 },
+    "Usurpers seizing control": { "odds": 1 },
+    "Vicious civil warfare": { "odds": 1 },
+    "War with a stronger power": { "odds": 1 }
+  },
+  "cultureTags": {
+    "Battleground": { "odds": 1 },
+    "Loss of Confidence": { "odds": 1 },
+    "Betrayal": { "odds": 1 },
+    "Magical Disaster": { "odds": 1 },
+    "Brutal Oppression": { "odds": 1 },
+    "Magical Tech": { "odds": 1 },
+    "Class Struggle": { "odds": 1 },
+    "Natural Calamity": { "odds": 1 },
+    "Consequences": { "odds": 1 },
+    "New Horizons": { "odds": 1 },
+    "Decadence": { "odds": 1 },
+    "New Rulers": { "odds": 1 },
+    "Depravity": { "odds": 1 },
+    "Noble Function": { "odds": 1 },
+    "Desolation": { "odds": 1 },
+    "Noble Strife": { "odds": 1 },
+    "Diplomatic Coup": { "odds": 1 },
+    "Plague": { "odds": 1 },
+    "Economic Boom": { "odds": 1 },
+    "Poverty": { "odds": 1 },
+    "Enemies Within": { "odds": 1 },
+    "Power Brokers": { "odds": 1 },
+    "Evil Wizard": { "odds": 1 },
+    "Praetorian Coups": { "odds": 1 },
+    "Exodus": { "odds": 1 },
+    "Priest King": { "odds": 1 },
+    "Exquisite Art": { "odds": 1 },
+    "Rare Resource": { "odds": 1 },
+    "External War": { "odds": 1 },
+    "Religious Fall": { "odds": 1 },
+    "Freakish Magic": { "odds": 1 },
+    "Religious Rise": { "odds": 1 },
+    "Golden Age": { "odds": 1 },
+    "Resource Collapse": { "odds": 1 },
+    "Good Wizard": { "odds": 1 },
+    "Secession": { "odds": 1 },
+    "Great Awakening": { "odds": 1 },
+    "Terrain Change": { "odds": 1 },
+    "Great Builders": { "odds": 1 },
+    "Total Collapse": { "odds": 1 },
+    "Great Infrastructure ": { "odds": 1 },
+    "Twist of Fate": { "odds": 1 },
+    "Hero King": { "odds": 1 },
+    "Urbanization": { "odds": 1 },
+    "Immigrants": { "odds": 1 },
+    "Weak Throne": { "odds": 1 },
+    "Inefficient Rule": { "odds": 1 },
+    "Xenophilia": { "odds": 1 },
+    "Internal War": { "odds": 1 },
+    "Xenophobia": { "odds": 1 }
+  }
+}

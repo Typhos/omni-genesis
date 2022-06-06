@@ -15,6 +15,7 @@ export default class Navigation extends Component {
           <Link to="/cities">Cities</Link>
           <Link to="/hirelings">Hirelings</Link>
           <Link to="/kingdoms">Kingdoms</Link>
+          <Link to="/magicItems">Magic Items</Link>
           <Link to="/clan">Samurai Clan</Link>
           <Link to="/treasure">Treasure</Link>
         </div>

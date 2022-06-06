@@ -1,6 +1,6 @@
 import MagicItem from "../magicItem";
 import Utils from "../../components/utils";
-import treasureTables from "./treasure.json";
+import treasureTables from "../../data/treasure/treasure.json";
 
 const generateTreasure = (params = {}) => {
   const { table, guaranteedTreasure, itemsRoll } = params;
@@ -23,16 +23,20 @@ class Treasure {
     const { table, itemsRoll } = params;
     const { avgValue } = treasureTables[table];
 
+    this.treasureTable = table;
     this.total = 0;
     this.gemValue = 0;
-    this.jewelleryValue = 0;
-    this.jewellery = [];
+    this.JewelryValue = 0;
+    this.Jewelry = [];
     this.gems = [];
     this.magicItems = [];
 
     this.treasureArray = this.generateTreasure(table, itemsRoll);
     this.total = Math.round(this.total);
     this.abnormallyLargeValue = this.checkValue(avgValue);
+
+    this.gems = Utils.combineDuplicateArrayElements(this.gems.sort());
+    this.Jewelry = Utils.combineDuplicateArrayElements(this.Jewelry.sort());
   }
 
   generateTreasure(table, itemsRoll) {
@@ -74,7 +78,7 @@ class Treasure {
 
         if (itemType.includes("jewel")) {
           if (!amount) amount = 1;
-          this.getJewelleryValue(rollTotal * amount);
+          this.getJewelryValue(rollTotal * amount);
           return `${rollTotal * amount} ${itemType}`;
         }
 
@@ -99,13 +103,13 @@ class Treasure {
     return this.total > avgValue * 1.5 ? true : false;
   }
 
-  getJewelleryValue(num = 1) {
+  getJewelryValue(num = 1) {
     const arr = Array(num).fill(undefined);
     arr.forEach(() => {
       const value = Utils.rollDice(3, 6) * 100;
-      this.jewelleryValue += value;
+      this.JewelryValue += value;
       this.updateTotalValue(value);
-      this.jewellery.push(`${Utils.numberWithCommas(value)} gp`);
+      this.Jewelry.push(`${Utils.numberWithCommas(value)} gp`);
     });
   }
 

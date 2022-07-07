@@ -1,17 +1,10 @@
 {
-  "gnome":{
-    "plural":"gnomes",
-    "noFacialHair":false,
-    "rarity": 40,
-    "hairColor":[
-      "black",
-      "red",
-      "brown",
-      "blonde",
-      "white",
-      "purple"
-    ],
-    "skintone":[
+  "gnome": {
+    "plural": "gnomes",
+    "noFacialHair": false,
+    "rarity": 15,
+    "hairColor": ["black", "red", "brown", "blonde", "white", "purple"],
+    "skintone": [
       "pale",
       "amber",
       "copper",
@@ -22,20 +15,14 @@
       "dark brown",
       "ebon"
     ],
-    "height":[
-      37,
-      43
-    ],
-    "weight":[
-      35,
-      45
-    ],
-    "lifespan":450,
-    "alignmentTendancies": ["chaotic","good"],
-    "earType":"pointed",
-    "names":{
-      "first":{
-        "male":[
+    "height": [37, 43],
+    "weight": [35, 45],
+    "lifespan": 450,
+    "alignmentTendancies": ["chaotic", "good"],
+    "earType": "pointed",
+    "names": {
+      "first": {
+        "male": [
           "Nim",
           "Wilpos",
           "Uriybar",
@@ -57,7 +44,7 @@
           "Alleno",
           "Quover"
         ],
-        "female":[
+        "female": [
           "Nezella",
           "Rebys",
           "Phiyore",
@@ -81,7 +68,7 @@
           "Relys"
         ]
       },
-      "last":[
+      "last": [
         "Fizzwizzle",
         "Curoloh",
         "Hahru",

@@ -1,15 +1,10 @@
 {
-  "halfling":{
-    "plural":"halflings",
-    "noFacialHair":false,
-    "rarity": 50,
-    "hairColor":[
-      "black",
-      "red",
-      "brown",
-      "blonde"
-    ],
-    "skintone":[
+  "halfling": {
+    "plural": "halflings",
+    "noFacialHair": false,
+    "rarity": 30,
+    "hairColor": ["black", "red", "brown", "blonde"],
+    "skintone": [
       "pale",
       "amber",
       "copper",
@@ -20,20 +15,14 @@
       "dark brown",
       "ebon"
     ],
-    "height":[
-      33,
-      39
-    ],
-    "weight":[
-      37,
-      45
-    ],
-    "lifespan":150,
-    "alignmentTendancies": ["neutral","good"],
-    "earType":"round",
-    "names":{
-      "first":{
-        "male":[
+    "height": [33, 39],
+    "weight": [37, 45],
+    "lifespan": 150,
+    "alignmentTendancies": ["neutral", "good"],
+    "earType": "round",
+    "names": {
+      "first": {
+        "male": [
           "Frello",
           "Baloc",
           "Yarzin",
@@ -57,7 +46,7 @@
           "Erbul",
           "Corras"
         ],
-        "female":[
+        "female": [
           "Holly",
           "Mable",
           "Orari",
@@ -82,7 +71,7 @@
           "Thamola"
         ]
       },
-      "last":[
+      "last": [
         "Ihmem",
         "Hihror",
         "Ibad",

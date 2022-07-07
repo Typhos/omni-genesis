@@ -1,19 +1,13 @@
 {
-  "dragonborn":{
-    "plural":"dragonborn",
-    "noFacialHair":true,
-    "rarity": 10,
-    "noHair":true,
-    "eyeColor":[
-      "green",
-      "blue",
-      "red",
-      "silver",
-      "gold"
-    ],
-    "scales":true,
-    "multicolor":false,
-    "scaleColor":[
+  "dragonborn": {
+    "plural": "dragonborn",
+    "noFacialHair": true,
+    "rarity": 5,
+    "noHair": true,
+    "eyeColor": ["green", "blue", "red", "silver", "gold"],
+    "scales": true,
+    "multicolor": false,
+    "scaleColor": [
       "black",
       "blue",
       "white",
@@ -25,10 +19,10 @@
       "bronze",
       "copper"
     ],
-    "noseReplacement":"snout",
-    "lifespan":80,
-    "alignmentTendancies": ["lawful","good"],
-    "earType":false,
-    "hasHorns":true
+    "noseReplacement": "snout",
+    "lifespan": 80,
+    "alignmentTendancies": ["lawful", "good"],
+    "earType": false,
+    "hasHorns": true
   }
 }

@@ -4,6 +4,7 @@ import Races from "../../data/races/allRaces";
 import Utils from "../../components/utils";
 import cityObj from "../../data/cities/cities";
 import governments from "../../data/governments";
+import { isCompositeComponent } from "react-dom/test-utils";
 import merchantsObj from "../../data/merchants/merchants";
 import pantheons from "../../data/gods/pantheons";
 import placeNames from "../../data/places/randomPlaceNames";
@@ -26,7 +27,7 @@ export default class City {
 
     // culture is determined first to allow for culture-specific names and changes to racial bias for dwarf and elf cities.
     this.culture = params.culture || this.randomCulture();
-    this.bias = this.getRacialBias();
+    this.populationBias = this.getRacialBias();
 
     if (params.population) {
       this.population = this.getPopulation(params);
@@ -36,6 +37,8 @@ export default class City {
       this.population = this.getPopulation(params);
     }
 
+    this.availableNPCRaces = this.getNPCRacesArray();
+
     this.image = this.getCityImg(this.citySize);
     this.inputSize = params.type;
     this.name = params.name || this.getCityName(this.culture);
@@ -43,6 +46,7 @@ export default class City {
     this.origin = this.getOrigin();
     this.activity = this.getActivity();
     this.obstacles = this.getObstacles();
+    this.ruins = this.getRuins();
 
     if (!params.lightWeight) {
       this.economy = this.getEconomy();
@@ -52,7 +56,8 @@ export default class City {
       this.houses = this.getHouseArchitecture();
     }
 
-    delete this.bias;
+    delete this.populationBias;
+    delete this.availableNPCRaces;
   }
 
   randomCityType() {
@@ -118,56 +123,38 @@ export default class City {
     const { culture } = this;
     const racesArray = Object.keys(Races);
     const weightedArray = [];
-    let weight = 1;
+    let weight;
 
     racesArray.forEach((race) => {
-      const percentageModifier = Utils.randomInt(-20, 30) / 10;
-      if (racialBias[culture]) {
-        weight =
-          racialBias[culture][race] * percentageModifier || Races[race].rarity * percentageModifier;
-      } else {
-        weight = Races[race].rarity * percentageModifier;
-      }
+      const randomVal = (Utils.randomInt(1, 75) - 25) / 100;
+      let percentageModifier = randomVal < 0 ? 0 : randomVal;
 
-      weightedArray.push([race, weight]);
+      if (racialBias[culture]) {
+        if (race === culture) {
+          percentageModifier = 1;
+        }
+
+        weightedArray.push([race, racialBias[culture][race] * percentageModifier]);
+      } else {
+        if (race === "human") {
+          percentageModifier = 1;
+        }
+        weightedArray.push([race, Races[race].rarity * percentageModifier]);
+      }
     });
 
     return weightedArray;
   }
 
-  getRaceFromLocalBias() {
-    const { bias } = this;
-    const total = bias.map((e) => e[1]).reduce((total, currentArray) => total + currentArray);
-    const dieRoll = Utils.randomInt(1, total);
-    const checkObj = {};
-
-    let counter = 0;
-    bias.forEach((arr) => {
-      const key = arr[0];
-      const val = arr[1];
-
-      checkObj[key] = {};
-      checkObj[key].min = counter + 1;
-      counter += val;
-      checkObj[key].max = counter;
-    });
-
-    for (let [key, value] of Object.entries(checkObj)) {
-      const { min, max } = value;
-      // most efficient way to check if a value equal to or between two numbers!
-      if ((dieRoll - min) * (dieRoll - max) <= 0) {
-        return key;
-      }
-    }
-  }
-
   getRacialBreakdown(totalPop) {
-    const { bias } = this;
+    const { populationBias } = this;
     const racialObj = {};
 
-    let total = bias.map((e) => e[1]).reduce((total, currentArray) => total + currentArray);
+    let total = populationBias
+      .map((e) => e[1])
+      .reduce((total, currentArray) => total + currentArray);
     let totalCheck = 0;
-    bias.forEach((entry) => {
+    populationBias.forEach((entry) => {
       let num = Math.round((entry[1] / total) * totalPop);
       racialObj[entry[0]] = num;
       totalCheck += num;
@@ -179,6 +166,59 @@ export default class City {
     }
 
     return racialObj;
+  }
+
+  getNPCRacesArray() {
+    const {
+      population: { races },
+    } = this;
+    let popArray = [];
+
+    for (let [key, value] of Object.entries(races)) {
+      if (value > 0) {
+        popArray = popArray.concat(new Array(value).fill(key));
+      }
+    }
+
+    return popArray;
+  }
+
+  // Used for getting the race of leaders/merchants/etc.
+  // Not used in population calculation
+  getRaceFromLocalBias() {
+    const { availableNPCRaces } = this;
+
+    const arrayIndex = Utils.randomArrayIndex(availableNPCRaces);
+    const randomNpcRace = availableNPCRaces[arrayIndex];
+    availableNPCRaces.splice(arrayIndex, 1);
+
+    return randomNpcRace;
+
+    // const { populationBias } = this;
+    // const total = populationBias
+    //   .map((e) => e[1])
+    //   .reduce((total, currentArray) => total + currentArray);
+    // const dieRoll = Utils.randomInt(1, total);
+    // const checkObj = {};
+
+    // let counter = 0;
+    // populationBias.forEach((arr) => {
+    //   const key = arr[0];
+    //   const val = arr[1];
+
+    //   checkObj[key] = {};
+    //   checkObj[key].min = counter + 1;
+    //   counter += val;
+    //   checkObj[key].max = counter;
+    // });
+
+    // for (let [key, value] of Object.entries(checkObj)) {
+    //   const { min, max } = value;
+    //   // most efficient way to check if a value equal to or between two numbers!
+    //   if ((dieRoll - min) * (dieRoll - max) <= 0) {
+    //     return key;
+    //   }
+    // }
   }
 
   importantPeople(totalPop, rolesArray) {
@@ -197,18 +237,24 @@ export default class City {
     const totalPeople = baselineImportantPeople + bonusHouse;
 
     function getPeople(that) {
-      const limit = totalPeople > 12 ? 12 : totalPeople;
+      const leadersLimit = 20;
+      const limit = totalPeople >= leadersLimit ? leadersLimit - 1 : totalPeople;
 
-      return new Array(limit).fill(undefined).map((x) => {
-        const noblePersonRace = that.getRaceFromLocalBias();
+      return new Array(limit)
+        .fill(undefined)
+        .map((x) => {
+          const noblePersonRace = that.getRaceFromLocalBias();
 
-        return new Noble({
-          jobGroup: "noble",
-          race: noblePersonRace,
-          culture: culture,
-          occupation: rolesArray[Utils.randomArrayIndex(rolesArray)],
+          return new Noble({
+            jobGroup: "noble",
+            race: noblePersonRace,
+            culture: culture,
+            occupation: rolesArray[Utils.randomArrayIndex(rolesArray)],
+          });
+        })
+        .sort((a, b) => {
+          return a.occupation.localeCompare(b.occupation);
         });
-      });
     }
 
     return {
@@ -327,7 +373,7 @@ export default class City {
             shopArray.push(
               new MerchantGenerator({
                 type: key,
-                owner: ownerRace,
+                ownerRace,
                 culture: culture,
                 batchMode: true,
               })
@@ -508,6 +554,53 @@ export default class City {
       outputArray.push({
         name,
         description: obstacles[name],
+      });
+    }
+
+    return outputArray;
+  }
+
+  getRuins() {
+    const { citySize } = this;
+    const {
+      ruins: { natures, traits, obstacles },
+    } = cityObj;
+
+    let naturesArray = Object.keys(natures);
+    let traitsArray = Object.keys(traits);
+    let obstaclesArray = Object.keys(obstacles);
+    let ruinCount = 0;
+
+    switch (citySize) {
+      case "metropolis":
+        ruinCount = 1;
+        break;
+      case "city":
+        ruinCount = Utils.rollDice(1, 3);
+        break;
+      case "town":
+        ruinCount = Utils.rollDice(1, 4);
+        break;
+      default:
+        ruinCount = Utils.rollDice(2, 3);
+    }
+
+    const outputArray = [];
+
+    // const name = obstaclesArray[Utils.randomArrayIndex(obstaclesArray)];
+
+    for (let i = 1; i <= ruinCount; i++) {
+      const type = naturesArray[Utils.randomArrayIndex(naturesArray)];
+      const trait = traitsArray[Utils.randomArrayIndex(traitsArray)];
+      const obstacle = obstaclesArray[Utils.randomArrayIndex(obstaclesArray)];
+
+      outputArray.push({
+        type,
+        typeDescription: natures[type],
+        trait,
+        traitDescription: traits[trait],
+        obstacle,
+        obstacleDescription: obstacles[obstacle],
       });
     }
 

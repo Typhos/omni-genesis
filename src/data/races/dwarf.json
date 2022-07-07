@@ -1,15 +1,10 @@
 {
-  "dwarf":{
-    "plural":"dwarves",
-    "noFacialHair":false,
-    "rarity": 50,
-    "hairColor":[
-      "black",
-      "red",
-      "brown",
-      "blonde"
-    ],
-    "skintone":[
+  "dwarf": {
+    "plural": "dwarves",
+    "noFacialHair": false,
+    "rarity": 30,
+    "hairColor": ["black", "red", "brown", "blonde"],
+    "skintone": [
       "pale",
       "amber",
       "copper",
@@ -20,16 +15,10 @@
       "dark brown",
       "ebon"
     ],
-    "height":[
-      47,
-      56
-    ],
-    "weight":[
-      130,
-      230
-    ],
-    "lifespan":450,
-    "alignmentTendancies": ["lawful","good"],
-    "earType":"round"
+    "height": [47, 56],
+    "weight": [130, 230],
+    "lifespan": 450,
+    "alignmentTendancies": ["lawful", "good"],
+    "earType": "round"
   }
 }

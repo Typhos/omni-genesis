@@ -1,20 +1,10 @@
 {
-  "human":{
-    "plural":"humans",
-    "noFacialHair":false,
-    "rarity": 300,
-    "hairColor":[
-      "black",
-      "black",
-      "black",
-      "brown",
-      "brown",
-      "brown",
-      "blonde",
-      "blonde",
-      "red"
-    ],
-    "skintone":[
+  "human": {
+    "plural": "humans",
+    "noFacialHair": false,
+    "rarity": 500,
+    "hairColor": ["black", "black", "black", "brown", "brown", "brown", "blonde", "blonde", "red"],
+    "skintone": [
       "pale",
       "amber",
       "copper",
@@ -25,15 +15,9 @@
       "dark brown",
       "ebon"
     ],
-    "height":[
-      58,
-      76
-    ],
-    "weight":[
-      114,
-      270
-    ],
-    "lifespan":80,
-    "earType":"round"
+    "height": [58, 76],
+    "weight": [114, 270],
+    "lifespan": 80,
+    "earType": "round"
   }
 }

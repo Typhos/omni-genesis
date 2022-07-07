@@ -1,36 +1,14 @@
 {
-  "half-elf":{
-    "plural":"half-elves",
-    "noFacialHair":false,
-    "rarity": 60,
-    "hairColor":[
-      "black",
-      "red",
-      "brown",
-      "blonde",
-      "olive",
-      "azure"
-    ],
-    "skintone":[
-      "pale",
-      "amber",
-      "copper",
-      "bronze",
-      "beige",
-      "ivory",
-      "chestnut",
-      "dark brown"
-    ],
-    "height":[
-      59,
-      73
-    ],
-    "weight":[
-      114,
-      238
-    ],
-    "lifespan":160,
-    "alignmentTendancies": ["chaotic","good"],
-    "earType":"pointed"
+  "half-elf": {
+    "plural": "half-elves",
+    "noFacialHair": false,
+    "rarity": 15,
+    "hairColor": ["black", "red", "brown", "blonde", "olive", "azure"],
+    "skintone": ["pale", "amber", "copper", "bronze", "beige", "ivory", "chestnut", "dark brown"],
+    "height": [59, 73],
+    "weight": [114, 238],
+    "lifespan": 160,
+    "alignmentTendancies": ["chaotic", "good"],
+    "earType": "pointed"
   }
 }

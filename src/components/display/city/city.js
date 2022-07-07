@@ -89,8 +89,6 @@ export default class CityDisplay extends Component {
 
   render() {
     const { city } = this.props;
-    const images = require.context("../../../img/", true);
-    const path = images(`./${city.image}`) || "";
 
     return (
       <Display>
@@ -147,8 +145,6 @@ export default class CityDisplay extends Component {
             📋
           </span>
         </div>
-
-        <img className="cityImg" alt="" src={path} />
 
         <div className="displayLayout">
           <div className="column">
@@ -250,38 +246,17 @@ export default class CityDisplay extends Component {
         </div>
 
         <Tabs>
-          {/* <div label="Population">
+          <div label="Population">
             <h3 className="tabs__groupHeading">Population of {city.name}</h3>
             <ThreeColumnDisplay>
               <PopulationDisplay city={city} />
             </ThreeColumnDisplay>
-          </div> */}
-          <div label="Traits">
-            <h3 className="tabs__groupHeading">Origin</h3>
-            <p className="info">
-              <span className="info__value">{city.origin.name}.</span>&nbsp;
-              <span className="info__label">{city.origin.description}</span>
-            </p>
-
-            <h3 className="tabs__groupHeading">Activity</h3>
-            <p className="info">
-              <span className="info__value">{city.activity.name}.</span>&nbsp;
-              <span className="info__label">{city.activity.description}</span>
-            </p>
-
-            <h3 className="tabs__groupHeading">
-              {city.obstacles.length > 1 ? "Obstacles" : "Obstacle"}
-            </h3>
-            {city.obstacles.map((ob) => {
-              return (
-                <p className="info">
-                  <span className="info__value">{ob.name}.</span>&nbsp;
-                  <span className="info__label">{ob.description}</span>
-                </p>
-              );
-            })}
           </div>
-          <div label="Leaders">
+          <div
+            label={`Leaders (${Utils.numberWithCommas(
+              city.population.importantPeople.noblePeopleArray.length
+            )})`}
+          >
             <h3 className="tabs__groupHeading">Important People of {city.name}</h3>
             <TwoColumnDisplay>
               {city.population.importantPeople.noblePeopleArray.sort().map((obj, ind) => (
@@ -295,11 +270,79 @@ export default class CityDisplay extends Component {
               ))}
             </TwoColumnDisplay>
           </div>
+          <div label="Traits">
+            <h3 className="tabs__groupHeading">
+              Origin: <span className="info__value">{city.origin.name}</span>
+            </h3>
+            <p>
+              <small>{city.origin.description}</small>
+            </p>
+
+            <h3 className="tabs__groupHeading">
+              Activity: <span className="info__value">{city.activity.name}</span>
+            </h3>
+            <p>
+              <small>{city.activity.description}</small>
+            </p>
+
+            {city.obstacles.map((ob) => {
+              return (
+                <React.Fragment key={ob.name}>
+                  <h3 className="tabs__groupHeading">
+                    {city.obstacles.length > 1 ? "Obstacles:" : "Obstacle:"}{" "}
+                    <span className="info__value">{ob.name}</span>
+                  </h3>
+                  <p>
+                    <small>{ob.description}</small>
+                  </p>
+                </React.Fragment>
+              );
+            })}
+          </div>
+          <div label="Nearby Ruins">
+            {city.ruins.map((ob) => {
+              const {
+                type,
+                typeDescription,
+                trait,
+                traitDescription,
+                obstacle,
+                obstacleDescription,
+              } = ob;
+              return (
+                <React.Fragment key={type + trait}>
+                  <h3 className="tabs__groupHeading">{type}</h3>
+                  <small>{typeDescription}</small>
+                  <p className="info">
+                    <span className="info__value">Ruin Trait:</span>&nbsp;
+                    <span className="info__label">{trait}</span>
+                  </p>
+                  <p>
+                    <small>{traitDescription}</small>
+                  </p>
+                  <p className="info">
+                    <span className="info__value">Ruin Obstacle:</span>&nbsp;
+                    <span className="info__label">{obstacle}</span>
+                  </p>
+                  <p>
+                    <small>{obstacleDescription}</small>
+                  </p>
+                </React.Fragment>
+              );
+            })}
+          </div>
           {city.economy.merchants.shopsTotal > 0 && (
-            <div
-              label={"Shops (" + Utils.numberWithCommas(city.economy.merchants.shopsTotal) + ")"}
-            >
-              <h3 className="tabs__groupHeading">Prominent Shops of {city.name}</h3>
+            <div label={`Shops (${Utils.numberWithCommas(city.economy.merchants.shopsTotal)})`}>
+              <h3 className="tabs__groupHeading">
+                Prominent Shops of {city.name}
+                {city.population.total > 2499 && "*"}
+              </h3>
+              {city.population.total > 2499 && (
+                <small>
+                  *Due to the number of shops generated in {city.name}, a limited selection of its
+                  shops are presented here
+                </small>
+              )}
               <ShopsDisplay city={city} />
             </div>
           )}

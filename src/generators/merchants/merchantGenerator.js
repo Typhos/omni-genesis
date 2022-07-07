@@ -8,7 +8,7 @@ const allShops = { ...merchantsObj, ...tavernsObj };
 
 export default class Merchant {
   constructor(params = {}) {
-    let { seed, type, culture, batchMode } = params;
+    let { seed, type, ownerRace, culture, batchMode } = params;
 
     if (params.seed) {
       global.seed = seed;
@@ -49,11 +49,12 @@ export default class Merchant {
   }
 
   getStaff(params) {
-    const { culture } = params;
+    const { culture, ownerRace } = params;
     const { shopType } = this;
 
     const owner = new Person({
       jobGroup: "merchant",
+      race: ownerRace,
       culture: culture,
       occupation: allShops[shopType].owner,
     });

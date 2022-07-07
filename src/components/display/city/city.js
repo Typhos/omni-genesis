@@ -174,25 +174,6 @@ export default class CityDisplay extends Component {
                 {city.population.total >= 4000 ? "N/A" : city.guards.militiaLevy}
               </span>
             </p>
-            <br />
-            <p className="info">
-              <span className="info__label">Government: </span>
-              <span className="info__value">{city.government.details.name}</span>
-              <span
-                role="img"
-                className="emojiIcon text"
-                aria-label={city.government.details.description}
-                data-balloon-length="large"
-                data-balloon-pos="right"
-              >
-                ❓
-              </span>
-            </p>
-            <p className="info">
-              <span className="info__label">Leader: </span>
-              <span className="info__value">{city.government.leader.occupation} </span>
-              <span className="info__value">{city.government.leader.name.displayName}</span>
-            </p>
             {/* <p className="info">
               <span className="info__label">Important People: </span>
               <span className="info__value">{city.population.importantPeople.number}</span>
@@ -223,10 +204,22 @@ export default class CityDisplay extends Component {
               </span>
             </p> */}
             <p className="info">
-              <span className="info__label">Shops: </span>
-              <span className="info__value">
-                {Utils.numberWithCommas(city.economy.merchants.shopsTotal)}
+              <span className="info__label">Government: </span>
+              <span className="info__value">{city.government.details.name}</span>
+              <span
+                role="img"
+                className="emojiIcon text"
+                aria-label={city.government.details.description}
+                data-balloon-length="large"
+                data-balloon-pos="right"
+              >
+                ❓
               </span>
+            </p>
+            <p className="info">
+              <span className="info__label">Leader: </span>
+              <span className="info__value">{city.government.leader.occupation} </span>
+              <span className="info__value">{city.government.leader.name.displayName}</span>
             </p>
             <br />
             <p className="info">
@@ -303,7 +296,9 @@ export default class CityDisplay extends Component {
             </TwoColumnDisplay>
           </div>
           {city.economy.merchants.shopsTotal > 0 && (
-            <div label="Shops">
+            <div
+              label={"Shops (" + Utils.numberWithCommas(city.economy.merchants.shopsTotal) + ")"}
+            >
               <h3 className="tabs__groupHeading">Prominent Shops of {city.name}</h3>
               <ShopsDisplay city={city} />
             </div>

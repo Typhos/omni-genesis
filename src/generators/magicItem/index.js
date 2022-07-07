@@ -8,11 +8,15 @@ import monstersTables from "../../data/monsters/monsters.json";
 
 class MagicItem {
   constructor(params = {}) {
-    const { type } = params;
+    const { type, restriction } = params;
     const { itemGroups } = itemTables;
 
     this.details = "";
-    this.itemType = type || this.generateValueFromOdds(itemGroups);
+    this.itemType = this.checkRestrictions(
+      type || this.generateValueFromOdds(itemGroups),
+      restriction
+    );
+    // this.itemType = this.itemType, );
     this.itemName = this.getItem(type);
   }
 
@@ -52,6 +56,16 @@ class MagicItem {
         return this.getMiscItem();
       // no default
     }
+  }
+
+  checkRestrictions(itemType, restriction) {
+    const { itemGroups } = itemTables;
+    console.log(itemType);
+    if (restriction === "no weapons" && (itemType === "Sword" || itemType === "Weapon")) {
+      return this.checkRestrictions(this.generateValueFromOdds(itemGroups), restriction);
+    }
+
+    return itemType;
   }
 
   getArmor() {

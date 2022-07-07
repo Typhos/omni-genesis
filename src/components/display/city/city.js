@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import Display from "../display";
 import Noble from "../../../generators/person/noble";
 import NobleDisplay from "./nobles";
+import OneColumnDisplay from "../columns/oneColumn";
 import PopulationDisplay from "./population";
 import ShopsDisplay from "./shops";
 import Tabs from "../../tabs";
@@ -192,25 +193,25 @@ export default class CityDisplay extends Component {
               <span className="info__value">{city.government.leader.occupation} </span>
               <span className="info__value">{city.government.leader.name.displayName}</span>
             </p>
-            <p className="info">
+            {/* <p className="info">
               <span className="info__label">Important People: </span>
               <span className="info__value">{city.population.importantPeople.number}</span>
             </p>
             <p className="info">
               <span className="info__label">Corruption: </span>
               <span className="info__value">{city.government.corruption}</span>
-            </p>
+            </p> */}
           </div>
           <div className="info">
-            <p className="cityType">
+            {/* <p className="cityType">
               <span className="info__label">Economy:</span>{" "}
               <span className="info__value">{city.economy.description}</span>
             </p>
             <p className="info">
               <span className="info__label">Economic Focus:</span>{" "}
               <span className="info__value">{city.economy.primary}</span>
-            </p>
-            <p className="info">
+            </p> */}
+            {/* <p className="info">
               <span className="info__label">Tradesfolk: </span>
               <span className="info__value">
                 {Utils.numberWithCommas(city.economy.merchants.tradesTotal)}
@@ -220,16 +221,12 @@ export default class CityDisplay extends Component {
                 ({((city.economy.merchants.tradesTotal / city.population.total) * 100).toFixed(1)}
                 %)
               </span>
-            </p>
+            </p> */}
             <p className="info">
               <span className="info__label">Shops: </span>
               <span className="info__value">
                 {Utils.numberWithCommas(city.economy.merchants.shopsTotal)}
               </span>
-            </p>
-            <p className="info">
-              <span className="info__label">Crime: </span>
-              <span className="info__value">{city.economy.crime}</span>
             </p>
             <br />
             <p className="info">
@@ -260,15 +257,39 @@ export default class CityDisplay extends Component {
         </div>
 
         <Tabs>
-          <div label="Population">
+          {/* <div label="Population">
             <h3 className="tabs__groupHeading">Population of {city.name}</h3>
             <ThreeColumnDisplay>
               <PopulationDisplay city={city} />
-              {/* {this.numericalObjectDisplay(city.population.races)} */}
             </ThreeColumnDisplay>
+          </div> */}
+          <div label="Traits">
+            <h3 className="tabs__groupHeading">Origin</h3>
+            <p className="info">
+              <span className="info__value">{city.origin.name}.</span>&nbsp;
+              <span className="info__label">{city.origin.description}</span>
+            </p>
+
+            <h3 className="tabs__groupHeading">Activity</h3>
+            <p className="info">
+              <span className="info__value">{city.activity.name}.</span>&nbsp;
+              <span className="info__label">{city.activity.description}</span>
+            </p>
+
+            <h3 className="tabs__groupHeading">
+              {city.obstacles.length > 1 ? "Obstacles" : "Obstacle"}
+            </h3>
+            {city.obstacles.map((ob) => {
+              return (
+                <p className="info">
+                  <span className="info__value">{ob.name}.</span>&nbsp;
+                  <span className="info__label">{ob.description}</span>
+                </p>
+              );
+            })}
           </div>
-          <div label="Nobility">
-            <h3 className="tabs__groupHeading">Nobility of {city.name}</h3>
+          <div label="Leaders">
+            <h3 className="tabs__groupHeading">Important People of {city.name}</h3>
             <TwoColumnDisplay>
               {city.population.importantPeople.noblePeopleArray.sort().map((obj, ind) => (
                 <NobleDisplay
@@ -287,14 +308,14 @@ export default class CityDisplay extends Component {
               <ShopsDisplay city={city} />
             </div>
           )}
-          {city.economy.merchants.tradesTotal > 0 && (
+          {/* {city.economy.merchants.tradesTotal > 0 && (
             <div label="Tradesfolk">
               <h3 className="tabs__groupHeading">Tradesfolk of {city.name}</h3>
               <ThreeColumnDisplay>
                 {this.numericalObjectDisplay(city.economy.merchants.tradesArray)}
               </ThreeColumnDisplay>
             </div>
-          )}
+          )} */}
         </Tabs>
       </Display>
     );

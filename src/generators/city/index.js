@@ -40,6 +40,10 @@ export default class City {
     this.inputSize = params.type;
     this.name = params.name || this.getCityName(this.culture);
 
+    this.origin = this.getOrigin();
+    this.activity = this.getActivity();
+    this.obstacles = this.getObstacles();
+
     if (!params.lightWeight) {
       this.economy = this.getEconomy();
       this.guards = this.getGuards(this.citySize);
@@ -267,7 +271,7 @@ export default class City {
       description: economyWording(),
       primary: getPrimaryEconomy(),
       merchants: this.getMerchants(),
-      crime: this.getCrimeRate(),
+      // crime: this.getCrimeRate(),
     };
   }
 
@@ -466,5 +470,47 @@ export default class City {
     let wallStr = walls[Utils.randomArrayIndex(walls)];
 
     return `${wallStr} & ${roofStr}`;
+  }
+
+  getOrigin() {
+    const { origins } = cityObj;
+    const originsArray = Object.keys(origins);
+    const name = originsArray[Utils.randomArrayIndex(originsArray)];
+
+    return {
+      name,
+      description: origins[name],
+    };
+  }
+
+  getActivity() {
+    const { activities } = cityObj;
+    const activitiesArray = Object.keys(activities);
+    const name = activitiesArray[Utils.randomArrayIndex(activitiesArray)];
+
+    return {
+      name,
+      description: activities[name],
+    };
+  }
+
+  getObstacles() {
+    const { obstacles } = cityObj;
+    let obstaclesArray = Object.keys(obstacles);
+    const obstacleCount = this.population.total >= 5000 ? 2 : 1;
+    const outputArray = [];
+
+    // const name = obstaclesArray[Utils.randomArrayIndex(obstaclesArray)];
+
+    for (let i = 1; i <= obstacleCount; i++) {
+      const name = obstaclesArray[Utils.randomArrayIndex(obstaclesArray)];
+      obstaclesArray = obstaclesArray.filter((e) => e !== name);
+      outputArray.push({
+        name,
+        description: obstacles[name],
+      });
+    }
+
+    return outputArray;
   }
 }

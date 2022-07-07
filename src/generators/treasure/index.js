@@ -50,6 +50,7 @@ class Treasure {
         if (Utils.randomInt(1, 100) > percentage) return undefined;
 
         if (itemType.includes("magic item")) {
+          if (itemType.includes("not weapons")) this.getMagicItems(diceNum || 1, "no weapons");
           this.getMagicItems(diceNum || 1);
         }
 
@@ -138,9 +139,9 @@ class Treasure {
     });
   }
 
-  getMagicItems(num = 1, itemsRoll) {
+  getMagicItems(num = 1, restriction) {
     for (let i = 1; i <= num; i++) {
-      const item = new MagicItem();
+      const item = new MagicItem({ restriction });
       this.magicItems.push(item);
     }
   }

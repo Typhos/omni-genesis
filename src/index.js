@@ -28,6 +28,7 @@ const routing = (
       <Route path="/magicItems/" component={MagicItemPage} />
       <Route path="/clan/" component={Clans} />
       <Route path="/treasure/" component={TreasurePage} />
+      {/* <Route path="/scrolls/" component={ScrollsPage} /> */}
 
       <Route component={Error404} />
     </Switch>

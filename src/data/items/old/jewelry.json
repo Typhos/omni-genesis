@@ -18,7 +18,8 @@
               "band": ["metal", "bone"]
             },
             "optionalParts": {
-              "filigree": ["metal", "bone"]
+              "filigree": ["metal", "bone"],
+              "jewel": ["gemstone"]
             },
             "default": "metal",
             "creation": "designed",
@@ -61,10 +62,10 @@
             }
           }
         },
-        "jeweled ring": {
+        "puzzle ring": {
           "count": 1,
-          "single": "jeweled ring",
-          "plural": "jeweled rings",
+          "single": "puzzle ring",
+          "plural": "puzzle rings",
           "stats": {
             "type": "ring",
             "value": 5,
@@ -75,9 +76,10 @@
             "primary": "band",
             "required": {
               "band": ["metal", "bone"],
-              "jewel": ["gemstone", "glass"]
+              "band": ["metal", "bone"]
             },
             "optionalParts": {
+              "interlocking ring": ["metal", "bone"],
               "accents": ["gemstone"]
             },
             "default": "metal",
@@ -105,7 +107,7 @@
             },
             "optionalParts": {
               "filigree": ["metal"],
-              "jewels": ["gemstone"]
+              "jewel": ["gemstone"]
             },
             "default": "metal",
             "creation": "designed",
@@ -229,10 +231,10 @@
             }
           }
         },
-        "amulet": {
+        "lariat necklace": {
           "count": 1,
-          "single": "amulet",
-          "plural": "amulets",
+          "single": "lariat necklace",
+          "plural": "lariat necklaces",
           "stats": {
             "type": "necklace",
             "value": 5,
@@ -240,20 +242,20 @@
             "weight": 0.5
           },
           "materials": {
-            "primary": "pendant",
+            "primary": "cord",
             "required": {
-              "pendant": ["gemstone", "metal", "glass"],
-              "cord": ["cloth", "leather"]
+              "cord": ["cloth", "leather"],
+              "pendant": ["gemstone", "metal"]
             },
             "optionalParts": {
               "accents": ["gemstone"]
             },
-            "default": "metal",
+            "default": "cloth",
             "creation": "crafted",
             "maker": {
               "metal": "jeweler",
-              "gemstone": "jeweler",
-              "glass": "jeweler"
+              "leather": "artisan",
+              "cloth": "artisan"
             },
             "extra": ["emblem"],
             "emblem": {
@@ -262,10 +264,10 @@
             }
           }
         },
-        "holy symbol": {
+        "matinee necklace": {
           "count": 1,
-          "single": "holy symbol",
-          "plural": "holy symbols",
+          "single": "matinee necklace",
+          "plural": "matinee necklaces",
           "stats": {
             "type": "necklace",
             "value": 5,
@@ -273,28 +275,58 @@
             "weight": 0.5
           },
           "materials": {
-            "primary": "icon",
+            "primary": "chain",
             "required": {
-              "icon": ["metal", "wood", "stone"],
-              "cord": ["cloth", "leather"]
+              "chain": ["metal"],
+              "pendant": ["gemstone", "metal"]
             },
             "optionalParts": {
-              "accents": ["gemstone", "glass"]
+              "accents": ["gemstone"]
             },
             "default": "metal",
             "creation": "crafted",
             "maker": {
               "metal": "jeweler",
-              "gemstone": "jeweler",
-              "stone": "jeweler"
+              "leather": "artisan",
+              "cloth": "artisan"
             },
-            "extra": ["carving"],
-            "carving": {
-              "chance": 100,
-              "parts": ["icon"],
-              "shape": [""],
-              "design": ["holy symbol"],
-              "count": 1
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 75,
+              "parts": ["pendant"]
+            }
+          }
+        },
+        "princess necklace": {
+          "count": 1,
+          "single": "princess necklace",
+          "plural": "princess necklaces",
+          "stats": {
+            "type": "necklace",
+            "value": 5,
+            "armor_class": 0,
+            "weight": 0.5
+          },
+          "materials": {
+            "primary": "cord",
+            "required": {
+              "cord": ["metal", "cloth", "leather"],
+              "pendant": ["gemstone", "metal"]
+            },
+            "optionalParts": {
+              "accents": ["gemstone"]
+            },
+            "default": "cloth",
+            "creation": "crafted",
+            "maker": {
+              "metal": "jeweler",
+              "leather": "artisan",
+              "cloth": "artisan"
+            },
+            "extra": ["emblem"],
+            "emblem": {
+              "chance": 75,
+              "parts": ["pendant"]
             }
           }
         }
@@ -635,7 +667,7 @@
         }
       }
     },
-    "bracelet": {
+    "braclet": {
       "subtype": {
         "bangle": {
           "count": 1,
@@ -676,12 +708,12 @@
             }
           }
         },
-        "link bracelet": {
+        "link braclet": {
           "count": 1,
-          "single": "link bracelet",
-          "plural": "link bracelets",
+          "single": "link braclet",
+          "plural": "link braclets",
           "stats": {
-            "type": "bracelet",
+            "type": "braclet",
             "value": 2,
             "armor_class": 0,
             "weight": 0.5
@@ -703,10 +735,10 @@
             }
           }
         },
-        "beaded bracelet": {
+        "beaded braclet": {
           "count": 1,
-          "single": "beaded bracelet",
-          "plural": "beaded bracelets",
+          "single": "beaded braclet",
+          "plural": "beaded braclets",
           "stats": {
             "type": "braclet",
             "value": 2,
@@ -767,6 +799,7 @@
               "chance": 50,
               "parts": ["terminals"],
               "shape": [" head"],
+              "design": ["words", "engraving", "things", "person", "single"],
               "count": 1
             }
           }
@@ -808,8 +841,8 @@
             "carving": {
               "parts": ["headcap"],
               "shape": ["", " head"],
-              "count": 1,
-              "chance": 100
+              "design": ["words", "engraving", "things", "person", "single"],
+              "count": 1
             }
           }
         },
@@ -853,6 +886,7 @@
             "carving": {
               "parts": ["pommel"],
               "shape": ["", " head"],
+              "design": ["words", "engraving", "things", "person", "single"],
               "count": 1
             }
           }
@@ -933,11 +967,12 @@
             "carving": {
               "parts": ["ornamental crest"],
               "shape": ["", " head"],
+              "design": ["person"],
               "count": 1
             },
             "emblem": {
               "chance": 100,
-              "parts": ["accent detailing", "face mask"],
+              "parts": ["accent detailing"],
               "method": "etched",
               "design": ["dwarf"],
               "min": 1,
@@ -954,10 +989,10 @@
           "single": "longsword scabbard",
           "plural": "longsword scabbards",
           "stats": {
-            "type": "scabbard",
+            "type": "helmet",
             "value": 5,
             "armor_class": "0",
-            "weight": 1
+            "weight": 10
           },
           "materials": {
             "primary": "body",
@@ -984,203 +1019,6 @@
               "method": "engraved",
               "min": 1,
               "max": 2
-            }
-          }
-        }
-      }
-    },
-    "goblet": {
-      "subtype": {
-        "goblet": {
-          "count": 1,
-          "single": "goblet",
-          "plural": "goblets",
-          "stats": {
-            "type": "treasure",
-            "value": 10,
-            "armor_class": "0",
-            "weight": 3
-          },
-          "materials": {
-            "primary": "cup",
-            "required": {
-              "cup": ["metal"],
-              "foot": ["metal"]
-            },
-            "optionalParts": {
-              "stem": ["metal"],
-              "accents": ["gemstone", "glass"],
-              "handles": ["metal"]
-            },
-            "default": "metal",
-            "restricted": {
-              "metal": ["lead"]
-            },
-            "creation": "crafted",
-            "maker": {
-              "metal": "smith"
-            },
-            "extra": ["emblem"],
-            "emblem": {
-              "chance": 33,
-              "parts": ["cup"],
-              "method": "etched",
-              "min": 1,
-              "max": 2
-            }
-          }
-        }
-      }
-    },
-    "clasp": {
-      "subtype": {
-        "belt buckle": {
-          "count": 1,
-          "single": "belt buckle",
-          "plural": "belt buckles",
-          "stats": {
-            "type": "accessory",
-            "value": 2,
-            "armor_class": "0",
-            "weight": 2
-          },
-          "materials": {
-            "primary": "body",
-            "required": {
-              "body": ["metal"]
-            },
-            "optionalParts": {
-              "accents": ["gemstone", "glass"]
-            },
-            "default": "metal",
-            "restricted": {
-              "metal": ["lead"]
-            },
-            "creation": "crafted",
-            "maker": {
-              "metal": "smith"
-            },
-            "extra": ["emblem", "carving"],
-            "emblem": {
-              "chance": 33,
-              "parts": ["body"],
-              "method": "etched",
-              "min": 1,
-              "max": 1
-            },
-            "carving": {
-              "chance": 33,
-              "parts": ["body"],
-              "shape": ["", " head"],
-              "count": 1
-            }
-          }
-        },
-        "disc brooch": {
-          "count": 1,
-          "single": "disc brooch",
-          "plural": "disc brooches",
-          "stats": {
-            "type": "accessory",
-            "value": 2,
-            "armor_class": "0",
-            "weight": 1
-          },
-          "materials": {
-            "primary": "disc",
-            "required": {
-              "disc": ["metal"],
-              "pin": ["metal"]
-            },
-            "optionalParts": {
-              "accents": ["gemstone", "glass"]
-            },
-            "default": "metal",
-            "restricted": {
-              "metal": ["lead"]
-            },
-            "creation": "crafted",
-            "maker": {
-              "metal": "smith"
-            },
-            "extra": ["emblem"],
-            "emblem": {
-              "chance": 100,
-              "parts": ["disc"],
-              "min": 1,
-              "max": 1
-            }
-          }
-        },
-        "shaped brooch": {
-          "count": 1,
-          "single": "shaped brooch",
-          "plural": "shaped brooches",
-          "stats": {
-            "type": "accessory",
-            "value": 2,
-            "armor_class": "0",
-            "weight": 1
-          },
-          "materials": {
-            "primary": "fibula",
-            "required": {
-              "fibula": ["metal"],
-              "pin": ["metal"]
-            },
-            "optionalParts": {
-              "accents": ["gemstone", "glass"]
-            },
-            "default": "metal",
-            "restricted": {
-              "metal": ["lead"]
-            },
-            "creation": "crafted",
-            "maker": {
-              "metal": "smith"
-            },
-            "extra": ["carving"],
-            "carving": {
-              "chance": 100,
-              "parts": ["fibula"],
-              "shape": ["", " head"],
-              "count": 1
-            }
-          }
-        },
-        "cloak clasp": {
-          "count": 2,
-          "single": "cloak clasp",
-          "plural": "cloak clasps",
-          "stats": {
-            "type": "accessory",
-            "value": 2,
-            "armor_class": "0",
-            "weight": 1
-          },
-          "materials": {
-            "primary": "clasp",
-            "required": {
-              "clasp": ["metal"]
-            },
-            "optionalParts": {
-              "chain": ["metal"],
-              "accents": ["gemstone", "glass"]
-            },
-            "default": "metal",
-            "restricted": {
-              "metal": ["lead"]
-            },
-            "creation": "crafted",
-            "maker": {
-              "metal": "smith"
-            },
-            "extra": ["carving"],
-            "carving": {
-              "chance": 100,
-              "parts": ["clasp"],
-              "shape": ["", " head"],
-              "count": 1
             }
           }
         }

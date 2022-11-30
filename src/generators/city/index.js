@@ -4,9 +4,7 @@ import Races from "../../data/races/allRaces";
 import Utils from "../../components/utils";
 import cityObj from "../../data/cities/cities";
 import governments from "../../data/governments";
-import { isCompositeComponent } from "react-dom/test-utils";
 import merchantsObj from "../../data/merchants/merchants";
-import pantheons from "../../data/gods/pantheons";
 import placeNames from "../../data/places/randomPlaceNames";
 import racialBias from "../../data/cities/racialBiases";
 import tavernsObj from "../../data/merchants/taverns";
@@ -123,7 +121,6 @@ export default class City {
     const { culture } = this;
     const racesArray = Object.keys(Races);
     const weightedArray = [];
-    let weight;
 
     racesArray.forEach((race) => {
       const randomVal = (Utils.randomInt(1, 75) - 25) / 100;
@@ -541,10 +538,25 @@ export default class City {
   }
 
   getObstacles() {
+    const { citySize } = this;
     const { obstacles } = cityObj;
     let obstaclesArray = Object.keys(obstacles);
-    const obstacleCount = this.population.total >= 5000 ? 2 : 1;
+    let obstacleCount = 1;
     const outputArray = [];
+
+    switch (citySize) {
+      case "metropolis":
+        obstacleCount = Utils.rollDice(1, 2, 1);
+        break;
+      case "city":
+        obstacleCount = Utils.rollDice(1, 2);
+        break;
+      case "town":
+        obstacleCount = Utils.rollDice(1, 2);
+        break;
+      default:
+        break;
+    }
 
     // const name = obstaclesArray[Utils.randomArrayIndex(obstaclesArray)];
 

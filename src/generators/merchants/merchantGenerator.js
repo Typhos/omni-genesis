@@ -8,7 +8,7 @@ const allShops = { ...merchantsObj, ...tavernsObj };
 
 export default class Merchant {
   constructor(params = {}) {
-    let { seed, type, ownerRace, culture, batchMode } = params;
+    let { seed, type, culture, batchMode } = params;
 
     if (params.seed) {
       global.seed = seed;

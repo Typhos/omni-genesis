@@ -1,26 +1,23 @@
-import Armor from "../../data/items/armor";
-import ArmorNames from "../../data/items/armorNames";
+import ArmorNames from "../../data/items/old/armorNames";
 import Engraving from "./engraving";
-import InscriptionElements from "../../data/items/inscriptionElements";
-import Items from "../../data/items/items";
+import InscriptionElements from "../../data/items/old/inscriptionElements";
 import Jewelry from "../../data/items/jewelry";
-import JewelryNames from "../../data/items/jewelryNames";
-import MaterialData from "../../data/items/materials";
+import JewelryNames from "../../data/items/old/jewelryNames";
+import MaterialData from "../../data/items/old/materials";
 import Noble from "../person/noble";
 import Person from "../person/person";
 import PersonGenerator from "../person/person";
 import Utils from "../../components/utils";
-import WeaponNames from "../../data/items/weaponNames";
-import Weapons from "../../data/items/weapons";
+import WeaponNames from "../../data/items/old/weaponNames";
 import magicTierData from "../../data/items/magic/tiers";
-import qualityData from "../../data/items/itemQuality";
+import qualityData from "../../data/items/old/itemQuality";
 
 // DATA
 const itemsData = {
-  ...Weapons,
-  ...Armor,
+  // ...Weapons,
+  // ...Armor,
   ...Jewelry,
-  ...Items,
+  // ...Items,
 };
 
 export default class Item {
@@ -29,19 +26,29 @@ export default class Item {
       Utils.setNewSeed();
     }
 
-    const { category, type, subtype, crafter, crafterRace, qualityRange, forceMagicItem } = options;
+    const {
+      category,
+      type,
+      subtype,
+      crafter,
+      crafterRace,
+      qualityRange,
+      forceMagicItem,
+      noMagic,
+    } = options;
 
     // either assign or randomly pick the item category, type and subtype.
-    this.category = this.getRandomGroup(itemsData, category);
-    this.type = this.getRandomGroup(itemsData[this.category], type);
-    this.subtype = this.getRandomGroup(itemsData[this.category][this.type].subtype, subtype);
+    this.category = category || this.getRandomGroup(itemsData);
+    const typesArray = getEvenTypeDistribution(itemsData[this.category]);
+    this.type = type || typesArray[Utils.randomArrayIndex(typesArray)];
+    this.subtype = subtype || this.getRandomGroup(itemsData[this.category][this.type].subtype);
 
     // construct item now that we have the category, type and subtype.
     Object.assign(this, this.itemConstruction());
 
     // get the item quality descriptor and value modifier;
     Object.assign(this, this.getItemQuality(qualityRange, forceMagicItem));
-    Object.assign(this, this.getMagical(forceMagicItem));
+    Object.assign(this, this.getMagical(forceMagicItem, noMagic));
     Object.assign(this, this.getItemName());
 
     this.crafter = crafter || this.getCrafter(crafterRace);
@@ -50,17 +57,11 @@ export default class Item {
     Object.assign(this, this.writeDescription());
 
     this.value = this.getItemValue();
-
-    // console.log(this);
   }
 
-  getRandomGroup(relativeItemDataObj, specificItemType) {
-    if (specificItemType !== "all" && specificItemType !== undefined) {
-      return specificItemType;
-    } else {
-      const categories = Object.keys(relativeItemDataObj);
-      return categories[Utils.randomArrayIndex(categories)];
-    }
+  getRandomGroup(relativeItemDataObj) {
+    const categories = Object.keys(relativeItemDataObj);
+    return categories[Utils.randomArrayIndex(categories)];
   }
 
   itemConstruction() {
@@ -93,6 +94,8 @@ export default class Item {
 
     details.fiveEStats = item.stats;
     details.count = item.count;
+    details.single = item.single;
+    details.plural = item.plural;
     details.consumable = item.consumable;
 
     return details;
@@ -169,7 +172,6 @@ export default class Item {
           materials.push(partMaterial);
         });
       } else if (qualityRoll >= 6) {
-        // console.log(this);
         const partsArray = Object.keys(optionalParts);
         const part = partsArray[Utils.randomArrayIndex(partsArray)];
         const materialsArray = optionalParts[part];
@@ -200,12 +202,33 @@ export default class Item {
     return group[Utils.randomArrayIndex(group)];
   }
 
+  getGemstoneValue(count = 1) {
+    // Per the rules of OSE, gemstone value is determined by a d20 roll
+
+    return new Array(count).fill(undefined).map((_) => getGpValue(Utils.rollDice(1, 20)));
+
+    function getGpValue(roll) {
+      if (roll >= 1 && roll <= 4) {
+        return 10;
+      } else if (roll >= 5 && roll <= 9) {
+        return 50;
+      } else if (roll >= 10 && roll <= 15) {
+        return 100;
+      } else if (roll >= 16 && roll <= 19) {
+        return 500;
+      } else if (roll >= 20) {
+        return 1000;
+      }
+    }
+  }
+
   getItemQuality(
     qualityRange = {
       minQuality: 1,
       maxQuality: 10,
     },
-    forceMagicItem
+    forceMagicItem,
+    itendedValue
   ) {
     // quality roll is between 1 and 10. Each quality tier is determined by the itemQuality json
     // quality range parameter is an object with a min and max value.
@@ -216,6 +239,7 @@ export default class Item {
     const qualityRoll = Utils.randomInt(minQuality, maxQuality);
     // const qualityRoll = Utils.randomInt(6, maxQuality);
     const { itemQuality } = qualityData;
+
     const { descriptor, valueModifier, statModifier } = itemQuality.find((quality) => {
       return Utils.numberInRange(qualityRoll, quality.rangeMin, quality.rangeMax);
     });
@@ -235,19 +259,22 @@ export default class Item {
   getExtraDetails(qualityRoll) {
     // Determine if the item gets engravings, carvings or anything else.
     const { category, type, subtype } = this;
+    const materials =
+      itemsData[category][type].subtype[subtype].materials || itemsData[category][type].materials;
+    const { extra } = materials;
     let result = {};
 
     if (qualityRoll >= 9) {
       // add all extras
-      const materials =
-        itemsData[category][type].subtype[subtype].materials || itemsData[category][type].materials;
-      const { extra } = materials;
 
       if (extra) {
         extra.forEach((element) => {
-          if (element === "emblem")
+          const chance = Utils.randomInt(1, 100);
+
+          if (element === "emblem" && chance <= materials[element].chance)
             result.engraving = this.getPartEngraving(materials[element], qualityRoll);
-          if (element === "carving") result.carving = this.getPartCarving(materials[element]);
+          if (element === "carving" && chance <= materials[element].chance)
+            result.carving = this.getPartCarving(materials[element]);
         });
       }
     } else if (qualityRoll >= 6) {
@@ -258,12 +285,23 @@ export default class Item {
 
       if (extra) {
         const itemEnhancement = extra[Utils.randomArrayIndex(extra)];
+        const chance = Utils.randomInt(1, 100);
 
-        if (itemEnhancement === "emblem")
-          result.engraving = this.getPartEngraving(materials[itemEnhancement], qualityRoll);
-        if (itemEnhancement === "carving")
-          result.carving = this.getPartCarving(materials[itemEnhancement]);
+        extra.forEach((element) => {
+          if (itemEnhancement === "emblem" && chance <= materials[element].chance)
+            result.engraving = this.getPartEngraving(materials[itemEnhancement], qualityRoll);
+          if (itemEnhancement === "carving" && chance <= materials[element].chance)
+            result.carving = this.getPartCarving(materials[itemEnhancement]);
+        });
       }
+    } else if (extra) {
+      extra.forEach((element) => {
+        const chance = Utils.randomInt(1, 100);
+        if (element === "emblem" && chance <= materials[element].chance)
+          result.engraving = this.getPartEngraving(materials[element], qualityRoll);
+        if (element === "carving" && chance <= materials[element].chance)
+          result.carving = this.getPartCarving(materials[element]);
+      });
     }
 
     return result;
@@ -271,14 +309,17 @@ export default class Item {
 
   getPartEngraving(buildDataObj, qualityRoll) {
     // engrave a part of the item with some kind of symbol
+    const { min, max } = buildDataObj;
 
     let engravingCount = 1;
-    if (qualityRoll >= 10) {
+    if (min || max) {
+      engravingCount = Utils.randomInt(min || 0, max || 3);
+    } else if (qualityRoll >= 10) {
       engravingCount = Utils.randomInt(1, 3);
     } else if (qualityRoll >= 8) {
       engravingCount = Utils.randomInt(1, 2);
     } else if (qualityRoll >= 6) {
-      engravingCount = Utils.randomInt(0, 1);
+      engravingCount = Utils.randomInt(1, 1);
     }
 
     let engravingString = "";
@@ -295,7 +336,7 @@ export default class Item {
 
   getPartCarving(buildDataObj) {
     // shape a part to look like something else, such as a wolf-head pommel.
-    const expandedDescriptionGroups = ["wood", "bone", "leather", "glass", "feather"];
+    const expandedDescriptionGroups = ["wood", "bone", "leather", "glass", "feather", "fur"];
     const constructionMethod = {
       metal: "forged",
       stone: "chiseled",
@@ -303,7 +344,7 @@ export default class Item {
     };
 
     const { parts } = this;
-    const carveOptions = buildDataObj.parts;
+    const { parts: carveOptions, design } = buildDataObj;
 
     // find what parts can be carved. make an array of options from the current items.
     const carvingOptions = parts
@@ -339,7 +380,15 @@ export default class Item {
       const {
         person: { single },
       } = InscriptionElements.detailThings;
+
+      // default carving type
       let carvingShape = single[Utils.randomArrayIndex(single)];
+
+      if (design) {
+        const designArray = InscriptionElements.detailThings[design];
+        carvingShape = designArray[Utils.randomArrayIndex(designArray)];
+      }
+
       let randomDataShapeDescription =
         buildDataObj.shape[Utils.randomArrayIndex(buildDataObj.shape)];
 
@@ -349,20 +398,22 @@ export default class Item {
       const theEach =
         this.count > 1 || /(?!.*ss).+s$.*/.test(pieceObj.part) ? "Each of the" : "The";
 
-      let description = `${theEach} ${materialDescription} ${pieceObj.part} is ${madeBy} in the shape of a ${carvingShape}.`;
+      let description = `${theEach} ${materialDescription} ${pieceObj.part}${
+        this.count > 1 ? "s" : ""
+      } is ${madeBy} in the shape of a ${carvingShape}.`;
 
       return description;
     }
   }
 
-  getMagical(forceMagicItem) {
+  getMagical(forceMagicItem, noMagic) {
     const { itemQuality } = qualityData;
     const magicRoll = Utils.randomInt(1, 100);
     const { magicChance } = itemQuality.find((quality) => {
       return this.qualityDescriptor === quality.descriptor;
     });
 
-    const isMagical = forceMagicItem || magicRoll <= magicChance;
+    const isMagical = !noMagic && (forceMagicItem || magicRoll <= magicChance);
 
     let magicalProperties = {
       isMagical: isMagical,
@@ -390,20 +441,28 @@ export default class Item {
   }
 
   getItemName() {
-    const { isMagical, qualityDescriptor, primaryMaterial, subtype } = this;
+    const { isMagical, qualityDescriptor, primaryMaterial, primaryGroup, subtype } = this;
+    const troublesomeMaterials = ["leather"];
 
-    let name = "";
-    let descriptiveName = `${qualityDescriptor} ${primaryMaterial} ${subtype}`;
+    let showMaterial = false;
+    if (troublesomeMaterials.includes(primaryGroup)) showMaterial = true;
+
+    let displayName = "";
+    let descriptiveName = `${qualityDescriptor} ${primaryMaterial} ${
+      showMaterial ? primaryGroup : ""
+    } ${subtype}`;
 
     if (isMagical) {
-      name = this.getUniqueItemName();
+      displayName = this.getUniqueItemName();
     } else {
-      name = descriptiveName;
+      displayName = `${Utils.firstLetterUppercase(primaryMaterial)} ${
+        showMaterial ? primaryGroup : ""
+      } ${subtype}`;
     }
 
     return {
-      displayName: name,
-      descriptiveName: descriptiveName,
+      displayName,
+      descriptiveName,
     };
   }
 
@@ -517,26 +576,30 @@ export default class Item {
   }
 
   writeDescription() {
-    const { count, type, subtype, parts, materials, enchanter, crafter } = this;
+    const { count, type, subtype, parts, materials, enchanter, crafter, single, plural } = this;
     let result = {};
     result.description = "";
 
-    const plural = count > 1 ? true : false;
-    const isAre = plural ? "are" : "is";
-    const itTheyCaps = plural ? "They" : "It";
+    const isPlural = count > 1 ? true : false;
+    const isAre = isPlural ? "are" : "is";
+    const itTheyCaps = isPlural ? "They" : "It";
 
     // opening sentence.
     if (count > 1) {
-      result.description += `These ${isAre} ${subtype}`;
+      result.description += `These ${isAre} ${plural}`;
     } else {
-      result.description += `This ${isAre} a ${subtype}`;
+      result.description += `This ${isAre} a ${single}`;
     }
     result.description += !subtype.includes(type) ? `, a type of ${type}. ` : ". ";
 
     // parts
-    if (parts.length > 1) result.description += `The ${subtype} has ${parts.length} parts. `;
-
-    // console.log(materials);
+    if (parts.length > 1) {
+      if (count > 1) {
+        result.description += `Each ${single} has ${parts.length} parts. `;
+      } else {
+        result.description += `The ${single} has ${parts.length} parts. `;
+      }
+    }
 
     materials.forEach((mat) => {
       let arr = [];
@@ -549,7 +612,7 @@ export default class Item {
         }
       });
 
-      result.description += plural ? "Each " : "The ";
+      result.description += isPlural ? "Each " : "The ";
 
       arr.forEach((part, i) => {
         if (i === 0) {
@@ -577,6 +640,7 @@ export default class Item {
         materialGroups[0] === "wood" ||
         materialGroups[0] === "bone" ||
         materialGroups[0] === "leather" ||
+        materialGroups[0] === "fur" ||
         materialGroups[0] === "glass" ||
         materialGroups[0] === "feather"
       ) {
@@ -596,15 +660,14 @@ export default class Item {
   }
 
   getCrafter(crafterRace) {
-    // MAKE 10,000 people to just test for errors
-    // let x = new Array(10000).fill(undefined);
-    // x.map( x => new PersonGenerator());
-
     const materials =
       itemsData[this.category][this.type].subtype[this.subtype].materials ||
       itemsData[this.category][this.type].materials;
     const occupation = materials.maker[this.primaryGroup];
-    if (crafterRace === "all") crafterRace = undefined;
+    crafterRace =
+      crafterRace ||
+      (materials.crafterRaces &&
+        materials.crafterRaces[Utils.randomArrayIndex(materials.crafterRaces)]);
 
     if (!this.crafter) {
       return new PersonGenerator({
@@ -619,8 +682,7 @@ export default class Item {
       fiveEStats: { value },
       magicValue,
       qualityValueModifier,
-      primaryGroup,
-      primaryMaterialBaseline,
+      materials,
     } = this;
 
     let worth = 1;
@@ -628,17 +690,36 @@ export default class Item {
     if (magicValue) {
       worth = Math.round(magicValue);
     } else {
-      // multiply the worth of the item by the valueMultiplier of the primary material. Gold swords are worth more than bronze ones.
-      const materialValueModifier =
-        MaterialData[primaryGroup][primaryMaterialBaseline].valueMultiplier;
-      worth = Math.round(value * qualityValueModifier * materialValueModifier);
+      const materialModifiersArray = [];
+      materials.forEach((material) => {
+        const materialCategories = Object.keys(MaterialData);
 
-      if (worth < 1) {
-        worth = (value * qualityValueModifier).toFixed(1);
-      }
+        materialCategories.forEach((category) => {
+          const materialTypes = Object.keys(MaterialData[category]);
+          materialTypes.forEach((specificMaterial) => {
+            if (material === specificMaterial) {
+              const { valueMultiplier } = MaterialData[category][specificMaterial];
+              materialModifiersArray.push(valueMultiplier);
+            }
+          });
+        });
+      });
+
+      worth = Math.round(value * qualityValueModifier);
+      materialModifiersArray.forEach((multiplier) => (worth = worth * multiplier));
     }
 
-    return worth;
+    if (worth < 1) {
+      worth = value * qualityValueModifier;
+    }
+
+    const gemstones = Object.keys(MaterialData.gemstone);
+    const glass = Object.keys(MaterialData.glass);
+    if (materials.some((material) => gemstones.includes(material) || glass.includes(material))) {
+      const gemVal = this.getGemstoneValue().reduce((sum, entry) => (sum += entry));
+      worth += gemVal;
+    }
+    return worth.toFixed(0);
   }
 
   getFormerOwner() {
@@ -658,4 +739,25 @@ export default class Item {
 
     return undefined;
   }
+}
+
+function getEvenTypeDistribution(data) {
+  let array = [];
+
+  Object.keys(data).forEach((key) => {
+    let child = data[key].subtype;
+
+    if (!Array.isArray(child)) {
+      // sub object like "person" group.
+      const childKeys = Object.keys(child);
+      childKeys.forEach((_) => {
+        array.push(key);
+      });
+    } else {
+      for (let i = 1; i < child.length; i++) {
+        array.push(key);
+      }
+    }
+  });
+  return array;
 }

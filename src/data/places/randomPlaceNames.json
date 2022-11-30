@@ -1,4 +1,96 @@
 {
+  "generic fantasy": {
+    "default": true,
+    "nameSet": [
+      [
+        [
+          "Bleak",
+          "Green",
+          "Wolf",
+          "Raven",
+          "Gray",
+          "Red",
+          "Axe",
+          "Great",
+          "Wood",
+          "Low",
+          "White",
+          "Storm",
+          "Black",
+          "Mourn",
+          "New",
+          "Stone",
+          "Grim",
+          "Lost",
+          "High",
+          "Rock",
+          "Shield",
+          "Sword",
+          "Frost",
+          "Thorn",
+          "Long",
+          "Moon",
+          "Dagger",
+          "Hart"
+        ],
+
+        [
+          "moor",
+          "field",
+          "ford",
+          "crag",
+          "watch",
+          "hope",
+          "ham",
+          "wood",
+          "ridge",
+          "stone",
+          "haven",
+          "fall",
+          "falls",
+          "river",
+          "hill",
+          "bridge",
+          "mark",
+          "cairn",
+          "hall",
+          "mount",
+          "rock",
+          "brook",
+          "barrow",
+          "home",
+          "stead",
+          "wick",
+          "dale",
+          "gate",
+          "mere",
+          "ward",
+          "burn",
+          "call",
+          "den",
+          "don",
+          "dun",
+          "hold",
+          "hollow",
+          "port"
+        ]
+      ]
+    ],
+    "prefix": [
+      "New ",
+      "East ",
+      "West ",
+      "North ",
+      "South ",
+      "Grand ",
+      "Old ",
+      "Free ",
+      "Kings ",
+      "Queens ",
+      "Port "
+    ],
+    "prefixChance": 10
+  },
   "english": {
     "nameSet": [
       [
@@ -660,7 +752,7 @@
       "Queens ",
       "Port "
     ],
-    "prefixChance": 5
+    "prefixChance": 10
   },
 
   "nordic": {

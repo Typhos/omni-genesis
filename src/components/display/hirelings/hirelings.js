@@ -4,7 +4,6 @@ import React, { Component } from "react";
 
 import Display from "../display";
 import OneColumnDisplay from "../columns/oneColumn";
-import ThreeColumnDisplay from "../columns/threeColumns";
 import TwoColumnDisplay from "../columns/twoColumns";
 
 export default class HirelingsDisplay extends Component {
@@ -55,7 +54,8 @@ export default class HirelingsDisplay extends Component {
                   armor,
                   weapons,
                   background,
-                  possession,
+                  goal,
+                  descriptor,
                 } = mook;
 
                 const getAlignment = (AL) => {
@@ -101,13 +101,18 @@ export default class HirelingsDisplay extends Component {
                       </li>
 
                       <li className="infoTable__row">
+                        <span className="info__label">Descriptor</span>
+                        <span className="info__value">{descriptor}</span>
+                      </li>
+
+                      <li className="infoTable__row">
                         <span className="info__label">Background</span>
                         <span className="info__value">{background}</span>
                       </li>
 
                       <li className="infoTable__row">
-                        <span className="info__label">Possessions/Trait</span>
-                        <span className="info__value">{possession}</span>
+                        <span className="info__label">Goal</span>
+                        <span className="info__value">{goal}</span>
                       </li>
                     </OneColumnDisplay>
                   </li>

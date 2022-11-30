@@ -416,6 +416,7 @@ export default class Kingdom {
     }
 
     return {
+      ruler,
       rulerCount,
       govRulers,
       govLegitimacy,

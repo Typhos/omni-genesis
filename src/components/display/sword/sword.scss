@@ -1,0 +1,14 @@
+@import "../../../styles/mixins";
+
+.swordDisplay {
+  &__details {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  &__column {
+    width: 46%;
+    margin-right: 4%;
+  }
+}

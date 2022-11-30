@@ -64,6 +64,20 @@
         "word": " Fortress"
       }
     ],
+    "generic fantasy": [
+      {
+        "type": "prefix",
+        "word": "Castle "
+      },
+      {
+        "type": "suffix",
+        "word": " Castle"
+      },
+      {
+        "type": "suffix",
+        "word": " Fortress"
+      }
+    ],
     "french": [
       {
         "type": "prefix",

@@ -111,6 +111,7 @@ export default class ClanGenerator {
         } else {
           if (range === randNum) return el;
         }
+        return null;
       });
 
       output = alignment;
@@ -141,7 +142,7 @@ export default class ClanGenerator {
   }
 
   getClanWealth() {
-    let { importLimit, purchaseLimit } = this;
+    // let { importLimit, purchaseLimit } = this;
     const { tiers: wealthTiersArray } = clanWealthData;
 
     const randNum = Utils.randomInt(1, 10);
@@ -154,6 +155,7 @@ export default class ClanGenerator {
       } else {
         if (range === randNum) return el;
       }
+      return null;
     });
 
     return { level, wealthModifier };
@@ -314,7 +316,7 @@ class Samurai {
   getSamuraiLevel(title) {
     const maxLevel = 12;
     let minLevel = 2;
-    let levelSpreadArray = new Array();
+    let levelSpreadArray = [];
 
     if (title === "Daimyō") minLevel = 7;
 
@@ -337,6 +339,7 @@ class Samurai {
       } else {
         if (range === randNum) return el;
       }
+      return null;
     });
 
     return name;
@@ -416,6 +419,7 @@ class Samurai {
       } else {
         if (range === randNum) return el;
       }
+      return null;
     });
 
     return alignment;

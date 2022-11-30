@@ -120,4 +120,10 @@ export default class Utils {
 
     return array[Utils.randomArrayIndex(array)];
   }
+
+  static firstLetterUppercase(word) {
+    const firstLetter = word.substring(0, 1).toUpperCase();
+
+    return firstLetter + word.substring(1);
+  }
 }

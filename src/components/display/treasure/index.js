@@ -16,14 +16,14 @@ export default class TreasureDisplay extends Component {
       treasureArray,
       gemValue,
       JewelryValue,
+      specialValue,
       total,
       Jewelry,
       gems,
+      specialTreasures,
       magicItems,
       itemsRoll,
     } = treasure;
-
-    console.log(treasure);
 
     return (
       <Display>
@@ -37,16 +37,51 @@ export default class TreasureDisplay extends Component {
               <li className="treasure__primary ">
                 <span className="treasure__chevron">►</span> {tv}
                 {tv.includes("gem") && (
-                  <span>
-                    {" "}
-                    ( <em className="treasure__gpValue">{gems.join(", ")}</em> )
-                  </span>
+                  <ul className="infoTable one indent">
+                    {Object.entries(gems).map(([description, data]) => {
+                      const { count, value } = data;
+                      return (
+                        <li className="infoTable__row" key={description + i}>
+                          <em className="treasure__jewelryDescriptions">
+                            {`${count}x `}
+                            {description.trim()}{" "}
+                          </em>
+                          <em className="treasure__gpValue">
+                            ({Utils.numberWithCommas(value)} gp)
+                          </em>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 )}
-                {tv.includes("Jewelry") && (
-                  <span>
-                    {" "}
-                    ( <em className="treasure__gpValue">{Jewelry.join(", ")}</em> )
-                  </span>
+                {tv.includes("jewelry") && (
+                  <ul className="infoTable one indent">
+                    {Jewelry.map((piece, i) => {
+                      const { value, item } = piece;
+                      const { displayName, description, engraving, carving } = item;
+                      return (
+                        <li className="infoTable__row" key={piece + i}>
+                          <em className="treasure__jewelryDescriptions">{displayName.trim()} </em>
+                          <em className="treasure__gpValue">
+                            ({value}): {description} {engraving && engraving} {carving && carving}
+                          </em>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+                {tv.includes("special treasure") && (
+                  <ul className="infoTable one indent">
+                    {specialTreasures.map((treasure, i) => {
+                      const { item, weight } = treasure;
+                      return (
+                        <li className="infoTable__row" key={treasure + i}>
+                          <em className="treasure__jewelryDescriptions">{item.trim()} </em>
+                          <em className="treasure__gpValue">(weight: {weight})</em>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 )}
                 {tv.itemRolls !== "basic" && tv.includes("magic") && (
                   <ul className="infoTable one indent">
@@ -76,7 +111,9 @@ export default class TreasureDisplay extends Component {
 
         {treasureArray.length <= 0 && <p className="description">► Empty Treasure Hoard</p>}
 
-        {(gemValue > 0 || JewelryValue > 0) && <h2 className="subHead">Summary</h2>}
+        {(gemValue > 0 || JewelryValue > 0 || specialValue > 0) && (
+          <h2 className="subHead">Summary</h2>
+        )}
 
         {gemValue > 0 && (
           <p className="description">
@@ -88,6 +125,12 @@ export default class TreasureDisplay extends Component {
           <p className="description">
             <strong>Jewelry Value Sum: </strong>
             {Utils.numberWithCommas(JewelryValue)} gp
+          </p>
+        )}
+        {specialValue > 0 && (
+          <p className="description">
+            <strong>Special Treasure Value Sum: </strong>
+            {Utils.numberWithCommas(specialValue)} gp
           </p>
         )}
       </Display>

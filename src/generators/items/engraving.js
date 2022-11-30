@@ -1,6 +1,6 @@
+import InscriptionElements from "../../data/items/old/inscriptionElements";
+import Materials from "../../data/items/old/materials";
 import Utils from "../../components/utils";
-import InscriptionElements from "../../data/items/inscriptionElements";
-import Materials from "../../data/items/materials";
 
 class Part {
   constructor(item, partObj) {
@@ -12,9 +12,14 @@ class Part {
 
   getInscriptionElements(partObj) {
     const { detailThings } = InscriptionElements;
+    const { design } = partObj;
 
     // to provide even distribution of possible results, create an array with one key entry for each element in the given array. This will provide a more even spread.
-    let elementGroupKeys = getEvenKeyDistribution();
+    let elementGroupKeys = design;
+
+    if (!design) {
+      elementGroupKeys = getEvenKeyDistribution();
+    }
 
     function getEvenKeyDistribution() {
       let array = [];

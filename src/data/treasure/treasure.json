@@ -1,4 +1,30 @@
 {
+  "Jewelry": {
+    "avgValue": 100000000,
+    "rollArray": [
+      {
+        "percentage": 100,
+        "diceNum": "8",
+        "diceType": null,
+        "amount": null,
+        "itemType": "piece(s) of jewelry",
+        "noSpecial": true
+      }
+    ]
+  },
+  "Gemstones": {
+    "avgValue": 100000000,
+    "rollArray": [
+      {
+        "percentage": 100,
+        "diceNum": "3",
+        "diceType": "6",
+        "amount": null,
+        "itemType": "gem(s)",
+        "noSpecial": true
+      }
+    ]
+  },
   "A": {
     "avgValue": 18000,
     "rollArray": [

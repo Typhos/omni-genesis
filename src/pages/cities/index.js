@@ -11,16 +11,11 @@ import PersonDisplay from "../../components/display/person/person";
 import Select from "../../components/controls/select/selectStandard";
 import Utils from "../../components/utils";
 import cityObj from "../../data/cities/cities";
-import pantheonsObj from "../../data/gods/pantheons";
 import placeNames from "../../data/places/randomPlaceNames";
 
 //generators
 
-
 //data
-
-
-
 
 export default class Settlements extends Component {
   constructor(props) {
@@ -73,15 +68,11 @@ export default class Settlements extends Component {
     });
   }
 
-  getOptions(obj, sort, filterKey) {
+  getOptions(obj, sort = false) {
     let keys = Object.keys(obj);
 
     if (sort) {
       keys = keys.sort();
-    }
-
-    if (filterKey) {
-      keys = keys.filter((e) => e !== filterKey);
     }
 
     return keys.map((key) => {
@@ -102,7 +93,7 @@ export default class Settlements extends Component {
 
     const city = new CityGenerator({ ...this.state });
 
-    console.log(city);
+    // console.log(city);
     // this.runTest(500);
 
     Utils.setNewSeed();

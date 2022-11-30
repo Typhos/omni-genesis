@@ -1,34 +1,24 @@
 import React, { Component } from "react";
 
-import Armor from "../../data/items/armor";
 import Aside from "../../components/aside";
 import Button from "../../components/controls/button/buttonStandard";
 import Display from "../../components/display/display";
 import Item from "../../generators/items/item";
-import Items from "../../data/items/items";
 import Jewelry from "../../data/items/jewelry";
 import Races from "../../data/races/allRaces";
 import Select from "../../components/controls/select/selectStandard";
 import Switch from "../../components/controls/switch";
 import Utils from "../../components/utils";
-import Weapons from "../../data/items/weapons";
+
+// import Armor from "../../data/items/armor";
+
+// import Items from "../../data/items/items";
+
+// import Weapons from "../../data/items/weapons";
 
 // Custom Components
 
-
-
-
-
-
-
-
 // DATA
-
-
-
-
-
-
 
 export default class ItemGenerator extends Component {
   constructor(props) {
@@ -80,10 +70,11 @@ export default class ItemGenerator extends Component {
 
   initItemGen() {
     const { category, type, subtype, forceMagicItem, crafterRace } = this.state;
+
     const generatedItem = new Item({
-      category,
-      type,
-      subtype,
+      category: category === "all" ? undefined : category,
+      type: type === "all" ? undefined : type,
+      subtype: subtype === "all" ? undefined : subtype,
       forceMagicItem,
       crafterRace,
     });
@@ -100,21 +91,22 @@ export default class ItemGenerator extends Component {
   }
 
   getOptions(obj) {
-    let arr = [];
-    for (const key in obj) {
-      arr.push(
-        <option key={key} value={key}>
-          {key}
-        </option>
-      );
-    }
+    // let arr = [];
+    const keys = Object.keys(obj).sort();
+    // for (const key in obj) {
+    return keys.map((key) => (
+      <option key={key} value={key}>
+        {key}
+      </option>
+    ));
+    // }
 
-    return arr;
+    // return arr.sort();
   }
 
   render() {
     const { item, category, type, subtype, forceMagicItem, crafterRace } = this.state;
-    const itemsData = { ...Weapons, ...Armor, ...Jewelry, ...Items };
+    const itemsData = { ...Jewelry };
     const typeGroup = category !== "all" ? itemsData[category] : undefined;
     const subGroups = type && type !== "all" ? itemsData[category][type].subtype : undefined;
 

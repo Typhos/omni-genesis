@@ -65,10 +65,10 @@ export default class HirelingRoster {
   }
 
   getLevelProbabilityArray() {
-    const maxHirelingLevel = this.partyLevel;
+    const maxHirelingLevel = this.partyLevel - 1;
     let array = new Array(100).fill(0);
 
-    for (let i = 1; i <= maxHirelingLevel; i++) {
+    for (let i = 0; i < maxHirelingLevel; i++) {
       const odds = new Array((10 - i) ** 2).fill(i);
       array.push(...odds);
     }
@@ -391,16 +391,151 @@ const randomPossessions = {
   Compassionate: 1,
 };
 
+const descriptors = [
+  "Stoic",
+  "Attractive",
+  "Passive",
+  "Aloof",
+  "Affectionate",
+  "Generous",
+  "Smug",
+  "Armed",
+  "Clever",
+  "Brave",
+  "Ugly",
+  "Sociable",
+  "Doomed",
+  "Connected",
+  "Bold",
+  "Jealous",
+  "Angry",
+  "Active",
+  "Suspicious",
+  "Hostile",
+  "Hardhearted",
+  "Successful",
+  "Talented",
+  "Experienced",
+  "Deceitful",
+  "Ambitious",
+  "Aggressive",
+  "Conceited",
+  "Proud",
+  "Stern",
+  "Dependent",
+  "Wary",
+  "Strong",
+  "Insightful",
+  "Dangerous",
+  "Quirky",
+  "Cheery",
+  "Disfigured",
+  "Intolerant",
+  "Skilled",
+  "Stingy",
+  "Timid",
+  "Insensitive",
+  "Wild",
+  "Bitter",
+  "Cunning",
+  "Remorseful",
+  "Kind",
+  "Charming",
+  "Oblivious",
+  "Critical",
+  "Cautious",
+  "Resourceful",
+  "Weary",
+  "Wounded",
+  "Anxious",
+  "Powerful",
+  "Athletic",
+  "Driven",
+  "Cruel",
+  "Quiet",
+  "Honest",
+  "Infamous",
+  "Dying",
+  "Reclusive",
+  "Artistic",
+  "Disabled",
+  "Confused",
+  "Manipulative",
+  "Relaxed",
+  "Stealthy",
+  "Confident",
+  "Weak",
+  "Friendly",
+  "Wise",
+  "Influential",
+  "Young",
+  "Adventurous",
+  "Oppressed",
+  "Vengeful",
+  "Cooperative",
+  "Armored",
+  "Apathetic",
+  "Determined",
+  "Loyal",
+  "Sick",
+  "Religious",
+  "Selfish",
+  "Old",
+  "Fervent",
+  "Violent",
+  "Agreeable",
+  "Hot-tempered",
+  "Stubborn",
+  "Incompetent",
+  "Greedy",
+  "Cowardly",
+  "Obsessed",
+  "Careless",
+  "Ironsworn",
+];
+
+const goals = [
+  "Obtain an object",
+  "Make an agreement",
+  "Build a relationship",
+  "Undermine a relationship",
+  "Seek a truth",
+  "Pay a debt",
+  "Refute a falsehood",
+  "Harm a rival",
+  "Cure an ill",
+  "Find a person",
+  "Find a home",
+  "Seize power",
+  "Restore a relationship",
+  "Create an item",
+  "Travel to a place",
+  "Secure provisions",
+  "Rebel against power",
+  "Collect a debt",
+  "Protect a secret",
+  "Spread faith",
+  "Enrich themselves",
+  "Protect a person",
+  "Protect the status quo",
+  "Advance status",
+  "Defend a place",
+  "Avenge a wrong",
+  "Fulfill a duty",
+  "Gain knowledge",
+  "Prove worthiness",
+  "Find redemption",
+  "Escape from something",
+  "Resolve a dispute",
+];
+
 const hirelingBackgrounds = {
-  Peasant: 5,
-  Apprentice: 1,
   "Noble bastard": 1,
-  Hunter: 1,
   Beggar: 2,
   Bowyer: 1,
   Butcher: 1,
   "Caravan hand": 1,
-  Cultist: 1,
+  Cultist: 3,
   Servant: 1,
   Deserter: 1,
   "Disowned noble": 1,
@@ -408,7 +543,7 @@ const hirelingBackgrounds = {
   Fisherman: 2,
   Gambler: 1,
   Gravedigger: 1,
-  Graverobber: 1,
+  "Grave robber": 1,
   Historian: 1,
   Indebted: 2,
   Juggler: 1,
@@ -419,20 +554,16 @@ const hirelingBackgrounds = {
   Militia: 1,
   Mercenary: 1,
   Miller: 1,
-  Miner: 1,
   Minstrel: 1,
   Monk: 1,
   Peddler: 1,
-  Poacher: 1,
-  Ratcatcher: 1,
+  Poacher: 3,
   Refugee: 2,
-  Shepherd: 1,
   Tailor: 1,
   Vagabond: 2,
   "Temple acolyte": 1,
   Criminal: 2,
   Hermit: 1,
-  Sailor: 1,
   Pirate: 1,
   Smuggler: 1,
   Carpenter: 1,
@@ -440,6 +571,30 @@ const hirelingBackgrounds = {
   "Failed merchant": 1,
   "Failed apprentice mage": 1,
   "Stable hand": 1,
+  Healer: 2,
+  Bandit: 2,
+  Guide: 3,
+  Performer: 3,
+  Miner: 3,
+  Outcast: 3,
+  Vagrant: 3,
+  Forester: 3,
+  Traveler: 3,
+  Mystic: 3,
+  Priest: 3,
+  Sailor: 3,
+  Pilgrim: 3,
+  Thief: 3,
+  Adventurer: 3,
+  Forager: 3,
+  Leader: 3,
+  Guard: 3,
+  Scout: 3,
+  Herder: 4,
+  Fisher: 3,
+  Hunter: 3,
+  Raider: 5,
+  Trader: 2,
 };
 
 class Hireling {
@@ -450,18 +605,21 @@ class Hireling {
     this.hp = this.rollHP();
     this.sex = this.rollSex();
     this.name = this.getName();
+    this.goal = this.getGoal();
+    this.descriptor = this.getDescriptor();
     this.background = this.getRandomBackground();
-    this.possession = this.getRandomPossession();
+    // this.possession = this.getRandomPossession();
     this.alignment = this.getAlignment();
     this.armor = this.getArmor();
     this.weapons = this.getWeapons();
   }
 
   getRace() {
+    const { level } = this;
     const racesArray = [];
 
     // level 0 peasants are always human
-    if (this.level === 0) return "Human";
+    if (level === 0) return "Human";
 
     for (const [key, value] of Object.entries(oseCharacterRaces)) {
       const { odds } = value;
@@ -516,7 +674,10 @@ class Hireling {
     let maxLevel = oseCharacterRaces[this.race].maxLevel;
     if (maxLevel > 8) maxLevel = 8;
 
-    if (level === 0 && this.race !== "Human") return 1;
+    if (level === 0 && this.race !== "Human") {
+      this.race = "Human";
+      return level;
+    }
 
     return level > maxLevel ? maxLevel : level;
   }
@@ -571,6 +732,14 @@ class Hireling {
 
   rollSex() {
     return Utils.randomInt(1, 10) > 3 ? "M" : "F";
+  }
+
+  getGoal() {
+    return goals[Utils.randomArrayIndex(goals)];
+  }
+
+  getDescriptor() {
+    return descriptors[Utils.randomArrayIndex(descriptors)];
   }
 
   getRandomPossession() {

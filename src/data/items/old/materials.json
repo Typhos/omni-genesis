@@ -4,7 +4,7 @@
       "noun": "copper",
       "plural": "copper",
       "adjective": "copper",
-      "valueMultiplier": 1,
+      "valueMultiplier": 2,
       "weight_multiplier": {
         "iron": 1.14,
         "wood": 12.42
@@ -14,7 +14,7 @@
       "noun": "bronze",
       "plural": "bronze",
       "adjective": "bronze",
-      "valueMultiplier": 0.8,
+      "valueMultiplier": 2,
       "weight_multiplier": {
         "iron": 1.14,
         "wood": 12.42
@@ -24,7 +24,7 @@
       "noun": "silver",
       "plural": "silver",
       "adjective": "silver",
-      "valueMultiplier": 2.5,
+      "valueMultiplier": 10,
       "weight_multiplier": {
         "iron": 1.33,
         "wood": 14.56
@@ -34,7 +34,7 @@
       "noun": "gold",
       "plural": "gold",
       "adjective": "golden",
-      "valueMultiplier": 5,
+      "valueMultiplier": 15,
       "weight_multiplier": {
         "iron": 2.46,
         "wood": 26.8
@@ -44,7 +44,7 @@
       "noun": "iron",
       "plural": "iron",
       "adjective": "iron",
-      "valueMultiplier": 1,
+      "valueMultiplier": 2,
       "weight_multiplier": {
         "iron": 1,
         "wood": 10.91
@@ -54,7 +54,7 @@
       "noun": "steel",
       "plural": "steel",
       "adjective": "steel",
-      "valueMultiplier": 1.2,
+      "valueMultiplier": 5,
       "weight_multiplier": {
         "iron": 1,
         "wood": 10.91
@@ -74,7 +74,7 @@
       "noun": "platinum",
       "plural": "platinum",
       "adjective": "platinum",
-      "valueMultiplier": 5,
+      "valueMultiplier": 25,
       "weight_multiplier": {
         "iron": 2.73,
         "wood": 15.76
@@ -84,7 +84,7 @@
       "noun": "mithral",
       "plural": "mithral",
       "adjective": "mithral",
-      "valueMultiplier": 10,
+      "valueMultiplier": 75,
       "weight_multiplier": {
         "iron": 0.25,
         "wood": 2.72
@@ -912,119 +912,119 @@
     "diamond": {
       "noun": "diamond",
       "plural": "diamonds",
-      "valueMultiplier": 10
+      "valueMultiplier": 25
     },
     "star ruby": {
       "noun": "star ruby",
       "plural": "star rubies",
-      "valueMultiplier": 5
+      "valueMultiplier": 10
     },
     "topaz": {
       "noun": "topaz",
       "plural": "topaz",
-      "valueMultiplier": 5
+      "valueMultiplier": 10
     },
     "emerald": {
       "noun": "emerald",
       "plural": "emeralds",
-      "valueMultiplier": 5
+      "valueMultiplier": 20
     },
     "sapphire": {
       "noun": "sapphire",
       "plural": "sapphires",
-      "valueMultiplier": 5
+      "valueMultiplier": 20
     },
     "amethyst": {
       "noun": "amethyst",
       "plural": "amethysts",
-      "valueMultiplier": 2.5
+      "valueMultiplier": 5
     },
     "onyx": {
       "noun": "onyx",
       "plural": "onyx",
-      "valueMultiplier": 2
+      "valueMultiplier": 5
     },
     "jade": {
       "noun": "jade",
       "plural": "jade",
-      "valueMultiplier": 2.5
+      "valueMultiplier": 5
     },
     "fire opal": {
       "noun": "fire opal",
       "plural": "fire opals",
-      "valueMultiplier": 5
+      "valueMultiplier": 10
     },
     "citrine": {
       "noun": "citrine",
       "plural": "citrine",
-      "valueMultiplier": 2
+      "valueMultiplier": 5
     },
     "jasper": {
       "noun": "jasper",
       "plural": "jasper",
-      "valueMultiplier": 2
+      "valueMultiplier": 5
     },
     "moonstone": {
       "noun": "moonstone",
       "plural": "moonstones",
-      "valueMultiplier": 2
+      "valueMultiplier": 5
     },
     "zircon": {
       "noun": "zircon",
       "plural": "zircons",
-      "valueMultiplier": 2
+      "valueMultiplier": 5
     },
     "peridot": {
       "noun": "peridot",
       "plural": "peridot",
-      "valueMultiplier": 2
+      "valueMultiplier": 5
     },
     "garnet": {
       "noun": "garnet",
       "plural": "garnet",
-      "valueMultiplier": 2.5
+      "valueMultiplier": 5
     },
     "citrine": {
       "noun": "citrine",
       "plural": "citrines",
-      "valueMultiplier": 2
+      "valueMultiplier": 5
     },
     "bloodstone": {
       "noun": "bloodstone",
       "plural": "bloodstones",
-      "valueMultiplier": 2
+      "valueMultiplier": 5
     },
     "tiger eye turquoise": {
       "noun": "tiger eye turquoise",
       "plural": "tiger eye turquoise",
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "azurite": {
       "noun": "azurite",
       "plural": "azurite",
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "moss agate": {
       "noun": "moss agate",
       "plural": "moss agate",
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     }
   },
   "glass": {
     "green": {
       "noun": "green glass",
       "plural": "green glass",
-      "valueMultiplier": 1
+      "valueMultiplier": 15
     },
     "clear": {
       "noun": "clear glass",
       "plural": "clear glass",
-      "valueMultiplier": 1.5
+      "valueMultiplier": 20
     },
     "crystal": {
       "noun": "crystal glass",
       "plural": "crystal glass",
-      "valueMultiplier": 2.5
+      "valueMultiplier": 30
     }
   },
   "bone": {
@@ -1032,295 +1032,283 @@
       "noun": "dragon bone",
       "plural": "dragon bones",
       "magical": true,
-      "valueMultiplier": 5
+      "valueMultiplier": 30
     },
     "unicorn": {
       "noun": "unicorn bone",
       "plural": "unicorn bones",
       "magical": true,
-      "valueMultiplier": 10
+      "valueMultiplier": 50
     },
     "troll": {
       "noun": "troll bone",
       "plural": "troll bones",
       "magical": true,
-      "valueMultiplier": 2.5
+      "valueMultiplier": 5
     },
     "chimera": {
       "noun": "chimera bone",
       "plural": "chimera bones",
       "magical": true,
-      "valueMultiplier": 5
+      "valueMultiplier": 10
     },
     "pegasus": {
       "noun": "pegasus bone",
       "plural": "pegasus bones",
       "magical": true,
-      "valueMultiplier": 3
+      "valueMultiplier": 20
     },
     "basilisk": {
       "noun": "basilisk bone",
       "plural": "basilisk bones",
       "magical": true,
-      "valueMultiplier": 2
+      "valueMultiplier": 20
     },
     "cockatrice": {
       "noun": "cockatrice bone",
       "plural": "cockatrice bones",
       "magical": true,
-      "valueMultiplier": 2
+      "valueMultiplier": 20
     },
     "hydra": {
       "noun": "hydra bone",
       "plural": "hydra bones",
       "magical": true,
-      "valueMultiplier": 3
+      "valueMultiplier": 30
     },
     "griffon": {
       "noun": "griffon bone",
       "plural": "griffon bones",
       "magical": true,
-      "valueMultiplier": 2.5
+      "valueMultiplier": 25
     },
     "manticore": {
       "noun": "manticore bone",
       "plural": "manticore bones",
       "magical": true,
-      "valueMultiplier": 2.5
+      "valueMultiplier": 25
     },
     "owlbear": {
       "noun": "owlbear bone",
       "plural": "owlbear bones",
       "magical": true,
-      "valueMultiplier": 2
+      "valueMultiplier": 20
     },
     "worg": {
       "noun": "worg bone",
       "plural": "worg bones",
       "magical": true,
-      "valueMultiplier": 1
+      "valueMultiplier": 10
     },
     "bear": {
       "noun": "bear bone",
       "plural": "bear bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "boar": {
       "noun": "boar bone",
       "plural": "boar bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "badger": {
       "noun": "badger bone",
       "plural": "badger bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "camel": {
       "noun": "camel bone",
       "plural": "camel bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "crocodile": {
       "noun": "crocodile bone",
       "plural": "crocodile bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "donkey": {
       "noun": "donkey bone",
       "plural": "donkey bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "dog": {
       "noun": "boar bone",
       "plural": "boar bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "eagle": {
       "noun": "eagle bone",
       "plural": "eagle bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "elephant": {
       "noun": "elephant bone",
       "plural": "elephant bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "hawk": {
       "noun": "hawk bone",
       "plural": "hawk bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "horse": {
       "noun": "horse bone",
       "plural": "horse bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "hyena": {
       "noun": "hyena bone",
       "plural": "hyena bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "leopard": {
       "noun": "leopard bone",
       "plural": "leopard bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "lion": {
       "noun": "lion bone",
       "plural": "lion bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "mule": {
       "noun": "mule bone",
       "plural": "mule bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "monkey": {
       "noun": "monkey bone",
       "plural": "monkey bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "mule": {
       "noun": "mule bone",
       "plural": "mule bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "owl": {
       "noun": "owl bone",
       "plural": "owl bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "raven": {
       "noun": "raven bone",
       "plural": "raven bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "tiger": {
       "noun": "tiger bone",
       "plural": "tiger bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "vulture": {
       "noun": "vulture bone",
       "plural": "vulture bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "wolf": {
       "noun": "wolf bone",
       "plural": "wolf bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "wolverine": {
       "noun": "wolverine bone",
       "plural": "wolverine bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "weasel": {
       "noun": "weasel bone",
       "plural": "weasel bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "snake": {
       "noun": "snake bone",
       "plural": "snake bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "orc": {
       "noun": "orc bone",
       "plural": "orc bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "human": {
       "noun": "human bone",
       "plural": "human bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "elf": {
       "noun": "elf bone",
       "plural": "elf bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "dwarf": {
       "noun": "dwarf bone",
       "plural": "dwarf bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "halfling": {
       "noun": "halfling bone",
       "plural": "halfling bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "gnome": {
       "noun": "gnome bone",
       "plural": "gnome bones",
       "magical": false,
-      "valueMultiplier": 1
-    },
-    "tiefling": {
-      "noun": "tiefling bone",
-      "plural": "tiefling bones",
-      "magical": false,
-      "valueMultiplier": 1
-    },
-    "dragonborn": {
-      "noun": "dragonborn bone",
-      "plural": "dragonborn bones",
-      "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "demon": {
       "noun": "demon bone",
       "plural": "demon bones",
-      "magical": false,
-      "valueMultiplier": 1
+      "magical": true,
+      "valueMultiplier": 30
     },
     "goblin": {
       "noun": "goblin bone",
       "plural": "goblin bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     },
     "giant": {
       "noun": "giant bone",
       "plural": "giant bones",
-      "magical": false,
-      "valueMultiplier": 1
+      "magical": true,
+      "valueMultiplier": 20
     },
     "ogre": {
       "noun": "ogre bone",
       "plural": "ogre bones",
       "magical": false,
-      "valueMultiplier": 1
+      "valueMultiplier": 5
     }
   },
   "magical": {

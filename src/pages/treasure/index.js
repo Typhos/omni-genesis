@@ -16,7 +16,7 @@ export default class TreasurePage extends Component {
     this.state = {
       itemsRoll: "specific",
       guaranteedTreasure: false,
-      table: "A",
+      table: "Jewelry",
       treasure: null,
     };
 
@@ -38,7 +38,7 @@ export default class TreasurePage extends Component {
     const params = { ...this.state };
     Utils.setNewSeed();
 
-    // this.runTest(10000);
+    // this.runTest(1000);
 
     const treasure = generateTreasure(params);
 
@@ -102,31 +102,34 @@ export default class TreasurePage extends Component {
               value={table}
               onChange={(el) => this.setState({ table: el.target.value })}
             >
+              <option disabled>Specific Items</option>
+              <option value="Jewelry">Jewelry</option>
+              <option value="Gemstones">Gemstones</option>
               <option disabled>Hoards</option>
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D">D</option>
-              <option value="E">E</option>
-              <option value="F">F</option>
-              <option value="G">G</option>
-              <option value="H">H</option>
-              <option value="I">I</option>
-              <option value="J">J</option>
-              <option value="K">K</option>
-              <option value="L">L</option>
-              <option value="M">M</option>
-              <option value="N">N</option>
-              <option value="O">O</option>
+              <option value="A">a</option>
+              <option value="B">b</option>
+              <option value="C">c</option>
+              <option value="D">d</option>
+              <option value="E">e</option>
+              <option value="F">f</option>
+              <option value="G">g</option>
+              <option value="H">h</option>
+              <option value="I">i</option>
+              <option value="J">j</option>
+              <option value="K">k</option>
+              <option value="L">l</option>
+              <option value="M">m</option>
+              <option value="N">n</option>
+              <option value="O">o</option>
               <option disabled>Individual Treasure</option>
-              <option value="P">P</option>
-              <option value="Q">Q</option>
-              <option value="R">R</option>
-              <option value="S">S</option>
-              <option value="T">T</option>
+              <option value="P">p</option>
+              <option value="Q">q</option>
+              <option value="R">r</option>
+              <option value="S">s</option>
+              <option value="T">t</option>
               <option disabled>Group Treasure</option>
-              <option value="U">U</option>
-              <option value="V">V</option>
+              <option value="U">u</option>
+              <option value="V">v</option>
             </Select>
 
             <Select

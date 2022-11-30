@@ -5,7 +5,6 @@ import React, { Component } from "react";
 import Display from "../display";
 import Noble from "../../../generators/person/noble";
 import NobleDisplay from "./nobles";
-import OneColumnDisplay from "../columns/oneColumn";
 import PopulationDisplay from "./population";
 import ShopsDisplay from "./shops";
 import Tabs from "../../tabs";
@@ -289,8 +288,7 @@ export default class CityDisplay extends Component {
               return (
                 <React.Fragment key={ob.name}>
                   <h3 className="tabs__groupHeading">
-                    {city.obstacles.length > 1 ? "Obstacles:" : "Obstacle:"}{" "}
-                    <span className="info__value">{ob.name}</span>
+                    Obstacle: <span className="info__value">{ob.name}</span>
                   </h3>
                   <p>
                     <small>{ob.description}</small>

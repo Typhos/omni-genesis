@@ -1,0 +1,420 @@
+{
+  "type": {
+    "dagger": {
+      "odds": 1,
+      "name": "Dagger",
+      "description": null
+    },
+    "short sword": {
+      "odds": 2,
+      "name": "Short Sword",
+      "description": null
+    },
+    "long sword": {
+      "odds": 3,
+      "name": "Longsword",
+      "description": null
+    },
+    "bastard sword": {
+      "odds": 3,
+      "name": "Bastard Sword",
+      "description": null
+    },
+    "great sword": {
+      "odds": 1,
+      "name": "Great Sword",
+      "description": null
+    }
+  },
+  "condition": {
+    "ancient": {
+      "odds": 1,
+      "name": "Ancient",
+      "description": "Rusted. Covered in dust and cobwebs."
+    },
+    "battered": {
+      "odds": 3,
+      "name": "Battered",
+      "description": "Nicked, bent or bloodstained."
+    },
+    "neglected": {
+      "odds": 2,
+      "name": "Neglected",
+      "description": "Rust spots. Needs to be sharpened."
+    },
+    "maintained": {
+      "odds": 3,
+      "name": "Used",
+      "description": "Well used, but taken care of."
+    },
+    "pristine": {
+      "odds": 1,
+      "name": "Pristine",
+      "description": "Practically brand new."
+    }
+  },
+  "material": {
+    "bronze": {
+      "odds": 1,
+      "name": "Bronze",
+      "description": "Red-gold. Rusts blue-green slowly."
+    },
+    "iron": {
+      "odds": 2,
+      "name": "Iron",
+      "description": "Dark gray or black. Rusts easily."
+    },
+    "laminated iron": {
+      "odds": 2,
+      "name": "Laminated Iron",
+      "description": "Wavy lines of dark and light gray."
+    },
+    "steel": {
+      "odds": 4,
+      "name": "Steel",
+      "description": "Light blue-gray. Springy."
+    },
+    "exotic metal": {
+      "odds": 1,
+      "name": "Exotic Metal",
+      "description": "Setting-based. Mithril, adamantine, or other unnatural metal."
+    }
+  },
+  "polish": {
+    "rough": {
+      "odds": 1,
+      "name": "Rough Polish",
+      "description": "Hammer marks, dents and scratches."
+    },
+    "flat": {
+      "odds": 2,
+      "name": "Flat Polish",
+      "description": "Smooth, flat finish."
+    },
+    "satin": {
+      "odds": 3,
+      "name": "Satin Polish",
+      "description": "Semi-glossy finish."
+    },
+    "shiny": {
+      "odds": 3,
+      "name": "Shiny Polish",
+      "description": "Glossy finish."
+    },
+    "mirror": {
+      "odds": 1,
+      "name": "Mirror Polish",
+      "description": "Mirror finish."
+    }
+  },
+  "feel": {
+    "heavy": {
+      "odds": 1,
+      "name": "Heavy",
+      "description": "Weighty in the hands."
+    },
+    "light": {
+      "odds": 1,
+      "name": "Light",
+      "description": "Lighter than it looks."
+    },
+    "balanced": {
+      "odds": 2,
+      "name": "Balanced",
+      "description": "Lively, tight cut and thrust."
+    },
+    "tip heavy": {
+      "odds": 1,
+      "name": "Tip Heavy",
+      "description": "Strong swing feel."
+    },
+    "back heavy": {
+      "odds": 1,
+      "name": "Back Heavy",
+      "description": "Good point control."
+    }
+  },
+  "edge": {
+    "double": {
+      "odds": 6,
+      "name": "Double",
+      "description": "Blade on both sides."
+    },
+    "single": {
+      "odds": 3,
+      "name": "Single",
+      "description": "Blade on one side."
+    },
+    "wavy": {
+      "odds": 1,
+      "name": "Wavy",
+      "description": "Double edge, flamberge-style."
+    },
+    "none": {
+      "odds": 1,
+      "name": "None",
+      "description": "Blunt. Looks double-edged."
+    },
+    "toothed": {
+      "odds": 1,
+      "name": "Toothed",
+      "description": "Single edged, like a rough saw."
+    }
+  },
+  "bladeWidth": {
+    "thin": {
+      "odds": 1,
+      "name": "Thin",
+      "description": "Unusually thin blade, similar to an estoc."
+    },
+    "normal": {
+      "odds": 2,
+      "name": "Normal",
+      "description": "Standard blade width."
+    },
+    "wide": {
+      "odds": 2,
+      "name": "Wide",
+      "description": "Thick, stocky blade."
+    },
+    "absurd": {
+      "odds": 1,
+      "name": "Absurd",
+      "description": "Could have been an axe."
+    }
+  },
+  "bladeFlat": {
+    "flat": {
+      "odds": 2,
+      "name": "Flat",
+      "description": "Smooth, flat cross-section."
+    },
+    "fuller": {
+      "odds": 3,
+      "name": "Fuller",
+      "description": "Grooved along the blade."
+    },
+    "hollowGround": {
+      "odds": 1,
+      "name": "Hollow Ground",
+      "description": "Concaved, diamond-shaped flat."
+    },
+    "diamond": {
+      "odds": 1,
+      "name": "Diamond",
+      "description": "Raised ridge along the blade."
+    }
+  },
+  "tip": {
+    "pointed": {
+      "odds": 8,
+      "name": "Pointed",
+      "description": "Typical cut and thrust point."
+    },
+    "rounded": {
+      "odds": 1,
+      "name": "Rounded",
+      "description": "Non-trusting point. Training sword."
+    },
+    "reinforced": {
+      "odds": 2,
+      "name": "Reinforced",
+      "description": "Additional metal at the point. Specialized for thrusting."
+    },
+    "spiked": {
+      "odds": 1,
+      "name": "Spiked",
+      "description": "Multiple, perpendicular spikes along the point. Menacing."
+    }
+  },
+  "handle": {
+    "flat": {
+      "odds": 2,
+      "name": "Flat",
+      "description": "Standard handle."
+    },
+    "wireWrapped": {
+      "odds": 2,
+      "name": "Wire Wrapped",
+      "description": "Handle has tightly spiraled metal."
+    },
+    "rises": {
+      "odds": 2,
+      "name": "Rises",
+      "description": "Several ring-like bumps along the handle."
+    },
+    "scaled": {
+      "odds": 2,
+      "name": "Scaled",
+      "description": "Handle with metal, fish-scale plates."
+    },
+    "knobbed": {
+      "odds": 1,
+      "name": "Knobbed",
+      "description": "Handle with rivetted bumps."
+    },
+    "leather": {
+      "odds": 3,
+      "name": "Leather",
+      "description": "Handle wrapped in leather."
+    },
+    "formed": {
+      "odds": 1,
+      "name": "Formed",
+      "description": "Shaped to fit a specific person's fingers."
+    }
+  },
+  "guard": {
+    "none": {
+      "odds": 1,
+      "name": "None",
+      "description": "No guard."
+    },
+    "cross": {
+      "odds": 3,
+      "name": "Cross",
+      "description": "Typical t-shaped guard."
+    },
+    "disc": {
+      "odds": 1,
+      "name": "Disc",
+      "description": "Disc-shaped guard. Typical of japanese swords."
+    },
+    "curvedCross": {
+      "odds": 2,
+      "name": "Curved Cross",
+      "description": "T-shaped cross guard curved up towards the blade."
+    },
+    "wide": {
+      "odds": 1,
+      "name": "Wide",
+      "description": "Wide cross-guard. Typical of viking swords."
+    },
+    "uGuard": {
+      "odds": 1,
+      "name": "U-Guard",
+      "description": "U-shaped cross guard. Guard ends are parallel to the blade."
+    },
+    "exotic": {
+      "odds": 1,
+      "name": "Exotic",
+      "description": "Unique cross guard design. Wings, beast-heads, etc."
+    }
+  },
+  "pommel": {
+    "none": {
+      "odds": 1,
+      "name": "None",
+      "description": "No pommel."
+    },
+    "disc": {
+      "odds": 3,
+      "name": "Disc",
+      "description": "Disc or coin-shaped pommel attached at the disc's edge."
+    },
+    "flatDisc": {
+      "odds": 1,
+      "name": "Flat Disc",
+      "description": "Disc-shaped pommel attached at the flat center of the disc."
+    },
+    "globe": {
+      "odds": 1,
+      "name": "Globe",
+      "description": "Sphere-shaped pommel."
+    },
+    "lobed": {
+      "odds": 1,
+      "name": "Lobed",
+      "description": "Half-sphere pommel with multiple ridges. Attached to the grip on the flat side."
+    },
+    "scentStopper": {
+      "odds": 2,
+      "name": "Scent Stopper",
+      "description": "Cylindrical pommel which flares out from the grip. Similar to a decanter stopper."
+    },
+    "fishTail": {
+      "odds": 2,
+      "name": "Fish Tail",
+      "description": "Flat, flared pommel with an intricate design."
+    },
+    "curved": {
+      "odds": 1,
+      "name": "Curved",
+      "description": "Crescent or hook pointed away from the grip."
+    },
+    "cap": {
+      "odds": 1,
+      "name": "Cap",
+      "description": "Half-sphere pommel, attached at the flat side."
+    },
+    "twisted": {
+      "odds": 1,
+      "name": "Twisted",
+      "description": "Pear-shaped pommel inlaid with metal grooves."
+    },
+    "pear": {
+      "odds": 2,
+      "name": "Pear",
+      "description": "Pear-shaped pommel. Attached to grip on the sin side."
+    },
+    "faceted": {
+      "odds": 2,
+      "name": "Faceted",
+      "description": "Pear-shaped pommel with 8 flat edges around the length."
+    },
+    "spike": {
+      "odds": 1,
+      "name": "Spike",
+      "description": "Long metal spike. Wicked-looking."
+    },
+    "exotic": {
+      "odds": 1,
+      "name": "Exotic",
+      "description": "Humanoid or beast head, claw, or other unique design."
+    }
+  },
+  "doubleEdgeShapes": {
+    "straight": {
+      "odds": 2,
+      "name": "Straight",
+      "description": "Parallel edges."
+    },
+    "straightTaper": {
+      "odds": 1,
+      "name": "Straight Taper",
+      "description": "Straight edges which go from wide to thin."
+    },
+    "curvedTaper": {
+      "odds": 1,
+      "name": "Curved Taper",
+      "description": "Straight edges with a gentle curve at the end."
+    },
+    "leaf": {
+      "odds": 1,
+      "name": "Leaf",
+      "description": "Edge tapers from wide to thin to wide again."
+    }
+  },
+  "singleEdgeShapes": {
+    "straight": {
+      "odds": 2,
+      "name": "Straight",
+      "description": "Straight edge."
+    },
+    "gentleCurve": {
+      "odds": 3,
+      "name": "Gentle Curve",
+      "description": "Edge bends slightly back. ie. katana."
+    },
+    "heavyCurve": {
+      "odds": 3,
+      "name": "Heavy Curve",
+      "description": "Edge has a hard bend back. ie. scimitar."
+    },
+    "sCurve": {
+      "odds": 1,
+      "name": "S-Curve",
+      "description": "Blade bends forward, then back. ie. cavalry saber."
+    }
+  }
+}

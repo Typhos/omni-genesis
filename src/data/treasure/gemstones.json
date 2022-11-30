@@ -1,0 +1,22 @@
+{
+  "10": ["azurite", "hematite", "malachite", "obsidian", "quartz"],
+  "25": ["agate", "lapis lazuli", "tiger eye", "turquoise"],
+  "50": ["bloodstone", "crystal", "citrine", "jasper", "moonstone", "onyx"],
+  "75": ["carnelian", "chalcedony", "sardonyx", "zircon"],
+  "100": ["amber", "amethyst", "coral", "jade", "jet", "tourmaline"],
+  "250": ["garnet", "pearl", "spinel"],
+  "500": ["aquamarine", "alexandrite", "topaz"],
+  "750": ["opal", "star ruby", "star sapphire", "sunset", "amethyst", "imperial topaz"],
+  "1000": [
+    "black sapphire",
+    "diamond",
+    "emerald",
+    "jacinth",
+    "ruby",
+    "amber with preserved extinct creatures",
+    "whorled nephrite jade",
+    "black pearl",
+    "baroque pearl",
+    "crystal geode"
+  ]
+}

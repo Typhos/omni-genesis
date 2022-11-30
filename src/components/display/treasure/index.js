@@ -25,6 +25,8 @@ export default class TreasureDisplay extends Component {
       itemsRoll,
     } = treasure;
 
+    const magicKeywords = ["magic", "potion", "scroll", "sword", "armor", "weapon"];
+
     return (
       <Display>
         <h1 className="displayLayout__header">Treasure Table {treasureTable}</h1>
@@ -83,7 +85,7 @@ export default class TreasureDisplay extends Component {
                     })}
                   </ul>
                 )}
-                {tv.itemRolls !== "basic" && tv.includes("magic") && (
+                {tv.itemRolls !== "basic" && magicKeywords.some((word) => tv.includes(word)) && (
                   <ul className="infoTable one indent">
                     {magicItems.map((item, i) => {
                       if (itemsRoll === "vague") {

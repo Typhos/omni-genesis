@@ -16,7 +16,6 @@ class MagicItem {
       type || this.generateValueFromOdds(itemGroups),
       restriction
     );
-    // this.itemType = this.itemType, );
     this.itemName = this.getItem(type);
   }
 
@@ -60,7 +59,6 @@ class MagicItem {
 
   checkRestrictions(itemType, restriction) {
     const { itemGroups } = itemTables;
-    console.log(itemType);
     if (restriction === "no weapons" && (itemType === "Sword" || itemType === "Weapon")) {
       return this.checkRestrictions(this.generateValueFromOdds(itemGroups), restriction);
     }

@@ -58,8 +58,11 @@ class Treasure {
         if (Utils.randomInt(1, 100) > percentage) return undefined;
 
         if (itemType.includes("magic item")) {
-          if (itemType.includes("not weapons")) this.getMagicItems(diceNum || 1, "no weapons");
-          this.getMagicItems(diceNum || 1);
+          if (itemType.includes("not weapons")) {
+            this.getMagicItems(diceNum || 1, "no weapons");
+          } else {
+            this.getMagicItems(diceNum || 1);
+          }
         }
 
         if (itemType.includes("plus 1 potion")) {
@@ -80,6 +83,26 @@ class Treasure {
             this.magicItems.push(new MagicItem({ type: "Weapon" }));
           }
           return `${amount} ${itemType}`;
+        }
+
+        if (itemType.includes("potion(s)")) {
+          const roll = Utils.rollDice(diceNum, diceType);
+          for (let i = 1; i <= roll; i++) {
+            const potion = new MagicItem({ type: "Potion" });
+            this.magicItems.push(potion);
+          }
+
+          return `${roll} ${itemType}`;
+        }
+
+        if (itemType.includes("scroll(s)")) {
+          const roll = Utils.rollDice(diceNum, diceType);
+          for (let i = 1; i <= roll; i++) {
+            const scroll = new MagicItem({ type: "Scroll or Map" });
+            this.magicItems.push(scroll);
+          }
+
+          return `${roll} ${itemType}`;
         }
 
         const rollTotal = Utils.rollDice(diceNum, diceType);

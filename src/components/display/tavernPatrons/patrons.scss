@@ -1,0 +1,22 @@
+@import "../../../styles/mixins";
+
+.tavernPatron-list {
+  &__item {
+    &:has(.randomPatrons-list) {
+      width: 100%;
+    }
+  }
+}
+
+.randomPatrons {
+  &-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+      min-width: 33%;
+      line-height: 2em;
+    }
+  }
+}

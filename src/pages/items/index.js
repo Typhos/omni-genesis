@@ -30,7 +30,7 @@ export default class ItemGenerator extends Component {
       subtype: undefined,
       forceMagicItem: false,
       crafterRace: undefined,
-      category: "all",
+      category: "jewelry",
     };
 
     this.change = this.change.bind(this);
@@ -114,7 +114,7 @@ export default class ItemGenerator extends Component {
       <main className="content">
         <Aside>
           <Select title={"Item Type"} name={"category"} onChange={this.change} value={category}>
-            <option value="all">all</option>
+            {/* <option value="all">all</option> */}
             {this.getOptions(itemsData)}
           </Select>
 

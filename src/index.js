@@ -12,6 +12,7 @@ import Navigation from "./components/navigation";
 import React from "react";
 import ReactDOM from "react-dom";
 import SwordsPage from "./pages/swords";
+import TavernPatronsPage from "./pages/taverns";
 import TreasurePage from "./pages/treasure/index";
 
 const routing = (
@@ -29,6 +30,7 @@ const routing = (
       <Route path="/swords/" component={SwordsPage} />
       <Route path="/clan/" component={Clans} />
       <Route path="/treasure/" component={TreasurePage} />
+      <Route path="/tavern-patrons/" component={TavernPatronsPage} />
       {/* <Route path="/scrolls/" component={ScrollsPage} /> */}
 
       <Route component={Error404} />

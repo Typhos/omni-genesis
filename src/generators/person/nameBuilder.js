@@ -1,9 +1,12 @@
-import Utils from "../../components/utils";
-
-// Data
 import Names from "../../data/names/allNames";
 import Races from "../../data/races/allRaces";
+import Utils from "../../components/utils";
 import xge from "../../data/names/xgeNames";
+
+// Data
+
+
+
 
 export default class Name {
   constructor(params = {}) {
@@ -225,7 +228,7 @@ export default class Name {
       if (culture) {
         tables = tables.filter((obj, i) => {
           const keys = obj.option.toLowerCase().split(",");
-          if (keys[0].trim() === culture.toLowerCase() && keys[1].trim() === sex) {
+          if (keys[0].trim().includes(culture.toLowerCase()) && keys[1].trim() === sex) {
             return obj;
           }
           return false;

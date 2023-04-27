@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Aside from "../../components/aside";
 import Button from "../../components/controls/button/buttonStandard";
 import CheckBoxInput from "../../components/controls/input/checkBoxInput";
-import HirelingRoster from "../../generators/hirelings/generateMooks";
+import { HirelingRoster } from "../../generators/hirelings/generateMooks";
 import HirelingsDisplay from "../../components/display/hirelings/hirelings";
 import Select from "../../components/controls/select/selectStandard";
 

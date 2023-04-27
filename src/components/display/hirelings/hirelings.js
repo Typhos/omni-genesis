@@ -45,6 +45,7 @@ export default class HirelingsDisplay extends Component {
               .map((mook, i) => {
                 const {
                   name,
+                  surname,
                   race,
                   charClass,
                   level,
@@ -55,7 +56,8 @@ export default class HirelingsDisplay extends Component {
                   weapons,
                   background,
                   goal,
-                  descriptor,
+                  quirk,
+                  descriptor
                 } = mook;
 
                 const getAlignment = (AL) => {
@@ -71,7 +73,9 @@ export default class HirelingsDisplay extends Component {
 
                 return (
                   <li key={name + charClass + i} name={name} className="infoTable__row">
-                    <h2 className="subHead">{name}</h2>
+                    <h2 className="subHead">
+                      {name} {surname}
+                    </h2>
                     <TwoColumnDisplay>
                       <li className="infoTable__row">
                         <span className="info__label">{sex === "M" ? "Male" : "Female"}</span>
@@ -103,6 +107,11 @@ export default class HirelingsDisplay extends Component {
                       <li className="infoTable__row">
                         <span className="info__label">Descriptor</span>
                         <span className="info__value">{descriptor}</span>
+                      </li>
+
+                      <li className="infoTable__row">
+                        <span className="info__label">Quirk</span>
+                        <span className="info__value">{quirk}</span>
                       </li>
 
                       <li className="infoTable__row">

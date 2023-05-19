@@ -126,4 +126,22 @@ export default class Utils {
 
     return firstLetter + word.substring(1);
   }
+
+  static getStatModifier(stat) {
+    if (stat === 3) {
+      return -3;
+    } else if (stat > 3 && stat <= 5) {
+      return -2;
+    } else if (stat > 5 && stat <= 8) {
+      return -1;
+    } else if (stat > 12 && stat <= 15) {
+      return 1;
+    } else if (stat > 15 && stat <= 17) {
+      return 2;
+    } else if (stat === 18) {
+      return 3;
+    } else {
+      return 0;
+    }
+  }
 }

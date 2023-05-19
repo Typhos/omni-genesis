@@ -51,7 +51,7 @@ export default class RivalAdventurersDisplay extends Component {
               .sort((a, b) => b.level - a.level)
               .map((mook, i) => {
                 const {
-                  name: { name, surname },
+                  name: { name },
                   charClass,
                   level,
                   hp,
@@ -62,21 +62,31 @@ export default class RivalAdventurersDisplay extends Component {
                   quirk,
                   descriptor,
                   treasure,
-                  magicItems
+                  magicItems,
+                  stats
                 } = mook;
 
                 return (
                   <li key={name + charClass + i} name={name} className="infoTable__row">
-                    <h2 className="subHead">
-                      {name} {surname}
-                    </h2>
+                    <h2 className="subHead">{name}</h2>
                     <TwoColumnDisplay>
+                      <li className="infoTable__row">
+                        <span className="info__label">{charClass}</span>
+                        <span className="info__value">{level} </span>
+                      </li>
+
                       <li className="infoTable__row">
                         <span className="info__label">{sex === "male" ? "Male" : "Female"}</span>
                       </li>
+
                       <li className="infoTable__row">
-                        <span className="info__label">Lvl {level} </span>
-                        <span className="info__value">{charClass}</span>
+                        <span className="info__label">HP </span>
+                        <span className="info__value">{hp}</span>
+                      </li>
+
+                      <li className="infoTable__row">
+                        <span className="info__label">AL </span>
+                        <span className="info__value">{Utils.firstLetterUppercase(alignment)}</span>
                       </li>
 
                       <li className="infoTable__row">
@@ -85,19 +95,23 @@ export default class RivalAdventurersDisplay extends Component {
                       </li>
 
                       <li className="infoTable__row">
-                        <span className="info__label">AL </span>
-                        <span className="info__value">{Utils.firstLetterUppercase(alignment)}</span>
-                      </li>
-                      <li className="infoTable__row">
-                        <span className="info__label">HP </span>
-                        <span className="info__value">{hp}</span>
-                      </li>
-
-                      <li className="infoTable__row">
                         <span className="info__label">Quirk</span>
                         <span className="info__value">{quirk}</span>
                       </li>
                     </TwoColumnDisplay>
+                    <section className="infoTable__stats">
+                      <TwoColumnDisplay>
+                        {Object.entries(stats).map((stat) => (
+                          <li className="infoTable__row" key={stat[0] + stat[1] + name}>
+                            <span className="info__label">{stat[0]}</span>
+                            <span className="info__value">
+                              {stat[1]} [{Utils.getStatModifier(stat[1]) >= 0 ? "+" : ""}
+                              {Utils.getStatModifier(stat[1])}]
+                            </span>
+                          </li>
+                        ))}
+                      </TwoColumnDisplay>
+                    </section>
                     <OneColumnDisplay>
                       <li className="infoTable__row">
                         <span className="info__label">Weapons</span>

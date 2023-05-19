@@ -53,17 +53,19 @@ export default class RivalParty {
 
       const sex = Utils.rollDice(1, 3) <= 2 ? "male" : "female";
       const level = this.getCharacterLevel(dungeonLevel);
+      const stats = this.rollStats(charClass);
 
       partyArray.push({
         sex,
         name: this.getCharacterName(charClass, sex),
         age: this.getCharacterAge(charClass),
         charClass,
+        stats,
         level,
         alignment,
         descriptor: this.getDescriptor(),
         quirk: this.getQuirk(),
-        hp: this.rollHP(charClass, level),
+        hp: this.rollHP(charClass, level, stats.Con),
         armor: this.getArmor(charClass),
         weapons: this.getWeapons(charClass),
         treasure: this.getTreasure(level),
@@ -221,7 +223,8 @@ export default class RivalParty {
     return string.join(" ").trim();
   };
 
-  rollHP(charClass, level) {
+  rollHP(charClass, level, con) {
+    const mod = Utils.getStatModifier(con);
     let HD = 8;
     if (characterRaces.Human.classes[charClass]) {
       HD = characterRaces.Human.classes[charClass].hd;
@@ -231,7 +234,16 @@ export default class RivalParty {
 
     let hpArray = new Array(level).fill(undefined);
 
-    return hpArray.map(() => Utils.randomInt(2, HD)).reduce((total, val) => total + val);
+    return hpArray
+      .map((e, i) => {
+        const roll = Utils.randomInt(1, HD) + mod;
+        const lvlOneMin = Math.ceil(HD / 2) + mod;
+        if (i === 0) {
+          if (roll < lvlOneMin) return lvlOneMin || 1;
+        }
+        return roll || 1;
+      })
+      .reduce((total, val) => total + val);
   }
 
   getQuirk() {
@@ -291,4 +303,38 @@ export default class RivalParty {
 
     return weaponsArray.length > 1 ? weaponsArray.join(", ") : weaponsArray;
   }
+
+  rollStats = (charClass) => {
+    const {
+      characterRaces: {
+        Human: { classes },
+        Dwarf,
+        Elf,
+        Gnome,
+        Halfling
+      }
+    } = hirelingsData;
+    const classObj = { ...classes, Dwarf, Elf, Gnome, Halfling };
+    const classStats = classObj[charClass].stats;
+
+    const stats = {
+      Str: undefined,
+      Int: undefined,
+      Wis: undefined,
+      Dex: undefined,
+      Con: undefined,
+      Cha: undefined
+    };
+
+    Object.keys(stats).forEach((key) => {
+      const roll = Utils.rollDice(3, 6);
+      if (classStats.includes(key) && roll <= 9) {
+        stats[key] = 10;
+      } else {
+        stats[key] = roll;
+      }
+    });
+
+    return stats;
+  };
 }

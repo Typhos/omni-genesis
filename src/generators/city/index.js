@@ -21,6 +21,7 @@ export default class City {
 
     this.seed = global.seed;
     this.type = "city";
+    this.allowPrefixes = params.allowPrefixes !== false;
     this.inputParams = { ...params };
 
     // culture is determined first to allow for culture-specific names and changes to racial bias for dwarf and elf cities.
@@ -39,7 +40,7 @@ export default class City {
 
     this.image = this.getCityImg(this.citySize);
     this.inputSize = params.type;
-    this.name = params.name || this.getCityName(this.culture);
+    this.name = params.name || this.getCityName(this.culture, this.allowPrefixes);
 
     this.origin = this.getOrigin();
     this.activity = this.getActivity();
@@ -86,7 +87,7 @@ export default class City {
     return cityObj.images[type];
   }
 
-  getCityName(culture) {
+  getCityName(culture, allowPrefixes) {
     // group parameter determines which region of the world the name comes from. English, French, German, Norse, Spanish/Italian, Greek, Slavik, etc.
     // a group may have multiple sets of options, such as the Norse group having multiple types from different Nordic countries.
     let wordSet = placeNames[culture].nameSet[Utils.randomArrayIndex(placeNames[culture].nameSet)];
@@ -95,7 +96,7 @@ export default class City {
       return set[Utils.randomArrayIndex(set)];
     });
 
-    if (placeNames[culture].prefix) {
+    if (placeNames[culture].prefix && allowPrefixes) {
       // chance to add a prefix name like North, Old, Port, Al, As, Khor, etc.
       if (Utils.randomInt(1, placeNames[culture].prefixChance) === 1) {
         const prePrefix =
@@ -113,7 +114,7 @@ export default class City {
 
     return {
       total: totalPop,
-      races: this.getRacialBreakdown(totalPop),
+      races: this.getRacialBreakdown(totalPop)
     };
   }
 
@@ -167,7 +168,7 @@ export default class City {
 
   getNPCRacesArray() {
     const {
-      population: { races },
+      population: { races }
     } = this;
     let popArray = [];
 
@@ -246,7 +247,7 @@ export default class City {
             jobGroup: "noble",
             race: noblePersonRace,
             culture: culture,
-            occupation: rolesArray[Utils.randomArrayIndex(rolesArray)],
+            occupation: rolesArray[Utils.randomArrayIndex(rolesArray)]
           });
         })
         .sort((a, b) => {
@@ -257,7 +258,7 @@ export default class City {
     return {
       number: totalPeople,
       limited: totalPeople > 12 ? true : false,
-      noblePeopleArray: getPeople(this),
+      noblePeopleArray: getPeople(this)
     };
   }
 
@@ -272,7 +273,7 @@ export default class City {
         "slowly declining",
         "stable",
         "slowly growing",
-        "growing rapidly",
+        "growing rapidly"
       ];
 
       const baseNum = Utils.randomArrayIndex(bDesr);
@@ -313,7 +314,7 @@ export default class City {
     return {
       description: economyWording(),
       primary: getPrimaryEconomy(),
-      merchants: this.getMerchants(),
+      merchants: this.getMerchants()
       // crime: this.getCrimeRate(),
     };
   }
@@ -333,7 +334,7 @@ export default class City {
       tradesTotal: 0,
       shopsTotal: 0,
       tradesArray: [],
-      shops: [],
+      shops: []
     };
 
     const pop = this.population.total;
@@ -372,7 +373,7 @@ export default class City {
                 type: key,
                 ownerRace,
                 culture: culture,
-                batchMode: true,
+                batchMode: true
               })
             );
             merchants.shopsTotal += 1;
@@ -407,7 +408,7 @@ export default class City {
 
     return {
       count: guardTotal,
-      militiaLevy: randomlyLevy,
+      militiaLevy: randomlyLevy
     };
   }
 
@@ -441,7 +442,7 @@ export default class City {
       jobGroup: "ruler",
       race: leaderRace,
       culture: culture,
-      occupation: governments[selected].leader,
+      occupation: governments[selected].leader
     });
 
     // Now that we have a government formed, we know what kind of people are important to run that institution. We can call for important people and give the array of possible titles.
@@ -456,7 +457,7 @@ export default class City {
     return {
       details: governments[selected],
       leader: leader,
-      corruption: this.getCrimeRate(),
+      corruption: this.getCrimeRate()
     };
   }
 
@@ -488,7 +489,7 @@ export default class City {
     return {
       chaosTemples: chaosTempleCount,
       lawChurches: lawChurchCount,
-      shrines: shrineCount,
+      shrines: shrineCount
     };
   }
 
@@ -498,7 +499,7 @@ export default class City {
       "slate shingle roofs",
       "terracotta tile roofs",
       "log roofs",
-      "turf roofs",
+      "turf roofs"
     ];
 
     const walls = [
@@ -506,7 +507,7 @@ export default class City {
       "wattle and daub walls",
       "cob walls",
       "brick walls",
-      "stone walls",
+      "stone walls"
     ];
 
     let roofStr = roofs[Utils.randomArrayIndex(roofs)];
@@ -522,7 +523,7 @@ export default class City {
 
     return {
       name,
-      description: origins[name],
+      description: origins[name]
     };
   }
 
@@ -533,7 +534,7 @@ export default class City {
 
     return {
       name,
-      description: activities[name],
+      description: activities[name]
     };
   }
 
@@ -565,7 +566,7 @@ export default class City {
       obstaclesArray = obstaclesArray.filter((e) => e !== name);
       outputArray.push({
         name,
-        description: obstacles[name],
+        description: obstacles[name]
       });
     }
 
@@ -575,7 +576,7 @@ export default class City {
   getRuins() {
     const { citySize } = this;
     const {
-      ruins: { natures, traits, obstacles },
+      ruins: { natures, traits, obstacles }
     } = cityObj;
 
     let naturesArray = Object.keys(natures);
@@ -612,7 +613,7 @@ export default class City {
         trait,
         traitDescription: traits[trait],
         obstacle,
-        obstacleDescription: obstacles[obstacle],
+        obstacleDescription: obstacles[obstacle]
       });
     }
 

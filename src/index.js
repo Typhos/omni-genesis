@@ -11,8 +11,7 @@ import Kingdoms from "./pages/kingdoms/index";
 import Navigation from "./components/navigation";
 import React from "react";
 import ReactDOM from "react-dom";
-import SwordsPage from "./pages/swords";
-import TavernPatronsPage from "./pages/taverns";
+import RivalAdventurers from "./pages/rival-adventurers";
 import TreasurePage from "./pages/treasure/index";
 
 const routing = (
@@ -22,16 +21,13 @@ const routing = (
     <Switch>
       <Route exact path="/" component={App} />
       <Route path="/items/" component={ItemGenerator} />
-      {/* <Route path="/people/" component={People} /> */}
       <Route path="/hirelings/" component={Hirelings} />
-      {/* <Route path="/shops/" component={Shops} /> */}
       <Route path="/cities/" component={Cities} />
       <Route path="/kingdoms/" component={Kingdoms} />
-      <Route path="/swords/" component={SwordsPage} />
       <Route path="/clan/" component={Clans} />
       <Route path="/treasure/" component={TreasurePage} />
-      <Route path="/tavern-patrons/" component={TavernPatronsPage} />
-      {/* <Route path="/scrolls/" component={ScrollsPage} /> */}
+      <Route path="/rival-adventurers/" component={RivalAdventurers} />
+      {/* <Route path="/dungeon-factions/" component={DungeonFactions} /> */}
 
       <Route component={Error404} />
     </Switch>

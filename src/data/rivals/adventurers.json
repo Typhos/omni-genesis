@@ -1,0 +1,86 @@
+{
+  "alignments": {
+    "lawful": {
+      "odds": 2,
+      "alignment": "Lawful"
+    },
+    "neutral": {
+      "odds": 2,
+      "alignment": "Neutral"
+    },
+    "chaotic": {
+      "odds": 1,
+      "alignment": "Chaotic"
+    }
+  },
+  "classes": [
+    {
+      "range": [3, 5],
+      "charClass": "Acrobat"
+    },
+    {
+      "range": [6, 7],
+      "charClass": "Paladin"
+    },
+    {
+      "range": 8,
+      "charClass": "Gnome"
+    },
+    {
+      "range": 9,
+      "charClass": "Halfling"
+    },
+    {
+      "range": 10,
+      "charClass": "Dwarf"
+    },
+    {
+      "range": [11, 12],
+      "charClass": "Fighter"
+    },
+    {
+      "range": 13,
+      "charClass": "Thief"
+    },
+    {
+      "range": 14,
+      "charClass": "Magic-User"
+    },
+    {
+      "range": 15,
+      "charClass": "Cleric"
+    },
+    {
+      "range": 16,
+      "charClass": "Elf"
+    },
+    {
+      "range": 17,
+      "charClass": "Barbarian"
+    },
+    {
+      "range": 18,
+      "charClass": "Knight"
+    },
+    {
+      "range": 19,
+      "charClass": "Ranger"
+    },
+    {
+      "range": 20,
+      "charClass": "Bard"
+    },
+    {
+      "range": 21,
+      "charClass": "Assassin"
+    },
+    {
+      "range": 22,
+      "charClass": "Illusionist"
+    },
+    {
+      "range": [23, 24],
+      "charClass": "Necromancer"
+    }
+  ]
+}

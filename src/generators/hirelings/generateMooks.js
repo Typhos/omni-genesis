@@ -1,5 +1,6 @@
 import Utils from "../../components/utils";
 import demiHumanNames from "../../data/names/allNames";
+import hirelingsData from "../../data/hirelings/hirelings";
 import nobleHouses from "../../data/names/nobleHouses";
 
 class HirelingRoster {
@@ -78,788 +79,7 @@ class HirelingRoster {
   }
 }
 
-const oseCharacterRaces = {
-  Human: {
-    odds: 25,
-    maxLvl: 14,
-    classes: {
-      Acrobat: {
-        hd: 4,
-        odds: 1,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["Pole arm", "Short bow", "Spear", "Staff", "Dagger"],
-        armorOptions: ["Leather"]
-      },
-      Assassin: {
-        hd: 6,
-        odds: 1,
-        alignments: ["Neutral", "Chaos"],
-        weaponOptions: [
-          "Battle axe",
-          "Crossbow",
-          "Dagger",
-          "Hand axe",
-          "Mace",
-          "Pole arm",
-          "Short bow",
-          "Short sword",
-          "Silver dagger",
-          "Sling",
-          "Spear",
-          "Sword",
-          "Warhammer"
-        ],
-        armorOptions: ["Leather", "Leather & Shield"]
-      },
-      Barbarian: {
-        hd: 8,
-        odds: 2,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: [
-          "Battle axe",
-          "Crossbow",
-          "Dagger",
-          "Hand axe",
-          "Mace",
-          "Pole arm",
-          "Short bow",
-          "Short sword",
-          "Silver dagger",
-          "Sling",
-          "Spear",
-          "Sword",
-          "Warhammer"
-        ],
-        armorOptions: ["Leather", "Leather & Shield", "Chainmail", "Chainmail & Shield"]
-      },
-      Bard: {
-        hd: 6,
-        odds: 1,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["Crossbow", "Short sword", "Sling", "Sword"],
-        armorOptions: ["Leather", "Chainmail"]
-      },
-      Cleric: {
-        hd: 6,
-        odds: 1,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["Mace", "Warhammer", "Staff", "Sling"],
-        armorOptions: ["Leather", "Leather & Shield", "Chainmail", "Chainmail & Shield"]
-      },
-      Druid: {
-        hd: 6,
-        odds: 1,
-        alignments: ["Neutral"],
-        weaponOptions: ["Club", "Dagger", "Sling", "Spear", "Staff"],
-        armorOptions: ["Leather", "Leather & Shield"]
-      },
-      Fighter: {
-        hd: 8,
-        odds: 5,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: [
-          "Battle axe",
-          "Crossbow",
-          "Dagger",
-          "Hand axe",
-          "Mace",
-          "Pole arm",
-          "Short bow",
-          "Short sword",
-          "Silver dagger",
-          "Sling",
-          "Spear",
-          "Sword",
-          "Warhammer"
-        ],
-        armorOptions: ["Chainmail", "Chainmail & Shield", "Plate mail", "Plate mail & Shield"]
-      },
-      Illusionist: {
-        hd: 4,
-        odds: 1,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["Staff", "Dagger"],
-        armorOptions: ["None"]
-      },
-      Knight: {
-        hd: 8,
-        odds: 1,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["Lance", "Short sword", "Sword", "Warhammer"],
-        armorOptions: ["Chainmail", "Chainmail & Shield", "Plate mail", "Plate mail & Shield"]
-      },
-      "Magic-User": {
-        hd: 4,
-        odds: 2,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["Staff", "Dagger"],
-        armorOptions: ["None"]
-      },
-      Paladin: {
-        hd: 8,
-        odds: 1,
-        alignments: ["Law"],
-        weaponOptions: [
-          "Battle axe",
-          "Crossbow",
-          "Dagger",
-          "Hand axe",
-          "Mace",
-          "Pole arm",
-          "Short bow",
-          "Short sword",
-          "Silver dagger",
-          "Sling",
-          "Spear",
-          "Sword",
-          "Warhammer"
-        ],
-        armorOptions: ["Chainmail", "Chainmail & Shield", "Plate mail", "Plate mail & Shield"]
-      },
-      Ranger: {
-        hd: 8,
-        odds: 1,
-        alignments: ["Law", "Neutral"],
-        weaponOptions: [
-          "Battle axe",
-          "Crossbow",
-          "Dagger",
-          "Hand axe",
-          "Mace",
-          "Pole arm",
-          "Short bow",
-          "Short sword",
-          "Silver dagger",
-          "Sling",
-          "Spear",
-          "Sword",
-          "Warhammer"
-        ],
-        armorOptions: ["Leather", "Leather & Shield", "Chainmail", "Chainmail & Shield"]
-      },
-      Thief: {
-        hd: 4,
-        odds: 3,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: [
-          "Battle axe",
-          "Crossbow",
-          "Dagger",
-          "Hand axe",
-          "Mace",
-          "Pole arm",
-          "Short bow",
-          "Short sword",
-          "Silver dagger",
-          "Sling",
-          "Spear",
-          "Sword",
-          "Warhammer"
-        ],
-        armorOptions: ["Leather"]
-      }
-    },
-    henchman: {
-      "Man-at-Arms": {
-        odds: 15,
-        weaponOptions: [
-          "Battle axe",
-          "Crossbow",
-          "Dagger",
-          "Hand axe",
-          "Mace",
-          "Pole arm",
-          "Short bow",
-          "Short sword",
-          "Silver dagger",
-          "Sling",
-          "Spear",
-          "Sword",
-          "Warhammer"
-        ],
-        alignments: ["Law", "Neutral", "Chaos"],
-        armorOptions: ["Leather", "Leather & Shield", "Chainmail", "Chainmail & Shield"]
-      },
-      "Torch-Bearer": {
-        odds: 6,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["None"],
-        armorOptions: ["None"]
-      },
-      Porter: {
-        odds: 3,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["None"],
-        armorOptions: ["None"]
-      },
-      Scout: {
-        odds: 1,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["Hand axe", "Short bow", "Spear", "Sling"],
-        armorOptions: ["None", "Leather"]
-      },
-      Scribe: {
-        odds: 1,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["None"],
-        armorOptions: ["None"]
-      },
-      Hunter: {
-        odds: 1,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["Short bow"],
-        armorOptions: ["None"]
-      },
-      Cook: {
-        odds: 1,
-        alignments: ["Law", "Neutral", "Chaos"],
-        weaponOptions: ["Knife"],
-        armorOptions: ["None"]
-      }
-    }
-  },
-  Dwarf: {
-    odds: 1,
-    maxLvl: 12,
-    hd: 8,
-    alignments: ["Law", "Neutral"],
-    weaponOptions: [
-      "Battle axe",
-      "Crossbow",
-      "Dagger",
-      "Hand axe",
-      "Mace",
-      "Pole arm",
-      "Short bow",
-      "Short sword",
-      "Silver dagger",
-      "Sling",
-      "Spear",
-      "Sword",
-      "Warhammer"
-    ],
-    armorOptions: ["Leather", "Leather & Shield", "Chainmail", "Chainmail & Shield"]
-  },
-  Elf: {
-    odds: 1,
-    maxLvl: 10,
-    hd: 6,
-    alignments: ["Law", "Neutral"],
-    weaponOptions: [
-      "Battle axe",
-      "Crossbow",
-      "Dagger",
-      "Hand axe",
-      "Mace",
-      "Pole arm",
-      "Short bow",
-      "Short sword",
-      "Silver dagger",
-      "Sling",
-      "Spear",
-      "Sword",
-      "Warhammer"
-    ],
-    armorOptions: ["Leather", "Leather & Shield", "Chainmail", "Chainmail & Shield"]
-  },
-  Gnome: {
-    odds: 1,
-    maxLvl: 8,
-    hd: 4,
-    alignments: ["Law", "Neutral", "Chaos"],
-    weaponOptions: [
-      "Crossbow",
-      "Dagger",
-      "Hand axe",
-      "Mace",
-      "Short bow",
-      "Short sword",
-      "Silver dagger",
-      "Sling",
-      "Spear",
-      "Sword",
-      "Warhammer"
-    ],
-    armorOptions: ["Leather", "Leather & Shield"]
-  },
-  "Half-Elf": {
-    odds: 1,
-    maxLvl: 12,
-    hd: 6,
-    alignments: ["Law", "Neutral"],
-    weaponOptions: [
-      "Battle axe",
-      "Crossbow",
-      "Dagger",
-      "Hand axe",
-      "Mace",
-      "Pole arm",
-      "Short bow",
-      "Short sword",
-      "Silver dagger",
-      "Sling",
-      "Spear",
-      "Sword",
-      "Warhammer"
-    ],
-    armorOptions: ["Leather", "Leather & Shield", "Chainmail", "Chainmail & Shield"]
-  },
-  Halfling: {
-    odds: 1,
-    maxLvl: 8,
-    hd: 6,
-    alignments: ["Law", "Neutral"],
-    weaponOptions: [
-      "Crossbow",
-      "Dagger",
-      "Hand axe",
-      "Mace",
-      "Short bow",
-      "Short sword",
-      "Silver dagger",
-      "Sling",
-      "Spear",
-      "Sword",
-      "Warhammer"
-    ],
-    armorOptions: ["Leather", "Leather & Shield", "Chainmail", "Chainmail & Shield"]
-  },
-  "Half-Orc": {
-    odds: 1,
-    maxLvl: 8,
-    hd: 6,
-    alignments: ["Law", "Neutral", "Chaos"],
-    weaponOptions: [
-      "Battle axe",
-      "Crossbow",
-      "Dagger",
-      "Hand axe",
-      "Mace",
-      "Pole arm",
-      "Short bow",
-      "Short sword",
-      "Silver dagger",
-      "Sling",
-      "Spear",
-      "Sword",
-      "Warhammer"
-    ],
-    armorOptions: ["Leather", "Leather & Shield", "Chainmail", "Chainmail & Shield"]
-  }
-};
-
-const quirks = {
-  "Pet (small mammal)": 1,
-  "Pet (bird)": 1,
-  "Pet (reptile)": 1,
-  Eyepatch: 1,
-  "Gold tooth": 1,
-  "Lazy eye": 1,
-  "Face tattoo": 1,
-  "Close talker": 1,
-  Lazy: 1,
-  Glutton: 1,
-  Skeptical: 1,
-  Zealot: 1,
-  Gregarious: 1,
-  Bold: 1,
-  Craven: 1,
-  Chaste: 1,
-  Ambitious: 1,
-  Stubborn: 1,
-  Fickle: 1,
-  Vengful: 1,
-  Greedy: 1,
-  Humble: 1,
-  Arrogant: 1,
-  Trusting: 1,
-  Paranoid: 1,
-  Impatient: 1,
-  Patient: 1,
-  Cynical: 1,
-  Callous: 1,
-  Sadistic: 1,
-  Compassionate: 1,
-  "Afraid of dark": 1,
-  "Always cold": 1,
-  "Always hot": 1,
-  "Always itching": 1,
-  "Animals despise": 1,
-  Attractive: 1,
-  Awkward: 1,
-  "Bad breath": 1,
-  "Baggy eyes": 1,
-  Bearded: 1,
-  "Big ears": 1,
-  "Big feet": 1,
-  "Big nose": 1,
-  Birthmark: 1,
-  "Booming voice": 1,
-  Bowlegged: 1,
-  "Broken nose": 1,
-  "Burn scars": 1,
-  Butterfingers: 1,
-  "Cat-like eyes": 1,
-  "Chews straw": 1,
-  "Close-talker": 1,
-  "Colorful eyes": 1,
-  "Colorful hair": 1,
-  "Crooked teeth": 1,
-  Daydreamer: 1,
-  "Deep voice": 1,
-  "Doesn't bathe": 1,
-  "Doesn't laugh": 1,
-  Drunkard: 1,
-  "Flaking skin": 1,
-  "Funny mustache": 1,
-  "Gnarled hands": 1,
-  Graceful: 1,
-  Hairy: 1,
-  "Hissing voice": 1,
-  Hugger: 1,
-  Hunchback: 1,
-  "Incessant sniff": 1,
-  Jittery: 1,
-  Juggles: 1,
-  "Just a kid": 1,
-  "Likes to bet": 1,
-  Limp: 1,
-  "Long legs": 1,
-  "Long nails": 1,
-  "Long neck": 1,
-  "Meat-only eater": 1,
-  "Missing ear": 1,
-  "Missing eye": 1,
-  "Missing fingers": 1,
-  "Missing teeth": 1,
-  Moles: 1,
-  Monochrome: 1,
-  "Mouth breather": 1,
-  "Much makeup": 1,
-  Mute: 1,
-  "Nasally voice": 1,
-  "Neat freak": 1,
-  Old: 1,
-  Overdressed: 1,
-  "Overly polite": 1,
-  "Peg-leg": 1,
-  "Persistent cough": 1,
-  "Picks teeth": 1,
-  Piercings: 1,
-  "Pop-eyed": 1,
-  "Pops bones": 1,
-  "Pot-bellied": 1,
-  "Quiet voice": 1,
-  "Raspy voice": 1,
-  "Rubs chin": 1,
-  "Sharp fingernails": 1,
-  Sings: 1,
-  "Six-fingered": 1,
-  Slob: 1,
-  "Slow-talker": 1,
-  Smokes: 1,
-  Snoozer: 1,
-  Snorts: 1,
-  Spits: 1,
-  "Sticky-fingers": 1,
-  Stinky: 1,
-  "Stubby Ears": 1,
-  Stutter: 1,
-  Superstitious: 1,
-  Sweaty: 1,
-  Tattoos: 1,
-  "Twiddles fingers": 1,
-  Twitch: 1,
-  Ugly: 1,
-  Vegetarian: 1,
-  "Very muscular": 1,
-  "Very short": 1,
-  "Very tall": 1,
-  "Weathered skin": 1,
-  "Weird eye": 1,
-  Wheezy: 1,
-  "Winning smile": 1,
-  "Yawns a lot": 1
-};
-
-const descriptors = [
-  "Abrasive",
-  "Active",
-  "Adventurous",
-  "Affectionate",
-  "Aggressive",
-  "Agreeable",
-  "Alluring",
-  "Aloof",
-  "Ambitious",
-  "Angry",
-  "Anxious",
-  "Apathetic",
-  "Artistic",
-  "Athletic",
-  "Attractive",
-  "Authoritative",
-  "Bitter",
-  "Boastful",
-  "Bold",
-  "Brave",
-  "Brooding",
-  "Callous",
-  "Careless",
-  "Cautious",
-  "Charming",
-  "Cheerless",
-  "Cheery",
-  "Clever",
-  "Compassionate",
-  "Conceited",
-  "Condescending",
-  "Confident",
-  "Confused",
-  "Conscientious",
-  "Cooperative",
-  "Cowardly",
-  "Critical",
-  "Crude",
-  "Cruel",
-  "Cunning",
-  "Dangerous",
-  "Daring",
-  "Deceitful",
-  "Dependent",
-  "Determined",
-  "Disabled",
-  "Disciplined",
-  "Disfigured",
-  "Disturbed",
-  "Doomed",
-  "Driven",
-  "Dying",
-  "Experienced",
-  "Feisty",
-  "Fervent",
-  "Frantic",
-  "Friendly",
-  "Furtive",
-  "Generous",
-  "Glorious",
-  "Glum",
-  "Grandiose",
-  "Greedy",
-  "Gregarious",
-  "Grumpy",
-  "Guarded",
-  "Hardhearted",
-  "Harsh",
-  "Haughty",
-  "Helpful",
-  "Honest",
-  "Honorable",
-  "Hostile",
-  "Hot-tempered",
-  "Ignorant",
-  "Imperial",
-  "Impulsive",
-  "Incompetent",
-  "Indifferent",
-  "Infamous",
-  "Influential",
-  "Inquisitive",
-  "Insensitive",
-  "Insightful",
-  "Intolerant",
-  "Intrepid",
-  "Jealous",
-  "Judgmental",
-  "Kind",
-  "Loyal",
-  "Manic",
-  "Manipulative",
-  "Melancholy",
-  "Moody",
-  "Naïve",
-  "Oblivious",
-  "Obsessed",
-  "Old",
-  "Oppressed",
-  "Optimistic",
-  "Pacifist",
-  "Passive",
-  "Perfectionist",
-  "Pessimistic",
-  "Pious",
-  "Plucky",
-  "Powerful",
-  "Practical",
-  "Pretentious",
-  "Proper",
-  "Proud",
-  "Pushy",
-  "Quiet",
-  "Quirky",
-  "Rational",
-  "Rebellious",
-  "Reckless",
-  "Reclusive",
-  "Relaxed",
-  "Relentless",
-  "Religious",
-  "Remorseful",
-  "Resolute",
-  "Resourceful",
-  "Romantic",
-  "Ruthless",
-  "Saintly",
-  "Sarcastic",
-  "Secretive",
-  "Selfish",
-  "Selfless",
-  "Sheepish",
-  "Shrewd",
-  "Sick",
-  "Skilled",
-  "Slovenly",
-  "Smug",
-  "Sociable",
-  "Spiteful",
-  "Stealthy",
-  "Stern",
-  "Stingy",
-  "Stoic",
-  "Strong",
-  "Stubborn",
-  "Successful",
-  "Surly",
-  "Suspicious",
-  "Tactless",
-  "Talented",
-  "Tenacious",
-  "Thoughtful",
-  "Timid",
-  "Trusting",
-  "Ugly",
-  "Unfeeling",
-  "Unpredictable",
-  "Unscrupulous",
-  "Unusual",
-  "Valiant",
-  "Vengeful",
-  "Violent",
-  "Virtuous",
-  "Wary",
-  "Weak",
-  "Weary",
-  "Wild",
-  "Wise",
-  "Witty",
-  "Worry-wort",
-  "Wounded",
-  "Young",
-  "Zealous"
-];
-
-const goals = [
-  "Obtain an object",
-  "Make an agreement",
-  "Build a relationship",
-  "Undermine a relationship",
-  "Seek a truth",
-  "Pay a debt",
-  "Refute a falsehood",
-  "Harm a rival",
-  "Cure an ill",
-  "Find a person",
-  "Find a home",
-  "Seize power",
-  "Restore a relationship",
-  "Create an item",
-  "Travel to a place",
-  "Secure provisions",
-  "Rebel against power",
-  "Collect a debt",
-  "Protect a secret",
-  "Spread faith",
-  "Enrich themselves",
-  "Protect a person",
-  "Protect the status quo",
-  "Advance status",
-  "Defend a place",
-  "Avenge a wrong",
-  "Fulfill a duty",
-  "Gain knowledge",
-  "Prove worthiness",
-  "Find redemption",
-  "Escape from something",
-  "Resolve a dispute"
-];
-
-const hirelingBackgrounds = {
-  "Noble bastard": 1,
-  Beggar: 2,
-  Bowyer: 1,
-  Butcher: 1,
-  "Caravan hand": 1,
-  Cultist: 3,
-  Servant: 1,
-  Deserter: 1,
-  "Disowned noble": 1,
-  Farmhand: 2,
-  Fisherman: 2,
-  Gambler: 1,
-  Gravedigger: 1,
-  "Grave robber": 1,
-  Historian: 1,
-  Indebted: 2,
-  Juggler: 1,
-  Lumberjack: 1,
-  Slaver: 1,
-  Mason: 1,
-  Messenger: 1,
-  Militia: 1,
-  Mercenary: 1,
-  Miller: 1,
-  Minstrel: 1,
-  Monk: 1,
-  Peddler: 1,
-  Poacher: 3,
-  Refugee: 2,
-  Tailor: 1,
-  Vagabond: 2,
-  "Temple acolyte": 1,
-  Criminal: 2,
-  Hermit: 1,
-  Pirate: 1,
-  Smuggler: 1,
-  Carpenter: 1,
-  Thug: 2,
-  "Failed merchant": 1,
-  "Failed apprentice mage": 1,
-  "Stable hand": 1,
-  Healer: 2,
-  Bandit: 2,
-  Guide: 3,
-  Performer: 3,
-  Miner: 3,
-  Outcast: 3,
-  Vagrant: 3,
-  Forester: 3,
-  Traveler: 3,
-  Mystic: 3,
-  Priest: 3,
-  Sailor: 3,
-  Pilgrim: 3,
-  Thief: 3,
-  Adventurer: 3,
-  Forager: 3,
-  Leader: 3,
-  Guard: 3,
-  Scout: 3,
-  Herder: 4,
-  Fisher: 3,
-  Hunter: 3,
-  Raider: 5,
-  Trader: 2
-};
+const { characterRaces } = hirelingsData;
 
 class Hireling {
   constructor(level) {
@@ -886,7 +106,7 @@ class Hireling {
     // level 0 peasants are always human
     if (level === 0) return "Human";
 
-    for (const [key, value] of Object.entries(oseCharacterRaces)) {
+    for (const [key, value] of Object.entries(characterRaces)) {
       const { odds } = value;
       const raceArray = new Array(odds).fill(key);
       racesArray.push(...raceArray);
@@ -982,7 +202,7 @@ class Hireling {
   }
 
   checkLevel(level) {
-    let maxLevel = oseCharacterRaces[this.race].maxLevel;
+    let maxLevel = characterRaces[this.race].maxLevel;
     if (maxLevel > 8) maxLevel = 8;
 
     if (level === 0 && this.race !== "Human") {
@@ -999,7 +219,7 @@ class Hireling {
     if (this.race !== "Human") return "Adventurer";
 
     if (this.level >= 1) {
-      for (const [key, value] of Object.entries(oseCharacterRaces.Human.classes)) {
+      for (const [key, value] of Object.entries(characterRaces.Human.classes)) {
         const { odds } = value;
         const classCount = new Array(odds).fill(key);
         classesArray.push(...classCount);
@@ -1007,7 +227,7 @@ class Hireling {
 
       return classesArray[Utils.randomArrayIndex(classesArray)];
     } else {
-      for (const [key, value] of Object.entries(oseCharacterRaces.Human.henchman)) {
+      for (const [key, value] of Object.entries(characterRaces.Human.henchman)) {
         const { odds } = value;
         const classCount = new Array(odds).fill(key);
         classesArray.push(...classCount);
@@ -1031,9 +251,9 @@ class Hireling {
 
     let HD = 8;
     if (this.race !== "Human") {
-      HD = oseCharacterRaces[this.race].hd;
+      HD = characterRaces[this.race].hd;
     } else {
-      HD = oseCharacterRaces.Human.classes[this.charClass].hd;
+      HD = characterRaces.Human.classes[this.charClass].hd;
     }
 
     let hpArray = new Array(this.level).fill(undefined);
@@ -1046,14 +266,17 @@ class Hireling {
   }
 
   getGoal() {
+    const { goals } = hirelingsData;
     return goals[Utils.randomArrayIndex(goals)];
   }
 
   getDescriptor() {
+    const { descriptors } = hirelingsData;
     return descriptors[Utils.randomArrayIndex(descriptors)];
   }
 
   getQuirk() {
+    const { quirks } = hirelingsData;
     const quirksArray = [];
 
     for (let [key, odds] of Object.entries(quirks)) {
@@ -1065,9 +288,10 @@ class Hireling {
   }
 
   getRandomBackground() {
+    const { backgrounds } = hirelingsData;
     const backgroundArray = [];
 
-    for (let [key, odds] of Object.entries(hirelingBackgrounds)) {
+    for (let [key, odds] of Object.entries(backgrounds)) {
       const array = new Array(odds).fill(key);
       backgroundArray.push(...array);
     }
@@ -1078,12 +302,12 @@ class Hireling {
   getAlignment() {
     let alignArray = undefined;
     if (this.race !== "Human") {
-      alignArray = oseCharacterRaces[this.race].alignments;
+      alignArray = characterRaces[this.race].alignments;
     } else {
       if (this.level > 0) {
-        alignArray = oseCharacterRaces.Human.classes[this.charClass].alignments;
+        alignArray = characterRaces.Human.classes[this.charClass].alignments;
       } else {
-        alignArray = oseCharacterRaces.Human.henchman[this.charClass].alignments;
+        alignArray = characterRaces.Human.henchman[this.charClass].alignments;
       }
     }
     return alignArray[Utils.randomArrayIndex(alignArray)];
@@ -1092,12 +316,12 @@ class Hireling {
   getArmor() {
     let armorArray = undefined;
     if (this.race !== "Human") {
-      armorArray = oseCharacterRaces[this.race].armorOptions;
+      armorArray = characterRaces[this.race].armorOptions;
     } else {
       if (this.level > 0) {
-        armorArray = oseCharacterRaces.Human.classes[this.charClass].armorOptions;
+        armorArray = characterRaces.Human.classes[this.charClass].armorOptions;
       } else {
-        armorArray = oseCharacterRaces.Human.henchman[this.charClass].armorOptions;
+        armorArray = characterRaces.Human.henchman[this.charClass].armorOptions;
       }
     }
     return armorArray[Utils.randomArrayIndex(armorArray)];
@@ -1120,12 +344,12 @@ class Hireling {
     let secondary = [undefined];
 
     if (this.race !== "Human") {
-      cClass = oseCharacterRaces[this.race];
+      cClass = characterRaces[this.race];
     } else {
       cClass =
         this.level > 0
-          ? oseCharacterRaces.Human.classes[this.charClass]
-          : oseCharacterRaces.Human.henchman[this.charClass];
+          ? characterRaces.Human.classes[this.charClass]
+          : characterRaces.Human.henchman[this.charClass];
     }
 
     primary = cClass.weaponOptions;

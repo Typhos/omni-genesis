@@ -39,6 +39,11 @@
 
   .info {
     &Table {
+      .subHead {
+        margin-top: 0em;
+        margin-bottom: 0.3em;
+      }
+
       &__row {
         padding: 0.5em;
         line-height: 0.65em;
@@ -50,6 +55,10 @@
     }
     &__value {
       margin-left: 0.5em;
+
+      &.magicItems {
+        line-height: 1.3em;
+      }
     }
   }
 }

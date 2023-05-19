@@ -1,12 +1,8 @@
 import Names from "../../data/names/allNames";
 import Races from "../../data/races/allRaces";
 import Utils from "../../components/utils";
+import allNames from "../../data/names/allNames";
 import xge from "../../data/names/xgeNames";
-
-// Data
-
-
-
 
 export default class Name {
   constructor(params = {}) {
@@ -73,7 +69,7 @@ export default class Name {
       return {
         name: firstName,
         surname: clanName,
-        displayName: displayName.trim(),
+        displayName: displayName.trim()
       };
     } else {
       let firstName =
@@ -92,7 +88,7 @@ export default class Name {
       return {
         name: firstName,
         surname: frontCompound.concat(backCompound),
-        displayName: displayName.trim(),
+        displayName: displayName.trim()
       };
     }
   }
@@ -118,7 +114,7 @@ export default class Name {
       return {
         name: firstName,
         surname: "",
-        displayName: firstName,
+        displayName: firstName
       };
     } else {
       this.xgeFilteredObj = this.xgeObjFilter("human");
@@ -127,25 +123,9 @@ export default class Name {
   }
 
   buildElfName() {
-    function getFirstName(xgeFilteredObj, sex) {
-      const options = xgeFilteredObj.tables.find((obj, i) => {
-        if (obj.option.toLowerCase().includes(sex)) return obj.table;
-        return false;
-      });
-
-      let diceRoll = Utils.randomInt(1, 100);
-
-      return options.table.find((entry) => {
-        if (
-          (diceRoll >= entry.min && diceRoll <= entry.max) ||
-          diceRoll === entry.min ||
-          diceRoll === entry.max
-        ) {
-          return entry;
-        }
-
-        return false;
-      }).result;
+    function getFirstName(sex) {
+      const nameList = allNames.elf.first[sex];
+      return nameList[Utils.randomArrayIndex(nameList)];
     }
 
     function getSurname(xgeFilteredObj, sex) {
@@ -169,14 +149,14 @@ export default class Name {
       }).result;
     }
 
-    const name = getFirstName(this.xgeFilteredObj, this.sex);
+    const name = getFirstName(this.sex);
     const surname = getSurname(this.xgeFilteredObj, this.sex);
     const displayName = `${name} ${surname}`;
 
     return {
       name: name,
       surname: surname,
-      displayName: displayName.trim(),
+      displayName: displayName.trim()
     };
   }
 
@@ -200,7 +180,7 @@ export default class Name {
     if (surnameJobs.some((job) => job === jobGroup)) {
       let {
         last,
-        last: { def },
+        last: { def }
       } = data;
 
       if (culture && last[culture]) {
@@ -219,7 +199,7 @@ export default class Name {
     return {
       name: firstName,
       surname: surname,
-      displayName: displayName.trim(),
+      displayName: displayName.trim()
     };
 
     function getXGEName() {
@@ -262,7 +242,7 @@ export default class Name {
       return {
         name: firstName,
         surname: clanName,
-        displayName: displayName.trim(),
+        displayName: displayName.trim()
       };
     } else {
       const firstNameGroup = Names.dragonborn.first[this.sex];
@@ -279,7 +259,7 @@ export default class Name {
       return {
         name: firstName,
         surname: clanName,
-        displayName: displayName.trim(),
+        displayName: displayName.trim()
       };
     }
   }
@@ -294,7 +274,7 @@ export default class Name {
       return {
         name: firstName,
         surname: "",
-        displayName: displayName.trim(),
+        displayName: displayName.trim()
       };
     } else {
       const firstNameGroup = Names.tiefling.first[this.sex];
@@ -311,7 +291,7 @@ export default class Name {
       return {
         name: firstName,
         surname: clanName,
-        displayName: displayName.trim(),
+        displayName: displayName.trim()
       };
     }
   }
@@ -333,7 +313,7 @@ export default class Name {
       return {
         name: firstName,
         surname: clanName,
-        displayName: displayName.trim(),
+        displayName: displayName.trim()
       };
     } else {
       const firstName = nameLenArr
@@ -354,7 +334,7 @@ export default class Name {
       return {
         name: firstName,
         surname: clanName,
-        displayName: displayName.trim(),
+        displayName: displayName.trim()
       };
     }
   }

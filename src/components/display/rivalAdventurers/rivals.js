@@ -18,7 +18,6 @@ export default class RivalAdventurersDisplay extends Component {
 
   render() {
     const { party } = this.props;
-    console.log(party);
 
     if (!party) {
       return (
@@ -68,7 +67,7 @@ export default class RivalAdventurersDisplay extends Component {
 
                 return (
                   <li key={name + charClass + i} name={name} className="infoTable__row">
-                    <h2 className="subHead">{name}</h2>
+                    <h2 className="subHead big">{name}</h2>
                     <TwoColumnDisplay>
                       <li className="infoTable__row">
                         <span className="info__label">{charClass}</span>
@@ -124,13 +123,13 @@ export default class RivalAdventurersDisplay extends Component {
                       </li>
 
                       <li className="infoTable__row">
-                        <span className="info__label">Treasure</span>
+                        <span className="info__label">Treasure*</span>
                         <span className="info__value">{Utils.numberWithCommas(treasure)} gp</span>
                       </li>
 
                       {magicItems.length > 0 && (
                         <li className="infoTable__row">
-                          <span className="info__label">Magic Item(s)</span>
+                          <span className="info__label">Magic Item(s)**</span>
                           <span className="info__value magicItems">
                             {magicItems.map((mi) => mi).join(", ")}
                           </span>
@@ -141,6 +140,17 @@ export default class RivalAdventurersDisplay extends Component {
                 );
               })}
           </TwoColumnDisplay>
+          <OneColumnDisplay>
+            <small>
+              * Treasure above a few hundred coins is likely in the form of gems or jewelry, as
+              suites the referee.
+            </small>
+            <br />
+            <small>
+              ** Magic items have been provided with random effects which can be used as substitute
+              generic +1/+2/+3 bonuses.
+            </small>
+          </OneColumnDisplay>
         </Display>
       );
     }

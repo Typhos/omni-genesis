@@ -48,6 +48,10 @@
         margin-bottom: 0.3em;
       }
 
+      .character {
+        min-height: 300px;
+      }
+
       &__row {
         padding: 0.5em;
         line-height: 0.65em;
@@ -68,7 +72,7 @@
       margin-left: 0.5em;
 
       &.magicItems {
-        line-height: 1.3em;
+        line-height: 1.66em;
       }
     }
   }

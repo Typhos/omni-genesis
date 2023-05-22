@@ -66,16 +66,17 @@ export default class RivalAdventurersDisplay extends Component {
                 } = mook;
 
                 return (
-                  <li key={name + charClass + i} name={name} className="infoTable__row">
+                  <li key={name + charClass + i} name={name} className="infoTable__row character">
                     <h2 className="subHead big">{name}</h2>
                     <TwoColumnDisplay>
                       <li className="infoTable__row">
-                        <span className="info__label">{charClass}</span>
-                        <span className="info__value">{level} </span>
+                        <span className="info__label">Lvl {level}</span>
+                        <span className="info__value">{charClass}</span>
                       </li>
 
                       <li className="infoTable__row">
-                        <span className="info__label">{sex === "male" ? "Male" : "Female"}</span>
+                        <span className="info__label">Sex </span>
+                        <span className="info__value">{sex === "male" ? "Male" : "Female"}</span>
                       </li>
 
                       <li className="infoTable__row">

@@ -136,7 +136,7 @@ export default class RivalParty {
   };
 
   getCharacterName = (charClass, sex) => {
-    const europeanCultures = ["english", "french", "germanic", "italian", "spanish", "polish"];
+    const europeanCultures = ["english", "french", "germanic", "italian", "spanish"];
     const barbarianCultures = ["celtic", "nordic", "slavic"];
 
     let race = () => {
@@ -175,7 +175,7 @@ export default class RivalParty {
     const categoryItems = categories.map((c) => {
       const hasItem = Utils.randomInt(1, 100) <= level * 5;
       if (!hasItem) return null;
-      return `${c}: ${this.getMagicProperties()}`;
+      return `${c} [${this.getMagicProperties()}]`;
     });
 
     return categoryItems.filter((i) => !!i);

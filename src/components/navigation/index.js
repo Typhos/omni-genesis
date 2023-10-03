@@ -14,6 +14,7 @@ export default class Navigation extends Component {
           <Link to="/items">Jewelry</Link>
           <Link to="/kingdoms">Kingdoms</Link>
           <Link to="/clan">Samurai Clan</Link>
+          <Link to="/taverns">Taverns</Link>
           <Link to="/treasure">Treasure</Link>
           <Link to="/rival-adventurers">Rival Party</Link>
         </div>

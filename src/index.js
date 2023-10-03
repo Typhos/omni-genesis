@@ -12,6 +12,7 @@ import Navigation from "./components/navigation";
 import React from "react";
 import ReactDOM from "react-dom";
 import RivalAdventurers from "./pages/rival-adventurers";
+import TavernPatronsPage from "./pages/taverns";
 import TreasurePage from "./pages/treasure/index";
 
 const routing = (
@@ -25,6 +26,7 @@ const routing = (
       <Route path="/cities/" component={Cities} />
       <Route path="/kingdoms/" component={Kingdoms} />
       <Route path="/clan/" component={Clans} />
+      <Route path="/taverns/" component={TavernPatronsPage} />
       <Route path="/treasure/" component={TreasurePage} />
       <Route path="/rival-adventurers/" component={RivalAdventurers} />
       {/* <Route path="/dungeon-factions/" component={DungeonFactions} /> */}

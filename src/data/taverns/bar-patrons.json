@@ -1,39 +1,79 @@
 {
-  "Rogue Willow (Murkwater)": {
-    "Remmy Brandybuckle": { "random": null, "odds": [95, 95, 99] },
-    "Lelah Brandybuckle": { "random": null, "odds": [95, 95, 99] },
-    "Skipper Brandybuckle": { "random": null, "odds": [40, 95, 99] },
-    "Holt the Reeve": { "random": null, "odds": [15, 10, 40] },
-    "Rolf, Devout of St. Valtyr": { "random": null, "odds": [25, 45, 25] },
-    "Adelard, Devout of St. Godwin": { "random": null, "odds": [33, 25, 10] },
-    "Derwin the Woodsman": { "random": null, "odds": [10, 10, 65] },
+  "Crimson Porter (Tamhill)": {
+    "Vernen the Elder": { "random": null, "odds": [1, 1, 1] },
+    "Cecily Flysher, Proprietor": { "random": null, "odds": [95, 95, 99] },
+    "Taycee the Barmaid": { "random": null, "odds": [95, 95, 99] },
+    "Urgritte the Barmaid": { "random": null, "odds": [95, 95, 99] },
+    "Merda the Barmaid": { "random": null, "odds": [75, 85, 99] },
+
+    "Father Ekain of St. Ygg": { "random": null, "odds": [1, 1, 5] },
+    "Brother Guthbrand of St. Ygg": { "random": null, "odds": [1, 1, 5] },
+    "Brother Oswald of St. Ygg": { "random": null, "odds": [1, 1, 20] },
+    "Lady Sima Bazik, Baroness of Fulst": { "random": null, "odds": [1, 1, 1] },
+    "Ser Arak, Baroness consort": { "random": null, "odds": [1, 1, 1] },
+    "Dominik Bazik": { "random": null, "odds": [10, 12, 15] },
+
+    "Vedis of Skelford": { "random": null, "odds": [5, 10, 35] },
+    "Captain Kulask Gorrish": { "random": null, "odds": [10, 10, 65] },
+    "Billworth Turgen": { "random": null, "odds": [5, 10, 50] },
+    "Gilthur Thunderstone the Jeweler": { "random": null, "odds": [20, 35, 80] },
+    "Ialledir the Waywatcher": { "random": null, "odds": [5, 5, 25] },
+
     "Anders the Miller": { "random": null, "odds": [10, 10, 75] },
     "Joff the Tailor": { "random": null, "odds": [20, 60, 20] },
     "Torunn the Mason": { "random": null, "odds": [15, 35, 65] },
     "Nadia the Fletcher": { "random": null, "odds": [33, 10, 10] },
-    "Farris the Blacksmith": { "random": null, "odds": [10, 30, 40] },
     "Ebgran the Druid": { "random": null, "odds": [5, 5, 5] },
     "Felicia the Alchemist": { "random": null, "odds": [15, 5, 5] },
-    "Gilthur Thunderstone the Jeweler": { "random": null, "odds": [20, 35, 80] },
-    "Tinnadis Liadon the Waywatcher": { "random": null, "odds": [5, 5, 25] },
 
-    "Farmers": {
-      "random": { "count": 2, "sides": 3, "bonus": 0 },
+    "Alzo Danuth (50% in disguise)": { "random": null, "odds": [1, 1, 5] },
+    "Urnst Gunter (50% in disguise)": { "random": null, "odds": [1, 1, 5] },
+    "Villagers (farmers, etc)": {
+      "random": { "count": 2, "sides": 4, "bonus": 1 },
       "odds": [30, 60, 90]
     },
     "Travelers": {
       "random": { "count": 1, "sides": 3, "bonus": 1 },
       "odds": [10, 66, 10]
     },
-    "Entertainers (from Marketplace)": {
-      "random": { "count": 1, "sides": 3, "bonus": 1 },
-      "odds": [10, 35, 80]
+    "The Norse Whisperers": { "random": null, "odds": [15, 25, 50], "count": 6 },
+    "The Fearsome Fivesome": { "random": null, "odds": [15, 25, 50], "count": 5 },
+    "The Outriders of Uleck": { "random": null, "odds": [15, 25, 50], "count": 5 },
+    "Boon Companions": { "random": null, "odds": [15, 25, 50], "count": 8 },
+    "Level 0 Men-at-Arms": {
+      "random": { "count": 1, "sides": 3, "bonus": 0 },
+      "odds": [15, 25, 60]
     },
-    "Seedy-Looking Brigands": {
-      "random": { "count": 1, "sides": 4, "bonus": 2 },
-      "odds": [15, 25, 45]
+    "Level 1 Classed Henchman": {
+      "random": { "count": 1, "sides": 2, "bonus": 0 },
+      "levelRange": [1, 1],
+      "odds": [5, 15, 35]
+    },
+    "Porters/Torchbearers": {
+      "random": { "count": 1, "sides": 2, "bonus": 0 },
+      "odds": [25, 45, 75]
+    }
+  },
+  "Rogue Willow (Tamhill)": {
+    "Remmy Brandybuckle": { "random": null, "odds": [95, 95, 99] },
+    "Lelah Brandybuckle": { "random": null, "odds": [95, 95, 99] },
+    "Skipper Brandybuckle": { "random": null, "odds": [40, 95, 99] },
+    "Holt the Bailiff": { "random": null, "odds": [15, 10, 40] },
+    "Derwin the Woodsman": { "random": null, "odds": [10, 10, 65] },
+
+    "Farmers": {
+      "random": { "count": 2, "sides": 3, "bonus": 0 },
+      "odds": [30, 60, 90]
     },
 
+    "Renata the Robber (in disguise)": { "random": null, "odds": [5, 5, 5] },
+    "The Bastards of Bogtown": { "random": null, "odds": [15, 25, 50], "count": 8 },
+    "Bertrand's Brigands": { "random": null, "odds": [15, 25, 50], "count": 7 },
+
+    "Seedy-Looking Brigands": {
+      "random": { "count": 2, "sides": 4, "bonus": 2 },
+      "odds": [15, 25, 45]
+    },
     "Level 0 Men-at-Arms": {
       "random": { "count": 1, "sides": 4, "bonus": 0 },
       "odds": [15, 25, 60]
@@ -53,55 +93,6 @@
     "Rusty the hound": { "random": null, "odds": [99, 99, 99] },
     "Karlotta the Barmaid": { "random": null, "odds": [33, 95, 99] },
     "Addison the Cook": { "random": null, "odds": [95, 95, 35] }
-  },
-  "Brazen Strumpet (Barrowmaze)": {
-    "Mazzahs the Magnificent": { "random": null, "odds": [1, 1, 1] },
-    "Bollo the Barkeeper": { "random": null, "odds": [95, 95, 99] },
-    "Taycee the Barmaid": { "random": null, "odds": [95, 95, 99] },
-    "Urgritte the Barmaid": { "random": null, "odds": [95, 95, 99] },
-    "Merda the Barmaid": { "random": null, "odds": [75, 85, 99] },
-    "Karg Barrelgut the Smith": { "random": null, "odds": [10, 10, 65] },
-    "Othar of St. Ygg": { "random": null, "odds": [1, 1, 5] },
-    "Cella of St. Ygg": { "random": null, "odds": [1, 1, 5] },
-    "Gamdar of St. Ygg": { "random": null, "odds": [10, 10, 10] },
-    "Lord Kell Ironguard": { "random": null, "odds": [1, 1, 1] },
-    "Krothos Ironguard": { "random": null, "odds": [10, 12, 15] },
-    "Ollis Blackfell": { "random": null, "odds": [10, 12, 15] },
-    "Valeron": { "random": null, "odds": [5, 10, 35] },
-    "Guildmaster Osen": { "random": null, "odds": [10, 10, 65] },
-    "Billworth Turgen": { "random": null, "odds": [5, 10, 50] },
-    "Alaster the Idiot (outside)": { "random": null, "odds": [80, 80, 80] },
-    "Perni Ticklebottom": { "random": null, "odds": [10, 30, 10] },
-    "H.H.R. Huffnpuff": { "random": null, "odds": [10, 10, 35] },
-    "Hendon the Miller": { "random": null, "odds": [5, 5, 20] },
-    "Tamson, son of Hendon": { "random": null, "odds": [5, 10, 35] },
-    "Yusef, second son of Hendon": { "random": null, "odds": [5, 5, 5] },
-    "Alzo Danuth (50% in disguise)": { "random": null, "odds": [1, 1, 5] },
-    "Urnst Gunter (50% in disguise)": { "random": null, "odds": [1, 1, 5] },
-    "Villagers (farmers, etc)": {
-      "random": { "count": 2, "sides": 4, "bonus": 1 },
-      "odds": [30, 60, 90]
-    },
-    "Renata the Robber (in disguise)": { "random": null, "odds": [5, 5, 5] },
-    "The Norse Whisperers": { "random": null, "odds": [15, 25, 50] },
-    "The Fearsome Fivesome": { "random": null, "odds": [15, 25, 50] },
-    "The Bastards of Bogtown": { "random": null, "odds": [15, 25, 50] },
-    "Bertrand's Brigands": { "random": null, "odds": [15, 25, 50] },
-    "The Outriders of Uleck": { "random": null, "odds": [15, 25, 50] },
-    "Boon Companions": { "random": null, "odds": [15, 25, 50] },
-    "Level 0 Men-at-Arms": {
-      "random": { "count": 1, "sides": 4, "bonus": 0 },
-      "odds": [15, 25, 60]
-    },
-    "Level 1 Classed Henchman": {
-      "random": { "count": 1, "sides": 1, "bonus": 0 },
-      "levelRange": [1, 1],
-      "odds": [5, 15, 35]
-    },
-    "Porters/Torchbearers": {
-      "random": { "count": 1, "sides": 2, "bonus": 0 },
-      "odds": [25, 45, 75]
-    }
   },
   "Slovenly Trull (Darrowdeep)": {
     "Lug One-Eye": { "random": null, "odds": [95, 95, 95] },

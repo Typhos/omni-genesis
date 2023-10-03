@@ -15,11 +15,12 @@ export default class TavernPatrons {
     const { tavernName, timeOfDay } = params;
     const patronData = taverns[tavernName];
     const patronList = [];
+    let totalPatrons = 0;
 
     for (let [name, info] of Object.entries(patronData)) {
       let number = undefined;
       let persons = undefined;
-      const { random, odds, levelRange, race } = info;
+      const { random, odds, levelRange, race, count } = info;
       const percentileRoll = Utils.rollDice(1, 100);
       const times = ["Morning", "Afternoon", "Evening"];
       const currentTime = times.indexOf(timeOfDay);
@@ -40,7 +41,7 @@ export default class TavernPatrons {
               "french",
               "germanic",
               "celtic",
-              "nordic",
+              "nordic"
               // "roman",
               // "slavic",
               // "spanish",
@@ -50,15 +51,25 @@ export default class TavernPatrons {
             ];
             return new Person({
               race: "human",
-              culture: europeanFantasyCultures[Utils.randomArrayIndex(europeanFantasyCultures)],
+              culture: europeanFantasyCultures[Utils.randomArrayIndex(europeanFantasyCultures)]
             });
           }
         });
       }
 
-      if (percentileRoll <= chanceOfPatronage) patronList.push({ name, number, persons });
+      if (percentileRoll <= chanceOfPatronage) {
+        patronList.push({ name, number, persons });
+
+        if (!!count) {
+          totalPatrons += count;
+        } else if (!!number) {
+          totalPatrons += number;
+        } else {
+          totalPatrons += 1;
+        }
+      }
     }
 
-    return patronList;
+    return { patronList, totalPatrons };
   }
 }

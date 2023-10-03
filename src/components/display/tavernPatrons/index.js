@@ -10,7 +10,7 @@ export default class TavernPatronDisplay extends Component {
       state: { tavern }
     } = this.props;
 
-    const { patrons, tavernName, timeOfDay } = tavern;
+    const { patrons, tavernName, timeOfDay, totalPatrons } = tavern;
 
     return (
       <Display>
@@ -18,7 +18,7 @@ export default class TavernPatronDisplay extends Component {
           This {timeOfDay} at <br />
           <span className="info__key">{tavernName}</span>
         </h1>
-        <h2 className="subHead">Total Patrons: {patrons.length}</h2>
+        <h2 className="subHead">Total Patrons: {totalPatrons}</h2>
         <ul className="tavernPatron-list">
           {patrons.map((patron, i) => {
             const { name, number, persons } = patron;

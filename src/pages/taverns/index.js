@@ -21,9 +21,9 @@ export default class TavernPatronsPage extends Component {
     Utils.setNewSeed();
 
     this.state = {
-      tavernName: "Brazen Strumpet (Barrowmaze)",
+      tavernName: null,
       timeOfDay: "Evening",
-      tavern: null,
+      tavern: null
     };
 
     this.change = this.change.bind(this);
@@ -33,7 +33,7 @@ export default class TavernPatronsPage extends Component {
 
   change(e) {
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   }
 
@@ -53,10 +53,17 @@ export default class TavernPatronsPage extends Component {
     });
   }
 
+  componentDidMount() {
+    const tavern = Object.keys(taverns);
+    this.setState({ tavernName: tavern[0], tavern: taverns[0] });
+  }
+
   getPatronList() {
     const { tavernName, timeOfDay } = this.state;
-    const tavernObj = new TavernPatrons({ tavernName, timeOfDay });
-    this.setState({ tavern: tavernObj });
+    const {
+      patrons: { patronList, totalPatrons }
+    } = new TavernPatrons({ tavernName, timeOfDay });
+    this.setState({ tavern: { patrons: patronList, totalPatrons, timeOfDay, tavernName } });
   }
 
   render() {

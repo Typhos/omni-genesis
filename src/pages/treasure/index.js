@@ -4,6 +4,7 @@ import { Treasure, generateTreasure } from "../../generators/treasure";
 import Aside from "../../components/aside";
 import Button from "../../components/controls/button/buttonStandard";
 import CheckBoxInput from "../../components/controls/input/checkBoxInput";
+import NumberInput from "../../components/controls/input/numberInput";
 import Select from "../../components/controls/select/selectStandard";
 import TreasureDisplay from "../../components/display/treasure";
 import Utils from "../../components/utils";
@@ -14,10 +15,11 @@ export default class TreasurePage extends Component {
     Utils.setNewSeed();
 
     this.state = {
-      itemsRoll: "specific",
+      itemCount: 1,
+      specialTreasure: true,
       guaranteedTreasure: false,
       table: "Jewelry",
-      treasure: null,
+      treasure: null
     };
 
     this.change = this.change.bind(this);
@@ -30,7 +32,7 @@ export default class TreasurePage extends Component {
     let value = e.target.value;
 
     this.setState({
-      [name]: value,
+      [name]: value
     });
   }
 
@@ -44,7 +46,7 @@ export default class TreasurePage extends Component {
 
     this.setState({
       seed: global.seed,
-      treasure,
+      treasure
     });
   }
 
@@ -91,7 +93,7 @@ export default class TreasurePage extends Component {
   }
 
   render() {
-    const { guaranteedTreasure, itemsRoll, table, treasure = {} } = this.state;
+    const { guaranteedTreasure, specialTreasure, itemCount, table, treasure = {} } = this.state;
 
     return (
       <div className="App">
@@ -132,15 +134,13 @@ export default class TreasurePage extends Component {
               <option value="V">v</option>
             </Select>
 
-            <Select
-              title="Magic Items"
-              value={itemsRoll}
-              onChange={(el) => this.setState({ itemsRoll: el.target.value })}
-            >
-              <option value="specific">roll specific items</option>
-              <option value="vague">just roll item type</option>
-              <option value="basic">don't roll items</option>
-            </Select>
+            {(table === "Jewelry" || table === "Gemstones") && (
+              <NumberInput
+                title={`Amount of ${table}`}
+                value={itemCount}
+                onChange={(el) => this.setState({ itemCount: el.target.value })}
+              ></NumberInput>
+            )}
 
             <CheckBoxInput
               title="No Empty Treasure Vaults"
@@ -148,7 +148,19 @@ export default class TreasurePage extends Component {
               checked={guaranteedTreasure}
               onChange={(e) =>
                 this.setState({
-                  [e.target.name]: e.target.checked,
+                  [e.target.name]: e.target.checked
+                })
+              }
+            ></CheckBoxInput>
+
+            <CheckBoxInput
+              title={specialTreasure}
+              // title="Replace some coins with special treasure"
+              name={"specialTreasure"}
+              checked={specialTreasure}
+              onChange={(e) =>
+                this.setState({
+                  [e.target.name]: e.target.checked
                 })
               }
             ></CheckBoxInput>
@@ -158,10 +170,7 @@ export default class TreasurePage extends Component {
             </Button>
           </Aside>
 
-          {treasure && (
-            <TreasureDisplay state={this.state} stateHandler={this.stateHandler} />
-            // <SamuraiClanDisplay clan={clan} state={this.state} stateHandler={this.stateHandler} />
-          )}
+          {treasure && <TreasureDisplay state={this.state} stateHandler={this.stateHandler} />}
         </main>
       </div>
     );

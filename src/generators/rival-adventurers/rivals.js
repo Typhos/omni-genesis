@@ -170,10 +170,21 @@ export default class RivalParty {
   };
 
   getMagicItems = (level) => {
-    const categories = ["Armor", "Weapon", "Potion", "Ring", "Misc. item"];
+    const categories = [
+      "Armor",
+      "Weapon",
+      "Sword",
+      "Potion",
+      "Ring",
+      "Rod/Staff/Wand",
+      "Scroll",
+      "Misc. item"
+    ];
 
     const categoryItems = categories.map((c) => {
-      const hasItem = Utils.randomInt(1, 100) <= level * 5;
+      const randomInt = Utils.randomInt(1, 100);
+      const hasItem = randomInt <= level * 5;
+
       if (!hasItem) return null;
       return `${c} [${this.getMagicProperties()}]`;
     });

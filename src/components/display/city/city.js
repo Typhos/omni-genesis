@@ -34,7 +34,7 @@ export default class CityDisplay extends Component {
     city.name = e.target.value;
     this.props.stateHandler({
       city: city,
-      name: e.target.value,
+      name: e.target.value
     });
   }
 
@@ -46,7 +46,7 @@ export default class CityDisplay extends Component {
 
     this.props.stateHandler({
       [priorEntry.type]: priorEntry,
-      city: null,
+      city: null
     });
   }
 
@@ -55,7 +55,7 @@ export default class CityDisplay extends Component {
 
     const newNoble = new Noble({
       ...targetPerson.inputParams,
-      seed: targetPerson.seed,
+      seed: targetPerson.seed
     });
 
     let previousEntries = this.props.state.previousEntries || [];
@@ -268,66 +268,6 @@ export default class CityDisplay extends Component {
                 />
               ))}
             </TwoColumnDisplay>
-          </div>
-          <div label="Traits">
-            <h3 className="tabs__groupHeading">
-              Origin: <span className="info__value">{city.origin.name}</span>
-            </h3>
-            <p>
-              <small>{city.origin.description}</small>
-            </p>
-
-            <h3 className="tabs__groupHeading">
-              Activity: <span className="info__value">{city.activity.name}</span>
-            </h3>
-            <p>
-              <small>{city.activity.description}</small>
-            </p>
-
-            {city.obstacles.map((ob) => {
-              return (
-                <React.Fragment key={ob.name}>
-                  <h3 className="tabs__groupHeading">
-                    Obstacle: <span className="info__value">{ob.name}</span>
-                  </h3>
-                  <p>
-                    <small>{ob.description}</small>
-                  </p>
-                </React.Fragment>
-              );
-            })}
-          </div>
-          <div label="Nearby Ruins">
-            {city.ruins.map((ob) => {
-              const {
-                type,
-                typeDescription,
-                trait,
-                traitDescription,
-                obstacle,
-                obstacleDescription,
-              } = ob;
-              return (
-                <React.Fragment key={type + trait}>
-                  <h3 className="tabs__groupHeading">{type}</h3>
-                  <small>{typeDescription}</small>
-                  <p className="info">
-                    <span className="info__value">Ruin Trait:</span>&nbsp;
-                    <span className="info__label">{trait}</span>
-                  </p>
-                  <p>
-                    <small>{traitDescription}</small>
-                  </p>
-                  <p className="info">
-                    <span className="info__value">Ruin Obstacle:</span>&nbsp;
-                    <span className="info__label">{obstacle}</span>
-                  </p>
-                  <p>
-                    <small>{obstacleDescription}</small>
-                  </p>
-                </React.Fragment>
-              );
-            })}
           </div>
           {city.economy.merchants.shopsTotal > 0 && (
             <div label={`Shops (${Utils.numberWithCommas(city.economy.merchants.shopsTotal)})`}>

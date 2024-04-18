@@ -16,9 +16,9 @@ export default class TreasurePage extends Component {
 
     this.state = {
       itemCount: 1,
-      specialTreasure: true,
+      generateSpecialTreasures: false,
       guaranteedTreasure: false,
-      table: "Jewelry",
+      table: "onlyMagicItems",
       treasure: null
     };
 
@@ -37,10 +37,20 @@ export default class TreasurePage extends Component {
   }
 
   findTreasure() {
-    const params = { ...this.state };
+    let params = { ...this.state };
     Utils.setNewSeed();
 
     // this.runTest(1000);
+
+    if (/^[A-Z]$/.test(params.table) || params.table === "onlyMagicItems")
+      params.generateSpecialTreasures = false;
+
+    if (
+      params.table === "Jewelry" ||
+      params.table === "Gemstones" ||
+      params.table === "onlyMagicItems"
+    )
+      params.guaranteedTreasure = false;
 
     const treasure = generateTreasure(params);
 
@@ -93,7 +103,13 @@ export default class TreasurePage extends Component {
   }
 
   render() {
-    const { guaranteedTreasure, specialTreasure, itemCount, table, treasure = {} } = this.state;
+    const {
+      guaranteedTreasure,
+      generateSpecialTreasures,
+      itemCount,
+      table,
+      treasure = {}
+    } = this.state;
 
     return (
       <div className="App">
@@ -105,6 +121,7 @@ export default class TreasurePage extends Component {
               onChange={(el) => this.setState({ table: el.target.value })}
             >
               <option disabled>Specific Items</option>
+              <option value="onlyMagicItems">Magic Items</option>
               <option value="Jewelry">Jewelry</option>
               <option value="Gemstones">Gemstones</option>
               <option disabled>Hoards</option>
@@ -134,36 +151,40 @@ export default class TreasurePage extends Component {
               <option value="V">v</option>
             </Select>
 
-            {(table === "Jewelry" || table === "Gemstones") && (
+            {(table === "Jewelry" || table === "Gemstones" || table === "onlyMagicItems") && (
               <NumberInput
-                title={`Amount of ${table}`}
+                title={`Quantity`}
                 value={itemCount}
                 onChange={(el) => this.setState({ itemCount: el.target.value })}
               ></NumberInput>
             )}
 
-            <CheckBoxInput
-              title="No Empty Treasure Vaults"
-              name={"guaranteedTreasure"}
-              checked={guaranteedTreasure}
-              onChange={(e) =>
-                this.setState({
-                  [e.target.name]: e.target.checked
-                })
-              }
-            ></CheckBoxInput>
+            {/^[A-Z]$/.test(table) && (
+              <CheckBoxInput
+                title="No Empty Treasure Vaults"
+                name={"guaranteedTreasure"}
+                checked={guaranteedTreasure}
+                onChange={(e) =>
+                  this.setState({
+                    [e.target.name]: e.target.checked
+                  })
+                }
+              ></CheckBoxInput>
+            )}
 
-            <CheckBoxInput
-              title={specialTreasure}
-              // title="Replace some coins with special treasure"
-              name={"specialTreasure"}
-              checked={specialTreasure}
-              onChange={(e) =>
-                this.setState({
-                  [e.target.name]: e.target.checked
-                })
-              }
-            ></CheckBoxInput>
+            {(/^[A-Z]$/.test(table) || table === "Gemstones" || table === "Jewelry") && (
+              <CheckBoxInput
+                title="Generate Special Treasures"
+                // title="Replace some coins with special treasure"
+                name={"generateSpecialTreasures"}
+                checked={generateSpecialTreasures}
+                onChange={(e) =>
+                  this.setState({
+                    [e.target.name]: e.target.checked
+                  })
+                }
+              ></CheckBoxInput>
+            )}
 
             <Button id={"generateState"} className={"buildButton"} onClick={this.findTreasure}>
               find treasure

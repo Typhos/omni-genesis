@@ -3,12 +3,13 @@ import clericSpells from "../../data/spells/clericSpells.json";
 import druidSpells from "../../data/spells/druidSpells.json";
 import illusionistSpells from "../../data/spells/illusionistSpells.json";
 import itemTables from "../../data/magicItems/magicItems.json";
+import magicPropertiesData from "../../data/items/magic/magicProperties";
 import magicUserSpells from "../../data/spells/magicUserSpells.json";
 import monstersTables from "../../data/monsters/monsters.json";
 
 class MagicItem {
   constructor(params = {}) {
-    const { type, restriction } = params;
+    const { type, restriction, knaveProperties = false } = params;
     const { itemGroups } = itemTables;
 
     this.details = "";
@@ -16,7 +17,8 @@ class MagicItem {
       type || this.generateValueFromOdds(itemGroups),
       restriction
     );
-    this.itemName = this.getItem(type);
+    this.generateGenericPowers = knaveProperties;
+    this.itemName = this.getItem();
   }
 
   generateValueFromOdds(inputObject) {
@@ -33,6 +35,10 @@ class MagicItem {
 
   getItem() {
     const { itemType } = this;
+
+    if (this.generateGenericPowers) {
+      return this.genericMagicItem(itemType);
+    }
 
     switch (itemType) {
       case "Armor or Shield":
@@ -435,6 +441,81 @@ class MagicItem {
 
     return `${alignment} + ${roll} language(s)`;
   };
+
+  genericMagicItem = (itemType) => {
+    switch (itemType) {
+      case "Armor or Shield":
+        if (Utils.randomInt(1, 2) === 1) {
+          return this.generateMagicProperties("Armor");
+        } else {
+          return this.generateMagicProperties("Shield");
+        }
+      case "Potion":
+        return this.generateMagicProperties("Potion");
+      case "Ring":
+        return this.generateMagicProperties("Ring");
+      case "Scroll or Map":
+        return this.generateMagicProperties("Scroll");
+      case "Sword":
+        return this.generateMagicProperties("Sword");
+      case "Sentient Sword":
+        return this.getSword(true);
+      case "Weapon":
+        const weaponTypes = [
+          "Battle axe",
+          "Club",
+          "Crossbow",
+          "Dagger",
+          "Hand axe",
+          "Javelin",
+          "Bow",
+          "Mace",
+          "Polearm",
+          "Short sword",
+          "Spear",
+          "War hammer"
+        ];
+        const thisType = weaponTypes[Utils.randomArrayIndex(weaponTypes)];
+
+        return this.generateMagicProperties(thisType);
+      case "Rod/Staff/Wand":
+        const rodStaffWand = Utils.randomInt(1, 3);
+        let charges;
+        if (rodStaffWand === 1) {
+          charges = Utils.randomInt(1, 10);
+          return this.generateMagicProperties(`Rod (${charges} charges)`);
+        } else if (rodStaffWand === 2) {
+          charges = Utils.randomInt(3, 10);
+          return this.generateMagicProperties(`Staff (${charges} charges)`);
+        } else {
+          charges = Utils.randomInt(2, 10);
+          return this.generateMagicProperties(`Wand (${charges} charges)`);
+        }
+      case "Misc. Item":
+        return this.generateMagicProperties("Misc Item");
+      // no default
+    }
+  };
+
+  generateMagicProperties(itemType) {
+    const { combinations } = magicPropertiesData;
+
+    const effect = combinations[Utils.randomArrayIndex(combinations)];
+    const properties = effect
+      .map((e) => {
+        const possibilitiesArray = magicPropertiesData[e];
+        let result = possibilitiesArray[Utils.randomArrayIndex(possibilitiesArray)];
+
+        if (Array.isArray(result)) {
+          result = result[Utils.randomArrayIndex(result)];
+        }
+
+        return result;
+      })
+      .join(" ");
+
+    return `${itemType} [${properties}]`;
+  }
 }
 
 export default MagicItem;

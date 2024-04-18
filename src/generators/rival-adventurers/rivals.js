@@ -1,10 +1,10 @@
 import City from "../city";
+import MagicItem from "../magicItem";
 import Person from "../person/person";
 import RivalAdventurerData from "../../data/rivals/adventurers.json";
 import Utils from "../../components/utils";
 import converter from "number-to-words";
 import hirelingsData from "../../data/hirelings/hirelings";
-import magicPropertiesData from "../../data/items/magic/magicProperties";
 import partyNameData from "../../data/rivals/partyNames.json";
 
 const { alignments, classes } = RivalAdventurerData;
@@ -171,14 +171,14 @@ export default class RivalParty {
 
   getMagicItems = (level) => {
     const categories = [
-      "Armor",
+      "Armor or Shield",
       "Weapon",
       "Sword",
       "Potion",
       "Ring",
       "Rod/Staff/Wand",
-      "Scroll",
-      "Misc. item"
+      "Scroll or Map",
+      "Misc. Item"
     ];
 
     const categoryItems = categories.map((c) => {
@@ -186,22 +186,13 @@ export default class RivalParty {
       const hasItem = randomInt <= level * 5;
 
       if (!hasItem) return null;
-      return `${c} [${this.getMagicProperties()}]`;
+      const knaveProperties = Utils.randomInt(1, 100) <= 25;
+      return new MagicItem({ knaveProperties }).itemName;
     });
 
+    categoryItems.map((i) => console.log(i));
+
     return categoryItems.filter((i) => !!i);
-  };
-
-  getMagicProperties = () => {
-    const { combinations } = magicPropertiesData;
-
-    const effect = combinations[Utils.randomArrayIndex(combinations)];
-    return effect
-      .map((e) => {
-        const possibilitiesArray = magicPropertiesData[e];
-        return possibilitiesArray[Utils.randomArrayIndex(possibilitiesArray)];
-      })
-      .join(" ");
   };
 
   getPartyName = (alignment, charactersArray) => {

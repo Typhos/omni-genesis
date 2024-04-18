@@ -24,15 +24,11 @@
   "samuraiClasses": [
     {
       "name": "Fighter",
-      "range": [1, 2]
-    },
-    {
-      "name": "Knight",
-      "range": [3, 8]
+      "range": [1, 10]
     },
     {
       "name": "Paladin",
-      "range": [9, 14]
+      "range": [11, 14]
     },
     {
       "name": "Ranger",

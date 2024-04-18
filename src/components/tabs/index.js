@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import Tab from "./tab";
-
 import "../../styles/tabs.scss";
+
+import React, { Component } from "react";
+
+import Tab from "./tab";
 
 export default class Tabs extends Component {
   constructor(props) {
@@ -13,8 +14,22 @@ export default class Tabs extends Component {
     }
 
     this.state = {
-      activeTab: children,
+      activeTab: children
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    // Check if the children props have changed
+    if (this.props.children !== prevProps.children) {
+      let activeTab = null;
+      if (Array.isArray(this.props.children)) {
+        activeTab = this.props.children.filter((e) => Boolean(e))[0].props.label;
+      }
+
+      this.setState({
+        activeTab: activeTab
+      });
+    }
   }
 
   onClickTabItem = (tab) => {
@@ -25,7 +40,7 @@ export default class Tabs extends Component {
     let {
       onClickTabItem,
       props: { children },
-      state: { activeTab },
+      state: { activeTab }
     } = this;
 
     if (Array.isArray(children)) {
@@ -51,15 +66,3 @@ export default class Tabs extends Component {
     );
   }
 }
-
-// class TabHeaders extends Component {
-//   render() {
-//     return <div className="tabs__headerGroup">{this.props.children}</div>;
-//   }
-// }
-
-// class TabContent extends Component {
-//   render() {
-//     return <div className="tabs__contentGroup">{this.props.children}</div>;
-//   }
-// }

@@ -19,7 +19,7 @@ const generateTreasure = (params = {}) => {
 
 class Treasure {
   constructor(params = {}) {
-    const { table, itemsRoll } = params;
+    const { table, itemCount, generateSpecialTreasures } = params;
     const { avgValue } = treasureTables[table];
 
     this.treasureTable = table;
@@ -32,7 +32,7 @@ class Treasure {
     this.magicItems = [];
     this.specialTreasures = [];
 
-    this.treasureArray = this.generateTreasure(table, itemsRoll);
+    this.treasureArray = this.generateTreasureTable(table, itemCount, generateSpecialTreasures);
     if (this.specialTreasures.length) {
       this.treasureArray.push(`${this.specialTreasures.length} special treasure(s)`);
       this.specialTreasures.forEach((t) => {
@@ -46,16 +46,25 @@ class Treasure {
     this.abnormallyLargeValue = this.checkValue(avgValue);
   }
 
-  generateTreasure(table) {
+  generateTreasureTable(table, itemCount, generateSpecialTreasures) {
     const rollTable = treasureTables[table];
 
     const output = rollTable.rollArray
       .map((entry) => {
-        let { percentage, diceNum, diceType, amount, itemType, noSpecial = false } = entry;
+        let { percentage, diceNum, diceType, amount, itemType } = entry;
         if (!amount) amount = diceNum;
 
         // only create treasure when rolling under the % chance
         if (Utils.randomInt(1, 100) > percentage) return undefined;
+
+        if (table === "onlyMagicItems") {
+          for (let i = 1; i <= itemCount; i++) {
+            const generateGeneric = Utils.randomInt(1, 100) <= 33;
+            const item = new MagicItem({ knaveProperties: generateGeneric });
+            this.magicItems.push(item);
+          }
+          return `${itemCount} magic items`;
+        }
 
         if (itemType.includes("magic item")) {
           if (itemType.includes("not weapons")) {
@@ -113,7 +122,9 @@ class Treasure {
           let value = rollTotal * deviateTotal;
           this.updateTotalValue(value, itemType);
 
-          value = this.replaceCoinWithSpecialTreasures(value, itemType);
+          if (generateSpecialTreasures) {
+            value = this.replaceCoinWithSpecialTreasures(value, itemType);
+          }
 
           return `${Utils.numberWithCommas(value)} ${itemType}`;
         }
@@ -121,11 +132,13 @@ class Treasure {
         // ===== JEWELRY
 
         if (itemType.includes("jewel")) {
-          if (!diceType && diceNum) {
+          if (itemCount) {
+            amount = itemCount;
+          } else if (!diceType && diceNum) {
             amount = diceNum;
           } else if (!amount) amount = 1;
 
-          if (!noSpecial) amount = this.replaceJewelryWithSpecialTreasure(amount);
+          if (generateSpecialTreasures) amount = this.replaceJewelryWithSpecialTreasure(amount);
           this.getJewelryValue(rollTotal * amount);
           if (!!amount) {
             return `${rollTotal * amount} ${itemType}`;
@@ -138,7 +151,15 @@ class Treasure {
 
         if (itemType.includes("gem")) {
           if (!amount) amount = 1;
-          amount = this.getGemstones(rollTotal * amount, noSpecial);
+
+          if (itemCount) {
+            amount = itemCount;
+          } else {
+            amount = rollTotal * amount;
+          }
+
+          this.getGemstones(amount, generateSpecialTreasures);
+
           if (!!amount) {
             return `${amount} ${itemType}`;
           } else {
@@ -171,7 +192,7 @@ class Treasure {
 
       this.Jewelry.push({
         value: `${Utils.numberWithCommas(value)} gp`,
-        item,
+        item
       });
     });
 
@@ -185,8 +206,8 @@ class Treasure {
         noMagic: true,
         qualityRange: {
           minQuality: itemQuality,
-          maxQuality: itemQuality,
-        },
+          maxQuality: itemQuality
+        }
       });
 
       if (jewelry.value < value * 0.66 || jewelry.value > value * 1.33) {
@@ -212,7 +233,7 @@ class Treasure {
             this.specialTreasures.push({
               item: `${count} glass eyes, lenses, or prisms, each worth ${glassEyeValue} gp.`,
               weight: "3 coins each",
-              value: count * glassEyeValue,
+              value: count * glassEyeValue
             });
             break;
           case 2:
@@ -221,7 +242,7 @@ class Treasure {
             this.specialTreasures.push({
               item: `${count} silver holy/unholy symbols, each worth ${holySymbolValue} gp.`,
               weight: "5 coins each",
-              value: count * holySymbolValue,
+              value: count * holySymbolValue
             });
             break;
           case 3:
@@ -230,7 +251,7 @@ class Treasure {
             this.specialTreasures.push({
               item: `${count} bone fetishes and figurines, each worth ${figurineValue} gp.`,
               weight: "20 coins each",
-              value: count * figurineValue,
+              value: count * figurineValue
             });
             break;
           case 4:
@@ -238,7 +259,7 @@ class Treasure {
             this.specialTreasures.push({
               item: `1 rich fur cape, worth ${count} gp.`,
               weight: "100 coins",
-              value: count,
+              value: count
             });
             break;
           case 5:
@@ -246,7 +267,7 @@ class Treasure {
             this.specialTreasures.push({
               item: `1 rich fur coat, worth ${count} gp.`,
               weight: "100 coins",
-              value: count,
+              value: count
             });
             break;
           case 6:
@@ -255,7 +276,7 @@ class Treasure {
             this.specialTreasures.push({
               item: `${count} statuette(s), worth ${Math.ceil(statueValue / count)} gp each.`,
               weight: "50 coins each",
-              value: statueValue,
+              value: statueValue
             });
             break;
           case 7:
@@ -264,7 +285,7 @@ class Treasure {
             this.specialTreasures.push({
               item: `${count} alabaster and jet game pieces with jeweled eyes, worth ${gamePieceValue} gp each.`,
               weight: "5 coins each",
-              value: count * gamePieceValue,
+              value: count * gamePieceValue
             });
             break;
           case 8:
@@ -273,7 +294,7 @@ class Treasure {
             this.specialTreasures.push({
               item: `${count} platinum reliquaries with crystal panes, worth ${reliquaryValue} gp each.`,
               weight: "100 coins each",
-              value: count * reliquaryValue,
+              value: count * reliquaryValue
             });
             break;
           case 9:
@@ -282,7 +303,7 @@ class Treasure {
             this.specialTreasures.push({
               item: `${count} carved ivory netsuke and figurines, worth ${netsukeValue} gp each.`,
               weight: "100 coins each",
-              value: count * netsukeValue,
+              value: count * netsukeValue
             });
             break;
         }
@@ -291,12 +312,12 @@ class Treasure {
     return num;
   }
 
-  getGemstones(num = 1, noSpecial) {
+  getGemstones(num = 1, generateSpecialTreasures) {
     let totalGems = num;
     for (let i = 1; i <= num; i++) {
       const gemstone = new Gemstone();
       const specialRoll = Utils.rollDice(1, 8);
-      if (specialRoll <= 3 && !noSpecial) {
+      if (specialRoll <= 3 && generateSpecialTreasures) {
         totalGems -= 1;
         this.getGemReplacement(specialRoll, gemstone.group);
       } else {
@@ -350,7 +371,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} silver arrows, each worth 5gp.`,
           weight: "1 coin per 2",
-          value: count * 5,
+          value: count * 5
         });
         break;
       case 2:
@@ -358,7 +379,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} pouches of belladonna or wolfsbane, each worth 10gp.`,
           weight: "10 coins each",
-          value: count * 10,
+          value: count * 10
         });
         break;
       case 3:
@@ -366,7 +387,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} pouches of saffron, each worth 15gp.`,
           weight: "10 coins each",
-          value: count * 15,
+          value: count * 15
         });
         break;
     }
@@ -381,7 +402,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} sets of engraved teeth, each worth ${teethValue} gp.`,
           weight: "1 coin each",
-          value: count * teethValue,
+          value: count * teethValue
         });
         break;
       case 2:
@@ -390,7 +411,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} sticks of rare incense, each worth ${incenseValue} gp.`,
           weight: "1 coin each",
-          value: count * incenseValue,
+          value: count * incenseValue
         });
         break;
       case 3:
@@ -399,7 +420,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} vials of rare perfume, each worth ${perfumeValue} gp per vial.`,
           weight: "1 coin each",
-          value: count * perfumeValue,
+          value: count * perfumeValue
         });
         break;
     }
@@ -413,7 +434,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} jade carvings of heroes, monsters, and gods, each worth 200 gp.`,
           weight: "20 coins each",
-          value: count * 200,
+          value: count * 200
         });
         break;
       case 2:
@@ -421,7 +442,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} opal cameo portraits and intaglio erotic tableaux, each worth 800 gp.`,
           weight: "10 coins each",
-          value: count * 800,
+          value: count * 800
         });
         break;
       case 3:
@@ -429,7 +450,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} amethyst cylinder seals depicting religious scenes, each worth 1,200 gp.`,
           weight: "10 coins each",
-          value: count * 1200,
+          value: count * 1200
         });
         break;
     }
@@ -501,7 +522,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} rugs or tapestries, worth 5gp each.`,
           weight: rugWeights.join(", "),
-          value: count * 5,
+          value: count * 5
         });
         break;
       case 2:
@@ -509,7 +530,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} barrels of preserved fish, worth 5gp each.`,
           weight: "800 coins each",
-          value: count * 5,
+          value: count * 5
         });
         break;
       case 3:
@@ -517,7 +538,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} tenths of a cord of hardwood log, worth 5gp each.`,
           weight: "800 coins each",
-          value: count * 5,
+          value: count * 5
         });
         break;
       case 4:
@@ -525,7 +546,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} barrels of beer, worth 10gp each.`,
           weight: "800 coins each",
-          value: count * 10,
+          value: count * 10
         });
         break;
       case 5:
@@ -533,7 +554,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} bricks of salt, worth 7sp each.`,
           weight: "50 coins each",
-          value: count * 0.7,
+          value: count * 0.7
         });
         break;
       case 6:
@@ -541,7 +562,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} gallons of lamp oil, worth 2gp each.`,
           weight: "50 coins each",
-          value: count * 2,
+          value: count * 2
         });
         break;
       case 7:
@@ -549,7 +570,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} rolls of cloth, worth 10gp each.`,
           weight: "400 coins each",
-          value: count * 10,
+          value: count * 10
         });
         break;
       case 8:
@@ -557,7 +578,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} ingots of common metals, worth 1gp each.`,
           weight: "50 coins each",
-          value: count,
+          value: count
         });
         break;
     }
@@ -571,7 +592,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} animal horns worth 2 gp each.`,
           weight: `${Math.ceil(count / 5) * 100} coins total`,
-          value: count * 2,
+          value: count * 2
         });
         break;
       case 2:
@@ -579,7 +600,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} jars of lamp oil, worth 20 gp each.`,
           weight: "600 coins per jar",
-          value: count * 20,
+          value: count * 20
         });
         break;
       case 3:
@@ -587,7 +608,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} bottles of fine wine, worth 5 gp each.`,
           weight: `20 coins each`,
-          value: count * 5,
+          value: count * 5
         });
         break;
       case 4:
@@ -595,7 +616,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} rolls of garishly dyed cloth, worth 10 gp each.`,
           weight: `400 coins each`,
-          value: count * 10,
+          value: count * 10
         });
         break;
       case 5:
@@ -603,7 +624,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} jars of dyes and pigments, worth 50 gp each.`,
           weight: `500 coins each`,
-          value: count * 50,
+          value: count * 50
         });
         break;
       case 6:
@@ -611,7 +632,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} crates of terra-cotta pottery, worth 100 gp each.`,
           weight: "500 coins each",
-          value: count * 100,
+          value: count * 100
         });
         break;
       case 7:
@@ -619,7 +640,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} bags of loose tea, worth 75 gp each.`,
           weight: `500 coins each`,
-          value: count * 75,
+          value: count * 75
         });
         break;
       case 8:
@@ -627,7 +648,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} bundles of fur pelts (such as bear, beaver, or fox), worth 15 gp each.`,
           weight: "300 coins per bundle",
-          value: count * 15,
+          value: count * 15
         });
         break;
     }
@@ -642,7 +663,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} barrels of fine spirits or liquor, worth 200 gp each.`,
           weight: `1600 coins each`,
-          value: count * 200,
+          value: count * 200
         });
         break;
       case 2:
@@ -650,7 +671,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} crates of armor and weapons, worth 225 gp each`,
           weight: "1000 coins each",
-          value: count * 225,
+          value: count * 225
         });
         break;
       case 3:
@@ -658,7 +679,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} crates of glassware, worth 200 gp each.`,
           weight: `500 coins each`,
-          value: count * 200,
+          value: count * 200
         });
         break;
       case 4:
@@ -666,7 +687,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} crates of monster parts, worth 300 gp each.`,
           weight: `500 coins each`,
-          value: count * 300,
+          value: count * 300
         });
         break;
     }
@@ -681,7 +702,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} bundles of rare fur pelts (such as ermine, mink, or sable), worth 500 gp each.`,
           weight: "700 coins each",
-          value: count * 500,
+          value: count * 500
         });
         break;
       case 2:
@@ -689,7 +710,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} jars of spices, worth 800 gp each.`,
           weight: "140 coins each",
-          value: count * 800,
+          value: count * 800
         });
         break;
       case 3:
@@ -700,7 +721,7 @@ class Treasure {
             featherValue
           )} gp per feather. ${count * featherValue} gp total.`,
           weight: `${(count / 25) * 140} coins`,
-          value: count * featherValue,
+          value: count * featherValue
         });
         break;
       case 4:
@@ -713,7 +734,7 @@ class Treasure {
             count * hornTotal
           )} gp in total.`,
           weight: `${Utils.numberWithCommas(140 * (hornHD / 20))} coins`,
-          value: count * hornTotal,
+          value: count * hornTotal
         });
         break;
       case 5:
@@ -726,7 +747,7 @@ class Treasure {
             count * carcassTotal
           )} gp in total.`,
           weight: `${Utils.numberWithCommas(carcassHD * 140)} coins each`,
-          value: count * carcassTotal,
+          value: count * carcassTotal
         });
         break;
       case 6:
@@ -734,7 +755,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} crates of fine porcelain, worth 500 gp each.`,
           weight: "280 coins each",
-          value: count * 500,
+          value: count * 500
         });
         break;
       case 7:
@@ -746,7 +767,7 @@ class Treasure {
             ivoryTotal
           )} gp in total.`,
           weight: `${(ivoryTotal / 100) * 140} coins`,
-          value: ivoryTotal,
+          value: ivoryTotal
         });
         break;
       case 8:
@@ -754,7 +775,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} rolls of silk, worth 400 gp each`,
           weight: "560 coins each",
-          value: count * 400,
+          value: count * 400
         });
         break;
     }
@@ -770,7 +791,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} rare books, worth 150 gp each.`,
           weight: `50 coins each`,
-          value: count * 150,
+          value: count * 150
         });
         break;
       case 2:
@@ -778,7 +799,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} ornamental jars of rare spices, worth 2,500 gp each.`,
           weight: "400 coins each",
-          value: count * 2500,
+          value: count * 2500
         });
         break;
       case 3:
@@ -786,7 +807,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} typical fur capes, worth 100 gp each.`,
           weight: `100 coins each`,
-          value: count * 100,
+          value: count * 100
         });
         break;
       case 4:
@@ -794,7 +815,7 @@ class Treasure {
         this.specialTreasures.push({
           item: `${count} ingots of precious metals, worth 300 gp each`,
           weight: `200 coins each`,
-          value: count * 300,
+          value: count * 300
         });
         break;
     }

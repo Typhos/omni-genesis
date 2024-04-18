@@ -8,7 +8,7 @@
         "diceType": null,
         "amount": null,
         "itemType": "piece(s) of jewelry",
-        "noSpecial": true
+        "generateSpecialTreasures": false
       }
     ]
   },
@@ -21,7 +21,20 @@
         "diceType": "6",
         "amount": null,
         "itemType": "gem(s)",
-        "noSpecial": true
+        "generateSpecialTreasures": false
+      }
+    ]
+  },
+  "onlyMagicItems": {
+    "avgValue": 100000000,
+    "rollArray": [
+      {
+        "percentage": 100,
+        "diceNum": "3",
+        "diceType": null,
+        "amount": null,
+        "itemType": "magic items",
+        "generateSpecialTreasures": false
       }
     ]
   },

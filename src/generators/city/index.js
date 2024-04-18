@@ -44,8 +44,8 @@ export default class City {
 
     this.origin = this.getOrigin();
     this.activity = this.getActivity();
-    this.obstacles = this.getObstacles();
-    this.ruins = this.getRuins();
+    // this.obstacles = this.getObstacles();
+    // this.ruins = this.getRuins();
 
     if (!params.lightWeight) {
       this.economy = this.getEconomy();

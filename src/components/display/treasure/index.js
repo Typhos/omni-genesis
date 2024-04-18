@@ -8,11 +8,10 @@ import Utils from "../../utils";
 export default class TreasureDisplay extends Component {
   render() {
     const {
-      state: { treasure },
+      state: { treasure }
     } = this.props;
 
     const {
-      treasureTable,
       treasureArray,
       gemValue,
       JewelryValue,
@@ -22,8 +21,12 @@ export default class TreasureDisplay extends Component {
       gems,
       specialTreasures,
       magicItems,
-      itemsRoll,
+      itemsRoll
     } = treasure;
+
+    let { treasureTable } = treasure;
+
+    if (treasureTable === "onlyMagicItems") treasureTable = "Magic Items";
 
     const magicKeywords = ["magic", "potion", "scroll", "sword", "armor", "weapon"];
 
@@ -44,10 +47,10 @@ export default class TreasureDisplay extends Component {
                       const { count, value } = data;
                       return (
                         <li className="infoTable__row" key={description + i}>
-                          <em className="treasure__jewelryDescriptions">
+                          <span className="treasure__jewelryDescriptions">
                             {`${count}x `}
                             {description.trim()}{" "}
-                          </em>
+                          </span>
                           <em className="treasure__gpValue">
                             ({Utils.numberWithCommas(value)} gp)
                           </em>
@@ -63,7 +66,9 @@ export default class TreasureDisplay extends Component {
                       const { displayName, description, engraving, carving } = item;
                       return (
                         <li className="infoTable__row" key={piece + i}>
-                          <em className="treasure__jewelryDescriptions">{displayName.trim()} </em>
+                          <span className="treasure__jewelryDescriptions">
+                            {displayName.trim()}{" "}
+                          </span>
                           <em className="treasure__gpValue">
                             ({value}): {description} {engraving && engraving} {carving && carving}
                           </em>
@@ -78,7 +83,7 @@ export default class TreasureDisplay extends Component {
                       const { item, weight } = treasure;
                       return (
                         <li className="infoTable__row" key={treasure + i}>
-                          <em className="treasure__jewelryDescriptions">{item.trim()} </em>
+                          <span className="treasure__jewelryDescriptions">{item.trim()} </span>
                           <em className="treasure__gpValue">(weight: {weight})</em>
                         </li>
                       );
@@ -97,9 +102,9 @@ export default class TreasureDisplay extends Component {
                       } else {
                         return (
                           <li className="infoTable__row numeric pointer" key={item + i}>
-                            <em className="treasure__itemDescriptions">
+                            <span className="treasure__itemDescriptions">
                               ► {!!item.itemName ? item.itemName : item.itemType} {item.details}
-                            </em>
+                            </span>
                           </li>
                         );
                       }
